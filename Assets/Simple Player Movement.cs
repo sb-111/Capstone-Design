@@ -19,7 +19,6 @@ public class SimplePlayerMovement : MonoBehaviourPunCallbacks
 
         if (photonView.IsMine)
         {
-
             if (Input.GetKey(KeyCode.A))
             {
                 transform.Translate(-speed * Time.deltaTime, 0f, 0f);
