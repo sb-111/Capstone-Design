@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Sword") // 예시
+        if(other.tag == "Melee") // 예시
         {
             // 1. 충돌한 other의 스크립트를 가져온다(ex. 무기)
             // 2. 해당 스크립트가 가진 공격력을 이용해서 체력 삭감
