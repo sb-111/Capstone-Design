@@ -27,8 +27,8 @@ public class Countdown : MonoBehaviour
 
         if (Player != null && playerCount == 2 && !portalSpawned)
         {
-            StartCoroutine(DelayedSpawn(spawnPortal.spawnDelay)); // 코루틴을 사용하여 일정 시간 뒤에 포탈을 생성하도록 합니다.
-            portalSpawned = true; // 포탈이 생성되었음을 표시합니다.
+            StartCoroutine(DelayedSpawn(spawnPortal.spawnDelay)); 
+            portalSpawned = true;
         }
 
         if (playerCount == 2)
@@ -50,8 +50,8 @@ public class Countdown : MonoBehaviour
     // 일정 시간 뒤에 포탈을 생성하는 코루틴입니다.
     IEnumerator DelayedSpawn(float delay)
     {
-        yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기합니다.
-        spawnPortal.SpawnObject(); // 대기 시간이 끝나면 포탈을 생성합니다.
+        yield return new WaitForSeconds(delay); // 지정 시간 대기
+        spawnPortal.SpawnObject(); 
     }
 
 }

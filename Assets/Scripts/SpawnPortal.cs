@@ -10,7 +10,6 @@ public class SpawnPortal : MonoBehaviour
         //Invoke("SpawnObject", spawnDelay);
     }
 
-    // 오브젝트를 생성하는 메서드입니다.
     public void SpawnObject()
     {
         Instantiate(objectToSpawn, transform.position, Quaternion.identity);
