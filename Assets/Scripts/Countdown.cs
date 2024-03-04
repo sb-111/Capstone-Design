@@ -47,7 +47,7 @@ public class Countdown : MonoBehaviour
         }
     }
 
-    // 일정 시간 뒤에 포탈을 생성하는 코루틴입니다.
+  
     IEnumerator DelayedSpawn(float delay)
     {
         yield return new WaitForSeconds(delay); // 지정 시간 대기
