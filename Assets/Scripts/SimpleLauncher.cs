@@ -25,7 +25,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-       PhotonNetwork.Instantiate(timer.name, new Vector3(0, 1, 0), Quaternion.identity);
+       //PhotonNetwork.Instantiate(timer.name, new Vector3(0, 1, 0), Quaternion.identity);
     }
 
 }

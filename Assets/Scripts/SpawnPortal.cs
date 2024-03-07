@@ -4,6 +4,7 @@ public class SpawnPortal : MonoBehaviour
 {
     public GameObject objectToSpawn;
     public float spawnDelay =10.0f;
+    public Vector3[] spawnPositions;
 
     void Start()
     {
@@ -12,6 +13,7 @@ public class SpawnPortal : MonoBehaviour
 
     public void SpawnObject()
     {
-        Instantiate(objectToSpawn, transform.position, Quaternion.identity);
+        Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
+        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
     }
 }
