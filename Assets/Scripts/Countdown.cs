@@ -52,12 +52,14 @@ public class Countdown : MonoBehaviour
         */
         if (mode == 0)
         {
-            time = 20;
-            StartCoroutine("TimerCoroutine");
-            Debug.Log("timertest");
-            mode = 1;
+            if (PhotonNetwork.IsMasterClient)
+            {
+                time = 20;
+                StartCoroutine("TimerCoroutine");
+                Debug.Log("timertest");
+                mode = 1;
+            }
         }
-        
     }
     IEnumerator TimerCoroutine()
     {
