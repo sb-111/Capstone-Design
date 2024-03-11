@@ -38,7 +38,10 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Melee") // 예시
         {
             // 1. 충돌한 other의 스크립트를 가져온다(ex. 무기)
+
+            Weapon weapon = other.GetComponent<Weapon>();
             // 2. 해당 스크립트가 가진 공격력을 이용해서 체력 삭감
+            curHP -= weapon.damage;
             // 3, 현재 위치 - 피격 위치 = 반작용 벡터
             Vector3 reactVec = transform.position - other.transform.position;
             // 4. 코루틴 시작
