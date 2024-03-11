@@ -7,6 +7,9 @@ TagManager:
   - Floor
   - Melee
   - MonsterEnemy
+  - ParryingBox
+  - Enemy
+  - Knockback
   layers:
   - Default
   - TransparentFX

@@ -4014,6 +4014,7 @@ GameObject:
   - component: {fileID: 6061252784733545665}
   - component: {fileID: 4135516791261253174}
   - component: {fileID: 7081576135840758428}
+  - component: {fileID: 4323885692403851219}
   m_Layer: 0
   m_Name: OrkAssasin 1
   m_TagString: Untagged
@@ -4029,16 +4030,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4360289329014332077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08108, y: 0, z: 0.63588476}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.746318, z: -0, w: 0.6655896}
+  m_LocalPosition: {x: 6.46, y: 0.13, z: -13.2}
+  m_LocalScale: {x: 3.1036, y: 3.1036, z: 3.1036}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1044034373195092978}
   - {fileID: 2061540591857399908}
   - {fileID: 2950601700467004347}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 96.545, z: 0}
 --- !u!95 &153550118379889119
 Animator:
   serializedVersion: 5
@@ -4077,9 +4078,8 @@ MonoBehaviour:
   isJump: 0
   weapon_left: {fileID: 7556088876404031251}
   weapon_right: {fileID: 8889072015739398007}
-  hp: 100
-  def: 10
-  atk: 30
+  knockbackForce: 5
+  knockbackTime: 0.5
 --- !u!54 &4135516791261253174
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4130,6 +4130,21 @@ CapsuleCollider:
   m_Height: 1.78
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &4323885692403851219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360289329014332077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76954b1dc77543448daec3142d9fa61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
+  def: 10
+  atk: 30
 --- !u!1 &4367443977182167292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5154,6 +5169,7 @@ GameObject:
   - component: {fileID: 8741434033268840012}
   - component: {fileID: 2420279170063610820}
   - component: {fileID: 8889072015739398007}
+  - component: {fileID: 255132713295360252}
   m_Layer: 0
   m_Name: Weapon_Point_right
   m_TagString: Melee
@@ -5215,6 +5231,19 @@ MonoBehaviour:
   rate: 0.4
   meleeArea: {fileID: 2420279170063610820}
   trailEffect: {fileID: 838277019833119344}
+  parryingParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
+--- !u!114 &255132713295360252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143472132669560938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad89636c24bc1d40ae9d96f3c86a524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5173160423908097482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5607,6 +5636,7 @@ GameObject:
   - component: {fileID: 4196873340289996290}
   - component: {fileID: 639421492345054720}
   - component: {fileID: 7556088876404031251}
+  - component: {fileID: 7454786040885334030}
   m_Layer: 0
   m_Name: Weapon_Point
   m_TagString: Melee
@@ -5668,6 +5698,19 @@ MonoBehaviour:
   rate: 0.4
   meleeArea: {fileID: 639421492345054720}
   trailEffect: {fileID: 3006248203076027909}
+  parryingParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
+--- !u!114 &7454786040885334030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407845516885771514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad89636c24bc1d40ae9d96f3c86a524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5413558171161144029
 GameObject:
   m_ObjectHideFlags: 0
