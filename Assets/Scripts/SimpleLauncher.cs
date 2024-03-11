@@ -15,6 +15,11 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    void Connect() 
+    {
+        PhotonNetwork.ConnectUsingSettings();
+    }
+
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master");
