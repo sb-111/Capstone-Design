@@ -20,9 +20,10 @@ public class Player : MonoBehaviour
     //공격
     float attackDelay = 0.0f;
     bool isAttackReady;
-    bool left_attack;
-    bool right_attack;
-    bool isAttack;
+    bool left_attack;                       //좌클릭 공격
+    bool right_attack;                      //우클릭 공격
+    bool strong_attack;                     //좌+우클릭 공격 합친거
+    bool isAttack;                          //공격 중?
     public Weapon weapon_left;
     public Weapon weapon_right;
 
@@ -60,6 +61,7 @@ public class Player : MonoBehaviour
         if (state.hp <= 0) { Death(); }
         attack1();
         attack2();
+        strongAttack();
         hit();
     }
 
@@ -71,6 +73,8 @@ public class Player : MonoBehaviour
         jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
+        strong_attack  = Input.GetMouseButtonDown(2);
+        //if(left_attack && right_attack) {strong_attack = true;}       //이러니까 계속 공격 바복된다. 다시 꺼야 함.
     }
 
     void Move()
@@ -108,7 +112,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void attack1()
+    void attack1()          //말고 그냥 코루틴으로 바꿀까? 흠
     {
 
         attackDelay += Time.deltaTime;
@@ -116,29 +120,71 @@ public class Player : MonoBehaviour
 
         if (left_attack && isAttackReady && !isJump && !isDeath && !isAttack)
         {
-            weapon_left.Use();
-            anim.SetTrigger("doLattack");
-            attackDelay = 0;
-            isAttack = true;
-
-            Invoke("attackOut", 2.0f);
+            StopCoroutine(coAttack1());
+            StartCoroutine(coAttack1());
         }
     }
+
+    IEnumerator coAttack1()         //좌클릭 공격 /이 코루틴 내에서 시작 시간 설정하고 Use에 해당 공격의 무기 트리거 종료 시간을 넘기자.
+    {
+        isAttack = true;
+        anim.SetTrigger("doLattack");
+        weapon_left.Use(1.05f);         //두 무기 동시에 쓰는 공격임
+        weapon_right.Use(1.05f);
+        attackDelay = 0;                //attack딜레이가 공격 시작하자마자 0되는게 맞는가???
+        yield return new WaitForSeconds(2.0f);
+        attackOut();
+    }
+
 
     void attack2()
     {
- 
         if (right_attack && isAttackReady && !isJump && !isDeath && !isAttack)
         {
-            weapon_right.Use();
-            anim.SetTrigger("doRattack");
-            attackDelay = 0;
-            isAttack = true;
-
-            Invoke("attackOut", 1.5f);
+            StopCoroutine(coAttack2());
+            StartCoroutine(coAttack2());
         }
     }
-    void attackOut()
+
+    IEnumerator coAttack2()         //좌클릭 공격 /이 코루틴 내에서 시작 시간 설정하고 Use에 해당 공격의 무기 트리거 종료 시간을 넘기자.
+    {
+        isAttack = true;
+        anim.SetTrigger("doRattack");
+        weapon_right.Use(0.15f);
+        attackDelay = 0;
+        yield return new WaitForSeconds(2.0f);
+        attackOut();
+    }
+
+
+    void strongAttack()
+    {
+        if (strong_attack && isAttackReady && !isJump && !isDeath && !isAttack)
+        {
+            StopCoroutine(coStrongAttack());
+            StartCoroutine(coStrongAttack());
+        }
+    }
+
+    IEnumerator coStrongAttack()
+    {
+        isAttack = true;
+        anim.SetTrigger("doStrongAttack");
+        yield return new WaitForSeconds(0.6f);          //생각한 것 보다 0.01초 차이로 빠르게 켜지거나 늦게 켜짐
+        weapon_left.Use(0.3f);
+        yield return new WaitForSeconds(0.26f);         //0.14s late
+        weapon_right.Use(0.6f);
+        yield return new WaitForSeconds(0.85f);         //0.008s late
+        weapon_right.Use(0.31f);
+        weapon_left.Use(0.31f);
+        yield return new WaitForSeconds(0.63f);         //0.001s fast
+        weapon_left.Use(0.35f);
+        attackDelay = 0;
+        yield return new WaitForSeconds(0.6f);
+        attackOut();
+    }
+
+        void attackOut()
     {
         isAttack = false;
     }

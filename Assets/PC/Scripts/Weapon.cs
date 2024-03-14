@@ -1,5 +1,7 @@
+using ExitGames.Client.Photon;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -15,8 +17,7 @@ public class Weapon : MonoBehaviour
 
     //private HashSet<GameObject> alreadyHitObjects;
 
-
-
+    private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
 
     //패링
     public GameObject parryingParticle;     //패링 파티클 프리팹
@@ -29,25 +30,25 @@ public class Weapon : MonoBehaviour
         parryingEffect = GetComponent<ParryingEffect>();
         //alreadyHitObjects=new HashSet<GameObject>();
     }
-    public void Use()
+    public void Use(float attackEndTime)
     {
         if(type == WeaponType.Melee)
         {
-            StopCoroutine("Swing");
-            StartCoroutine("Swing");
+            StopCoroutine(Swing(attackEndTime));
+            hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
+            Debug.Log("HashSet 클리어");
+            StartCoroutine(Swing(attackEndTime));
             
         }
     }
 
-    IEnumerator Swing()
+    IEnumerator Swing(float attackEndTime)
     {
-        yield return new WaitForSeconds(0.1f);
         meleeArea.enabled = true;
         trailEffect.enabled = true;
-
-        yield return new WaitForSeconds(0.3f);          //다른 방법 필요해 보임
+        //Debug.Log("Swinging"+ System.DateTime.Now.ToString("HH:mm:ss.fff"));
+        yield return new WaitForSeconds(attackEndTime);          //받아온 종료 시간으로 >> 직접 애니메이션 보고 설정해야 함 ㅠ
         meleeArea.enabled = false;
-
         yield return new WaitForSeconds(0.2f);
         trailEffect.enabled = false;
     }
@@ -57,6 +58,17 @@ public class Weapon : MonoBehaviour
         if (other.tag == "ParryingBox"&&canPrrying)
         {
             StartCoroutine(Parrying());
+        }
+
+        if (other.tag == "Enemy")
+        {
+            GameObject enemy = other.gameObject;
+            Enemy enemyDamage = enemy.GetComponent<Enemy>();
+            if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+            {
+                hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
+                enemyDamage.OnDamage(damage, transform.position);
+            }
         }
     }
 
