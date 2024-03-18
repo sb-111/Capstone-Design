@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1773716606896103666, guid: f167fce547e57c243a2e97ecb69a46f5, type: 3}
+  timer: {fileID: 0}
+  playerNickname: {fileID: 0}
+  nicknameInput: {fileID: 0}
