@@ -188,6 +188,11 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    public void TakeDamage(int damage)
+    {
+       state.basicStats.hp-= damage;
+    }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Floor")
