@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
 
         mat = GetComponentInChildren<SkinnedMeshRenderer>().material;
         originalColor = mat.color;
+        
     }
     // Start is called before the first frame update
     void Start()
