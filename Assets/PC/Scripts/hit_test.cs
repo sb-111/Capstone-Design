@@ -36,7 +36,7 @@ public class hit_test : MonoBehaviour
     {
         if (other.gameObject.tag == "Melee")
         {
-            hp = hp-(other.GetComponent<Weapon>().damage);
+            hp = hp-(other.GetComponent<Weapon>().weapon_damage);
         }
     }
 

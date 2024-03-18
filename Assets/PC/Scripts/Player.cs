@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     float hAxis;
     float vAxis;
-    public float speed = 2.0f;
-    public float jumpPower = 4.0f;
+    private int speed;
+    private float jumpPower;
 
     Vector3 moveVec;
     Vector3 jumpVec;
@@ -20,11 +20,13 @@ public class Player : MonoBehaviour
     //공격
     float attackDelay = 0.0f;
     bool isAttackReady;
-    bool left_attack;
-    bool right_attack;
-    bool isAttack;
-    public Weapon weapon_left;
-    public Weapon weapon_right;
+    bool left_attack;                       //좌클릭 공격
+    bool right_attack;                      //우클릭 공격
+    bool strong_attack;                     //좌+우클릭 공격 합친거
+    bool isAttack;                          //공격 중?
+    bool canAttack;
+
+    AttackController attack_controller;
 
     //패링
     bool isParrying;
@@ -36,33 +38,60 @@ public class Player : MonoBehaviour
 
     Animator anim;
     Rigidbody rigid;
-    PlayerState state;
+    PlayerStatus state;
+    
 
     // Start is called before the first frame update
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
-        state = GetComponent<PlayerState>();
+        state = GetComponent<PlayerStatus>();
+        attack_controller = GetComponent<AttackController>();
     }
     void Start()
     {
-
+        speed = state.moveStats.speed;
+        jumpPower = state.moveStats.jumpPower;
     }
 
     // Update is called once per frame
     void Update()
     {
+        attackDelay += Time.deltaTime;
+        isAttackReady = state.combatStats.attack_rate <= attackDelay;
+
         GetInput();
         Move();
         Turn();
         Jump();
-        if (state.hp <= 0) { Death(); }
-        attack1();
-        attack2();
+        if (state.basicStats.hp <= 0) { Death(); }
         hit();
+        if (isAttackReady && !isJump && !isDeath && !isAttack) canAttack = true;
+        else canAttack = false;
+        attack_controll();
     }
-
+    void attack_controll()
+    {
+        if (canAttack)
+        {
+            if (left_attack)
+            {
+                isAttack = true;
+                attack1();
+            }
+            else if (right_attack)
+            {
+                isAttack = true;
+                attack2();
+            }
+            else if (strong_attack)
+            {
+                isAttack = true;
+                strongAttack();
+            }
+        }
+    }
     void GetInput()
     {
         hAxis = Input.GetAxisRaw("Horizontal");
@@ -71,20 +100,24 @@ public class Player : MonoBehaviour
         jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
+        strong_attack = Input.GetMouseButtonDown(2);
+        //if(left_attack && right_attack) {strong_attack = true;}       //이러니까 계속 공격 바복된다. 다시 꺼야 함.
     }
 
     void Move()
     {
 
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-        if(isJump){
-             moveVec = jumpVec;
+        if (isJump)
+        {
+            moveVec = jumpVec;
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("death3") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("dodge")|| isKnockback)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("death3") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("dodge") || isKnockback)
         {
             moveVec = Vector3.zero;
         }
+
         transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
 
         anim.SetBool("isWalk", moveVec != Vector3.zero);
@@ -101,48 +134,39 @@ public class Player : MonoBehaviour
         jumpVec = moveVec;
         if (jDown && !isJump && !isAttack)
         {
-            rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+            isJump = true;
             anim.SetBool("isJump", true);
             anim.SetTrigger("doJump");
-            isJump = true;
+
+            rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
     }
 
-    void attack1()
+    void attack1()         
     {
-
-        attackDelay += Time.deltaTime;
-        isAttackReady = weapon_left.rate < attackDelay;
-
-        if (left_attack && isAttackReady && !isJump && !isDeath && !isAttack)
-        {
-            weapon_left.Use();
-            anim.SetTrigger("doLattack");
-            attackDelay = 0;
-            isAttack = true;
-
-            Invoke("attackOut", 2.0f);
-        }
+        attack_controller.attack1();
     }
 
     void attack2()
     {
- 
-        if (right_attack && isAttackReady && !isJump && !isDeath && !isAttack)
-        {
-            weapon_right.Use();
-            anim.SetTrigger("doRattack");
-            attackDelay = 0;
-            isAttack = true;
-
-            Invoke("attackOut", 1.5f);
-        }
+        attack_controller.attack2();
     }
-    void attackOut()
+
+    void strongAttack()
     {
+        attack_controller.strongAttack();
+    }
+
+    public void attackOut()
+    {
+        attackDelay = 0;
         isAttack = false;
     }
 
+    bool CanAttack()
+    {
+        return isAttackReady && !isJump && !isDeath && !isAttack;
+    }
     void hit()
     {
 
@@ -176,7 +200,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
     }
     public void Parrying()
     {
@@ -208,8 +232,5 @@ public class Player : MonoBehaviour
         }
         isKnockback = false;
     }
-
-
-
 
 }
