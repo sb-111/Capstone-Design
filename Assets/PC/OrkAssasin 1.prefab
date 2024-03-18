@@ -4015,6 +4015,7 @@ GameObject:
   - component: {fileID: 4135516791261253174}
   - component: {fileID: 7081576135840758428}
   - component: {fileID: 4323885692403851219}
+  - component: {fileID: 928263201080458660}
   m_Layer: 0
   m_Name: OrkAssasin 1
   m_TagString: Untagged
@@ -4030,16 +4031,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4360289329014332077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.746318, z: -0, w: 0.6655896}
-  m_LocalPosition: {x: 6.46, y: 0.13, z: -13.2}
-  m_LocalScale: {x: 3.1036, y: 3.1036, z: 3.1036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1044034373195092978}
   - {fileID: 2061540591857399908}
   - {fileID: 2950601700467004347}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 96.545, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &153550118379889119
 Animator:
   serializedVersion: 5
@@ -4073,11 +4074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa6c4447e8c5f240a6e388f76d1eff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jumpPower: 7
   isJump: 0
-  weapon_left: {fileID: 7556088876404031251}
-  weapon_right: {fileID: 8889072015739398007}
   knockbackForce: 5
   knockbackTime: 0.5
 --- !u!54 &4135516791261253174
@@ -4142,9 +4139,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76954b1dc77543448daec3142d9fa61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
-  def: 10
-  atk: 30
+  basicStats:
+    hp: 100
+    def: 10
+    atk: 30
+    dex: 30
+    intell: 30
+    luk: 0
+  moveStats:
+    stamina: 100
+    speed: 10
+    jumpPower: 7
+  combatStats:
+    attack_rate: 0.2
+    critical_rate: 0
+    critical_damage: 0
+    cc_resistance: 0
+--- !u!114 &928263201080458660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360289329014332077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956618c775177284ebd837715503d557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_left: {fileID: 7556088876404031251}
+  weapon_right: {fileID: 8889072015739398007}
 --- !u!1 &4367443977182167292
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,6 +4205,8 @@ Transform:
   - {fileID: 7151231559381210805}
   - {fileID: 4663897884464436887}
   - {fileID: 1035485535547116023}
+  - {fileID: 8352297587752590115}
+  - {fileID: 7472571939788699136}
   m_Father: {fileID: 2129531266503337830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4390037445855946385
@@ -4740,6 +4766,37 @@ Transform:
   - {fileID: 6354660063306013257}
   m_Father: {fileID: 1094394252366076493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4755736725913408592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8352297587752590115}
+  m_Layer: 0
+  m_Name: FollowCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8352297587752590115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755736725913408592}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07, y: 0.39000005, z: -0.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2539650766202802758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4898144502227277822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5227,10 +5284,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  damage: 40
-  rate: 0.4
+  weapon_damage: 0
+  weapon_rate: 0
   meleeArea: {fileID: 2420279170063610820}
   trailEffect: {fileID: 838277019833119344}
+  player: {fileID: 0}
+  status: {fileID: 0}
   parryingParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
 --- !u!114 &255132713295360252
 MonoBehaviour:
@@ -5694,10 +5753,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  damage: 20
-  rate: 0.4
+  weapon_damage: 0
+  weapon_rate: 0
   meleeArea: {fileID: 639421492345054720}
   trailEffect: {fileID: 3006248203076027909}
+  player: {fileID: 0}
+  status: {fileID: 0}
   parryingParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
 --- !u!114 &7454786040885334030
 MonoBehaviour:
@@ -6986,6 +7047,37 @@ Transform:
   - {fileID: 6031466742477718828}
   m_Father: {fileID: 1044034373195092978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7436164710538470213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7472571939788699136}
+  m_Layer: 0
+  m_Name: FollowCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7472571939788699136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7436164710538470213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2539650766202802758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7445713230060868844
 GameObject:
   m_ObjectHideFlags: 0
@@ -7170,7 +7262,7 @@ Transform:
   m_GameObject: {fileID: 7822196520324036605}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.153, z: 0.301}
+  m_LocalPosition: {x: -0.14, y: -0.114, z: 0.383}
   m_LocalScale: {x: 0.28405, y: 0.28405, z: 0.28405}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7228,7 +7320,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.20481576
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -8339,7 +8431,7 @@ Transform:
   m_GameObject: {fileID: 9005223897698173476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.104, y: -0.126, z: 0.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8397,7 +8489,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.20481989
         inSlope: 0
         outSlope: 0
         tangentMode: 0

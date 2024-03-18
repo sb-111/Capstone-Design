@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour
         Vector3 reactVec = transform.position - other;
         Debug.Log("OreactVec: " + reactVec);
         StartCoroutine(OnDamage(reactVec));
-
     }
 
     /*

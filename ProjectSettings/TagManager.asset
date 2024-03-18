@@ -10,6 +10,7 @@ TagManager:
   - ParryingBox
   - Enemy
   - Knockback
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX
