@@ -12,7 +12,6 @@ public class Monster : MonoBehaviour
     private Transform spawnPoint; // 스폰포인트
     [SerializeField]
     private float wanderRadius = 5f; // 배회 반경
-    // 다른 클래스 참조용 프로퍼티
     public Transform SpawnPoint { get { return spawnPoint; }  }
     public float WanderRadius { get { return wanderRadius; } }
 
@@ -25,15 +24,17 @@ public class Monster : MonoBehaviour
     private float sightRange = 10f; // 몬스터의 시야 범위(원형)
     [SerializeField]
     private float fieldOfView = 120f; // 몬스터의 시야각
-
     public Transform TargetPlayer { get; private set; } // 몬스터가 추적하는 플레이어
     
+
+    [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
-    
-    // 
+    [SerializeField] float attackPower = 5f;
+    [SerializeField] float basicCoolTime = 3f;
+
+    [Header("기타 몬스터 스탯 설정")]
     public int maxHP;
-    public int curHP;
-    public int atkPower; // 공격력
+    public int currentHP;
 
     // IMonsterState에서 접근할 프로퍼티 설정
     public Rigidbody Rigid { get; private set; }
@@ -175,5 +176,25 @@ public class Monster : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere (transform.position, sightRange);
 
+    }
+    // 몬스터의 체력 깎는 함수
+    // 플레이어쪽에서 이를 호출해야 한다.
+    private void TakeDamage(int damage)
+    {
+        currentHP -= damage;
+
+        if(IsDie())
+        {
+            Die();
+        }
+    }
+    private bool IsDie()
+    {
+        return currentHP <= 0;
+    }
+
+    private void Die()
+    {
+        Destroy(this, 5f);
     }
 }
