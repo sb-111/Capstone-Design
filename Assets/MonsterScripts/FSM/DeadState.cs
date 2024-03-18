@@ -12,6 +12,7 @@ public class DeadState : MonoBehaviour, IMonsterState
     public void EnterState()
     {
         // Dead 애니메이션 실행
+        monster.Anim.SetTrigger("doDie");
         Destroy(monster.gameObject, 5f);
     }
     // 2. 반복 실행
