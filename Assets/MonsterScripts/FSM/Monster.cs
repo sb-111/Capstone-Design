@@ -7,12 +7,14 @@ public class Monster : MonoBehaviour
 {
     private FSM _fsm;
 
+
+
     [Header("Idle 설정")]
     [SerializeField]
     private Transform spawnPoint; // 스폰포인트
     [SerializeField]
     private float wanderRadius = 5f; // 배회 반경
-    public Transform SpawnPoint { get { return spawnPoint; }  }
+    public Transform SpawnPoint { get { return spawnPoint; } }
     public float WanderRadius { get { return wanderRadius; } }
 
     [Header("Chase 설정")]
@@ -25,12 +27,13 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private float fieldOfView = 120f; // 몬스터의 시야각
     public Transform TargetPlayer { get; private set; } // 몬스터가 추적하는 플레이어
-    
 
     [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
     [SerializeField] float attackPower = 5f;
     [SerializeField] float basicCoolTime = 3f;
+    [SerializeField] EnemyWeapon _enemyWeapon;
+    public EnemyWeapon{get {_enemyWeapon}  private set;} // 프로퍼티
 
     [Header("기타 몬스터 스탯 설정")]
     public int maxHP;
@@ -51,6 +54,7 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
+
     }
     void Start()
     {
@@ -195,6 +199,7 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this, 5f);
+        // 죽은 상태로 전환
+        SetState(new DeadState(this));
     }
 }
