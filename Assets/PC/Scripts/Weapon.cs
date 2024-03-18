@@ -66,14 +66,14 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Parrying());
         }
 
-        if (other.tag == "Enemy")
+        if (other.tag == "MonsterEnemy")
         {
             GameObject enemy = other.gameObject;
-            Enemy enemyDamage = enemy.GetComponent<Enemy>();            
+            Monster enemyDamage = enemy.GetComponent<Monster>();            
             if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
             {
                 hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                enemyDamage.OnDamage((status.basicStats.atk+weapon_damage), transform.position);
+                enemyDamage.TakeDamage((status.basicStats.atk+weapon_damage));
             }
         }
     }

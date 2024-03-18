@@ -33,8 +33,8 @@ public class Monster : MonoBehaviour
     [SerializeField] float basicCoolTime = 3f;
 
     [Header("기타 몬스터 스탯 설정")]
-    public int maxHP;
-    public int currentHP;
+    public int maxHP=1000;
+    public int currentHP = 1000;
 
     // IMonsterState에서 접근할 프로퍼티 설정
     public Rigidbody Rigid { get; private set; }
@@ -179,7 +179,7 @@ public class Monster : MonoBehaviour
     }
     // 몬스터의 체력 깎는 함수
     // 플레이어쪽에서 이를 호출해야 한다.
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHP -= damage;
 
@@ -195,6 +195,6 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-        Destroy(this, 5f);
+        Destroy(gameObject, 5f);
     }
 }
