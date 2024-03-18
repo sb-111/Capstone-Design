@@ -33,11 +33,11 @@ public class Monster : MonoBehaviour
     [SerializeField] float attackPower = 5f;
     [SerializeField] float basicCoolTime = 3f;
     [SerializeField] EnemyWeapon _enemyWeapon;
-    public EnemyWeapon{get {_enemyWeapon}  private set;} // 프로퍼티
+    public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
 
     [Header("기타 몬스터 스탯 설정")]
-    public int maxHP=1000;
-    public int currentHP = 1000;
+    public int maxHP;
+    public int currentHP;
 
     // IMonsterState에서 접근할 프로퍼티 설정
     public Rigidbody Rigid { get; private set; }
@@ -54,7 +54,7 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-
+        _enemyWeapon.enabled = false;
     }
     void Start()
     {
@@ -155,7 +155,7 @@ public class Monster : MonoBehaviour
         _fsm.SetState(state);
     }
     // 기즈모
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         // 시야 범위 기즈모
         Gizmos.color = Color.blue;
@@ -201,6 +201,5 @@ public class Monster : MonoBehaviour
     {
         // 죽은 상태로 전환
         SetState(new DeadState(this));
-
     }
 }

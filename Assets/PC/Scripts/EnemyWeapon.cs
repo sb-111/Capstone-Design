@@ -12,7 +12,10 @@ public class EnemyWeapon : MonoBehaviour
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
 
-
+    private void Start()
+    {
+        
+    }
     private void Awake()
     {
         
