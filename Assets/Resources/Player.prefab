@@ -198,9 +198,10 @@ GameObject:
   - component: {fileID: 5300139103746877738}
   - component: {fileID: 6983737448201253638}
   - component: {fileID: 5023857127500277208}
+  - component: {fileID: 4433507760132874061}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rspeed: 5
+  playerInfo: {fileID: 9081463525635268297, guid: 55f1e0fd678098c43925354b95926988, type: 3}
 --- !u!54 &6983737448201253638
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -402,10 +404,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e370e098c47291e46adf51c9aca18460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTime: 100
+  setTime: 30
   countdownText: {fileID: 6895659440576551243}
   Player: {fileID: 3726974900251450827}
   spawnPortal: {fileID: 8033441356092495408, guid: 715ff940210280746ab358f7ad2f278a, type: 3}
+--- !u!114 &4433507760132874061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726974900251450827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff416bb9800520d48a3138e3a47048af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 8268598140363955979, guid: 55f1e0fd678098c43925354b95926988, type: 3}
+  screenOffset: {x: 0, y: 30, z: 0}
+  PlayerHealth: {fileID: 0}
 --- !u!1 &7688533100432167388
 GameObject:
   m_ObjectHideFlags: 0

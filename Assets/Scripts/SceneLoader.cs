@@ -8,6 +8,12 @@ public class SceneLoader : MonoBehaviour
 {
     public GameObject loaderUI;
     public Slider progressSlider;
+    public static SceneLoader instance = null;
+    //½Ì±ÛÅæ ÀÌ¿ë
+    void Awake()
+    {
+        if (instance == null) instance = this;
+    }
 
     public void LoadScene(int index)
     {

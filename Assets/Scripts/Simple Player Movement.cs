@@ -7,11 +7,17 @@ public class SimplePlayerMovement : MonoBehaviourPunCallbacks
     public float speed = 1f;
     public float rspeed = 5f;
 
+    public GameObject playerInfo;
+
     // Start is called before the first frame update
     void Start()
     {
+        //GameObject _info = Instantiate(playerInfo);
+     //   _info.SendMessage("SetTarget", this, SendMessageOptions.RequireReceiver);
 
     }
+  
+
 
     // Update is called once per frame
     void Update()

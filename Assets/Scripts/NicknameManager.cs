@@ -18,10 +18,11 @@ public class NicknameManager : MonoBehaviour
             Debug.LogError("이름 없음");
             return;
         }
-        PhotonNetwork.NickName = value;
 
+        PhotonNetwork.NickName = value;
+        //nickname = value;
         PlayerPrefs.SetString(nickname, value);
-        Debug.Log("닉네임이 저장되었습니다: " + nickname); // 콘솔에 저장된 닉네임 출력
+        Debug.Log("닉네임이 저장되었습니다: " + PhotonNetwork.NickName); // 콘솔에 저장된 닉네임 출력
     }
     void Start()
     {

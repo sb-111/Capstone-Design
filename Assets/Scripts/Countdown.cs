@@ -50,22 +50,45 @@ public class Countdown : MonoBehaviour
             countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
         */
+      
+
         if (mode == 0)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PhotonNetwork.IsMasterClient && !portalSpawned && playerCount == 1)
             {
-                time = 20;
+                
+                mode = 1;
                 StartCoroutine("TimerCoroutine");
                 Debug.Log("timertest");
-                mode = 1;
+                
             }
         }
     }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        Debug.Log("Ãæµ¹");
+        if (coll.gameObject.tag == "Portal"&&mode==1)
+            {
+            setTime = 20;
+            mode = 2;
+            countdownText.color = Color.red;
+            StartCoroutine("TimerCoroutine");
+            Debug.Log("Open Portal");
+           
+        }
+    }
+
+
     IEnumerator TimerCoroutine()
     {
         while (setTime > 0)
         {
-
+            if (mode == 2)
+            {
+                mode = 3;
+                yield break;
+            }
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);

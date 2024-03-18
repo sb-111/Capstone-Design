@@ -3,34 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+using Photon.Realtime;
+
 public class SimpleLauncher : MonoBehaviourPunCallbacks
 {
 
     public PhotonView playerPrefab;
-    public PhotonView timer;
+    bool isConnecting;
 
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+        
     }
 
-    void Connect() 
+    public void Connect()
     {
+
+        //SceneLoader.instance.LoadScene(1);
         PhotonNetwork.ConnectUsingSettings();
+        isConnecting = true;
     }
 
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master");
-        PhotonNetwork.JoinRandomOrCreateRoom();
+        if (isConnecting)
+        {
+            PhotonNetwork.JoinRandomRoom();
+        }
+    }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log("规积己");
+
+        //规 积己
+        PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-       //PhotonNetwork.Instantiate(timer.name, new Vector3(0, 1, 0), Quaternion.identity);
+        PhotonNetwork.LoadLevel("Modular Dungeon");//纠 捞抚
+        Debug.Log("规 甸绢皑");
+        // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
+
     }
-    
+
 }
