@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.LogFormat("PhotonNetwork : Loading Level : Modular Dungeon", PhotonNetwork.CurrentRoom.PlayerCount);
         PhotonNetwork.LoadLevel("Modular Dungeon");
     }
-
+    /*
     public override void OnPlayerEnteredRoom(Player other)
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
@@ -57,5 +57,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             LoadArena();
         }
     }
+    */
 }
 
