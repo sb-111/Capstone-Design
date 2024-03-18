@@ -2193,6 +2193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueBoarPBR
       objectReference: {fileID: 0}
+    - target: {fileID: 7932968117186745254, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7203451271100121945, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
     m_RemovedGameObjects: []
@@ -2271,9 +2275,10 @@ MonoBehaviour:
   sightRange: 10
   fieldOfView: 120
   attackRange: 7.13
+  attackPower: 5
+  basicCoolTime: 3
   maxHP: 0
-  curHP: 0
-  atkPower: 0
+  currentHP: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
