@@ -28,7 +28,7 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
-        if (Player != null && playerCount == 2 && !portalSpawned)
+        if (Player != null && playerCount == 1 && !portalSpawned)
         {
             StartCoroutine(DelayedSpawn(spawnPortal.spawnDelay)); 
             portalSpawned = true;
@@ -54,7 +54,7 @@ public class Countdown : MonoBehaviour
 
         if (mode == 0)
         {
-            if (PhotonNetwork.IsMasterClient && !portalSpawned && playerCount == 2)
+            if (PhotonNetwork.IsMasterClient && !portalSpawned && playerCount == 1)
             {
                 
                 mode = 1;
