@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             return;
         }
-        Debug.LogFormat("PhotonNetwork : Loading Level : Modular Dungeon", PhotonNetwork.CurrentRoom.PlayerCount);
-        PhotonNetwork.LoadLevel("Modular Dungeon");
+        Debug.LogFormat("PhotonNetwork : Loading Level : ServerTestScene", PhotonNetwork.CurrentRoom.PlayerCount);
+        PhotonNetwork.LoadLevel("ServerTestScene");
     }
     /*
     public override void OnPlayerEnteredRoom(Player other)

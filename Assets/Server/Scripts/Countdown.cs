@@ -8,8 +8,8 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] int setTime = 100;
     [SerializeField] Text countdownText;
-    [SerializeField] GameObject Player;
-    [SerializeField] SpawnPortal spawnPortal;
+    //[SerializeField] GameObject Player;
+    //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
     int mode = 0;
     private int time;
@@ -107,7 +107,7 @@ public class Countdown : MonoBehaviour
     private void ShowTimer(int setTime)
     {
         // 모든 클라이언트에서 호출되어 타이머를 동기화
-        Debug.Log("timertest12");
+       // Debug.Log("timertest12");
         int minutes = Mathf.FloorToInt(setTime / 60);
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -118,7 +118,7 @@ public class Countdown : MonoBehaviour
     IEnumerator DelayedSpawn(float delay)
     {
         yield return new WaitForSeconds(delay); // 지정 시간 대기
-        spawnPortal.SpawnObject(); 
+        //spawnPortal.SpawnObject(); 
     }
 
 }
