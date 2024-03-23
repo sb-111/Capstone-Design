@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class Countdown : MonoBehaviour
+public class Countdown : MonoBehaviourPunCallbacks
 {
     [SerializeField] int setTime = 100;
     [SerializeField] Text countdownText;
@@ -15,14 +15,14 @@ public class Countdown : MonoBehaviour
     private PhotonView PV;
 
     private bool portalSpawned = false;
-
+    private Coroutine timerCoroutine = null;
     void Start()
     {
         PV = GetComponent<PhotonView>();
         /*int initialMinutes = Mathf.FloorToInt(setTime / 60);
         int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds);
-    */
+        */
     }
 
     void Update()
@@ -48,28 +48,40 @@ public class Countdown : MonoBehaviour
             setTime = 20;
             mode = 2;
             countdownText.color = Color.red;
+            StartOrRestartTimer(); // 타이머 재시작
             StartCoroutine("TimerCoroutine");
             Debug.Log("Open Portal");
         }
     }
 
+    void StartOrRestartTimer()
+    {
+        if(timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+        }
+        timerCoroutine = StartCoroutine(TimerCoroutine());
+    }
     IEnumerator TimerCoroutine()
     {
-        while (setTime > 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            if (mode == 2)
+            while (setTime > 0)
             {
-                mode = 3;
-                yield break;
+                if (mode == 2)
+                {
+                    mode = 3;
+                    yield break;
+                }
+                setTime -= 1;
+                PV.RPC("ShowTimer", RpcTarget.All, setTime);
+                yield return new WaitForSeconds(1);
             }
-            setTime -= 1;
-            PV.RPC("ShowTimer", RpcTarget.All, setTime);
-            yield return new WaitForSeconds(1);
+            portalSpawned = true;
+            Debug.Log("timer finish");
+            mode = 1;
+            yield break;
         }
-        portalSpawned = true;
-        Debug.Log("timer finish");
-        mode = 1;
-        yield break;
     }
 
     [PunRPC]
@@ -84,7 +96,8 @@ public class Countdown : MonoBehaviour
     [PunRPC]
     void StartTimerCoroutine()
     {
-        StartCoroutine("TimerCoroutine");
+        StartOrRestartTimer();
+        //StartCoroutine("TimerCoroutine");
     }
 }
 

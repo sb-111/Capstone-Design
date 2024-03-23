@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e370e098c47291e46adf51c9aca18460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTime: 30
+  setTime: 3000
   countdownText: {fileID: 6895659440576551243}
   Player: {fileID: 3726974900251450827}
 --- !u!1 &7688533100432167388
