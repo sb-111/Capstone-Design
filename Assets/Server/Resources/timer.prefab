@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setTime: 100
   countdownText: {fileID: 6983998948178578693}
+  spawnPortal: {fileID: 8033441356092495408, guid: 715ff940210280746ab358f7ad2f278a, type: 3}
 --- !u!114 &4810502875727236194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +248,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
