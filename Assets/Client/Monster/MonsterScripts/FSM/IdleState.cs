@@ -27,11 +27,11 @@ public class IdleState : MonoBehaviour, IMonsterState
 
     public void ExecuteState()
     {
-        Debug.Log($"Idle 수행중, 현재 타이머: {timer}");
+      //  Debug.Log($"Idle 수행중, 현재 타이머: {timer}");
         timer += Time.deltaTime;
         if (timer >= wanderTimer)
         {
-            Debug.Log("위치 전환");
+           // Debug.Log("위치 전환");
             Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint.position, monster.WanderRadius, -1);
             monster.Agent.SetDestination(newPos);
             timer = 0f;

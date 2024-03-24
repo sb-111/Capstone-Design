@@ -8,7 +8,10 @@ public class Countdown : MonoBehaviourPunCallbacks
 {
     [SerializeField] int setTime = 100;
     [SerializeField] Text countdownText;
-    [SerializeField] GameObject Player;
+
+    //[SerializeField] GameObject Player;
+    //[SerializeField] SpawnPortal spawnPortal;
+
     int playerCount = 0;
     int mode = 0;
     private int time;
@@ -42,13 +45,13 @@ public class Countdown : MonoBehaviourPunCallbacks
 
     void OnTriggerEnter(Collider coll)
     {
-        Debug.Log("�浹");
+        Debug.Log("Ãæµ¹");
         if (coll.gameObject.tag == "Portal" && mode == 1)
         {
             setTime = 20;
             mode = 2;
             countdownText.color = Color.red;
-            StartOrRestartTimer(); // Ÿ�̸� �����
+            StartOrRestartTimer(); // Å¸ÀÌ¸Ó Àç½ÃÀÛ
             StartCoroutine("TimerCoroutine");
             Debug.Log("Open Portal");
         }
@@ -87,7 +90,9 @@ public class Countdown : MonoBehaviourPunCallbacks
     [PunRPC]
     private void ShowTimer(int setTime)
     {
-        Debug.Log("timertest12");
+
+       // Debug.Log("timertest12");
+
         int minutes = Mathf.FloorToInt(setTime / 60);
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -96,8 +101,10 @@ public class Countdown : MonoBehaviourPunCallbacks
     [PunRPC]
     void StartTimerCoroutine()
     {
-        StartOrRestartTimer();
-        //StartCoroutine("TimerCoroutine");
+
+        yield return new WaitForSeconds(delay); 
+        //spawnPortal.SpawnObject(); 
+
     }
 }
 

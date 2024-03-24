@@ -44,7 +44,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        PhotonNetwork.LoadLevel("BulidScene");//씬 이름
+        PhotonNetwork.LoadLevel("ServerTestScene");//씬 이름
         Debug.Log("방 들어감");
         // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
 
