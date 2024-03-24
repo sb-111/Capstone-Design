@@ -9,10 +9,16 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject monster;
     public GameObject timer;
+    public GameObject portal;
+    public GameObject portalSpawnPoint;
+    //포탈 스폰 포인트
+    public GameObject monsterSpawnPoint;
+    //몬스터 스폰 포인트
     void Start()
     {
-        PhotonNetwork.InstantiateRoomObject(monster.name, transform.position, transform.rotation, 0);
+        PhotonNetwork.InstantiateRoomObject(monster.name, monsterSpawnPoint.transform.position, transform.rotation, 0);
         PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
+        PhotonNetwork.InstantiateRoomObject(portal.name, portalSpawnPoint.transform.position, transform.rotation, 0);
         //지금 연결된 오브젝트 위치에서 생성되게 설정되어있음 실제로 제작할 때는 값을 넣는 방식이나
         //public GameObject spawnpoint 위치 지정으로 바꾸는 게 나을듯...
         //instantiate와 instatiateRoomObject와의 차이 : 전자는 서버에서 나가면 방 파괴 후자는 남아있음 
