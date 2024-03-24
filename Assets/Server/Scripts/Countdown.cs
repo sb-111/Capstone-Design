@@ -11,7 +11,7 @@ public class Countdown : MonoBehaviour
     //[SerializeField] GameObject Player;
     //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
-    int mode = 0;
+    public static int mode = 0;
     private int time;
     private PhotonView PV;
 
@@ -24,7 +24,7 @@ public class Countdown : MonoBehaviour
         int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // 시작할 때의 초
         countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // 시작할 때의 시간을 텍스트로 설정
     }
-
+  
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
@@ -58,26 +58,22 @@ public class Countdown : MonoBehaviour
             {
                 
                 mode = 1;
+               // PV.RPC("ModeChange", RpcTarget.All, mode);
                 StartCoroutine("TimerCoroutine");
                 Debug.Log("timertest");
                 
             }
         }
-    }
-
-    void OnTriggerEnter(Collider coll)
-    {
-        Debug.Log("충돌");
-        if (coll.gameObject.tag == "Portal"&&mode==1)
-            {
+        if (mode == 2) {
             setTime = 20;
-            mode = 2;
+           PV.RPC("ModeChange", RpcTarget.All, mode);
             countdownText.color = Color.red;
             StartCoroutine("TimerCoroutine");
             Debug.Log("Open Portal");
-           
         }
     }
+
+ 
 
 
     IEnumerator TimerCoroutine()
@@ -87,21 +83,41 @@ public class Countdown : MonoBehaviour
             if (mode == 2)
             {
                 mode = 3;
+                
                 yield break;
             }
+            
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
         portalSpawned = true;
         Debug.Log("timer finish");
-        mode = 1;
+        //종료시 동작
+        //mode = 1;
+        //PV.RPC("ModeChange", RpcTarget.All, mode);
         yield break;
 
-        //종료시 동작
+       
+    
+
+    }
+
+    [PunRPC]
+    private void ModeChange(int modenum)
+    {
+        mode = modenum;
+        Debug.Log("모드 변경 확인"+mode);
+        if (mode == 2)
+        {
+            Debug.Log("모드 2 변경 확인");
+            countdownText.color = Color.red;
+        }
+        
 
 
     }
+
 
     [PunRPC]
     private void ShowTimer(int setTime)
