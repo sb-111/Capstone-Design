@@ -13,6 +13,7 @@ public class Countdown : MonoBehaviour
     int playerCount = 0;
     public static int mode = 0;
     private int time;
+    private int PortalMode = 0;
     private PhotonView PV;
 
     private bool portalSpawned = false;
@@ -58,18 +59,24 @@ public class Countdown : MonoBehaviour
             {
                 
                 mode = 1;
-               // PV.RPC("ModeChange", RpcTarget.All, mode);
+               //PV.RPC("ModeChange", RpcTarget.All, mode);
                 StartCoroutine("TimerCoroutine");
                 Debug.Log("timertest");
                 
             }
         }
         if (mode == 2) {
-            setTime = 20;
-           PV.RPC("ModeChange", RpcTarget.All, mode);
-            countdownText.color = Color.red;
-            StartCoroutine("TimerCoroutine");
-            Debug.Log("Open Portal");
+            if (PortalMode==0)
+            {
+                PortalMode= 1;
+                setTime = 20;
+                PV.RPC("ModeChange", RpcTarget.All, mode);
+                countdownText.color = Color.red;
+                StartCoroutine("TimerCoroutine");
+                Debug.Log("Open Portal");
+
+            }
+            
         }
     }
 
@@ -80,9 +87,9 @@ public class Countdown : MonoBehaviour
     {
         while (setTime > 0)
         {
-            if (mode == 2)
+            if (PortalMode==1)
             {
-                mode = 3;
+                PortalMode = 2;
                 
                 yield break;
             }
@@ -112,6 +119,7 @@ public class Countdown : MonoBehaviour
         {
             Debug.Log("모드 2 변경 확인");
             countdownText.color = Color.red;
+            PortalMode = 1;
         }
         
 
