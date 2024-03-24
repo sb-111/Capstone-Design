@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (playerPrefab == null)
         {
-            Debug.LogError("«¡∑π∆’ æ¯¿Ω");
+            Debug.LogError("√á√Å¬∑¬π√Ü√ï ¬æ√∏√Ä¬Ω");
         }
         else
         {
             PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
 
             // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-            Debug.Log("»Æ¿Œ");
+            Debug.Log("√à¬Æ√Ä√é");
         }
     }
 
@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             return;
         }
+
         Debug.LogFormat("PhotonNetwork : Loading Level : ServerTestScene", PhotonNetwork.CurrentRoom.PlayerCount);
         PhotonNetwork.LoadLevel("ServerTestScene");
+
     }
     /*
     public override void OnPlayerEnteredRoom(Player other)
