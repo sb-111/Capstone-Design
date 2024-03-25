@@ -7,12 +7,12 @@ public class SpawnPortal : MonoBehaviour
     public float spawnDelay = 10.0f;
     public Vector3[] spawnPositions;
 
-    void Start()
+    /*void Start()
     {
         StartCoroutine(DelayedSpawn(spawnDelay));
-    }
+    }*/
 
-    IEnumerator DelayedSpawn(float delay)
+    public IEnumerator DelayedSpawn(float delay)
     {
         yield return new WaitForSeconds(delay);
         SpawnObject();

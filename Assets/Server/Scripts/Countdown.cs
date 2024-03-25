@@ -38,7 +38,8 @@ public class Countdown : MonoBehaviour
                 StartCoroutine("TimerCoroutine");
                 Debug.Log("timertest");
 
-                spawnPortal.SpawnObject();
+                //spawnPortal.SpawnObject();
+                StartCoroutine(spawnPortal.DelayedSpawn(spawnPortal.spawnDelay));
                 portalSpawned = true;
             }
             
