@@ -32,7 +32,7 @@ public class IdleState : MonoBehaviour, IMonsterState
         if (timer >= wanderTimer)
         {
             Debug.Log("위치 전환");
-            Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint.position, monster.WanderRadius, -1);
+            Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint, monster.WanderRadius, -1);
             monster.Agent.SetDestination(newPos);
             timer = 0f;
         }
