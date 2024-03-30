@@ -15,24 +15,25 @@ public class IdleState : MonoBehaviour, IMonsterState
 
     public void EnterState()
     {
-        Debug.Log("Idle State 진입");
+        //Debug.Log("Idle State 진입");
         monster.Agent.isStopped = false; // Agent 활성화
     }
 
     public void ExitState()
     {
-        Debug.Log("Idle State 탈출");
+        //Debug.Log("Idle State 탈출");
         monster.Agent.isStopped = true;
     }
 
     public void ExecuteState()
     {
-        Debug.Log($"Idle 수행중, 현재 타이머: {timer}");
+        //Debug.Log($"Idle 수행중, 현재 타이머: {timer}");
         timer += Time.deltaTime;
         if (timer >= wanderTimer)
         {
             Debug.Log("위치 전환");
             Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint, monster.WanderRadius, -1);
+
             monster.Agent.SetDestination(newPos);
             timer = 0f;
         }

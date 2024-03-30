@@ -182,7 +182,7 @@ public class Monster : MonoBehaviour
     }
     // 몬스터의 체력 깎는 함수
     // 플레이어쪽에서 이를 호출해야 한다.
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage,Vector3 enmenyPosition)
     {
         currentHP -= damage;
 
