@@ -7,14 +7,11 @@ public class Monster : MonoBehaviour
 {
     private FSM _fsm;
 
-
-
     [Header("Idle 설정")]
     [SerializeField]
-    private Transform spawnPoint; // 스폰포인트
-    [SerializeField]
     private float wanderRadius = 5f; // 배회 반경
-    public Transform SpawnPoint { get { return spawnPoint; } }
+    private Vector3 spawnPoint; // 스폰포인트
+    public Vector3 SpawnPoint { get { return spawnPoint; } }
     public float WanderRadius { get { return wanderRadius; } }
 
     [Header("Chase 설정")]
@@ -55,6 +52,8 @@ public class Monster : MonoBehaviour
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         _enemyWeapon.enabled = false;
+
+        spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
     }
     void Start()
     {
@@ -167,7 +166,7 @@ public class Monster : MonoBehaviour
 
         // 스폰 포인트 기즈모(잘나오나 임시 체크 위함)
         Gizmos.color = Color.gray;
-        Gizmos.DrawWireSphere(spawnPoint.position, wanderRadius);
+        Gizmos.DrawWireSphere(spawnPoint, wanderRadius);
     }
     private void DrawFieldOfView()
     {
