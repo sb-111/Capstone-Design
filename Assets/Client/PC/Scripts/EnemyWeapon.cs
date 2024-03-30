@@ -26,7 +26,7 @@ public class EnemyWeapon : MonoBehaviour
         {
             StopCoroutine(Weapon_Activation(attackEndTime));
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            Debug.Log("HashSet 클리어");
+            //Debug.Log("HashSet 클리어");
             StartCoroutine(Weapon_Activation(attackEndTime));
         }
 
@@ -34,7 +34,7 @@ public class EnemyWeapon : MonoBehaviour
         {
             StopCoroutine(Weapon_Activation(attackEndTime));
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            Debug.Log("HashSet 클리어");
+            //Debug.Log("HashSet 클리어");
             StartCoroutine(Weapon_Activation(attackEndTime));
         }
     }
@@ -58,7 +58,7 @@ public class EnemyWeapon : MonoBehaviour
             if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
             {
                 hitEnemies.Add(enemy); 
-                enemyDamage.TakeDamage((20 + weapon_damage));
+                enemyDamage.TakeDamage((20 + weapon_damage), transform.position);
             }
         }
     }

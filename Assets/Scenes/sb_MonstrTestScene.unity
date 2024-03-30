@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4323885692403851219, guid: e27c731ba02b32c4097ad30b6f6b0803, type: 3}
+      propertyPath: basicStats.hp
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 4360289329014332077, guid: e27c731ba02b32c4097ad30b6f6b0803, type: 3}
       propertyPath: m_Name
       value: OrkAssasin 1
@@ -1386,6 +1390,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 2064506177}
+    - target: {fileID: 1452657902737421165, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: attackPower
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3425355382396223352, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.1
@@ -1429,6 +1437,22 @@ PrefabInstance:
     - target: {fileID: 3520977723267360835, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
       propertyPath: m_Name
       value: BlueBoarPBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 6071444087188235320, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454225982428925073, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.6515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454225982428925073, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454225982428925073, guid: c176ee7f78ef9cc4f9f264be5ae72ce5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
