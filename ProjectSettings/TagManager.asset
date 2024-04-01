@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Knockback
   - EnemyWeapon
+  - Portal
+  - PortalSpawner
   layers:
   - Default
   - TransparentFX

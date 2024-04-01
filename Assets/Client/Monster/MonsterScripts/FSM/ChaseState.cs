@@ -26,7 +26,9 @@ public class ChaseState : IMonsterState
 
     public void ExecuteState()
     {
+
         //Debug.Log("Chase State 진행중");
+
         monster.Agent.SetDestination(monster.TargetPlayer.position);
     }
 }

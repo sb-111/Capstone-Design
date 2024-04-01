@@ -6,10 +6,10 @@ public class EnemyWeapon : MonoBehaviour
 {
     public enum WeaponType { Melee, Range };
     public WeaponType type;
-    public int weapon_damage=30; //¹«±âº° °ø°İ·Â
-    public float weapon_rate; // ¹«±âº° °ø°İ ¼Óµµ
-    public BoxCollider meleeArea;   //¹«±âÀÇ °ø°İ ÆÇÁ¤ ¹üÀ§
-    //public TrailRenderer trailEffect; //°ø°İ½Ã »ı¼º ÀÌÆåÆ®
+    public int weapon_damage=30; //ë¬´ê¸°ë³„ ê³µê²©ë ¥
+    public float weapon_rate; // ë¬´ê¸°ë³„ ê³µê²© ì†ë„
+    public BoxCollider meleeArea;   //ë¬´ê¸°ì˜ ê³µê²© íŒì • ë²”ìœ„
+    //public TrailRenderer trailEffect; //ê³µê²©ì‹œ ìƒì„± ì´í™íŠ¸
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
 
     private void Start()
@@ -25,16 +25,19 @@ public class EnemyWeapon : MonoBehaviour
         if (type == WeaponType.Melee)
         {
             StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet ÃÊ±âÈ­, °ø°İÀÌ »õ·Ó°Ô ½ÃÀÛµÉ ¶§ ¸¶´Ù ÃÊ±âÈ­.
-            //Debug.Log("HashSet Å¬¸®¾î");
+            hitEnemies.Clear();                         //HashSet ì´ˆê¸°í™”, ê³µê²©ì´ ìƒˆë¡­ê²Œ ì‹œì‘ë  ë•Œ ë§ˆë‹¤ ì´ˆê¸°í™”.
+            //Debug.Log("HashSet í´ë¦¬ì–´");
+
             StartCoroutine(Weapon_Activation(attackEndTime));
         }
 
         if (type == WeaponType.Range)
         {
             StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet ÃÊ±âÈ­, °ø°İÀÌ »õ·Ó°Ô ½ÃÀÛµÉ ¶§ ¸¶´Ù ÃÊ±âÈ­.
-            //Debug.Log("HashSet Å¬¸®¾î");
+            hitEnemies.Clear();                         //HashSet ì´ˆê¸°í™”, ê³µê²©ì´ ìƒˆë¡­ê²Œ ì‹œì‘ë  ë•Œ ë§ˆë‹¤ ì´ˆê¸°í™”.
+
+            //Debug.Log("HashSet í´ë¦¬ì–´");
+
             StartCoroutine(Weapon_Activation(attackEndTime));
         }
     }
@@ -55,7 +58,7 @@ public class EnemyWeapon : MonoBehaviour
         {
             GameObject enemy = other.gameObject;
             Player enemyDamage = enemy.GetComponent<Player>();
-            if (!hitEnemies.Contains(enemy)) // ÀÌ¹Ì °ø°İÇÑ ÀûÀÌ ¾Æ´Ï¶ó¸é
+            if (!hitEnemies.Contains(enemy)) // ì´ë¯¸ ê³µê²©í•œ ì ì´ ì•„ë‹ˆë¼ë©´
             {
                 hitEnemies.Add(enemy); 
                 enemyDamage.TakeDamage((20 + weapon_damage), transform.position);

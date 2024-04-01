@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
 public class Monster : MonoBehaviour
 {
     private FSM _fsm;
@@ -167,6 +168,7 @@ public class Monster : MonoBehaviour
         // 스폰 포인트 기즈모(잘나오나 임시 체크 위함)
         Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(spawnPoint, wanderRadius);
+
     }
     private void DrawFieldOfView()
     {

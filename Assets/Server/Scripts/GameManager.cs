@@ -3,13 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
+using TMPro;
+
 public class GameManager : MonoBehaviourPunCallbacks
 {
 
     public GameObject playerPrefab;
+    public static bool portalOwner = false;
+    private static GameManager instance = null;
+    public TextMeshProUGUI gameOver;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
 
+    }
     void Start()
     {
+        gameOver.enabled = false;
         if (playerPrefab == null)
         {
             Debug.LogError("프레팹 없음");
@@ -21,8 +40,32 @@ public class GameManager : MonoBehaviourPunCallbacks
             // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
             Debug.Log("확인");
         }
+       
     }
+    public static GameManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    public void GameFinish()
+    {
+        gameOver.enabled = true;
+        if (portalOwner)
+        {
+            gameOver.text = "WIN";
+        }
+        else
+        {
+            gameOver.text = "LOSE";
+        }
 
+    }
     void LoadArena()
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -30,33 +73,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             return;
         }
-        Debug.LogFormat("PhotonNetwork : Loading Level : Modular Dungeon", PhotonNetwork.CurrentRoom.PlayerCount);
-        PhotonNetwork.LoadLevel("Modular Dungeon");
+        Debug.LogFormat("PhotonNetwork : Loading Level : ServerTestScene", PhotonNetwork.CurrentRoom.PlayerCount);
+        PhotonNetwork.LoadLevel("ServerTestScene");
     }
-    /*
-    public override void OnPlayerEnteredRoom(Player other)
-    {
-        Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
+ 
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
 
-            LoadArena();
-        }
-    }
-
-    public override void OnPlayerLeftRoom(Player other)
-    {
-        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
-            LoadArena();
-        }
-    }
-    */
 }
 

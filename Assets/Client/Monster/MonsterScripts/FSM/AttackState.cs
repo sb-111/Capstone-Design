@@ -29,10 +29,12 @@ public class AttackState : IMonsterState
     // 공격 상태인 동안 계속 호출
     public void ExecuteState()
     {
+
        // Debug.Log("Attack State 진행중");
         if (!IsAnimationRunning(monster.Anim, "HornAttack"))
         {
            // Debug.Log("계속 부르고 있니");
+
             // 1. 공격 애니메이션 실행
             monster.Anim.SetTrigger("doAttack");
             // 2. 실제 공격

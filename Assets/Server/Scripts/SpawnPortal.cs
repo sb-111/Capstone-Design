@@ -6,7 +6,7 @@ public class SpawnPortal : MonoBehaviour
     public float spawnDelay =10.0f;
     public Vector3[] spawnPositions;
 
-    void Start()
+    /*void Start()
     {
         //Invoke("SpawnObject", spawnDelay);
     }
@@ -16,4 +16,5 @@ public class SpawnPortal : MonoBehaviour
         Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
         Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
     }
+    */
 }

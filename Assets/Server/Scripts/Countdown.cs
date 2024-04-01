@@ -7,107 +7,120 @@ using Photon.Pun;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] int setTime = 100;
+    [SerializeField] int setPortalTime = 40;
     [SerializeField] Text countdownText;
-    [SerializeField] GameObject Player;
-    [SerializeField] SpawnPortal spawnPortal;
+    //[SerializeField] GameObject Player;
+    //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
-    int mode = 0;
+    public static int mode = 0;
+    //ï¿½ï¿½ï¿½ 0 : ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ 1 : ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
     private int time;
+    private int PortalMode = 0;
     private PhotonView PV;
-
+    private int timerStop = 0;
     private bool portalSpawned = false;
+    private bool gameStarted = false;
 
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        int initialMinutes = Mathf.FloorToInt(setTime / 60); // ½ÃÀÛÇÒ ¶§ÀÇ ºÐ
-        int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // ½ÃÀÛÇÒ ¶§ÀÇ ÃÊ
-        countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // ½ÃÀÛÇÒ ¶§ÀÇ ½Ã°£À» ÅØ½ºÆ®·Î ¼³Á¤
+        int initialMinutes = Mathf.FloorToInt(setTime / 60); // ì‹œìž‘í•  ë•Œì˜ ë¶„
+        int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // ì‹œìž‘í•  ë•Œì˜ ì´ˆ
+        countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // ì‹œìž‘í•  ë•Œì˜ ì‹œê°„ì„ í…ìŠ¤íŠ¸ë¡œ ì„¤ì •
     }
-
+  
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
-        /*
-        if (Player != null && playerCount == 1 && !portalSpawned)
+  
+        if (PhotonNetwork.IsMasterClient)
         {
-            StartCoroutine(DelayedSpawn(spawnPortal.spawnDelay)); 
-            portalSpawned = true;
-        }
-
-        if (playerCount == 2)
-        {
-            if (setTime > 0)
+           if(!gameStarted)
             {
-                setTime -= Time.deltaTime;
-            }
-            else if (setTime <= 0)
-            {
-                Time.timeScale = 0.0f;
-            }
-            int minutes = Mathf.FloorToInt(setTime / 60F);
-            int seconds = Mathf.FloorToInt(setTime - minutes * 60);
-            countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
-        */
-      
-
-        if (mode == 0)
-        {
-            if (PhotonNetwork.IsMasterClient && !portalSpawned && playerCount == 1)
-            {
-                
-                mode = 1;
-                StartCoroutine("TimerCoroutine");
+                StartTimer(setTime);
+                gameStarted = true;
                 Debug.Log("timertest");
-                
             }
+            if (mode ==1) {
+
+                ResetTimer(setPortalTime);
+                portalSpawned = true;
+                mode = 2;
+                Debug.Log("ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½");
+            } 
+
         }
+
+
+   
     }
 
-    void OnTriggerEnter(Collider coll)
+    public void StartTimer(int time)
     {
-        Debug.Log("Ãæµ¹");
-        if (coll.gameObject.tag == "Portal"&&mode==1)
-            {
-            setTime = 20;
-            mode = 2;
-            countdownText.color = Color.red;
-            StartCoroutine("TimerCoroutine");
-            Debug.Log("Open Portal");
-           
-        }
+        setTime = time;
+        StartCoroutine("TimerCoroutine");
+        Debug.Log("timertest ï¿½ï¿½ï¿½ï¿½");
+    }
+    public void StopTimer()
+    {
+
+    }
+    public void ResetTimer(int time)
+    {
+        timerStop = 1;
+        setTime = time;
+        StartCoroutine("TimerCoroutine");
+        Debug.Log("Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½");
     }
 
 
     IEnumerator TimerCoroutine()
     {
-        while (setTime > 0)
+
+        while(setTime > 0)
         {
-            if (mode == 2)
+            if (timerStop == 1)
             {
-                mode = 3;
+                Debug.Log("stop ï¿½ï¿½ï¿½ï¿½");
+                timerStop = 0;
                 yield break;
             }
+    
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
-        portalSpawned = true;
-        Debug.Log("timer finish");
-        mode = 1;
+            Debug.Log("Å¸ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½");
+        GameManager.Instance.GameFinish();
+
         yield break;
-
-        //Á¾·á½Ã µ¿ÀÛ
-
 
     }
 
     [PunRPC]
+    private void ModeChange(int modenum)
+    {
+        mode = modenum;
+        Debug.Log("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½"+mode);
+        if (mode == 2)
+        {
+            Debug.Log("ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½");
+            countdownText.color = Color.red;
+            PortalMode = 1;
+        }
+        
+
+
+    }
+   
+
+
+    [PunRPC]
     private void ShowTimer(int setTime)
     {
-        // ¸ðµç Å¬¶óÀÌ¾ðÆ®¿¡¼­ È£ÃâµÇ¾î Å¸ÀÌ¸Ó¸¦ µ¿±âÈ­
-        Debug.Log("timertest12");
+        // ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç¾ï¿½ Å¸ï¿½Ì¸Ó¸ï¿½ ï¿½ï¿½ï¿½ï¿½È­
+       Debug.Log("timertest RPC");
         int minutes = Mathf.FloorToInt(setTime / 60);
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -117,8 +130,8 @@ public class Countdown : MonoBehaviour
 
     IEnumerator DelayedSpawn(float delay)
     {
-        yield return new WaitForSeconds(delay); // ÁöÁ¤ ½Ã°£ ´ë±â
-        spawnPortal.SpawnObject(); 
+        yield return new WaitForSeconds(delay); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½
+        //spawnPortal.SpawnObject(); 
     }
 
 }
