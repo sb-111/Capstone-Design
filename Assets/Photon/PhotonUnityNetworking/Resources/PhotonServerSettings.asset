@@ -40,6 +40,10 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - ShowTimer
+  - StartTimerCoroutine
+  - StartTimer
+  - SyncStartTime
+  - <DelayedSpawn>g__RPC_SpawnObject|6_0
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

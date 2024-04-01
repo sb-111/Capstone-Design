@@ -403,10 +403,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e370e098c47291e46adf51c9aca18460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setTime: 30
+  setTime: 3000
   countdownText: {fileID: 6895659440576551243}
   Player: {fileID: 3726974900251450827}
-  spawnPortal: {fileID: 8033441356092495408, guid: 715ff940210280746ab358f7ad2f278a, type: 3}
 --- !u!1 &7688533100432167388
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,14 +1,21 @@
 using UnityEngine;
+using System.Collections;
 
 public class SpawnPortal : MonoBehaviour
 {
     public GameObject objectToSpawn;
-    public float spawnDelay =10.0f;
+    public float spawnDelay = 10.0f;
     public Vector3[] spawnPositions;
 
-    void Start()
+    /*void Start()
     {
-        //Invoke("SpawnObject", spawnDelay);
+        StartCoroutine(DelayedSpawn(spawnDelay));
+    }*/
+
+    public IEnumerator DelayedSpawn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnObject();
     }
 
     public void SpawnObject()
