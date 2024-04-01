@@ -16,4 +16,5 @@ public class SpawnPortal : MonoBehaviour
         Vector3 spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
         Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
     }
+    */
 }
