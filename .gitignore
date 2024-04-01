@@ -71,5 +71,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-IgnoreDemo/
-IgnoreScripts/
+#유료에셋 커밋제외
+ScansFactory/
