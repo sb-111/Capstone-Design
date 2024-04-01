@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStatus : MonoBehaviour
 {
+    
     public BasicStats basicStats;
     public MoveStats moveStats;
     public CombatStats combatStats;
@@ -14,6 +15,7 @@ public class PlayerStatus : MonoBehaviour
     public class BasicStats
     {
         public int hp = 100;
+        public int maxhp = 100;
         public int def = 10;
         public int atk = 30;
         public int dex = 30;
@@ -32,6 +34,7 @@ public class PlayerStatus : MonoBehaviour
     [System.Serializable]
     public class CombatStats
     {
+        public float constant_def = 100.0f;
         public float attack_rate=0.2f;
         public float critical_rate;
         public float critical_damage;
@@ -48,9 +51,18 @@ public class PlayerStatus : MonoBehaviour
         player = GetComponent<Player>();  
         rigid = GetComponent<Rigidbody>();
     }
-    public void OnDamage(int damage)
+    public void OnDamage(int damage, Vector3 enmenyPosition)
     {
-        basicStats.hp -= damage;
-        //StartCoroutine(OnDamage(reactVec)); 캐릭터에게 적용되는 cc는 따로 적용 해야 함
+        int result_damage = (int)(damage * (1-(basicStats.def / (basicStats.def + combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
+        basicStats.hp -= result_damage;
+        Debug.Log(result_damage);
+        if(result_damage > 0&& result_damage > basicStats.maxhp*0.3)  //데미지가 maxHP의 30% 이상이면 넉백 효과
+        {
+            player.Knockback(enmenyPosition);
+        }
+        else if(result_damage >0&& player.dDown)
+        {
+            player.DefensingHit();
+        }
     }
 }
