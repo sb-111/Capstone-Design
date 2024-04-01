@@ -1,3 +1,0 @@
-ScansFactory filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
-ScansFactory4 filter=lfs diff=lfs merge=lfs -text
