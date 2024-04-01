@@ -44,6 +44,8 @@ MonoBehaviour:
   - StartTimer
   - SyncStartTime
   - <DelayedSpawn>g__RPC_SpawnObject|6_0
+  - ModeChange
+  - GameFinish
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
