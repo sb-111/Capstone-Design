@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CollisionManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    bool portalOwner = false;
+    
     void Start()
     {
         
@@ -17,12 +18,13 @@ public class CollisionManager : MonoBehaviour
         {
             Countdown.mode = 1;
             Destroy(coll.gameObject);
-            portalOwner = true;
+            GameManager.portalOwner = true;
+            
             SpawnManager.Instance.portalSpawn();
             Debug.Log("카운트 다운 변경");
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {

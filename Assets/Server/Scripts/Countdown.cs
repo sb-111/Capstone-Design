@@ -69,6 +69,7 @@ public class Countdown : MonoBehaviour
     public void ResetTimer(int time)
     {
         timerStop = 1;
+        setTime = time;
         StartCoroutine("TimerCoroutine");
         Debug.Log("타이머 리셋");
     }
@@ -76,7 +77,7 @@ public class Countdown : MonoBehaviour
 
     IEnumerator TimerCoroutine()
     {
-        Debug.Log("timertest 들어왔나");
+
         while(setTime > 0)
         {
             if (timerStop == 1)
@@ -85,13 +86,15 @@ public class Countdown : MonoBehaviour
                 timerStop = 0;
                 yield break;
             }
-            Debug.Log("타이머 테스트" + setTime);
+    
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
             Debug.Log("타이머 종료");
-            yield break;
+        GameManager.Instance.GameFinish();
+
+        yield break;
 
     }
 
@@ -110,6 +113,7 @@ public class Countdown : MonoBehaviour
 
 
     }
+   
 
 
     [PunRPC]
