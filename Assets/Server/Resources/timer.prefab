@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setTime: 100
+  setPortalTime: 40
   countdownText: {fileID: 6983998948178578693}
 --- !u!114 &4810502875727236194
 MonoBehaviour:

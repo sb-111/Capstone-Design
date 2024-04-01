@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7144045388682285986}
   - component: {fileID: 8188425999045727897}
+  - component: {fileID: 6329834538410467355}
   m_Layer: 0
   m_Name: SpawnManger
   m_TagString: Untagged
@@ -46,5 +47,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster: {fileID: 9144739715366340310, guid: 154f375fec78417418fe2e083fd87b41, type: 3}
   timer: {fileID: 9199952121837651416, guid: 2187086169d76f04d8c9cb964decb33f, type: 3}
+  portal: {fileID: 8918783685112439994, guid: deb6f37f820537a4aafb62e9b9fea1df, type: 3}
+  portalSpawner: {fileID: 2055988755500378012, guid: 934e5bd6f38dce24a9836751f97a3b5e, type: 3}
   portalSpawnPoint: {fileID: 0}
   monsterSpawnPoint: {fileID: 0}
+--- !u!114 &6329834538410467355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547936053672296245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd22b0ee5807f44187c13431cc20aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  crocodile: {fileID: 9144739715366340310, guid: 154f375fec78417418fe2e083fd87b41, type: 3}

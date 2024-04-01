@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject playerPrefab;
 
+
+
     void Start()
     {
         if (playerPrefab == null)

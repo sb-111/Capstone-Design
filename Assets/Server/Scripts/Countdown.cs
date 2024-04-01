@@ -7,16 +7,20 @@ using Photon.Pun;
 public class Countdown : MonoBehaviour
 {
     [SerializeField] int setTime = 100;
+    [SerializeField] int setPortalTime = 40;
     [SerializeField] Text countdownText;
     //[SerializeField] GameObject Player;
     //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
     public static int mode = 0;
+    //모드 0 : 초기 상태
+    //모드 1 : 포탈 생성 상태 
     private int time;
     private int PortalMode = 0;
     private PhotonView PV;
-
+    private int timerStop = 0;
     private bool portalSpawned = false;
+    private bool gameStarted = false;
 
     void Start()
     {
@@ -29,84 +33,65 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
-        /*
-        if (Player != null && playerCount == 1 && !portalSpawned)
+  
+        if (PhotonNetwork.IsMasterClient)
         {
-            StartCoroutine(DelayedSpawn(spawnPortal.spawnDelay)); 
-            portalSpawned = true;
-        }
-
-        if (playerCount == 2)
-        {
-            if (setTime > 0)
+           if(!gameStarted)
             {
-                setTime -= Time.deltaTime;
-            }
-            else if (setTime <= 0)
-            {
-                Time.timeScale = 0.0f;
-            }
-            int minutes = Mathf.FloorToInt(setTime / 60F);
-            int seconds = Mathf.FloorToInt(setTime - minutes * 60);
-            countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        }
-        */
-      
-
-        if (mode == 0)
-        {
-            if (PhotonNetwork.IsMasterClient && !portalSpawned && playerCount == 1)
-            {
-                
-                mode = 1;
-               //PV.RPC("ModeChange", RpcTarget.All, mode);
-                StartCoroutine("TimerCoroutine");
+                StartTimer(setTime);
+                gameStarted = true;
                 Debug.Log("timertest");
-                
             }
-        }
-        if (mode == 2) {
-            if (PortalMode==0)
-            {
-                PortalMode= 1;
-                setTime = 20;
-                PV.RPC("ModeChange", RpcTarget.All, mode);
-                countdownText.color = Color.red;
-                StartCoroutine("TimerCoroutine");
-                Debug.Log("Open Portal");
+            if (mode ==1) {
 
-            }
-            
+                ResetTimer(setPortalTime);
+                portalSpawned = true;
+                mode = 2;
+                Debug.Log("포탈 생성");
+            } 
+
         }
+
+
+   
     }
 
- 
+    public void StartTimer(int time)
+    {
+        setTime = time;
+        StartCoroutine("TimerCoroutine");
+        Debug.Log("timertest 시작");
+    }
+    public void StopTimer()
+    {
+
+    }
+    public void ResetTimer(int time)
+    {
+        timerStop = 1;
+        StartCoroutine("TimerCoroutine");
+        Debug.Log("타이머 리셋");
+    }
 
 
     IEnumerator TimerCoroutine()
     {
-        while (setTime > 0)
+        Debug.Log("timertest 들어왔나");
+        while(setTime > 0)
         {
-            if (PortalMode==1)
+            if (timerStop == 1)
             {
-                PortalMode = 2;
-                
+                Debug.Log("stop 받음");
+                timerStop = 0;
                 yield break;
             }
-            
+            Debug.Log("타이머 테스트" + setTime);
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
-        portalSpawned = true;
-        Debug.Log("timer finish");
-        //종료시 동작
-        //mode = 1;
-        //PV.RPC("ModeChange", RpcTarget.All, mode);
-        yield break;
-
-       
-    
+            Debug.Log("타이머 종료");
+            yield break;
 
     }
 
@@ -131,7 +116,7 @@ public class Countdown : MonoBehaviour
     private void ShowTimer(int setTime)
     {
         // 모든 클라이언트에서 호출되어 타이머를 동기화
-       // Debug.Log("timertest12");
+       Debug.Log("timertest RPC");
         int minutes = Mathf.FloorToInt(setTime / 60);
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
