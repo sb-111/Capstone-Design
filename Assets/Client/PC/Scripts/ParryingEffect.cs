@@ -13,11 +13,7 @@ public class ParryingEffect : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
+    
     public IEnumerator ShakeCamera()
     {
         Vector3 originPoint = cam.localPosition;
