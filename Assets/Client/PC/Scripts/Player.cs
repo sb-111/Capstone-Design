@@ -44,6 +44,8 @@ public class Player : MonoBehaviourPun
     PlayerStatus state;
     public CameraShake cameraShaking;
 
+    Transform cameraPlayer; // cameraArm, player의 부모
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class Player : MonoBehaviourPun
         state = GetComponent<PlayerStatus>();
         attack_controller = GetComponent<AttackController>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
+        cameraPlayer = transform.parent;
     }
     void Start()
     {
@@ -103,8 +106,8 @@ public class Player : MonoBehaviourPun
     }
     void GetInput()
     {
-        hAxis = Input.GetAxisRaw("Horizontal");
-        vAxis = Input.GetAxisRaw("Vertical");
+        hAxis = Input.GetAxisRaw("Horizontal"); // x축 이동(-1/1)
+        vAxis = Input.GetAxisRaw("Vertical"); // z축 이동(-1/1)
         rDown = Input.GetKey(KeyCode.LeftShift);//leftshift
         jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
         left_attack = Input.GetMouseButtonDown(0);
@@ -116,7 +119,6 @@ public class Player : MonoBehaviourPun
 
     void Move()
     {
-
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
         if (isJump)
         {

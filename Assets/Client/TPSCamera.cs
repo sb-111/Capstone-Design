@@ -34,8 +34,9 @@ public class TPSCamera : MonoBehaviour
             // y축 성분 제거된 카메라의 z축, x축 방향벡터
             Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
             Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
-            
+
             Vector3 moveDir = lookForward * moveVec.z + lookRight * moveVec.x;
+
 
             player.forward = lookForward;
             transform.position += moveDir * speed * Time.deltaTime;
