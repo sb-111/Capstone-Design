@@ -42,7 +42,7 @@ public class Player : MonoBehaviourPun
     public Animator anim;
     Rigidbody rigid;
     PlayerStatus state;
-    
+    public CameraShake cameraShaking;
 
     // Start is called before the first frame update
     private void Awake()
@@ -51,20 +51,22 @@ public class Player : MonoBehaviourPun
         rigid = GetComponent<Rigidbody>();
         state = GetComponent<PlayerStatus>();
         attack_controller = GetComponent<AttackController>();
+        cameraShaking = Camera.main.GetComponent<CameraShake>();
     }
     void Start()
     {
         speed = state.moveStats.speed;
-        jumpPower = state.moveStats.jumpPower;
+        //jumpPower = state.moveStats.jumpPower;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-        }
+        }*/
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
         
@@ -197,10 +199,6 @@ public class Player : MonoBehaviourPun
         isAttack = true;
     }
 
-    public void isAttackAnimationEnd()          //공격 애니메이션 공용 이벤트 4 (종료 지점)
-    {
-        isAttack = false;
-    }
     public void WeaponUse()                     //공격 애니메이션 공용 이벤트 2  (공격 모션 시작하는 지점)
     {
         attack_controller.weapon_right.Use();
@@ -210,7 +208,11 @@ public class Player : MonoBehaviourPun
     {
         attack_controller.weapon_right.AttackOut();
     }
-
+    public void isAttackAnimationEnd()          //공격 애니메이션 공용 이벤트 4 (종료 지점)
+    {
+        isAttack = false;
+    }
+   
 
     bool CanAttack()
     {
@@ -241,7 +243,7 @@ public class Player : MonoBehaviourPun
 
     public void TakeDamage(int damage, Vector3 enemnyPosition)
     {
-       state.OnDamage(damage, enemnyPosition);
+       state.TakeDamage(damage, enemnyPosition);
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -252,10 +254,7 @@ public class Player : MonoBehaviourPun
     {
 
     }
-    public void Parrying()
-    {
-        anim.SetTrigger("doDodge");
-    }
+ 
 
 
     public void Knockback(Vector3 enemyVec)
