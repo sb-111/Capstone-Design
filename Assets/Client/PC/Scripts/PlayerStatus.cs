@@ -28,7 +28,7 @@ public class PlayerStatus : MonoBehaviour
     {
         public int stamina = 100;
         public int speed = 10;
-        public float jumpPower = 7.0f;
+        //public float jumpPower = 7.0f;
     }
 
     [System.Serializable]
@@ -51,7 +51,7 @@ public class PlayerStatus : MonoBehaviour
         player = GetComponent<Player>();  
         rigid = GetComponent<Rigidbody>();
     }
-    public void OnDamage(int damage, Vector3 enmenyPosition)
+    public void TakeDamage(int damage, Vector3 enmenyPosition)
     {
         int result_damage = (int)(damage * (1-(basicStats.def / (basicStats.def + combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
         basicStats.hp -= result_damage;

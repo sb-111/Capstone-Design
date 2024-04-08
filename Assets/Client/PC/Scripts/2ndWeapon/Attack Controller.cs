@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class AttackController : MonoBehaviour
@@ -19,6 +20,8 @@ public class AttackController : MonoBehaviour
     Player player_controller;
     PlayerStatus state;
     public CameraShake cameraShaking;
+    Transform effectPoint;
+    public GameObject effectPrefab;
 
     // Start is called before the first frame update
     private void Awake()
@@ -27,9 +30,16 @@ public class AttackController : MonoBehaviour
         state = GetComponent<PlayerStatus>();
         player_controller = GetComponent<Player>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
+        effectPoint = GameObject.Find("SwordEffect").transform;
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            SwordEffect();
+        }
+    }
     public void attack1()
     {
         StartCoroutine(coAttack1());
@@ -91,5 +101,15 @@ public class AttackController : MonoBehaviour
     public void ZoomCamera()
     {
         cameraShaking.Zoom(0.36f,0.2f,0.0f,5.0f);
+    }
+
+    public void SwordEffect()
+    {
+        if( effectPoint == null || effectPrefab == null)
+        {
+            return;
+        }
+            GameObject effectInstance = Instantiate(effectPrefab, effectPoint.position, effectPoint.rotation);
+            Destroy(effectInstance, 1.0f);
     }
 }

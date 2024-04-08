@@ -56,7 +56,7 @@ public class Player : MonoBehaviourPun
     void Start()
     {
         speed = state.moveStats.speed;
-        jumpPower = state.moveStats.jumpPower;
+        //jumpPower = state.moveStats.jumpPower;
     }
 
     // Update is called once per frame
@@ -243,7 +243,7 @@ public class Player : MonoBehaviourPun
 
     public void TakeDamage(int damage, Vector3 enemnyPosition)
     {
-       state.OnDamage(damage, enemnyPosition);
+       state.TakeDamage(damage, enemnyPosition);
     }
     void OnCollisionEnter(Collision collision)
     {
