@@ -34,8 +34,9 @@ public class TPSCamera : MonoBehaviour
             // y축 성분 제거된 카메라의 z축, x축 방향벡터
             Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
             Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
-            
+
             Vector3 moveDir = lookForward * moveVec.z + lookRight * moveVec.x;
+
 
             player.forward = lookForward;
             transform.position += moveDir * speed * Time.deltaTime;
@@ -55,7 +56,18 @@ public class TPSCamera : MonoBehaviour
         float cameraX = cameraAngle.x - (mouseValueY * sensivity); // x축 회전용(수직)
         float cameraY = cameraAngle.y + (mouseValueX * sensivity); // y축 회전용(수평)
         float cameraZ = cameraAngle.z;
-        cameraX = Mathf.Clamp(cameraX, 0, 90f); // 수직각도 제한
+        // 90~0(아래)~360~270(위)
+        if(cameraX > 180f) 
+        {
+            // 수직 각도 제한(위)
+            cameraX = Mathf.Clamp(cameraX, 300f, 360f);
+        }
+        else
+        {
+            // 수평 각도 제한(아래)
+            cameraX = Mathf.Clamp(cameraX, -1f, 90f);
+        }
+        Debug.Log($"cameraX: {cameraX}");
 
         // 참고)실제 회전은 rotation에서 Quaternion 값을 이용한다
         // Quaternion.Euler : 오일러 -> 쿼터니언
