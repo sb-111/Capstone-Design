@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject playerPrefab;
     public static bool portalOwner = false;
     private static GameManager instance = null;
-    public TextMeshProUGUI gameOver;
+    //public TextMeshProUGUI gameOver;
     void Awake()
     {
         if (instance == null)
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        gameOver.enabled = false;
+       // gameOver.enabled = false;
         if (playerPrefab == null)
         {
             Debug.LogError("ÇÁ·¹ÆÕ ¾øÀ½");
@@ -55,14 +55,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void GameFinish()
     {
-        gameOver.enabled = true;
+        //gameOver.enabled = true;
         if (portalOwner)
         {
-            gameOver.text = "WIN";
+           // gameOver.text = "WIN";
         }
         else
         {
-            gameOver.text = "LOSE";
+          //  gameOver.text = "LOSE";
         }
 
     }
