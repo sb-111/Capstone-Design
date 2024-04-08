@@ -17,18 +17,24 @@ public class Weapon : MonoBehaviour
 
     public Player player;
     public PlayerStatus status;
+    public CameraShake cameraShaking;
+    public AttackController attackController;
+
 
     //패링
     public GameObject parryingParticle;     //패링 파티클 프리팹
     float parryingCooldown = 3.0f;          //패링 쿨타임
     bool canPrrying = true;
-    ParryingEffect parryingEffect = null;
+    public Transform parryingPos;
 
     private void Awake()
     {
-        parryingEffect = GetComponent<ParryingEffect>();
+        
         player = GetComponentInParent<Player>();
         status = GetComponentInParent<PlayerStatus>();
+        attackController = GetComponentInParent<AttackController>();
+        cameraShaking =Camera.main.GetComponent<CameraShake>();
+        
     }
     public void Use()
     {
@@ -65,10 +71,11 @@ public class Weapon : MonoBehaviour
     {
         if (other.tag == "ParryingBox" && canPrrying)
         {
+            attackController.Parrying();
             StartCoroutine(Parrying());
         }
 
-        if (other.tag == "MonsterEnemy")
+        if (other.tag == "MonsterEnemy"|| other.tag == "Enemy")
         {
             GameObject enemy = other.gameObject;
             Monster enemyDamage = enemy.GetComponent<Monster>();
@@ -76,6 +83,7 @@ public class Weapon : MonoBehaviour
             {
                 hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                 enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage), transform.position);
+                cameraShaking.Shaking();
             }
         }
     }
@@ -84,15 +92,14 @@ public class Weapon : MonoBehaviour
     {
         canPrrying = false;
         yield return new WaitForSeconds(0.2f);              //휘두루는 모션이 조금은 나올 수 있도록 딜레이
-        player.Parrying();
-        if (parryingEffect != null)
-        {
-            StartCoroutine(parryingEffect.ShakeCamera());
-        }
-        GameObject effectInastantiate = Instantiate(parryingParticle, transform.position, Quaternion.identity);
+        //attackController.Parrying();                      //반응이 늦어서 뺌
+        cameraShaking.Shaking();
+
+        GameObject effectInastantiate = Instantiate(parryingParticle,parryingPos.position, Quaternion.identity);
         Destroy(effectInastantiate, 1.0f);                  //1초 이상 x
         yield return new WaitForSeconds(parryingCooldown);
         canPrrying = true;
+
     }
 
 }

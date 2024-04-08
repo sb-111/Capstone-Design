@@ -64,8 +64,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.2924763
+        functionName: ZoomCamera
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.3744076
         functionName: WeaponUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.65446866
+        functionName: ShakeCamera
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

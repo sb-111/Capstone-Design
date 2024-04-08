@@ -46,7 +46,7 @@ public class Monster : MonoBehaviour
     Material mat;
     Color originalColor;
 
-    private void Awake()
+    private void Awake()    
     {
         Rigid = GetComponent<Rigidbody>();
         Collider = GetComponent<BoxCollider>();
