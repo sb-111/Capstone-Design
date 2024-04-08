@@ -5,6 +5,7 @@ using UnityEngine;
 public class StunEffect : StatusEffect
 {
     Monster monster;
+    Player player;
     public override void OnStart()
     {
         base.OnStart();
@@ -12,6 +13,11 @@ public class StunEffect : StatusEffect
         if(monster != null)
         {
             monster.Agent.isStopped = true; // NavMeshAgent 이동 정지
+        }
+
+        player = gameObject.GetComponent<Player>();
+        if(player != null )
+        {
         }
     }
     public override void OnExit()
