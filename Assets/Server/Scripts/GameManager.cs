@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             return;
         }
         Debug.LogFormat("PhotonNetwork : Loading Level : ServerTestScene", PhotonNetwork.CurrentRoom.PlayerCount);
-        PhotonNetwork.LoadLevel("ServerTestScene");
+        PhotonNetwork.LoadLevel("MainScene");
     }
  
 
