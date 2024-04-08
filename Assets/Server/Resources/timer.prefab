@@ -365,7 +365,6 @@ MonoBehaviour:
   setTime: 100
   setPortalTime: 40
   countdownText: {fileID: 6983998948178578693}
-  spawnPortal: {fileID: 8033441356092495408, guid: 715ff940210280746ab358f7ad2f278a, type: 3}
 --- !u!114 &4810502875727236194
 MonoBehaviour:
   m_ObjectHideFlags: 0

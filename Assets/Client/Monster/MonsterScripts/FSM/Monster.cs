@@ -28,14 +28,17 @@ public class Monster : MonoBehaviour
 
     [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
-    [SerializeField] float attackPower = 5f;
     [SerializeField] float basicCoolTime = 3f;
     [SerializeField] EnemyWeapon _enemyWeapon;
     public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
 
-    [Header("기타 몬스터 스탯 설정")]
-    public int maxHP;
-    public int currentHP;
+    [Header("몬스터 스탯 설정")]
+    [SerializeField] int maxHP;
+    [SerializeField] int currentHP;
+    [SerializeField] float attackPower = 5f;
+    [SerializeField] float def = 10f;
+    [SerializeField] float constant_def = 100f;
+    [SerializeField] float speed = 10f;
 
     // IMonsterState에서 접근할 프로퍼티 설정
     public Rigidbody Rigid { get; private set; }
@@ -46,7 +49,7 @@ public class Monster : MonoBehaviour
     Material mat;
     Color originalColor;
 
-    private void Awake()
+    private void Awake()    
     {
         Rigid = GetComponent<Rigidbody>();
         Collider = GetComponent<BoxCollider>();
