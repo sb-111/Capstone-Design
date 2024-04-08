@@ -71,6 +71,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-#유료에셋 커밋제외
+#Temple Scene ?�료버전 commit ?�외
 ScansFactory/
 Fajrul FN/
+Project Dawn/
+KriptoFX/
