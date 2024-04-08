@@ -1105,7 +1105,10 @@ MonoBehaviour:
   trailEffect: {fileID: 6356663747177468905}
   player: {fileID: 0}
   status: {fileID: 0}
+  cameraShaking: {fileID: 0}
+  attackController: {fileID: 0}
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+  parryingPos: {fileID: 0}
 --- !u!1 &1793847644667542673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8630,6 +8633,7 @@ MonoBehaviour:
   knockbackForce: 5
   knockbackTime: 0.5
   anim: {fileID: 0}
+  cameraShaking: {fileID: 0}
 --- !u!54 &5261332138309466568
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8703,7 +8707,6 @@ MonoBehaviour:
   moveStats:
     stamina: 100
     speed: 10
-    jumpPower: 7
   combatStats:
     constant_def: 100
     attack_rate: 0.2
@@ -8724,6 +8727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_left: {fileID: 3767888076804032358}
   weapon_right: {fileID: 3767888076804032358}
+  cameraShaking: {fileID: 0}
+  effectPrefab: {fileID: 0}
 --- !u!114 &-4101450848858387414
 MonoBehaviour:
   m_ObjectHideFlags: 0

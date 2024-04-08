@@ -12,7 +12,7 @@ public class SpawnMonster : MonoBehaviour
     void Start()
     {
         SpawnCrocodile();
-        SpawnCrocodile();
+      //  SpawnCrocodile();
     }
 
     void SpawnCrocodile()
