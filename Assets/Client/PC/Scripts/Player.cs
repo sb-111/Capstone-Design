@@ -66,10 +66,10 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        /*if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-        }
+        }*/
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
         
