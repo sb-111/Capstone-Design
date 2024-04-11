@@ -34,8 +34,8 @@ public class BuildTest : MonoBehaviourPun
         {
             //r을 누르면 건축 모드로 변경이 목표.
             
-            isBuilding = !isBuilding;
-            if (isBuilding)
+           
+            if (!isBuilding)
             {
                 PlacePreview();
             }
@@ -44,6 +44,7 @@ public class BuildTest : MonoBehaviourPun
           
                 DestroyPreview();
             }
+            isBuilding = !isBuilding;
             Debug.Log("모드 전환");
         }
 

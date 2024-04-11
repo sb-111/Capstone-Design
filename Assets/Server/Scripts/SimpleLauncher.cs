@@ -30,10 +30,11 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
 
         //SceneLoader.instance.LoadScene(1);
+
         isConnecting = true;
         PhotonNetwork.ConnectUsingSettings();
 
-        // ·Îµù UI È°¼ºÈ­
+        // ë¡œë”© UI í™œì„±í™”
         //loadingUI.SetActive(true);
     }
 
@@ -47,43 +48,45 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("¹æ»ı¼º");
+        Debug.Log("ë°©ìƒì„±");
 
-        //¹æ »ı¼º
+        //ë°© ìƒì„±
         PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        //PhotonNetwork.LoadLevel("MainScene");//¾À ÀÌ¸§
+
+        //PhotonNetwork.LoadLevel("MainScene");//ì”¬ ì´ë¦„
         StartCoroutine(LoadLevelWithProgress("MainScene"));
-        Debug.Log("¹æ µé¾î°¨");
+
+        Debug.Log("ë°© ë“¤ì–´ê°");
         // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
 
     }
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
-        // ·Îµù UI È°¼ºÈ­
+        // ë¡œë”© UI í™œì„±í™”
         //loadingUI.SetActive(true);
 
-        // Scene ºñµ¿±â ·Îµù ½ÃÀÛ
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName); // SceneManager¸¦ »ç¿ë
+        // Scene ë¹„ë™ê¸° ë¡œë”© ì‹œì‘
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName); // SceneManagerë¥¼ ì‚¬ìš©
 
         loadingProgressBar.value = 0;
         float targetProgress = 0;
         float lerpSpeed = 10f;
-        // ·ÎµùÀÌ ¿Ï·áµÉ ¶§±îÁö ´ë±â
+        // ë¡œë”©ì´ ì™„ë£Œë  ë•Œê¹Œì§€ ëŒ€ê¸°
         while (!asyncLoad.isDone)
         {
-            // ÇÁ·Î±×·¹½º ¹Ù ¾÷µ¥ÀÌÆ®
+            // í”„ë¡œê·¸ë ˆìŠ¤ ë°” ì—…ë°ì´íŠ¸
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
             loadingProgressBar.value = Mathf.Lerp(loadingProgressBar.value, targetProgress, Time.deltaTime * lerpSpeed);
 
             yield return null;
         }
 
-        // ·Îµù ¿Ï·á ÈÄ ·Îµù UI ºñÈ°¼ºÈ­
+        // ë¡œë”© ì™„ë£Œ í›„ ë¡œë”© UI ë¹„í™œì„±í™”
         loadingUI.SetActive(false);
     }
 
