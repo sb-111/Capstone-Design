@@ -71,6 +71,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.17766401
+        functionName: SwordEffect
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.2937489
         functionName: WeaponAttackOut
         data: 
@@ -85,6 +92,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.36985162
+        functionName: SwordEffect
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.47190645
         functionName: WeaponAttackOut
         data: 
@@ -94,6 +108,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.57411116
         functionName: WeaponUse
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6162968
+        functionName: SwordEffect
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
