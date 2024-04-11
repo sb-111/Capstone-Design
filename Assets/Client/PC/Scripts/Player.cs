@@ -8,6 +8,8 @@ public class Player : MonoBehaviourPun
 {
     float hAxis;
     float vAxis;
+    float mouseValueX;
+    float mouseValueY;
     private int speed;
     private float jumpPower;
 
@@ -19,22 +21,23 @@ public class Player : MonoBehaviourPun
     bool isDeath;
     public bool dDown;
     public bool isJump;
+    public bool isDefense;
 
-    //°ø°İ
+    //ê³µê²©
     public float attackDelay = 1.0f;
     bool isAttackReady;
-    bool left_attack;                       //ÁÂÅ¬¸¯ °ø°İ
-    bool right_attack;                      //¿ìÅ¬¸¯ °ø°İ
-    bool strong_attack;                     //ÁÂ+¿ìÅ¬¸¯ °ø°İ ÇÕÄ£°Å
-    public bool isAttack = false;                          //°ø°İ Áß?
+    bool left_attack;                       //ì¢Œí´ë¦­ ê³µê²©
+    bool right_attack;                      //ìš°í´ë¦­ ê³µê²©
+    bool strong_attack;                     //ì¢Œ+ìš°í´ë¦­ ê³µê²© í•©ì¹œê±°
+    public bool isAttack = false;                          //ê³µê²© ì¤‘?
     bool canAttack;
 
     AttackController attack_controller;
 
-    //ÆĞ¸µ
+    //íŒ¨ë§
     bool isParrying;
 
-    //³Ë¹é
+    //ë„‰ë°±
     public float knockbackForce = 0.5f;
     public float knockbackTime = 0.3f;
     bool isKnockback;
@@ -44,7 +47,8 @@ public class Player : MonoBehaviourPun
     PlayerStatus state;
     public CameraShake cameraShaking;
 
-    Transform cameraPlayer; // cameraArm, playerÀÇ ºÎ¸ğ
+    float sensivity = 1f;
+    public float VRotation { get;  private set; } // ìˆ˜ì§ íšŒì „ ê°’
 
     // Start is called before the first frame update
     private void Awake()
@@ -54,7 +58,6 @@ public class Player : MonoBehaviourPun
         state = GetComponent<PlayerStatus>();
         attack_controller = GetComponent<AttackController>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
-        cameraPlayer = transform.parent;
     }
     void Start()
     {
@@ -66,17 +69,20 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+
+        /*if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-        }
+        }*/
+
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
         
 
         GetInput();
+        MouseRotate();
         Move();
-        Turn();
+      
         Jump();
         if (state.basicStats.hp <= 0) { Death(); }
         hit();
@@ -84,7 +90,8 @@ public class Player : MonoBehaviourPun
         if (isAttackReady && !isJump && !isDeath) canAttack = true;
         else canAttack = false;
         attack_controll();
-        Defenssing();
+        Defenssing(dDown);
+        if(!dDown) isDefense = false;
     }
     void attack_controll()
     {
@@ -106,20 +113,42 @@ public class Player : MonoBehaviourPun
     }
     void GetInput()
     {
-        hAxis = Input.GetAxisRaw("Horizontal"); // xÃà ÀÌµ¿(-1/1)
-        vAxis = Input.GetAxisRaw("Vertical"); // zÃà ÀÌµ¿(-1/1)
+        hAxis = Input.GetAxisRaw("Horizontal"); // xì¶• ì´ë™(-1/1)
+        vAxis = Input.GetAxisRaw("Vertical"); // zì¶• ì´ë™(-1/1)
         rDown = Input.GetKey(KeyCode.LeftShift);//leftshift
         jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
-        dDown = Input.GetKey(KeyCode.E);
+
+        dDown = Input.GetKey(KeyCode.E); //ë””íœìŠ¤
         
+
+
+        mouseValueX = Input.GetAxis("Mouse X"); // ë§ˆìš°ìŠ¤ ìˆ˜í‰ íšŒì „ ê°’
+        mouseValueY = Input.GetAxis("Mouse Y"); // ë§ˆìš°ìŠ¤ ìˆ˜ì§ íšŒì „ ê°’
+
+
     }
 
     void Move()
     {
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
+        Vector3 lookForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
+        Vector3 lookRight = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
+        moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
+
+        //moveVec = (transform.forward * vAxis + transform.right * hAxis).normalized;
+
+        Debug.Log($"forward:{transform.forward}, vAxis:{vAxis}, right:{transform.right}, hAxis:{hAxis}\n" +
+            $"transform.forward * vAxis:{transform.forward * vAxis}, transform.right * hAxis:{transform.right * hAxis}");
+
+        Debug.Log($"moveVec : {moveVec}, moveVecì˜ í¬ê¸°:{moveVec.magnitude}");
+
+        Debug.DrawRay(transform.position, moveVec * 10f, Color.red) ;
+        Debug.DrawRay(transform.position, transform.forward * 10f, Color.blue);
+        Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
+
+
         if (isJump)
         {
             moveVec = jumpVec;
@@ -129,18 +158,22 @@ public class Player : MonoBehaviourPun
         {
             moveVec = Vector3.zero;
         }
-
+        // ì›”ë“œ ê¸°ì¤€
         transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
-
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
     }
 
-    void Turn()
+    void MouseRotate()
     {
-        transform.LookAt(transform.position + moveVec);
-    }
+        // í”Œë ˆì´ì–´ì˜ ìˆ˜í‰íšŒì „ ì²˜ë¦¬
+        float hRotation = transform.rotation.eulerAngles.y + (mouseValueX * sensivity); // ìˆ˜í‰ íšŒì „ ê°’(yì¶• íšŒì „)
+        transform.rotation = Quaternion.Euler(0f, hRotation, 0f);
 
+        // ì¹´ë©”ë¼ì˜ ìˆ˜ì§íšŒì „ì„ ìœ„í•œ í”„ë¡œí¼í‹°
+        VRotation -= (mouseValueY * sensivity); // ìˆ˜ì§ íšŒì „ ê°’(xì¶• íšŒì „)
+        VRotation = Mathf.Clamp(VRotation, 25f, 70f);
+    }
     void Jump()
     {
         jumpVec = moveVec;
@@ -166,9 +199,18 @@ public class Player : MonoBehaviourPun
     }
 
 
-    void Defenssing()
+    void Defenssing(bool dDwon)
     {
-        anim.SetBool("Defense",dDown);
+        if(dDown && !isDefense)
+        {
+            anim.SetBool("Defense", dDown);
+        }
+        if(!dDown&&isDefense) {
+
+            attack_controller.weapon_right.ShieldEffectOut();
+            isDefense = false;
+            anim.SetBool("Defense", dDown);
+        }
     }
 
     public void DefensingHit()
@@ -196,21 +238,21 @@ public class Player : MonoBehaviourPun
         //isAttack = false;
     }
 
-    public void isAttackAnimation()             //°ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç °ø¿ë ÀÌº¥Æ® 1 (½ÃÀÛ ÁöÁ¡)
+    public void isAttackAnimation()             //ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ê³µìš© ì´ë²¤íŠ¸ 1 (ì‹œì‘ ì§€ì )
     {
         isAttack = true;
     }
 
-    public void WeaponUse()                     //°ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç °ø¿ë ÀÌº¥Æ® 2  (°ø°İ ¸ğ¼Ç ½ÃÀÛÇÏ´Â ÁöÁ¡)
+    public void WeaponUse()                     //ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ê³µìš© ì´ë²¤íŠ¸ 2  (ê³µê²© ëª¨ì…˜ ì‹œì‘í•˜ëŠ” ì§€ì )
     {
         attack_controller.weapon_right.Use();
     }
 
-    public void WeaponAttackOut()               //°ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç °ø¿ë ÀÌº¥Æ® 3 (°ø°İ ¸ğ¼Ç ³¡³ª´Â ÁöÁ¡)
+    public void WeaponAttackOut()               //ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ê³µìš© ì´ë²¤íŠ¸ 3 (ê³µê²© ëª¨ì…˜ ëë‚˜ëŠ” ì§€ì )
     {
         attack_controller.weapon_right.AttackOut();
     }
-    public void isAttackAnimationEnd()          //°ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç °ø¿ë ÀÌº¥Æ® 4 (Á¾·á ÁöÁ¡)
+    public void isAttackAnimationEnd()          //ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ê³µìš© ì´ë²¤íŠ¸ 4 (ì¢…ë£Œ ì§€ì )
     {
         isAttack = false;
     }
@@ -268,7 +310,7 @@ public class Player : MonoBehaviourPun
 
     IEnumerator OnKnockback(Vector3 enemyVec)
     {
-        Debug.Log("³Ë¹é");
+        Debug.Log("ë„‰ë°±");
         float startTime = Time.time;
         
         Vector3 reactVec = (transform.position - enemyVec).normalized;

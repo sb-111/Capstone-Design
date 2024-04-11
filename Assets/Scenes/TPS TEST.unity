@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -910,6 +910,7 @@ GameObject:
   - component: {fileID: 1142702639}
   - component: {fileID: 1142702638}
   - component: {fileID: 1142702637}
+  - component: {fileID: 1142702640}
   m_Layer: 0
   m_Name: TPS Camera
   m_TagString: MainCamera
@@ -926,11 +927,11 @@ Transform:
   m_GameObject: {fileID: 1142702635}
   serializedVersion: 2
   m_LocalRotation: {x: 0.074978724, y: -0, z: -0, w: 0.9971852}
-  m_LocalPosition: {x: 0, y: -1.3300004, z: -5.69}
+  m_LocalPosition: {x: 0, y: 7.6699996, z: -5.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1379078832}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 8.6, y: 0, z: 0}
 --- !u!114 &1142702637
 MonoBehaviour:
@@ -1120,6 +1121,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1142702640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142702635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b62b295633edd428e9018cb4ae60a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1935827293}
+  offset: {x: 0, y: 7.5, z: -5.5}
+  sensivity: 1
+  speed: 3
 --- !u!1 &1379078831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1379078832
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,11 +1163,10 @@ Transform:
   m_GameObject: {fileID: 1379078831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.55, z: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1142702636}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1379078833
@@ -1165,8 +1181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b62b295633edd428e9018cb4ae60a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraArm: {fileID: 1379078832}
-  player: {fileID: 548996672}
+  target: {fileID: 548996672}
+  offset: {x: 0, y: 0, z: 0}
   sensivity: 1
   speed: 3
 --- !u!1 &1786872165
@@ -1270,7 +1286,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1356,10 +1372,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7277158791540483709, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1404,15 +1416,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_MercenaryWarrior_MergedB
       objectReference: {fileID: 0}
-    - target: {fileID: 8364360537352700500, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+--- !u!114 &1935827293 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 28535376864614744, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+  m_PrefabInstance: {fileID: 1935827292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa6c4447e8c5f240a6e388f76d1eff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1423,3 +1442,4 @@ SceneRoots:
   - {fileID: 1821912479}
   - {fileID: 1379078832}
   - {fileID: 1935827292}
+  - {fileID: 1142702636}

@@ -8071,11 +8071,13 @@ MonoBehaviour:
   weapon_damage: 0
   weapon_rate: 0
   meleeArea: {fileID: 6198849175013970959}
-  trailEffect: {fileID: 3232275152543860089}
   player: {fileID: 0}
   status: {fileID: 0}
   cameraShaking: {fileID: 0}
   attackController: {fileID: 0}
+  effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
+  shieldEffectPrefab: {fileID: 1881634734537756, guid: 5b389d585d7681948a86765d14232bdb, type: 3}
+  strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {fileID: 6279705890664960812}
 --- !u!1 &4710598195485606043
@@ -9666,6 +9668,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dDown: 0
   isJump: 0
+  isDefense: 0
   attackDelay: 1
   isAttack: 0
   knockbackForce: 5
@@ -9766,7 +9769,7 @@ MonoBehaviour:
   weapon_left: {fileID: 1887557618392704136}
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
-  effectPrefab: {fileID: 4087395338901116957, guid: 8f651c158e51b5a47a42c01ef2dea467, type: 3}
+  WeaponPoint: {fileID: 0}
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0
