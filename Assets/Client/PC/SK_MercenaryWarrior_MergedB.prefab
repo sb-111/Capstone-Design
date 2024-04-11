@@ -9598,6 +9598,10 @@ GameObject:
   - component: {fileID: 7823537686280230912}
   - component: {fileID: 8989307028388258042}
   - component: {fileID: 1601519205112064676}
+  - component: {fileID: 1248089970330846525}
+  - component: {fileID: 2389297423298781671}
+  - component: {fileID: -7877563303942974739}
+  - component: {fileID: 5361170300420579470}
   m_Layer: 0
   m_Name: SK_MercenaryWarrior_MergedB
   m_TagString: Player
@@ -9770,6 +9774,141 @@ MonoBehaviour:
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
   WeaponPoint: {fileID: 0}
+--- !u!114 &1248089970330846525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 2389297423298781671}
+  - {fileID: -7877563303942974739}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &2389297423298781671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &-7877563303942974739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: isRun
+  - Type: 4
+    SynchronizeType: 1
+    Name: isWalk
+  - Type: 4
+    SynchronizeType: 1
+    Name: isJump
+  - Type: 9
+    SynchronizeType: 1
+    Name: doJump
+  - Type: 9
+    SynchronizeType: 1
+    Name: doDeath
+  - Type: 9
+    SynchronizeType: 1
+    Name: doLattack
+  - Type: 9
+    SynchronizeType: 1
+    Name: doRattack
+  - Type: 9
+    SynchronizeType: 1
+    Name: doDodge
+  - Type: 9
+    SynchronizeType: 1
+    Name: doStrongAttack
+  - Type: 4
+    SynchronizeType: 1
+    Name: isLattack
+  - Type: 4
+    SynchronizeType: 1
+    Name: isRattack
+  - Type: 4
+    SynchronizeType: 1
+    Name: isStrongAttack
+  - Type: 9
+    SynchronizeType: 1
+    Name: doDefense
+  - Type: 9
+    SynchronizeType: 1
+    Name: getDefenseHIt
+  - Type: 4
+    SynchronizeType: 1
+    Name: Defense
+  - Type: 9
+    SynchronizeType: 0
+    Name: doParrying
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &5361170300420579470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce001f851ccf0b4cabaa1aba9de4c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 1031083464, guid: abc00000000006808584559361833464, type: 3}
+  maxHeight: 5
+  raycastDistance: 1
+  distance: 5
+  previewPrefab: {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
+  isPreviewCol: 0
+  buildArray:
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  - {fileID: 1031083464, guid: 3846852e038fd9f4791cf143524da44f, type: 3}
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  previewArray:
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  rotationSpeed: 50
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0
