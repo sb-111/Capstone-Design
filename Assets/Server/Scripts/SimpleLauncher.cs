@@ -22,6 +22,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
 
         //SceneLoader.instance.LoadScene(1);
         PhotonNetwork.ConnectUsingSettings();
+
         isConnecting = true;
     }
 
@@ -45,6 +46,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
         PhotonNetwork.LoadLevel("MainScene");//씬 이름
+        //SceneLoader.instance.LoadScene();
         Debug.Log("방 들어감");
         // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
 

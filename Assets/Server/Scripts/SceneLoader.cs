@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviourPun
 {
     public GameObject loaderUI;
     public Slider progressSlider;
@@ -15,26 +16,22 @@ public class SceneLoader : MonoBehaviour
         if (instance == null) instance = this;
     }
 
-    public void LoadScene(int index)
+    public void LoadScene()
     {
-        StartCoroutine(LoadScene_Coroutine(index));
+        StartCoroutine(LoadScene_Coroutine());
     }
-    public IEnumerator LoadScene_Coroutine(int index)
+    public IEnumerator LoadScene_Coroutine()
     {
         progressSlider.value = 0;
         loaderUI.SetActive(true);
-
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(index);
-        asyncOperation.allowSceneActivation = false;
         float progress = 0;
-        while(!asyncOperation.isDone)
+        while(!PhotonNetwork.IsConnected)
         {
-            progress = Mathf.MoveTowards(progress, asyncOperation.progress, Time.deltaTime*0.5f);
+            progress = Mathf.MoveTowards(progress, PhotonNetwork.LevelLoadingProgress, Time.deltaTime*0.5f);
             progressSlider.value = progress;
             if (progress >= 0.9f)
             {
                 progressSlider.value = 1;
-                asyncOperation.allowSceneActivation = true;
             }
             yield return null;
         }
