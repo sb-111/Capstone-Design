@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1031083465}
   - component: {fileID: 1031083466}
   - component: {fileID: 1031083467}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Bench_01_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1031083469}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1031083469}
   - component: {fileID: 1031083470}
   - component: {fileID: 1031083471}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sm_Bench_01_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1031083473}
   - component: {fileID: 1031083474}
   - component: {fileID: 1031083475}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sm_Bench_01_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 1031083477}
   - component: {fileID: 1031083478}
   - component: {fileID: 1031083479}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sm_Bench_01_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 1031083481}
   - component: {fileID: 1031083482}
   - component: {fileID: 1031083483}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sm_Bench_01_01_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

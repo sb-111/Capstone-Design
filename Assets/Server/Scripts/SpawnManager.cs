@@ -6,14 +6,18 @@ using Photon.Pun;
 public class SpawnManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("포탈 설정")]
+    [SerializeField]
+    private GameObject portal;
+    [SerializeField]
+    private GameObject portalSpawner;
+    [SerializeField]
+    private GameObject portalSpawnPoint;
+    [Header("타이머")]
+    [SerializeField]
+    private GameObject timer;
+  
 
-    public GameObject monster;
-    public GameObject timer;
-    public GameObject portal;
-    public GameObject portalSpawner;
-    public GameObject portalSpawnPoint;
-    //포탈 스폰 포인트
-    public GameObject monsterSpawnPoint;
     //몬스터 스폰 포인트
     private static SpawnManager instance = null;
     void Start()
