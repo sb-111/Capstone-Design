@@ -8,6 +8,8 @@ public class Player : MonoBehaviourPun
 {
     float hAxis;
     float vAxis;
+    float mouseValueX;
+    float mouseValueY;
     private int speed;
     private float jumpPower;
 
@@ -44,7 +46,8 @@ public class Player : MonoBehaviourPun
     PlayerStatus state;
     public CameraShake cameraShaking;
 
-    Transform cameraPlayer; // cameraArm, player의 부모
+    float sensivity = 1f;
+    public float VRotation { get;  private set; } // 수직 회전 값
 
     // Start is called before the first frame update
     private void Awake()
@@ -54,7 +57,6 @@ public class Player : MonoBehaviourPun
         state = GetComponent<PlayerStatus>();
         attack_controller = GetComponent<AttackController>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
-        cameraPlayer = transform.parent;
     }
     void Start()
     {
@@ -66,17 +68,18 @@ public class Player : MonoBehaviourPun
     void Update()
     {
         
-        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
-        {
-            return;
-        }
+        //if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        //{
+        //    return;
+        //}
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
         
 
         GetInput();
+        MouseRotate();
         Move();
-        Turn();
+      
         Jump();
         if (state.basicStats.hp <= 0) { Death(); }
         hit();
@@ -114,12 +117,30 @@ public class Player : MonoBehaviourPun
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
         dDown = Input.GetKey(KeyCode.E);
-        
+
+        mouseValueX = Input.GetAxis("Mouse X"); // 마우스 수평 회전 값
+        mouseValueY = Input.GetAxis("Mouse Y"); // 마우스 수직 회전 값
+
     }
 
     void Move()
     {
-        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
+        Vector3 lookForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
+        Vector3 lookRight = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
+        moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
+
+        //moveVec = (transform.forward * vAxis + transform.right * hAxis).normalized;
+
+        Debug.Log($"forward:{transform.forward}, vAxis:{vAxis}, right:{transform.right}, hAxis:{hAxis}\n" +
+            $"transform.forward * vAxis:{transform.forward * vAxis}, transform.right * hAxis:{transform.right * hAxis}");
+
+        Debug.Log($"moveVec : {moveVec}, moveVec의 크기:{moveVec.magnitude}");
+
+        Debug.DrawRay(transform.position, moveVec * 10f, Color.red) ;
+        Debug.DrawRay(transform.position, transform.forward * 10f, Color.blue);
+        Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
+
+
         if (isJump)
         {
             moveVec = jumpVec;
@@ -129,18 +150,22 @@ public class Player : MonoBehaviourPun
         {
             moveVec = Vector3.zero;
         }
-
+        // 월드 기준
         transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
-
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
     }
 
-    void Turn()
+    void MouseRotate()
     {
-        transform.LookAt(transform.position + moveVec);
-    }
+        // 플레이어의 수평회전 처리
+        float hRotation = transform.rotation.eulerAngles.y + (mouseValueX * sensivity); // 수평 회전 값(y축 회전)
+        transform.rotation = Quaternion.Euler(0f, hRotation, 0f);
 
+        // 카메라의 수직회전을 위한 프로퍼티
+        VRotation -= (mouseValueY * sensivity); // 수직 회전 값(x축 회전)
+        VRotation = Mathf.Clamp(VRotation, 25f, 70f);
+    }
     void Jump()
     {
         jumpVec = moveVec;
