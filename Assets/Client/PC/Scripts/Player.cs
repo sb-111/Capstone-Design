@@ -65,11 +65,11 @@ public class Player : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        /*
+        
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
-        }*/
+        }
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
         
