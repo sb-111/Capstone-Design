@@ -3307,7 +3307,12 @@ namespace Photon.Pun
             }
         }
 
-        #endif
+        public static object LoadLevelAsync(string sceneName)
+        {
+            throw new NotImplementedException();
+        }
+
+#endif
 
     }
 }
