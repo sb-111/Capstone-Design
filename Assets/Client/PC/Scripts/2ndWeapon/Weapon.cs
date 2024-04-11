@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Weapon : MonoBehaviour
 {
@@ -12,13 +13,18 @@ public class Weapon : MonoBehaviour
     public int weapon_damage; //무기별 공격력
     public float weapon_rate; // 무기별 공격 속도
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
-    public TrailRenderer trailEffect; //공격시 생성 이펙트
+    //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
 
     public Player player;
     public PlayerStatus status;
     public CameraShake cameraShaking;
     public AttackController attackController;
+
+    public GameObject effectPrefab;//공격 이펙트 프리팹
+    public GameObject shieldEffectPrefab;//방어 이펙트 프리팹
+    GameObject nEffectPrefab;
+    
 
 
     //패링
@@ -34,6 +40,7 @@ public class Weapon : MonoBehaviour
         status = GetComponentInParent<PlayerStatus>();
         attackController = GetComponentInParent<AttackController>();
         cameraShaking =Camera.main.GetComponent<CameraShake>();
+        
         
     }
     public void Use()
@@ -57,14 +64,56 @@ public class Weapon : MonoBehaviour
     public void AttackOut()
     {
         meleeArea.enabled = false;
-        trailEffect.enabled = false;
+        //trailEffect.enabled = false;
     }
+
 
     IEnumerator Weapon_Activation()
     {
         meleeArea.enabled = true;
-        trailEffect.enabled = true;
+        //trailEffect.enabled = true;
+      
         yield return null;
+    }
+
+
+    public void EffectInstance(bool reverse)
+    {
+        Debug.Log(reverse);
+        if (effectPrefab == null)
+        {
+            return;
+        }
+        if (reverse)
+        {
+            GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation);
+            Destroy(effectInstance, 1.0f);
+        }
+        if (!reverse)
+            {
+            Quaternion reverseRoation = Quaternion.Euler(0, 0, 180);
+            GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation* reverseRoation);
+            Destroy(effectInstance, 1.0f);
+        }
+    }
+
+    public void ShieldEffectInstance()
+    {
+        if (!player.isDefense)
+        {
+            Quaternion reverseRoation = Quaternion.Euler(0, 1, 0);
+            nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,-1.0f),transform.rotation* reverseRoation); 
+            player.isDefense = true;
+        }           
+    }
+    public void ShieldEffectOut()
+    {
+        if(nEffectPrefab != null)
+        {
+
+            Destroy(nEffectPrefab);
+            nEffectPrefab = null;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

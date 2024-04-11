@@ -19,6 +19,7 @@ public class Player : MonoBehaviourPun
     bool isDeath;
     public bool dDown;
     public bool isJump;
+    public bool isDefense;
 
     //°ø°Ý
     public float attackDelay = 1.0f;
@@ -84,7 +85,8 @@ public class Player : MonoBehaviourPun
         if (isAttackReady && !isJump && !isDeath) canAttack = true;
         else canAttack = false;
         attack_controll();
-        Defenssing();
+        Defenssing(dDown);
+        if(!dDown) isDefense = false;
     }
     void attack_controll()
     {
@@ -113,7 +115,7 @@ public class Player : MonoBehaviourPun
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
-        dDown = Input.GetKey(KeyCode.E);
+        dDown = Input.GetKey(KeyCode.E); //µðÆæ½º
         
     }
 
@@ -166,9 +168,18 @@ public class Player : MonoBehaviourPun
     }
 
 
-    void Defenssing()
+    void Defenssing(bool dDwon)
     {
-        anim.SetBool("Defense",dDown);
+        if(dDown && !isDefense)
+        {
+            anim.SetBool("Defense", dDown);
+        }
+        if(!dDown&&isDefense) {
+
+            attack_controller.weapon_right.ShieldEffectOut();
+            isDefense = false;
+            anim.SetBool("Defense", dDown);
+        }
     }
 
     public void DefensingHit()
