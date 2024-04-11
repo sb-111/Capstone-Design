@@ -121,4 +121,9 @@ public class AttackController : MonoBehaviour
     {
         weapon_right.ShieldEffectInstance();
     }
+
+    public void StrongEffect()
+    {
+        weapon_right.StrongEffectInstance();
+    }
 }

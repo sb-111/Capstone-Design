@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
 
     public GameObject effectPrefab;//°ø°Ý ÀÌÆåÆ® ÇÁ¸®ÆÕ
     public GameObject shieldEffectPrefab;//¹æ¾î ÀÌÆåÆ® ÇÁ¸®ÆÕ
+    public GameObject strongEffectPrefab;
     GameObject nEffectPrefab;
     
 
@@ -95,6 +96,12 @@ public class Weapon : MonoBehaviour
             GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation* reverseRoation);
             Destroy(effectInstance, 1.0f);
         }
+    }
+
+    public void StrongEffectInstance()
+    {
+        GameObject effectInstance = Instantiate(strongEffectPrefab, transform.position, transform.rotation);
+        Destroy(effectInstance, 3.0f);
     }
 
     public void ShieldEffectInstance()

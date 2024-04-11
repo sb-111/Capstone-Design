@@ -1485,11 +1485,15 @@ PrefabInstance:
     - target: {fileID: 1887557618392704136, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: effectPrefab
       value: 
-      objectReference: {fileID: 1481134159952288249, guid: 3689d8a96f91ba540a19a59aa80782d4, type: 3}
+      objectReference: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
     - target: {fileID: 1887557618392704136, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: shieldEffectPrefab
       value: 
       objectReference: {fileID: 1881634734537756, guid: 5b389d585d7681948a86765d14232bdb, type: 3}
+    - target: {fileID: 1887557618392704136, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: strongEffectPrefab
+      value: 
+      objectReference: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8735423
