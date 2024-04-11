@@ -9599,6 +9599,7 @@ GameObject:
   - component: {fileID: 4154885798338118223}
   - component: {fileID: -1725908042875242807}
   - component: {fileID: -5224228620367359748}
+  - component: {fileID: -2036125445962906333}
   m_Layer: 9
   m_Name: SK_MercenaryWarrior_MergedB
   m_TagString: Player
@@ -9876,6 +9877,35 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-2036125445962906333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce001f851ccf0b4cabaa1aba9de4c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingPrefab: {fileID: 1031083464, guid: abc00000000006808584559361833464, type: 3}
+  maxHeight: 5
+  raycastDistance: 1
+  distance: 5
+  previewPrefab: {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
+  isPreviewCol: 0
+  buildArray:
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  - {fileID: 1031083464, guid: 3846852e038fd9f4791cf143524da44f, type: 3}
+  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  previewArray:
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
+  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  rotationSpeed: 50
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0

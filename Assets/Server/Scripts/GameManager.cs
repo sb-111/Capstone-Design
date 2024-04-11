@@ -8,10 +8,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
+    [Header("플레이어 설정")]
+    [SerializeField]
+    private GameObject playerPrefab;
+    [SerializeField]
+    private GameObject playerSpawnPoint;
 
-    public GameObject playerPrefab;
+
+
     public static bool portalOwner = false;
     private static GameManager instance = null;
+
     //public TextMeshProUGUI gameOver;
     void Awake()
     {
@@ -35,8 +42,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-
+            PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
             // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
             Debug.Log("확인");
         }

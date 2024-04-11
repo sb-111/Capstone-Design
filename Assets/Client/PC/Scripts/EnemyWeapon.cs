@@ -64,6 +64,21 @@ public class EnemyWeapon : MonoBehaviour
                 enemyDamage.TakeDamage((20 + weapon_damage), transform.position);
             }
         }
+      
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log("확인");
+        if (other.collider.CompareTag( "Build"))
+        {
+            GameObject build = other.gameObject;
+            Barricade buildDamage = build.GetComponent<Barricade>();
+            if (!hitEnemies.Contains(build)) // 이미 공격한 적이 아니라면
+            {
+                hitEnemies.Add(build);
+                buildDamage.TakeDamage((20 + weapon_damage), transform.position);
+            }
+        }
     }
 
 
