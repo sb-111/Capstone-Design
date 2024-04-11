@@ -22,27 +22,7 @@ public class previewTest : MonoBehaviour
     private void Update()
     {
         // 바닥의 위치를 확인하기 위한 레이캐스트
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position+Vector3.up*3f, Vector3.down, out hit))
-        {
-            // 바닥과 충돌한 경우
-            Vector3 floorPosition = hit.point;
-            Debug.Log(hit.point);
-            // 자식 객체의 위치를 바닥의 위치로 이동시킴
-
-            BoxCollider boxCollider = GetComponent<BoxCollider>();
-
-            // 박스 콜라이더가 존재하는지 확인
-            if (boxCollider == null)
-            {
-                Debug.LogError("BoxCollider not found on specified GameObject.");
-            }
-            // 건물을 바닥에 배치하기 위해 건물의 높이 절반을 더함
-            float height = boxCollider.size.y;
-            Vector3 offset = new Vector3(0f, height / 2, 0f);
-            //transform.position = transform.position+Vector3.up*floorPosition.y+offset;
-            Debug.Log(transform.position);
-        }
+      
         
     }
    

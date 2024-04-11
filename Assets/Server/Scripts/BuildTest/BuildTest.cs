@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class BuildTest : MonoBehaviour
+public class BuildTest : MonoBehaviourPun
 {
 
     public GameObject buildingPrefab; // 구조물 요소 프리팹
@@ -17,6 +18,7 @@ public class BuildTest : MonoBehaviour
     public GameObject[] previewArray = new GameObject[4];
 
     public float rotationSpeed = 50f;
+    private float height = 0;
 
     void Start()
     {
@@ -47,7 +49,7 @@ public class BuildTest : MonoBehaviour
 
         if (isBuilding) 
         {
-            MovePreview();
+            
             if (Input.GetKeyDown(KeyCode.T))
             {
                 Build();
@@ -79,7 +81,8 @@ public class BuildTest : MonoBehaviour
                     ChangeBuild(3);
                     break;
             }
-           
+            MovePreview();
+            //생성이 빨라서 튕기는 경우 존재...
         }
 
     }
@@ -101,12 +104,15 @@ public class BuildTest : MonoBehaviour
 
         preview.transform.Rotate(Vector3.up, rotationAmount);
     }
-
+    void RotateReset()
+    {
+     
+    }
 
     void Build()
     {
         DestroyPreview();
-        Instantiate(buildingPrefab, preview.transform.position, preview.transform.rotation);
+        PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
         PlacePreview();
 
     }
@@ -140,11 +146,12 @@ public class BuildTest : MonoBehaviour
                 Debug.LogError("BoxCollider not found on specified GameObject.");
             }
       
-            float height = boxCollider.size.y;
+            height = boxCollider.size.y;
             Vector3 offset = new Vector3(0f, height/2, 0f);
 
-          
-            preview =Instantiate(previewPrefab, buildingPosition + offset, Quaternion.identity);
+            Debug.Log(height);
+            Debug.Log(hit.point);
+            preview =Instantiate(previewPrefab, buildingPosition,transform.rotation* Quaternion.Euler(new Vector3(0, 90, 0)));
             
            
         }
@@ -152,8 +159,28 @@ public class BuildTest : MonoBehaviour
     public void MovePreview()
     {
         
-        preview.transform.SetParent(transform);
-    
+       
+        RaycastHit hit;
+        int layerMask = (-1) - (1 << LayerMask.NameToLayer("IgnoreRaycast"));
+
+        if (Physics.Raycast(preview.transform.position + Vector3.up * 3f, Vector3.down, out hit, layerMask))
+        {
+            // 바닥과 충돌한 경우
+            Vector3 floorPosition = hit.point;
+           
+       
+            // 자식 객체의 위치를 바닥의 위치로 이동시킴
+           
+            //transform.position = transform.position+Vector3.up*floorPosition.y+offset;
+            preview.transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z)+ transform.forward * distance;
+            preview.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal)* transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
+
+            Debug.Log(transform.rotation);
+            Debug.Log(hit.normal);
+
+        }
+     
+
     }
 
 }
