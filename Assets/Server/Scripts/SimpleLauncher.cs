@@ -70,12 +70,15 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         // Scene 비동기 로딩 시작
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName); // SceneManager를 사용
 
+        loadingProgressBar.value = 0;
+        float targetProgress = 0;
+        float lerpSpeed = 10f;
         // 로딩이 완료될 때까지 대기
         while (!asyncLoad.isDone)
         {
             // 프로그레스 바 업데이트
             float progress = Mathf.Clamp01(asyncLoad.progress / 0.9f);
-            loadingProgressBar.value = progress;
+            loadingProgressBar.value = Mathf.Lerp(loadingProgressBar.value, targetProgress, Time.deltaTime * lerpSpeed);
 
             yield return null;
         }
