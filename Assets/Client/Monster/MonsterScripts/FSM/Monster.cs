@@ -196,6 +196,18 @@ public class Monster : MonoBehaviour
             Die();
         }
     }
+    public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
+    {
+        //anim.SetTrigger("getHit");
+        //추가 > player에 bool 만들고 이를 true로 만들자.
+        //true면 Input을 제한하자.
+        Invoke("HitResponseEnd", cctime);
+    }
+    public void HitResponseEnd()
+    {
+        //추가 > player에 bool false로 바꿔주기
+    }
+
     private bool IsDie()
     {
         return currentHP <= 0;

@@ -22,7 +22,7 @@ public class Player : MonoBehaviourPun
     public bool dDown;
     public bool isJump;
     public bool isDefense;
-
+    public bool isCC = false;
     //공격
     public float attackDelay = 1.0f;
     bool isAttackReady;
@@ -113,6 +113,11 @@ public class Player : MonoBehaviourPun
     }
     void GetInput()
     {
+
+        mouseValueX = Input.GetAxis("Mouse X"); // 마우스 수평 회전 값
+        mouseValueY = Input.GetAxis("Mouse Y"); // 마우스 수직 회전 값
+
+        if (isCC) { return; }                   //CC기 걸리면 아래 인풋 무시
         hAxis = Input.GetAxisRaw("Horizontal"); // x축 이동(-1/1)
         vAxis = Input.GetAxisRaw("Vertical"); // z축 이동(-1/1)
         rDown = Input.GetKey(KeyCode.LeftShift);//leftshift
@@ -122,13 +127,6 @@ public class Player : MonoBehaviourPun
         strong_attack = Input.GetMouseButtonDown(2);
 
         dDown = Input.GetKey(KeyCode.E); //디펜스
-        
-
-
-        mouseValueX = Input.GetAxis("Mouse X"); // 마우스 수평 회전 값
-        mouseValueY = Input.GetAxis("Mouse Y"); // 마우스 수직 회전 값
-
-
     }
 
     void Move()
@@ -137,17 +135,10 @@ public class Player : MonoBehaviourPun
         Vector3 lookRight = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
         moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
 
-        //moveVec = (transform.forward * vAxis + transform.right * hAxis).normalized;
-
-        Debug.Log($"forward:{transform.forward}, vAxis:{vAxis}, right:{transform.right}, hAxis:{hAxis}\n" +
-            $"transform.forward * vAxis:{transform.forward * vAxis}, transform.right * hAxis:{transform.right * hAxis}");
-
-        Debug.Log($"moveVec : {moveVec}, moveVec의 크기:{moveVec.magnitude}");
-
         Debug.DrawRay(transform.position, moveVec * 10f, Color.red) ;
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.blue);
         Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
-
+        
 
         if (isJump)
         {
@@ -285,10 +276,6 @@ public class Player : MonoBehaviourPun
     }
 
 
-    public void TakeDamage(int damage, Vector3 enemnyPosition)
-    {
-       state.TakeDamage(damage, enemnyPosition);
-    }
     void OnCollisionEnter(Collision collision)
     {
         

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
+  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,6 +155,71 @@ Transform:
   - {fileID: 1251531196}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &194450050
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 28535376864614744, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248089970330846525, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429762857904496939, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364360537352700500, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
+      propertyPath: m_Name
+      value: DummyCharacter
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 443b325f5856eac46b8120c68c96e5d9, type: 3}
 --- !u!4 &327652864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
@@ -933,8 +998,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b62b295633edd428e9018cb4ae60a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraArm: {fileID: 1251531196}
-  player: {fileID: 327652864}
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   sensivity: 1
   speed: 3
 --- !u!114 &1596412053
@@ -1478,6 +1543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1601519205112064676, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: effectPrefab
       value: 
@@ -1632,3 +1701,4 @@ SceneRoots:
   - {fileID: 1286029431}
   - {fileID: 1949239725}
   - {fileID: 5390192956535278117}
+  - {fileID: 194450050}

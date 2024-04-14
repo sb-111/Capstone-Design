@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
+    public bool isHeavyAttack = false;
 
     public Player player;
     public PlayerStatus status;
@@ -23,7 +24,8 @@ public class Weapon : MonoBehaviour
 
     public GameObject effectPrefab;//공격 이펙트 프리팹
     public GameObject shieldEffectPrefab;//방어 이펙트 프리팹
-    public GameObject strongEffectPrefab;
+    public GameObject strongEffectPrefab;//필살기 이펙트 프리팹
+    public GameObject hitEffectPrefab; //타격시 이펙트 프리팹
     GameObject nEffectPrefab;
     
 
@@ -64,8 +66,11 @@ public class Weapon : MonoBehaviour
     }
     public void AttackOut()
     {
+        Debug.Log("현재 값," + isHeavyAttack);
         meleeArea.enabled = false;
         //trailEffect.enabled = false;
+        isHeavyAttack = false;
+        Debug.Log("현재 값," + isHeavyAttack);
     }
 
 
@@ -80,7 +85,7 @@ public class Weapon : MonoBehaviour
 
     public void EffectInstance(bool reverse)
     {
-        Debug.Log(reverse);
+        
         if (effectPrefab == null)
         {
             return;
@@ -100,7 +105,7 @@ public class Weapon : MonoBehaviour
 
     public void StrongEffectInstance()
     {
-        GameObject effectInstance = Instantiate(strongEffectPrefab, transform.position, transform.rotation);
+        GameObject effectInstance = Instantiate(strongEffectPrefab, transform.position+new Vector3(0.0f,0.0f,-5.0f), transform.rotation);
         Destroy(effectInstance, 3.0f);
     }
 
@@ -131,17 +136,46 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Parrying());
         }
 
-        if (other.tag == "MonsterEnemy"|| other.tag == "Enemy")
+        if (other.tag == "MonsterEnemy" || other.tag == "Enemy" || other.tag == "Player")
         {
             GameObject enemy = other.gameObject;
-            Monster enemyDamage = enemy.GetComponent<Monster>();
-            if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+
+            if (other.tag == "MonsterEnemy")
             {
-                hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage), transform.position);
-                cameraShaking.Shaking();
+                Monster enemyDamage = enemy.GetComponent<Monster>();
+                if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+                {
+                    hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
+                    enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage), transform.position);
+                    GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    Destroy(hiteffectInstance, 0.5f);
+          
+                    if (isHeavyAttack) //여기서 HeavyAttack false로 하면, 이후 피격 대상들이 적용 안될 듯
+                    {
+                        enemyDamage.HitResponse();
+                    }
+                }
             }
+            else if (other.tag == "Player")
+            {
+                CombatStatusManager enemyDamage = enemy.GetComponent<CombatStatusManager>();
+                if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+                {
+                    hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
+                    enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage));
+                    GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    Destroy(hiteffectInstance, 0.5f);
+
+                    if (isHeavyAttack) //여기서 HeavyAttack false로 하면, 이후 피격 대상들이 적용 안됨
+                    {
+                        enemyDamage.HitResponse();
+                    }
+                }
+            }
+            else return;
         }
+
+        else return;
     }
 
     IEnumerator Parrying()

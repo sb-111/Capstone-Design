@@ -126,4 +126,10 @@ public class AttackController : MonoBehaviour
     {
         weapon_right.StrongEffectInstance();
     }
+
+    public void IsHeavyAttack()
+    {
+        weapon_right.isHeavyAttack = true;
+        Debug.Log("강공격 상태: "+weapon_right.isHeavyAttack);
+    }
 }
