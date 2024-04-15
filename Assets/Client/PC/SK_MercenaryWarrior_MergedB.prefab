@@ -1816,8 +1816,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8188118361486413423}
   m_AABB:
-    m_Center: {x: -0.019794106, y: 0.015437752, z: 0.09720707}
-    m_Extent: {x: 0.54455346, y: 0.22574493, z: 0.17221451}
+    m_Center: {x: NaN, y: NaN, z: NaN}
+    m_Extent: {x: NaN, y: NaN, z: NaN}
   m_DirtyAABB: 0
 --- !u!183 &8154436825179452103
 Cloth:
@@ -8076,7 +8076,7 @@ MonoBehaviour:
   cameraShaking: {fileID: 0}
   attackController: {fileID: 0}
   effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
-  shieldEffectPrefab: {fileID: 1881634734537756, guid: 5b389d585d7681948a86765d14232bdb, type: 3}
+  shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {fileID: 6279705890664960812}
