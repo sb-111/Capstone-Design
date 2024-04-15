@@ -8071,6 +8071,7 @@ MonoBehaviour:
   weapon_damage: 0
   weapon_rate: 0
   meleeArea: {fileID: 6198849175013970959}
+  isHeavyAttack: 0
   player: {fileID: 0}
   status: {fileID: 0}
   cameraShaking: {fileID: 0}
@@ -8078,6 +8079,7 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
   shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
+  hitEffectPrefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7, type: 3}
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {fileID: 6279705890664960812}
 --- !u!1 &4710598195485606043
@@ -9602,6 +9604,7 @@ GameObject:
   - component: {fileID: 2389297423298781671}
   - component: {fileID: -7877563303942974739}
   - component: {fileID: 5361170300420579470}
+  - component: {fileID: 6058203953304390727}
   m_Layer: 0
   m_Name: SK_MercenaryWarrior_MergedB
   m_TagString: Player
@@ -9673,6 +9676,7 @@ MonoBehaviour:
   dDown: 0
   isJump: 0
   isDefense: 0
+  isCC: 0
   attackDelay: 1
   isAttack: 0
   knockbackForce: 5
@@ -9877,6 +9881,9 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 0
     Name: doParrying
+  - Type: 9
+    SynchronizeType: 0
+    Name: getHit
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -9909,6 +9916,21 @@ MonoBehaviour:
   - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
   - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
   rotationSpeed: 50
+--- !u!114 &6058203953304390727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ac97c735b409447a8493dfd9604bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  player_status: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0

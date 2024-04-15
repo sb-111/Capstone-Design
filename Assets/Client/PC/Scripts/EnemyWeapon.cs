@@ -57,11 +57,11 @@ public class EnemyWeapon : MonoBehaviour
         if (other.tag == "Player")
         {
             GameObject enemy = other.gameObject;
-            Player enemyDamage = enemy.GetComponent<Player>();
+            CombatStatusManager enemyDamage = enemy.GetComponent<CombatStatusManager>();
             if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
             {
                 hitEnemies.Add(enemy); 
-                enemyDamage.TakeDamage((20 + weapon_damage), transform.position);
+                enemyDamage.TakeDamage((20 + weapon_damage));
             }
         }
       

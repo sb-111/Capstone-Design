@@ -51,18 +51,5 @@ public class PlayerStatus : MonoBehaviour
         player = GetComponent<Player>();  
         rigid = GetComponent<Rigidbody>();
     }
-    public void TakeDamage(int damage, Vector3 enmenyPosition)
-    {
-        int result_damage = (int)(damage * (1-(basicStats.def / (basicStats.def + combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
-        basicStats.hp -= result_damage;
-        Debug.Log(result_damage);
-        if(result_damage > 0&& result_damage > basicStats.maxhp*0.3)  //데미지가 maxHP의 30% 이상이면 넉백 효과
-        {
-            player.Knockback(enmenyPosition);
-        }
-        else if(result_damage >0&& player.dDown)
-        {
-            player.DefensingHit();
-        }
-    }
+   
 }

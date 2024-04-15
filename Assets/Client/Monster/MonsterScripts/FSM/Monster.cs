@@ -72,7 +72,7 @@ public class Monster : MonoBehaviour
         // _fsm을 통한 상태 변경 부분
         switch (_fsm.CurrentState) // fsm의 현재상태 프로퍼티 접근
         {
-            case IdleState:
+            case IdleState:  
                 if (CheckPlayerInSight()) // 시야 범위 내
                 {
                     if (CheckAttackRange()) // 사정거리 안
@@ -84,6 +84,7 @@ public class Monster : MonoBehaviour
                         SetState(new ChaseState(this));
                     }
                 }
+                IsMoving();
                 break;
 
             case ChaseState:
@@ -98,6 +99,7 @@ public class Monster : MonoBehaviour
                 {
                     SetState(new IdleState(this));
                 }
+                IsMoving();
                 break;
 
             case AttackState:
@@ -111,6 +113,17 @@ public class Monster : MonoBehaviour
                 else // 시야 범위 밖
                 {
                     SetState(new IdleState(this));
+                }
+                break;
+
+            case HitState:
+                if (Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.8f)
+                {
+                    return;                     //피격 애니메이션 실행률 95%이하면 X
+                }
+                else
+                {
+                    SetState(new ChaseState(this));
                 }
                 break;
         }
@@ -196,6 +209,13 @@ public class Monster : MonoBehaviour
             Die();
         }
     }
+
+    public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
+    {
+        SetState(new HitState(this));
+    }
+    
+
     private bool IsDie()
     {
         return currentHP <= 0;
@@ -205,5 +225,29 @@ public class Monster : MonoBehaviour
     {
         // 죽은 상태로 전환
         SetState(new DeadState(this));
+    }
+
+    private void IsMoving()
+    {
+        if (Agent.velocity.magnitude > 0.1f)
+        {
+            switch (_fsm.CurrentState)
+            {
+                case IdleState:
+                    Anim.SetBool("Walk", true);
+                    Anim.SetBool("Run", false);
+                    break;
+
+                case ChaseState:
+                    Anim.SetBool("Run", true);
+                    Anim.SetBool("Walk", false);
+                    break;
+            }
+        }
+        else
+        {
+            Anim.SetBool("Walk", false);
+            Anim.SetBool("Run", false);
+        }
     }
 }
