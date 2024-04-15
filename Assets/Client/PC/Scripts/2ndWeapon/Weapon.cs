@@ -105,7 +105,7 @@ public class Weapon : MonoBehaviour
 
     public void StrongEffectInstance()
     {
-        GameObject effectInstance = Instantiate(strongEffectPrefab, transform.position+new Vector3(0.0f,0.0f,-5.0f), transform.rotation);
+        GameObject effectInstance = Instantiate(strongEffectPrefab, (transform.position+new Vector3(0.0f,0.0f,-10.0f)), transform.rotation);
         Destroy(effectInstance, 3.0f);
     }
 

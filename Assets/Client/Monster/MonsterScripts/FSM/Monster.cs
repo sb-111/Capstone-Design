@@ -123,7 +123,7 @@ public class Monster : MonoBehaviour
                 }
                 else
                 {
-                    SetState(new IdleState(this));
+                    SetState(new ChaseState(this));
                 }
                 break;
         }
