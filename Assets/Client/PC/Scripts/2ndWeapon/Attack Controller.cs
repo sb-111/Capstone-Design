@@ -30,7 +30,7 @@ public class AttackController : MonoBehaviour
         anim = GetComponent<Animator>();
         state = GetComponent<PlayerStatus>();
         player_controller = GetComponent<Player>();
-        cameraShaking = Camera.main.GetComponent<CameraShake>();
+       // cameraShaking = Camera.main.GetComponent<CameraShake>();
         
     }
 
