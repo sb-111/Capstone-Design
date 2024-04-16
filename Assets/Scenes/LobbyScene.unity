@@ -744,6 +744,8 @@ MonoBehaviour:
   displayRawImage: {fileID: 612038332}
   textures:
   - {fileID: 2800000, guid: 65abb8108a089154e9167e5149c1f12a, type: 3}
+  - {fileID: 2800000, guid: 379819fbe3c6f48488ac3a15e9665e79, type: 3}
+  - {fileID: 2800000, guid: c4414e872cb066b47889cd72afa2dcc2, type: 3}
 --- !u!114 &612038332
 MonoBehaviour:
   m_ObjectHideFlags: 0
