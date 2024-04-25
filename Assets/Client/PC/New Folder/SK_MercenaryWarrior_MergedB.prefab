@@ -7872,9 +7872,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
   shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
-  hitEffectPrefab: {fileID: 1220124946045798, guid: fffb42d56b58afa46a540e92485c1041, type: 3}
+  hitEffectPrefab: {fileID: 1220124946045798, guid: 11df408a4cb6edc45a2fdd9814cbce89, type: 3}
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
-  parryingPos: {fileID: 6279705890664960812}
+  parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4710598195485606043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9398,7 +9398,7 @@ GameObject:
   - component: {fileID: -7877563303942974739}
   - component: {fileID: 5361170300420579470}
   - component: {fileID: 6058203953304390727}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SK_MercenaryWarrior_MergedB
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9539,8 +9539,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicStats:
-    hp: 70
-    maxhp: 70
+    hp: 1000
+    maxhp: 1000
     def: 10
     atk: 30
     dex: 30
@@ -9570,7 +9570,6 @@ MonoBehaviour:
   weapon_left: {fileID: 1887557618392704136}
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
-  WeaponPoint: {fileID: 0}
 --- !u!114 &1248089970330846525
 MonoBehaviour:
   m_ObjectHideFlags: 0
