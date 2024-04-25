@@ -68,21 +68,18 @@ public class Player : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        
-
         /*if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
         }*/
-
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
-        
-
         GetInput();
         MouseRotate();
+        //임시 임시 임시
+        Turn();
+        //임시 임시 임시
         Move();
-      
         Jump();
         if (state.basicStats.hp <= 0) { Death(); }
         hit();
@@ -133,8 +130,11 @@ public class Player : MonoBehaviourPun
     {
         Vector3 lookForward = new Vector3(transform.forward.x, 0f, transform.forward.z).normalized;
         Vector3 lookRight = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
-        moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
+        //moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
 
+        //임시 임시 임시 + 위 주석 해제해서 사용해야 함
+        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
+        //임시 임시 임시
         Debug.DrawRay(transform.position, moveVec * 10f, Color.red) ;
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.blue);
         Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
@@ -153,6 +153,11 @@ public class Player : MonoBehaviourPun
         transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
+    }
+
+    void Turn()
+    {
+        transform.LookAt(transform.position+moveVec);
     }
 
     void MouseRotate()

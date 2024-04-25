@@ -21,9 +21,7 @@ public class AttackController : MonoBehaviour
     PlayerStatus state;
     public CameraShake cameraShaking;
    
-  
-    public GameObject WeaponPoint;
-        
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -76,10 +74,10 @@ public class AttackController : MonoBehaviour
         anim.SetTrigger("doStrongAttack");
         yield return new WaitForSeconds(0.58f);
 
-        cameraShaking.Zoom(0.55f,0.638f,0.0f,15.0f);
+        cameraShaking.Zoom(0.55f,0.638f,0.0f,10.0f);
 
         yield return new WaitForSeconds(1.18f);
-        cameraShaking.Shaking(1.0f,7.5f);
+        cameraShaking.Shaking(0.5f,7.5f);
     }
 
     public void Parrying() // 즉시 패링 애니메이션
@@ -98,7 +96,7 @@ public class AttackController : MonoBehaviour
     }
     public void ZoomCamera()
     {
-        cameraShaking.Zoom(0.36f,0.2f,0.0f,5.0f);
+        cameraShaking.Zoom(0.36f,0.2f,0.0f,10.0f);
     }
 
 
