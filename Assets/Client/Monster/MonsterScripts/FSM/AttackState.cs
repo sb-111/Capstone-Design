@@ -3,42 +3,43 @@ using UnityEngine;
 public class AttackState : IMonsterState
 {
     Monster monster;
+    MonsterAttackCTRL attackController;
+    int randomValue;
     public AttackState(Monster monster)
     {
         this.monster = monster;
+        attackController = monster.attackController;
     }
 
     public void EnterState()
     {
-        //Debug.Log("Attack State 진입");
-        // 1. 웨폰 스크립트 활성화
-        monster.Weapon.enabled = true;
+        if (attackController.isAttack)
+        {
+            return;
+        }
 
-        // 2. 공격 애니메이션 실행
+        randomValue = Random.Range(0, 2);
         monster.Anim.SetTrigger("doAttack");
-        // 3. 실제 공격
-        monster.Weapon.Use(1.6f); // 1.6초 동안은 collider를 켜라
+        monster.Anim.SetInteger(randomValue, randomValue);
     }
 
     public void ExitState()
     {
-        //Debug.Log("Attack State 탈출");
-        // 1. 웨폰 스크립트 비활성화
-        monster.Weapon.enabled = false;
+
     }
-    // 공격 상태인 동안 계속 호출
+
     public void ExecuteState()
     {
-
-       // Debug.Log("Attack State 진행중");
-        if (!IsAnimationRunning(monster.Anim, "HornAttack"))
+        if (attackController.isAttack)
         {
-           // Debug.Log("계속 부르고 있니");
-
-            // 1. 공격 애니메이션 실행
+            return;
+        }
+       
+        if (monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8) //개선필요
+        {
+            randomValue = Random.Range(0, 2);
             monster.Anim.SetTrigger("doAttack");
-            // 2. 실제 공격
-            monster.Weapon.Use(1);
+            monster.Anim.SetInteger("randomValue", randomValue);
         }
     }
     bool IsAnimationRunning(Animator animator, string animationStateName)
