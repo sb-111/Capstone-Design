@@ -77,11 +77,12 @@ public class EnemyWeapon : MonoBehaviour
             }
         }
 
+        /*  
         if (other.tag == "Melee")
         {
             Anim.SetTrigger("doParrying");
         }
-      
+        */ 
     }
     private void OnCollisionEnter(Collision other)
     {
