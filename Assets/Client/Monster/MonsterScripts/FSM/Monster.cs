@@ -45,6 +45,7 @@ public class Monster : MonoBehaviour
     public BoxCollider Collider { get; private set; }
     public Animator Anim { get; private set; }
     public NavMeshAgent Agent { get; private set; }
+    public MonsterAttackCTRL attackController { get; private set; }
 
     Material mat;
     Color originalColor;
@@ -55,8 +56,8 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-        _enemyWeapon.enabled = false;
-
+        //_enemyWeapon.enabled = false;
+        attackController=GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
     }
     void Start()
@@ -117,7 +118,7 @@ public class Monster : MonoBehaviour
                 break;
 
             case HitState:
-                if (Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.8f)
+                if (Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
                 {
                     return;                     //피격 애니메이션 실행률 95%이하면 X
                 }
@@ -229,7 +230,7 @@ public class Monster : MonoBehaviour
 
     private void IsMoving()
     {
-        if (Agent.velocity.magnitude > 0.1f)
+        if (Agent.velocity.magnitude >= 0.05f)
         {
             switch (_fsm.CurrentState)
             {

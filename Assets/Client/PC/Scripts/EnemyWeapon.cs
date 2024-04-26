@@ -7,18 +7,20 @@ public class EnemyWeapon : MonoBehaviour
     public enum WeaponType { Melee, Range };
     public WeaponType type;
     public int weapon_damage=30; //무기별 공격력
-    public float weapon_rate; // 무기별 공격 속도
+    //public float weapon_rate; // 무기별 공격 속도
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
-
+    private Animator Anim;
+    private Monster monster;
     private void Start()
     {
         
     }
     private void Awake()
     {
-        
+        Anim= GetComponentInParent<Animator>();
+        monster= GetComponentInParent<Monster>();
     }
     public void Use(float attackEndTime)
     {
@@ -42,6 +44,16 @@ public class EnemyWeapon : MonoBehaviour
         }
     }
 
+    public void WeaponUse()
+    {
+        hitEnemies.Clear();
+        meleeArea.enabled = true;
+    }
+
+    public void WeaponOut()
+    {
+        meleeArea.enabled = false;
+    }
     IEnumerator Weapon_Activation(float attackEndTime)
     {
         meleeArea.enabled = true;
@@ -64,7 +76,13 @@ public class EnemyWeapon : MonoBehaviour
                 enemyDamage.TakeDamage((20 + weapon_damage));
             }
         }
-      
+
+        /*  
+        if (other.tag == "Melee")
+        {
+            Anim.SetTrigger("doParrying");
+        }
+        */ 
     }
     private void OnCollisionEnter(Collision other)
     {

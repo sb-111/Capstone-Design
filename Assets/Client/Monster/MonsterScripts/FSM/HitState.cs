@@ -6,7 +6,7 @@ public class HitState : MonoBehaviour, IMonsterState
 {
 
     private Monster monster;
-
+    private int randomValue;
     public HitState(Monster monster)
     {
         this.monster = monster;
@@ -17,7 +17,9 @@ public class HitState : MonoBehaviour, IMonsterState
     public void EnterState()
     {
         //피격 애니메이션 실행 - 현재 애니메이션 없음
+        randomValue = Random.Range(0, 1);
         monster.Anim.SetTrigger("getHit");
+        monster.Anim.SetInteger("randomValue", randomValue);
     }
     
     //2. 반복 실행
