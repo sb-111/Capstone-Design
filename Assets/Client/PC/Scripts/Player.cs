@@ -11,16 +11,15 @@ public class Player : MonoBehaviourPun
     float mouseValueX;
     float mouseValueY;
     private int speed;
-    private float jumpPower;
-
+    float sensivity = 1f;
     Vector3 moveVec;
     Vector3 jumpVec;
 
     bool rDown;
     bool jDown;
+    public bool isJump;
     bool isDeath;
     public bool dDown;
-    public bool isJump;
     public bool isDefense;
     public bool isCC = false;
     //공격
@@ -47,7 +46,6 @@ public class Player : MonoBehaviourPun
     PlayerStatus state;
     public CameraShake cameraShaking;
 
-    float sensivity = 1f;
     public float VRotation { get;  private set; } // 수직 회전 값
 
     // Start is called before the first frame update
@@ -62,7 +60,6 @@ public class Player : MonoBehaviourPun
     void Start()
     {
         speed = state.moveStats.speed;
-        //jumpPower = state.moveStats.jumpPower;
     }
 
     // Update is called once per frame
@@ -74,6 +71,13 @@ public class Player : MonoBehaviourPun
         }*/
         attackDelay += Time.deltaTime;
         isAttackReady = state.combatStats.attack_rate <= attackDelay;
+        if (isAttackReady && !isJump && !isDeath) canAttack = true;
+        else canAttack = false;
+        if (!dDown) isDefense = false;
+        if (state.basicStats.hp <= 0) { Death(); }
+
+
+
         GetInput();
         MouseRotate();
         //임시 임시 임시
@@ -81,16 +85,11 @@ public class Player : MonoBehaviourPun
         //임시 임시 임시
         Move();
         Jump();
-        if (state.basicStats.hp <= 0) { Death(); }
-        hit();
-        //if (isAttackReady && !isJump && !isDeath && !isAttack) canAttack = true;
-        if (isAttackReady && !isJump && !isDeath) canAttack = true;
-        else canAttack = false;
+        
         attack_controll();
         Defenssing(dDown);
-        if(!dDown) isDefense = false;
     }
-    void attack_controll()
+    void attack_controll()                              //공격 입력 관리
     {
         if (canAttack)
         {
@@ -108,22 +107,20 @@ public class Player : MonoBehaviourPun
             }
         }
     }
-    void GetInput()
+    void GetInput()                                                         //   사용자 키보드 & 마우스 입력 관리
     {
+        mouseValueX = Input.GetAxis("Mouse X");                             // 마우스 수평 회전 값
+        mouseValueY = Input.GetAxis("Mouse Y");                             // 마우스 수직 회전 값
 
-        mouseValueX = Input.GetAxis("Mouse X"); // 마우스 수평 회전 값
-        mouseValueY = Input.GetAxis("Mouse Y"); // 마우스 수직 회전 값
-
-        if (isCC) { return; }                   //CC기 걸리면 아래 인풋 무시
-        hAxis = Input.GetAxisRaw("Horizontal"); // x축 이동(-1/1)
-        vAxis = Input.GetAxisRaw("Vertical"); // z축 이동(-1/1)
-        rDown = Input.GetKey(KeyCode.LeftShift);//leftshift
-        jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
+        if (isCC) { return; }                                               // !! CC기 걸리면 다른 인풋 무시 !!
+        hAxis = Input.GetAxisRaw("Horizontal");                             // x축 이동(-1/1)
+        vAxis = Input.GetAxisRaw("Vertical");                               // z축 이동(-1/1)
+        rDown = Input.GetKey(KeyCode.LeftShift);                            //leftshift
+        jDown = Input.GetKeyDown(KeyCode.Space);                            //spacebar
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
-
-        dDown = Input.GetKey(KeyCode.E); //디펜스
+        dDown = Input.GetKey(KeyCode.E);                                   //디펜스
     }
 
     void Move()
@@ -167,30 +164,25 @@ public class Player : MonoBehaviourPun
         transform.rotation = Quaternion.Euler(0f, hRotation, 0f);
 
         // 카메라의 수직회전을 위한 프로퍼티
-        VRotation -= (mouseValueY * sensivity); // 수직 회전 값(x축 회전)
+        VRotation -= (mouseValueY * sensivity);                                         // 수직 회전 값(x축 회전)
         VRotation = Mathf.Clamp(VRotation, 25f, 70f);
     }
-    void Jump()
+
+    void Jump()                                                                         //현재 구르기로 사용중
     {
         jumpVec = moveVec;
         if (jDown && !isJump && !isAttack)
         {
             isJump = true;
-            anim.SetBool("isJump", true);
-            /*if (anim.GetCurrentAnimatorStateInfo(0).IsName("Roll"))
-            {
-                return;
-            }*/
-
+            //anim.SetBool("isJump", true);                                             //삭제 예정
             anim.SetTrigger("doJump");
-
             Invoke("JumpOut", 1.16f);
         }
     }
 
     void JumpOut()
     {
-        anim.SetBool("isJump", false);
+        //anim.SetBool("isJump", false);                                                //삭제 예정
         isJump = false;
     }
 
@@ -213,6 +205,7 @@ public class Player : MonoBehaviourPun
     {
         anim.SetTrigger("getDefenseHIt");
     }
+
     void attack1()         
     {
         attack_controller.attack1();
@@ -254,16 +247,6 @@ public class Player : MonoBehaviourPun
     }
    
 
-    bool CanAttack()
-    {
-        return isAttackReady && !isJump && !isDeath;
-    }
-     
-    void hit()
-    {
-
-    }
-
     void Death()
     {
         if (!isDeath)
@@ -279,18 +262,6 @@ public class Player : MonoBehaviourPun
     {
         Destroy(gameObject);
     }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
- 
 
 
     public void Knockback(Vector3 enemyVec)
