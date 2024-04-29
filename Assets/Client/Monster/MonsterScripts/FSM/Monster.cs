@@ -12,8 +12,8 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private float wanderRadius = 5f; // 배회 반경
     private Vector3 spawnPoint; // 스폰포인트
-    public Vector3 SpawnPoint { get { return spawnPoint; } }
     public float WanderRadius { get { return wanderRadius; } }
+    public Vector3 SpawnPoint { get { return spawnPoint; } }
 
     [Header("Chase 설정")]
     [SerializeField]
@@ -45,7 +45,7 @@ public class Monster : MonoBehaviour
     public BoxCollider Collider { get; private set; }
     public Animator Anim { get; private set; }
     public NavMeshAgent Agent { get; private set; }
-    public MonsterAttackCTRL attackController { get; private set; }
+    public MonsterAttackCTRL AttackController { get; private set; }
 
     Material mat;
     Color originalColor;
@@ -57,7 +57,7 @@ public class Monster : MonoBehaviour
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
         //_enemyWeapon.enabled = false;
-        attackController=GetComponent<MonsterAttackCTRL>();
+        AttackController = GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
     }
     void Start()
@@ -96,7 +96,7 @@ public class Monster : MonoBehaviour
                         SetState(new AttackState(this));
                     }
                 }
-                else // 플레이어 시야 밖
+                else // 시야 범위 밖
                 {
                     SetState(new IdleState(this));
                 }
@@ -124,6 +124,9 @@ public class Monster : MonoBehaviour
                 }
                 else
                 {
+                    // Hit -> Chase
+                    // 일반적으로 맞았으면 다시 추격, 공격 범위내 있으면 공격
+                    // 문제점: Chase에서 시야에 없다면 바로 Idle로 전환
                     SetState(new ChaseState(this));
                 }
                 break;
@@ -234,7 +237,7 @@ public class Monster : MonoBehaviour
         {
             switch (_fsm.CurrentState)
             {
-                case IdleState:
+                case IdleState: // 각 state 구현으로 옮겨도 될듯
                     Anim.SetBool("Walk", true);
                     Anim.SetBool("Run", false);
                     break;

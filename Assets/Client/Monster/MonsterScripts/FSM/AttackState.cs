@@ -8,7 +8,7 @@ public class AttackState : IMonsterState
     public AttackState(Monster monster)
     {
         this.monster = monster;
-        attackController = monster.attackController;
+        attackController = monster.AttackController;
     }
 
     public void EnterState()

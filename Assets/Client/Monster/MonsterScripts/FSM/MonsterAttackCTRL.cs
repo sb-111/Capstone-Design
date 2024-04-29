@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MonsterAttackCTRL : MonoBehaviour
 {
-    Monster monster;
-    public Animator Anim { get; private set; }
+    //Monster monster;
+    //public Animator Anim { get; private set; }
     public bool isAttack { get; private set; }
 
     [Header("무기 오브젝트 설정")]
@@ -15,8 +15,8 @@ public class MonsterAttackCTRL : MonoBehaviour
     private void Awake()
     {
         isAttack= false;
-        monster = GetComponent<Monster>();
-        Anim = GetComponent<Animator>();
+        //monster = GetComponent<Monster>();
+        //Anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     public void Start()

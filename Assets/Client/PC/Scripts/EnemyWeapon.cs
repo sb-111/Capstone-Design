@@ -6,7 +6,7 @@ public class EnemyWeapon : MonoBehaviour
 {
     public enum WeaponType { Melee, Range };
     public WeaponType type;
-    public int weapon_damage=30; //무기별 공격력
+    public int weapon_damage = 30; //무기별 공격력
     //public float weapon_rate; // 무기별 공격 속도
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
@@ -68,12 +68,12 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameObject enemy = other.gameObject;
-            CombatStatusManager enemyDamage = enemy.GetComponent<CombatStatusManager>();
-            if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+            GameObject player = other.gameObject;
+            CombatStatusManager combatStatus = player.GetComponent<CombatStatusManager>();
+            if (!hitEnemies.Contains(player)) // 이미 공격한 적이 아니라면
             {
-                hitEnemies.Add(enemy); 
-                enemyDamage.TakeDamage((20 + weapon_damage));
+                hitEnemies.Add(player); 
+                combatStatus.TakeDamage((20 + weapon_damage));
             }
         }
 
