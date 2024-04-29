@@ -113,7 +113,9 @@ public class BuildTest : MonoBehaviourPun
     void Build()
     {
         DestroyPreview();
-        PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
+        //PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
+      Instantiate(buildingPrefab, preview.transform.position, preview.transform.rotation);
+
         PlacePreview();
 
     }

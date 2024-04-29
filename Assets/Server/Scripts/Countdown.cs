@@ -128,10 +128,5 @@ public class Countdown : MonoBehaviour
     }
 
 
-    IEnumerator DelayedSpawn(float delay)
-    {
-        yield return new WaitForSeconds(delay); // ���� �ð� ���
-        //spawnPortal.SpawnObject(); 
-    }
 
 }

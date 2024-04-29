@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barricade : MonoBehaviour
+public class PortalManager : MonoBehaviour
 {
     [SerializeField] int currentHP = 100;
     // Start is called before the first frame update
@@ -11,6 +11,7 @@ public class Barricade : MonoBehaviour
         
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (IsBreak())
@@ -18,7 +19,6 @@ public class Barricade : MonoBehaviour
             Break();
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.LogWarning("충돌");
@@ -30,26 +30,15 @@ public class Barricade : MonoBehaviour
         }
 
     }
-    public void TakeDamage(int damage, Vector3 enmenyPosition)
-    {
-        currentHP -= damage;
-        Debug.LogWarning("데미지" + damage);
-        if (IsBreak())
-        {
-            Break();
-        }
-    }
     private bool IsBreak()
     {
         return currentHP <= 0;
     }
 
- 
+
     private void Break()
     {
         // 파괴
         Destroy(gameObject);
     }
-    // Update is called once per frame
-   
 }

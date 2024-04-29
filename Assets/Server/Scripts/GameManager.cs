@@ -42,8 +42,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
+            GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
             // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
+            GameObject cameraObj = GameObject.Find("TPS Camera"); 
+            if (cameraObj != null)
+            {
+                CameraFollow camaraFollow = cameraObj.GetComponent<CameraFollow>();
+                if (camaraFollow != null)
+                {
+                    camaraFollow.SetPlayer(playerObj);
+                }
+            }
             Debug.Log("»Æ¿Œ");
         }
        
