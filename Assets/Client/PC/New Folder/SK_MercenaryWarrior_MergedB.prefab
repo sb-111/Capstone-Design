@@ -1682,7 +1682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4856585848717116729
 Transform:
   m_ObjectHideFlags: 0
@@ -1816,8 +1816,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8188118361486413423}
   m_AABB:
-    m_Center: {x: NaN, y: NaN, z: NaN}
-    m_Extent: {x: NaN, y: NaN, z: NaN}
+    m_Center: {x: -0.7964397, y: 0.01543775, z: 0.09720707}
+    m_Extent: {x: 0.5445535, y: 0.2257449, z: 0.1722145}
   m_DirtyAABB: 0
 --- !u!183 &8154436825179452103
 Cloth:
@@ -9404,7 +9404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7429762857904496939
 Transform:
   m_ObjectHideFlags: 0
@@ -9470,12 +9470,9 @@ MonoBehaviour:
   dDown: 0
   isDefense: 0
   isCC: 0
-  attackDelay: 1
   isAttack: 0
-  knockbackForce: 5
-  knockbackTime: 0.5
-  anim: {fileID: 0}
-  cameraShaking: {fileID: 0}
+  attack_controller: {fileID: 0}
+  state: {fileID: 0}
 --- !u!54 &4214383097868382590
 Rigidbody:
   m_ObjectHideFlags: 0
