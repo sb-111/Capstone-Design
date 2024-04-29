@@ -597,13 +597,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.0070093456
-        functionName: IsAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.07066248
         functionName: leftWeaponUse
         data: 
@@ -618,7 +611,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.45574164
+      - time: 0.45254165
         functionName: rightWeaponUse
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -627,13 +620,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.5790741
         functionName: WeaponOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7947045
-        functionName: AttackOut
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

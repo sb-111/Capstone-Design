@@ -14,10 +14,10 @@ AnimatorStateMachine:
     m_Position: {x: 380, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 986174689050018646}
-    m_Position: {x: 20, y: 500, z: 0}
+    m_Position: {x: 0, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1095523105845424213}
-    m_Position: {x: 20, y: 430, z: 0}
+    m_Position: {x: 20, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1530258588805301513}
     m_Position: {x: 20, y: 360, z: 0}
@@ -108,7 +108,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: getHitFront
+  m_Name: hit1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -213,7 +213,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: attack2
+  m_Name: attack1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -240,7 +240,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 4HitCombo
+  m_Name: attack2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -450,7 +450,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2HitCombo1
+  m_Name: attack3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

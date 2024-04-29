@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7060898633913239880, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 8.000061
+      value: 8.000122
       objectReference: {fileID: 0}
     - target: {fileID: 7956490492508933815, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -19.999756
+      value: -19.999878
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -311,6 +311,10 @@ PrefabInstance:
     - target: {fileID: 206969736365183893, guid: a9e5d0db0b3f4c14fbf677bbf4e15754, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273187261142446290, guid: a9e5d0db0b3f4c14fbf677bbf4e15754, type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6461216685500147717, guid: a9e5d0db0b3f4c14fbf677bbf4e15754, type: 3}
       propertyPath: m_Name
@@ -418,6 +422,7 @@ PrefabInstance:
     - {fileID: 2658133373247074338, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
     - {fileID: 8651043957492869840, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
     - {fileID: 7932205802599689261, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
+    - {fileID: 4160910116819980035, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 884365912989838395, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
@@ -559,6 +564,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1601519205112064676, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: cameraShaking
       value: 
