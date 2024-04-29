@@ -23,15 +23,17 @@ public class MonsterAttackCTRL : MonoBehaviour
     {
         
     }
+    // called by animator
     public void rightWeaponUse()
     {
         weapon_right.WeaponUse();
     }
+    // called by animator
     public void leftWeaponUse()
     {
         weapon_left.WeaponUse();
     }
-
+    // called by animator
     public void WeaponOut()
     {
         weapon_right.WeaponOut();
@@ -40,7 +42,7 @@ public class MonsterAttackCTRL : MonoBehaviour
             weapon_left.WeaponOut();
         }
     }
-
+    // called by animator
     public void IsAttack()
     {
         isAttack = true;

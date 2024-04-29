@@ -22,28 +22,7 @@ public class EnemyWeapon : MonoBehaviour
         Anim= GetComponentInParent<Animator>();
         monster= GetComponentInParent<Monster>();
     }
-    public void Use(float attackEndTime)
-    {
-        if (type == WeaponType.Melee)
-        {
-            StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            //Debug.Log("HashSet 클리어");
-
-            StartCoroutine(Weapon_Activation(attackEndTime));
-        }
-
-        if (type == WeaponType.Range)
-        {
-            StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-
-            //Debug.Log("HashSet 클리어");
-
-            StartCoroutine(Weapon_Activation(attackEndTime));
-        }
-    }
-
+    
     public void WeaponUse()
     {
         hitEnemies.Clear();
@@ -53,15 +32,6 @@ public class EnemyWeapon : MonoBehaviour
     public void WeaponOut()
     {
         meleeArea.enabled = false;
-    }
-    IEnumerator Weapon_Activation(float attackEndTime)
-    {
-        meleeArea.enabled = true;
-        //trailEffect.enabled = true;
-        yield return new WaitForSeconds(attackEndTime);
-        meleeArea.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        //trailEffect.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)

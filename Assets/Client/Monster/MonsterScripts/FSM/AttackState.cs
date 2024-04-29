@@ -3,17 +3,16 @@ using UnityEngine;
 public class AttackState : IMonsterState
 {
     Monster monster;
-    MonsterAttackCTRL attackController;
+    
     int randomValue;
     public AttackState(Monster monster)
     {
         this.monster = monster;
-        attackController = monster.AttackController;
     }
 
     public void EnterState()
     {
-        if (attackController.isAttack)
+        if (monster.AttackController.isAttack)
         {
             return;
         }
@@ -30,7 +29,7 @@ public class AttackState : IMonsterState
 
     public void ExecuteState()
     {
-        if (attackController.isAttack)
+        if (monster.AttackController.isAttack)
         {
             return;
         }
