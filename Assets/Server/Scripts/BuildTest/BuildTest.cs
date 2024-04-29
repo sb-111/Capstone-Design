@@ -29,7 +29,11 @@ public class BuildTest : MonoBehaviourPun
     
     void Update()
     {
-     
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             //r을 누르면 건축 모드로 변경이 목표.
