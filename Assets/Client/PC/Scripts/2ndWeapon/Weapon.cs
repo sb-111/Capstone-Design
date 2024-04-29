@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour
         {
             StopCoroutine(Weapon_Activation());
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            Debug.Log("HashSet 클리어");
+            //Debug.Log("HashSet 클리어");
             StartCoroutine(Weapon_Activation());
         }
 
@@ -71,17 +71,15 @@ public class Weapon : MonoBehaviour
     }
     public void AttackOut()
     {
-        Debug.Log("현재 값," + isHeavyAttack);
-        meleeArea.enabled = false;
-        //trailEffect.enabled = false;
-        isHeavyAttack = false;
-        Debug.Log("현재 값," + isHeavyAttack);
+        meleeArea.enabled = false; 
+        isHeavyAttack = false;                          //강공격 Out
     }
 
 
     IEnumerator Weapon_Activation()
     {
         meleeArea.enabled = true;
+        Debug.Log("켜짐");
         //trailEffect.enabled = true;
       
         yield return null;
@@ -157,7 +155,7 @@ public class Weapon : MonoBehaviour
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);
           
-                    if (isHeavyAttack) //여기서 HeavyAttack false로 하면, 이후 피격 대상들이 적용 안될 듯
+                    if (isHeavyAttack) //강공격일 경우 피격 반응 애니메이션 처리
                     {
                         enemyDamage.HitResponse();
                     }

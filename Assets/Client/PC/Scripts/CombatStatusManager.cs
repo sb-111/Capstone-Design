@@ -6,9 +6,9 @@ using static PlayerStatus;
 
 public class CombatStatusManager : MonoBehaviour
 {
-    public Player player;
-    public PlayerStatus player_status;
-    public Animator anim;
+    [HideInInspector] public Player player;
+    [HideInInspector] public PlayerStatus player_status;
+    [HideInInspector] public Animator anim;
 
 
     // Start is called before the first frame update
