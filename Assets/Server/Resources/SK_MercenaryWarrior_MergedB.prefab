@@ -1816,8 +1816,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8188118361486413423}
   m_AABB:
-    m_Center: {x: -0.019794106, y: 0.015437752, z: 0.09720707}
-    m_Extent: {x: 0.54455346, y: 0.22574493, z: 0.17221451}
+    m_Center: {x: NaN, y: NaN, z: NaN}
+    m_Extent: {x: NaN, y: NaN, z: NaN}
   m_DirtyAABB: 0
 --- !u!183 &8154436825179452103
 Cloth:
@@ -8000,7 +8000,7 @@ GameObject:
   - component: {fileID: 1887557618392704136}
   m_Layer: 9
   m_Name: weaponPoint
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
