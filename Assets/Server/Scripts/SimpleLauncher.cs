@@ -58,8 +58,8 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
 
-        //PhotonNetwork.LoadLevel("MainScene");//씬 이름
-        StartCoroutine(LoadLevelWithProgress("MainScene"));
+        PhotonNetwork.LoadLevel("MainScene");//씬 이름
+        //StartCoroutine(LoadLevelWithProgress("MainScene"));
 
         Debug.Log("방 들어감");
         // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
