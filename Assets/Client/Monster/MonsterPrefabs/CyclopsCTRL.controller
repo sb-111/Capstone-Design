@@ -86,7 +86,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: leftHandAttack
+  m_Name: attack1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -113,7 +113,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rightHandAttack
+  m_Name: attack2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -169,7 +169,7 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4030405219184068972}
-    m_Position: {x: -140, y: 610, z: 0}
+    m_Position: {x: -130, y: 620, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7522434982954868285}
     m_Position: {x: 260, y: 560, z: 0}
@@ -181,13 +181,13 @@ AnimatorStateMachine:
     m_Position: {x: 600, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7075922499720766286}
-    m_Position: {x: -140, y: 480, z: 0}
+    m_Position: {x: -130, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7062649528027076260}
-    m_Position: {x: -140, y: 550, z: 0}
+    m_Position: {x: -130, y: 560, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4550025135888226034}
-    m_Position: {x: 520, y: 280, z: 0}
+    m_Position: {x: 530, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3480733059273944797}
     m_Position: {x: 130, y: 280, z: 0}
@@ -239,7 +239,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 2fistsSmashAttack90Left
+  m_Name: attack3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -625,7 +625,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: getHit5
+  m_Name: hit1
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -708,7 +708,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: getHit3
+  m_Name: hit2
   m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:

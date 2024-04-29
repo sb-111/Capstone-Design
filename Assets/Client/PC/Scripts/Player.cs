@@ -10,44 +10,36 @@ public class Player : MonoBehaviourPun
     float vAxis;
     float mouseValueX;
     float mouseValueY;
-    private int speed;
-    private float jumpPower;
-
+    int speed;
+    float sensivity = 1f;
     Vector3 moveVec;
     Vector3 jumpVec;
 
-    bool rDown;
-    bool jDown;
-    bool isDeath;
-    public bool dDown;
-    public bool isJump;
-    public bool isDefense;
-    public bool isCC = false;
+    bool rDown;                                             //달리기 키
+    bool jDown;                                             //구르기 키
+    bool isDeath;                                           //죽는 중인가?
+    [HideInInspector]
+    public bool isJump;                                     //구르는 중인가?
+    [HideInInspector]
+    public bool dDown;                                      //방어 키
+    [HideInInspector]
+    public bool isDefense;                                  //방어 중인가?
+    [HideInInspector]
+    public bool isCC = false;                               //CC 상태인가?
+
     //공격
-    public float attackDelay = 1.0f;
-    bool isAttackReady;
     bool left_attack;                       //좌클릭 공격
     bool right_attack;                      //우클릭 공격
     bool strong_attack;                     //좌+우클릭 공격 합친거
-    public bool isAttack = false;                          //공격 중?
+    public bool isAttack = false;           //공격 중?
     bool canAttack;
 
-    AttackController attack_controller;
 
-    //패링
-    bool isParrying;
+    [HideInInspector] public AttackController attack_controller;
+    public Animator anim { get; private set; }
+    public Rigidbody rigid { get; private set; }
+    [HideInInspector] public PlayerStatus state;
 
-    //넉백
-    public float knockbackForce = 0.5f;
-    public float knockbackTime = 0.3f;
-    bool isKnockback;
-
-    public Animator anim;
-    Rigidbody rigid;
-    PlayerStatus state;
-    public CameraShake cameraShaking;
-
-    float sensivity = 1f;
     public float VRotation { get;  private set; } // 수직 회전 값
 
     // Start is called before the first frame update
@@ -56,13 +48,11 @@ public class Player : MonoBehaviourPun
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         state = GetComponent<PlayerStatus>();
-        attack_controller = GetComponent<AttackController>();
-        cameraShaking = Camera.main.GetComponent<CameraShake>();
+        attack_controller = GetComponent<AttackController>();      
     }
     void Start()
     {
         speed = state.moveStats.speed;
-        //jumpPower = state.moveStats.jumpPower;
     }
 
     // Update is called once per frame
@@ -72,8 +62,12 @@ public class Player : MonoBehaviourPun
         {
             return;
         }*/
-        attackDelay += Time.deltaTime;
-        isAttackReady = state.combatStats.attack_rate <= attackDelay;
+        
+        if (!isJump && !isDeath) canAttack = true;
+        else canAttack = false;
+        if (!dDown) isDefense = false;
+        if (state.basicStats.hp <= 0) { Death(); }
+
         GetInput();
         MouseRotate();
         //임시 임시 임시
@@ -81,16 +75,10 @@ public class Player : MonoBehaviourPun
         //임시 임시 임시
         Move();
         Jump();
-        if (state.basicStats.hp <= 0) { Death(); }
-        hit();
-        //if (isAttackReady && !isJump && !isDeath && !isAttack) canAttack = true;
-        if (isAttackReady && !isJump && !isDeath) canAttack = true;
-        else canAttack = false;
         attack_controll();
         Defenssing(dDown);
-        if(!dDown) isDefense = false;
     }
-    void attack_controll()
+    void attack_controll()                              //공격 입력 관리
     {
         if (canAttack)
         {
@@ -108,22 +96,20 @@ public class Player : MonoBehaviourPun
             }
         }
     }
-    void GetInput()
+    void GetInput()                                                         //   사용자 키보드 & 마우스 입력 관리
     {
+        mouseValueX = Input.GetAxis("Mouse X");                             // 마우스 수평 회전 값
+        mouseValueY = Input.GetAxis("Mouse Y");                             // 마우스 수직 회전 값
 
-        mouseValueX = Input.GetAxis("Mouse X"); // 마우스 수평 회전 값
-        mouseValueY = Input.GetAxis("Mouse Y"); // 마우스 수직 회전 값
-
-        if (isCC) { return; }                   //CC기 걸리면 아래 인풋 무시
-        hAxis = Input.GetAxisRaw("Horizontal"); // x축 이동(-1/1)
-        vAxis = Input.GetAxisRaw("Vertical"); // z축 이동(-1/1)
-        rDown = Input.GetKey(KeyCode.LeftShift);//leftshift
-        jDown = Input.GetKeyDown(KeyCode.Space);//spacebar
+        if (isCC) { return; }                                               // !! CC기 걸리면 다른 인풋 무시 !!
+        hAxis = Input.GetAxisRaw("Horizontal");                             // x축 이동(-1/1)
+        vAxis = Input.GetAxisRaw("Vertical");                               // z축 이동(-1/1)
+        rDown = Input.GetKey(KeyCode.LeftShift);                            //leftshift
+        jDown = Input.GetKeyDown(KeyCode.Space);                            //spacebar
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
-
-        dDown = Input.GetKey(KeyCode.E); //디펜스
+        dDown = Input.GetKey(KeyCode.E);                                   //디펜스
     }
 
     void Move()
@@ -145,7 +131,7 @@ public class Player : MonoBehaviourPun
             moveVec = jumpVec;
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") || isKnockback || anim.GetCurrentAnimatorStateInfo(0).IsName("Defending"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") || anim.GetCurrentAnimatorStateInfo(0).IsName("Defending"))
         {
             moveVec = Vector3.zero;
         }
@@ -167,30 +153,25 @@ public class Player : MonoBehaviourPun
         transform.rotation = Quaternion.Euler(0f, hRotation, 0f);
 
         // 카메라의 수직회전을 위한 프로퍼티
-        VRotation -= (mouseValueY * sensivity); // 수직 회전 값(x축 회전)
+        VRotation -= (mouseValueY * sensivity);                                         // 수직 회전 값(x축 회전)
         VRotation = Mathf.Clamp(VRotation, 25f, 70f);
     }
-    void Jump()
+
+    void Jump()                                                                         //현재 구르기로 사용중
     {
         jumpVec = moveVec;
         if (jDown && !isJump && !isAttack)
         {
             isJump = true;
-            anim.SetBool("isJump", true);
-            /*if (anim.GetCurrentAnimatorStateInfo(0).IsName("Roll"))
-            {
-                return;
-            }*/
-
+            //anim.SetBool("isJump", true);                                             //삭제 예정
             anim.SetTrigger("doJump");
-
             Invoke("JumpOut", 1.16f);
         }
     }
 
     void JumpOut()
     {
-        anim.SetBool("isJump", false);
+        //anim.SetBool("isJump", false);                                                //삭제 예정
         isJump = false;
     }
 
@@ -213,6 +194,7 @@ public class Player : MonoBehaviourPun
     {
         anim.SetTrigger("getDefenseHIt");
     }
+
     void attack1()         
     {
         attack_controller.attack1();
@@ -230,7 +212,6 @@ public class Player : MonoBehaviourPun
 
     public void attackOut()
     {
-        attackDelay = 0;
         //isAttack = false;
     }
 
@@ -244,25 +225,24 @@ public class Player : MonoBehaviourPun
         attack_controller.weapon_right.Use();
     }
 
+    public void WeaponUseLeft()                //공격 애니메이션 공용 이벤트 2_2 
+    {
+        attack_controller.weapon_left.Use();
+    }
     public void WeaponAttackOut()               //공격 애니메이션 공용 이벤트 3 (공격 모션 끝나는 지점)
     {
         attack_controller.weapon_right.AttackOut();
+    }
+
+    public void WeaponAttackOutLeft()           //공격 애니메이션 공용 이벤트 3_2
+    {
+        attack_controller.weapon_left.AttackOut();
     }
     public void isAttackAnimationEnd()          //공격 애니메이션 공용 이벤트 4 (종료 지점)
     {
         isAttack = false;
     }
    
-
-    bool CanAttack()
-    {
-        return isAttackReady && !isJump && !isDeath;
-    }
-     
-    void hit()
-    {
-
-    }
 
     void Death()
     {
@@ -279,40 +259,4 @@ public class Player : MonoBehaviourPun
     {
         Destroy(gameObject);
     }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
- 
-
-
-    public void Knockback(Vector3 enemyVec)
-    {
-        isKnockback = true;
-        StartCoroutine(OnKnockback(enemyVec));
-    }
-
-
-    IEnumerator OnKnockback(Vector3 enemyVec)
-    {
-        Debug.Log("넉백");
-        float startTime = Time.time;
-        
-        Vector3 reactVec = (transform.position - enemyVec).normalized;
-        reactVec.y += 1.0f;
-        rigid.AddForce(reactVec * knockbackForce, ForceMode.Impulse);
-        while (Time.time < startTime + knockbackTime)
-        {
-            yield return null;
-        }
-        isKnockback = false;
-    }
-
 }
