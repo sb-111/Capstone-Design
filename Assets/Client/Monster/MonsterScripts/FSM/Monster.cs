@@ -85,7 +85,7 @@ public class Monster : MonoBehaviour
                         SetState(new ChaseState(this));
                     }
                 }
-                IsMoving();
+                //IsMoving();
                 break;
 
             case ChaseState:
@@ -100,7 +100,7 @@ public class Monster : MonoBehaviour
                 {
                     SetState(new IdleState(this));
                 }
-                IsMoving();
+                //IsMoving();
                 break;
 
             case AttackState:

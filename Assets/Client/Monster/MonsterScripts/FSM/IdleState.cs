@@ -15,18 +15,21 @@ public class IdleState : MonoBehaviour, IMonsterState
 
     public void EnterState()
     {
-        //Debug.Log("Idle State 진입");
+        Debug.Log("Idle: Enter");
         monster.Agent.isStopped = false; // Agent 활성화
     }
 
     public void ExitState()
     {
-        //Debug.Log("Idle State 탈출");
+        Debug.Log("Idle: Exit");
         monster.Agent.isStopped = true; // Agent 비활성화
+        monster.Anim.SetBool("Walk", false);
     }
 
     public void ExecuteState()
     {
+        Debug.Log("Idle: 진행중");
+        monster.Anim.SetBool("Walk", (monster.Agent.velocity.magnitude > 0.05f) ? true : false);
         timer += Time.deltaTime;
         if (timer >= wanderTimer)
         {

@@ -13,19 +13,21 @@ public class ChaseState : IMonsterState
 
     public void EnterState()
     {
-        //Debug.Log("Chase State 진입");
+        Debug.Log("Chase: Enter");
         monster.Agent.isStopped = false;
     }
 
     public void ExitState()
     {
-        //Debug.Log("Chase State 탈출");
+        Debug.Log("Chase: Exit");
+        monster.Anim.SetBool("Run", false);
         monster.Agent.isStopped = true;
     }
 
     public void ExecuteState()
     {
-        //Debug.Log("Chase State 진행중");
+        Debug.Log("Chase: 진행중");
+        monster.Anim.SetBool("Run", (monster.Agent.velocity.magnitude >= 0.05f) ? true : false);
         monster.Agent.SetDestination(monster.TargetPlayer.position);
     }
 }

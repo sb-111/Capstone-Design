@@ -12,14 +12,17 @@ public class AttackState : IMonsterState
 
     public void EnterState()
     {
-        if (monster.AttackController.isAttack)
-        {
-            return;
-        }
+        //if (monster.AttackController.isAttack)
+        //{
+        //    return;
+        //}
 
-        randomValue = Random.Range(0, 2);
+        //randomValue = Random.Range(0, 2);
+        //monster.Anim.SetTrigger("doAttack");
+        //monster.Anim.SetInteger(randomValue, randomValue);
+
         monster.Anim.SetTrigger("doAttack");
-        monster.Anim.SetInteger(randomValue, randomValue);
+        monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
     }
 
     public void ExitState()
@@ -29,17 +32,20 @@ public class AttackState : IMonsterState
 
     public void ExecuteState()
     {
-        if (monster.AttackController.isAttack)
-        {
-            return;
-        }
+        //monster.Anim.SetTrigger("doAttack");
+        //monster.Anim.SetInteger("randomValue", Random.Range(0,2));
+
+        //if (monster.AttackController.isAttack)
+        //{
+        //    return;
+        //}
        
-        if (monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8) //개선필요
-        {
-            randomValue = Random.Range(0, 2);
-            monster.Anim.SetTrigger("doAttack");
-            monster.Anim.SetInteger("randomValue", randomValue);
-        }
+        //if (monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8) //개선필요
+        //{
+        //    randomValue = Random.Range(0, 2);
+        //    monster.Anim.SetTrigger("doAttack");
+        //    monster.Anim.SetInteger("randomValue", randomValue);
+        //}
     }
     bool IsAnimationRunning(Animator animator, string animationStateName)
     {
