@@ -9602,6 +9602,7 @@ GameObject:
   - component: {fileID: 2389297423298781671}
   - component: {fileID: -7877563303942974739}
   - component: {fileID: 5361170300420579470}
+  - component: {fileID: 1081605171135884325}
   m_Layer: 0
   m_Name: SK_MercenaryWarrior_MergedB
   m_TagString: Player
@@ -9909,6 +9910,23 @@ MonoBehaviour:
   - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
   - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
   rotationSpeed: 50
+--- !u!320 &1081605171135884325
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364360537352700500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7ea891f09f2d4c7469b3f03975e3b31b, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0
