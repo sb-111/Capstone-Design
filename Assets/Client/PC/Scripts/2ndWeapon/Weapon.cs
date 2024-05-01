@@ -86,7 +86,7 @@ public class Weapon : MonoBehaviour
     }
 
 
-    public void EffectInstance(bool reverse)
+    public void EffectInstance(bool reverse)                
     {
         
         if (effectPrefab == null)
@@ -96,6 +96,7 @@ public class Weapon : MonoBehaviour
 
         if (reverse)
         {
+            
             GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation);
             Destroy(effectInstance, 1.0f);
         }
