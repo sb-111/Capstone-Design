@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AttackController : MonoBehaviour
 {
@@ -108,6 +109,20 @@ public class AttackController : MonoBehaviour
         {
             bool forward = true;
             weapon_right.EffectInstance(forward);
+        }
+    }
+
+    public void SwordEffectLeft(int value = 0)
+    {
+        if (value != 0)
+        {
+            bool reverse = false;
+            weapon_left.EffectInstance(reverse);
+        }
+        else
+        {
+            bool forward = true;
+            weapon_left.EffectInstance(forward);
         }
     }
 
