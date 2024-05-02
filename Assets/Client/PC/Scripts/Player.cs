@@ -131,7 +131,7 @@ public class Player : MonoBehaviourPun
             moveVec = jumpVec;
         }
 
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") || anim.GetCurrentAnimatorStateInfo(0).IsName("Defending"))
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death") || isAttack || anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") || isDefense)
         {
             moveVec = Vector3.zero;
         }
@@ -180,13 +180,16 @@ public class Player : MonoBehaviourPun
     {
         if(dDown && !isDefense)
         {
+            isDefense = true;
             anim.SetBool("Defense", dDown);
+            attack_controller.weapon_right.ShieldEffectInstance();
         }
         if(!dDown&&isDefense) {
 
-            attack_controller.weapon_right.ShieldEffectOut();
             isDefense = false;
             anim.SetBool("Defense", dDown);
+            attack_controller.weapon_right.ShieldEffectOut();
+            
         }
     }
 

@@ -380,11 +380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7060898633913239880, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 8.000153
+      value: 8.000122
       objectReference: {fileID: 0}
     - target: {fileID: 7956490492508933815, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -19.999512
+      value: -19.999634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -768,7 +768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8364360537352700500, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -827,9 +827,21 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2345487057994509925, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: hitEffectPrefab
+      value: 
+      objectReference: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+    - target: {fileID: 2345487057994509925, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: shieldEffectPrefab
+      value: 
+      objectReference: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
     - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_Name
       value: Assassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

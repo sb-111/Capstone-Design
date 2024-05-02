@@ -27,6 +27,7 @@ public class Weapon : MonoBehaviour
     public GameObject strongEffectPrefab;//필살기 이펙트 프리팹
     public GameObject hitEffectPrefab; //타격시 이펙트 프리팹
     GameObject nEffectPrefab;
+    bool isShield=false;
 
 
 
@@ -116,20 +117,22 @@ public class Weapon : MonoBehaviour
 
     public void ShieldEffectInstance()
     {
-        if (!player.isDefense)
+        if (!isShield)
         {
             Quaternion reverseRoation = Quaternion.Euler(0, 1, 0);
-            nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,-1.0f),transform.rotation* reverseRoation); 
-            player.isDefense = true;
+            nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,-1.0f),transform.rotation* reverseRoation);
+            PrefabCreator info = nEffectPrefab.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
+            info.creatorParentTransform = player.transform;                  //쉴드는 플레이어 기준으로 회전 해야 함
+            isShield = true;
         }           
     }
     public void ShieldEffectOut()
     {
         if(nEffectPrefab != null)
         {
-
             Destroy(nEffectPrefab);
             nEffectPrefab = null;
+            isShield = false;
         }
     }
 
