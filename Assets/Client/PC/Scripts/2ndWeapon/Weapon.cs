@@ -97,7 +97,6 @@ public class Weapon : MonoBehaviour
 
         if (reverse)
         {
-            
             GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation);
             Destroy(effectInstance, 1.0f);
         }
