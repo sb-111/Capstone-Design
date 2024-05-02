@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviourPunCallbacks
     Player target;
     bool isFollowing = false;
 
-
+    bool isDie = false;
 
 
     public void SetPlayer(GameObject clone)
@@ -23,7 +23,10 @@ public class CameraFollow : MonoBehaviourPunCallbacks
         target = playerObject.GetComponent<Player>();
         PhotonView cameraView = playerObject.GetComponent<PhotonView>();
         if (cameraView.IsMine)
+        {
             isFollowing = true;
+            isDie = false;
+        }
         else
             Debug.LogWarning("플레이어 못 찾음");
     }
@@ -36,9 +39,22 @@ public class CameraFollow : MonoBehaviourPunCallbacks
         
       
     }
+    void Update()
+    {
+
+        if (target==null)
+        {
+            isDie = true;
+            GameManager.Instance.PlayerDead();
+        }
+    }
     private void LateUpdate()
     {
-    if (isFollowing) {
+    if (isDie)
+     {
+            return;
+     }
+    else if (isFollowing) {
         // -z축 방향으로 offset 크기만큼 떨어진 벡터 
         Vector3 direction = new Vector3(0, 0, -offset.magnitude);
 

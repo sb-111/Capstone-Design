@@ -8,7 +8,7 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] int setTime = 100;
     [SerializeField] int setPortalTime = 40;
-    [SerializeField] Text countdownText;
+    Text countdownText;
     //[SerializeField] GameObject Player;
     //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
@@ -25,6 +25,7 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         PV = GetComponent<PhotonView>();
+        countdownText = GameObject.Find("Countdown").GetComponent<Text>();
         int initialMinutes = Mathf.FloorToInt(setTime / 60); // 시작할 때의 분
         int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // 시작할 때의 초
         countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // 시작할 때의 시간을 텍스트로 설정

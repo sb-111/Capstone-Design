@@ -9,17 +9,18 @@ using TMPro;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [Header("플레이어 설정")]
-    [SerializeField]
+    //[SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject playerSpawnPoint;
 
+    public bool isGameover { get; private set; }
 
-
-    public static bool portalOwner = false;
+    public bool portalOwner = false;
     private static GameManager instance = null;
 
-    //public TextMeshProUGUI gameOver;
+    public TextMeshProUGUI gameOver;
+    public GameObject overPanel;
     void Awake()
     {
         if (instance == null)
@@ -33,16 +34,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
     }
+   
     void Start()
     {
-       // gameOver.enabled = false;
+        // gameOver.enabled = false;
+        overPanel.SetActive(false);
+        playerPrefab = CharacterSelect.character;
         if (playerPrefab == null)
         {
             Debug.LogError("프레팹 없음");
         }
         else
         {
+<<<<<<< Updated upstream
             GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
+=======
+ 
+>>>>>>> Stashed changes
             // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
             GameObject cameraObj = GameObject.Find("TPS Camera"); 
             if (cameraObj != null)
@@ -54,8 +62,8 @@ public class GameManager : MonoBehaviourPunCallbacks
                 }
             }
             Debug.Log("확인");
+            isGameover = false;
         }
-       
     }
     public static GameManager Instance
     {
@@ -68,16 +76,27 @@ public class GameManager : MonoBehaviourPunCallbacks
             return instance;
         }
     }
+    public void GetPortal()
+    {
+        portalOwner = true;
+    }
+    public void PlayerDead()
+    {
+        overPanel.SetActive(true);
+        gameOver.enabled = true;
+        gameOver.text = "YOU DIED";
+    }
     public void GameFinish()
     {
-        //gameOver.enabled = true;
+        isGameover = true;
+        gameOver.enabled = true;
         if (portalOwner)
         {
-           // gameOver.text = "WIN";
+           gameOver.text = "WIN";
         }
         else
         {
-          //  gameOver.text = "LOSE";
+          gameOver.text = "LOSE";
         }
 
     }

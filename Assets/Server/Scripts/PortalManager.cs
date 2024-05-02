@@ -19,16 +19,17 @@ public class PortalManager : MonoBehaviour
             Break();
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    void OnTriggerEnter(Collider coll)
     {
-        Debug.LogWarning("충돌");
-        if (other.tag == "Melee")
+        Debug.Log("충돌");
+        if (coll.tag == "Melee")
         {
             currentHP -= 10;
             Debug.LogWarning("무기충돌");
+          
 
         }
-
     }
     private bool IsBreak()
     {
@@ -39,6 +40,7 @@ public class PortalManager : MonoBehaviour
     private void Break()
     {
         // 파괴
+        GameManager.Instance.GameFinish();
         Destroy(gameObject);
     }
 }

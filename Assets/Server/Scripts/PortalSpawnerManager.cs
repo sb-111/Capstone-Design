@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PortalSpawnerManager : MonoBehaviour
+using Photon.Pun;
+public class PortalSpawnerManager : MonoBehaviourPun
 {
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,9 @@ public class PortalSpawnerManager : MonoBehaviour
         if (coll.tag == "Melee")
         {
             Countdown.mode = 1;
-            GameManager.portalOwner = true;
+            PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
+            if (collPhotonView.IsMine)
+                 GameManager.Instance.GetPortal();
             SpawnManager.Instance.portalSpawn();
             Debug.Log("카운트 다운 변경");
             Destroy(gameObject);
