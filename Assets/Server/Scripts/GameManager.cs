@@ -13,12 +13,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject playerSpawnPoint;
-
+    [SerializeField]
+    private float respawnTime = 10f;
     public bool isGameover { get; private set; }
 
     public bool portalOwner = false;
     private static GameManager instance = null;
-
+  
     public TextMeshProUGUI gameOver;
     public GameObject overPanel;
     void Awake()
@@ -46,23 +47,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-<<<<<<< Updated upstream
-            GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
-=======
- 
->>>>>>> Stashed changes
-            // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-            GameObject cameraObj = GameObject.Find("TPS Camera"); 
-            if (cameraObj != null)
-            {
-                CameraFollow camaraFollow = cameraObj.GetComponent<CameraFollow>();
-                if (camaraFollow != null)
-                {
-                    camaraFollow.SetPlayer(playerObj);
-                }
-            }
-            Debug.Log("확인");
-            isGameover = false;
+            spawn();
+          
         }
     }
     public static GameManager Instance
@@ -85,9 +71,29 @@ public class GameManager : MonoBehaviourPunCallbacks
         overPanel.SetActive(true);
         gameOver.enabled = true;
         gameOver.text = "YOU DIED";
+        Invoke("spawn", respawnTime);
+    }
+    void spawn()
+    {
+        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
+        GameObject cameraObj = GameObject.Find("TPS Camera");
+        if (cameraObj != null)
+        {
+            CameraFollow camaraFollow = cameraObj.GetComponent<CameraFollow>();
+            if (camaraFollow != null)
+            {
+                camaraFollow.SetPlayer(playerObj);
+            }
+        }
+        Debug.Log("확인");
+        overPanel.SetActive(false);
+        isGameover = false;
+        // 리스폰 동작 실행
+        // 여기에 리스폰에 관련된 코드를 작성합니다.
     }
     public void GameFinish()
     {
+        Debug.Log("게임 종료");
         isGameover = true;
         gameOver.enabled = true;
         if (portalOwner)

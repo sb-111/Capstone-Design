@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviourPunCallbacks
     bool isFollowing = false;
 
     bool isDie = false;
-
+    bool isSpawn = false;
 
     public void SetPlayer(GameObject clone)
     {
@@ -26,6 +26,7 @@ public class CameraFollow : MonoBehaviourPunCallbacks
         {
             isFollowing = true;
             isDie = false;
+            isSpawn = false;
         }
         else
             Debug.LogWarning("플레이어 못 찾음");
@@ -42,10 +43,12 @@ public class CameraFollow : MonoBehaviourPunCallbacks
     void Update()
     {
 
-        if (target==null)
+        if (target==null&&!isSpawn)
         {
             isDie = true;
+            isSpawn = true;
             GameManager.Instance.PlayerDead();
+            
         }
     }
     private void LateUpdate()

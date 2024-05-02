@@ -45,16 +45,20 @@ public class Countdown : MonoBehaviour
             }
             if (mode ==1) {
 
-                ResetTimer(setPortalTime);
-                portalSpawned = true;
-                mode = 2;
-                Debug.Log("��Ż ����");
+                StartPortal();
             } 
 
         }
-
-
    
+    }
+
+    public void StartPortal()
+    {
+
+        ResetTimer(setPortalTime);
+        portalSpawned = true;
+        mode = 2;
+        Debug.Log("포탈 시작");
     }
 
     public void StartTimer(int time)
@@ -72,7 +76,7 @@ public class Countdown : MonoBehaviour
         timerStop = 1;
         setTime = time;
         StartCoroutine("TimerCoroutine");
-        Debug.Log("Ÿ�̸� ����");
+        Debug.Log("타이머 리셋");
     }
 
 
@@ -92,8 +96,17 @@ public class Countdown : MonoBehaviour
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
-            Debug.Log("Ÿ�̸� ����");
-        GameManager.Instance.GameFinish();
+            Debug.Log("타이머 종료");
+        if (mode == 2) {
+            GameManager.Instance.GameFinish();
+            Debug.Log("게임 종료 확인");
+
+        }
+        else
+        {
+            StartPortal();
+            Debug.Log("종료 확인");
+        }
 
         yield break;
 
