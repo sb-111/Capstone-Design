@@ -189,9 +189,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 10
-  fieldOfView: 360
-  attackRange: 4
+  sightRange: 32
+  fieldOfView: 160
+  attackRange: 8
   basicCoolTime: 3
   _enemyWeapon: {fileID: 0}
   maxHP: 0
@@ -1478,6 +1478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 6196599374688499711}
 --- !u!65 &6196599374688499711
 BoxCollider:
@@ -3053,6 +3054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 2320468005899803458}
 --- !u!65 &2320468005899803458
 BoxCollider:

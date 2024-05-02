@@ -45,4 +45,9 @@ public class CombatStatusManager : MonoBehaviour
     {
         player.isCC = false;
     }
+    // ³Ë¹é
+    public void TakeKnockback(Vector3 force)
+    {
+        player.rigid.AddForce(force , ForceMode.Impulse);
+    }
 }

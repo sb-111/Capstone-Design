@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class MonsterAttackCTRL : MonoBehaviour
 {
-    //Monster monster;
-    //public Animator Anim { get; private set; }
-    public bool isAttack { get; private set; }
-
+    //public bool isAttack { get; private set; }
     [Header("무기 오브젝트 설정")]
     [SerializeField] EnemyWeapon weapon_right;
     [SerializeField] EnemyWeapon weapon_left;
 
     private void Awake()
     {
-        isAttack= false;
+        //isAttack= false;
         //monster = GetComponent<Monster>();
         //Anim = GetComponent<Animator>();
     }
@@ -23,33 +20,43 @@ public class MonsterAttackCTRL : MonoBehaviour
     {
         
     }
-    // called by animator
+    // called by animation clip
     public void rightWeaponUse()
     {
-        weapon_right.WeaponUse();
+        if (weapon_right != null)
+            weapon_right.WeaponUse();
     }
-    // called by animator
+    // called by animation clip
     public void leftWeaponUse()
     {
-        weapon_left.WeaponUse();
+        if (weapon_left != null)
+            weapon_left.WeaponUse();
     }
-    // called by animator
+    // called by animation clip
+    public void SetStrongAttack()
+    {
+        if(weapon_left != null)
+            weapon_left.SetStrongAttack();
+        if(weapon_right != null)
+            weapon_right.SetStrongAttack();
+    }
+    // called by animation clip
     public void WeaponOut()
     {
-        weapon_right.WeaponOut();
-        if (weapon_left != null)
-        {
+        if(weapon_left != null)
             weapon_left.WeaponOut();
-        }
-    }
-    // called by animator
-    public void IsAttack()
-    {
-        isAttack = true;
+        if(weapon_right != null)
+            weapon_right.WeaponOut();
     }
 
-    public void AttackOut()
-    {
-        isAttack = false;
-    }
+    //// called by animator
+    //public void IsAttack()
+    //{
+    //    isAttack = true;
+    //}
+
+    //public void AttackOut()
+    //{
+    //    isAttack = false;
+    //}
 }

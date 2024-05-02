@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 6320218430151310429}
 --- !u!1 &8931416526484982432
 GameObject:
@@ -218,9 +219,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 10
-  fieldOfView: 360
-  attackRange: 7.5
+  sightRange: 32
+  fieldOfView: 160
+  attackRange: 16
   basicCoolTime: 3
   _enemyWeapon: {fileID: 0}
   maxHP: 100000
@@ -2021,4 +2022,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 2953048845922310992}

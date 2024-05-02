@@ -7,31 +7,40 @@ public class EnemyWeapon : MonoBehaviour
     public enum WeaponType { Melee, Range };
     public WeaponType type;
     public int weapon_damage = 30; //무기별 공격력
+    public float knockbackPower = 10f;
+    private bool isStrongAttack = false;
+
     //public float weapon_rate; // 무기별 공격 속도
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
     private Animator Anim;
     private Monster monster;
+    
     private void Start()
     {
         
     }
     private void Awake()
     {
-        Anim= GetComponentInParent<Animator>();
-        monster= GetComponentInParent<Monster>();
+        Anim = GetComponentInParent<Animator>();
+        monster = GetComponentInParent<Monster>();
     }
     
     public void WeaponUse()
     {
         hitEnemies.Clear();
-        meleeArea.enabled = true;
+        meleeArea.enabled = true; // Collider 활성화
     }
 
     public void WeaponOut()
     {
-        meleeArea.enabled = false;
+        meleeArea.enabled = false; // Collider 비활성화
+        isStrongAttack = false;
+    }
+    public void SetStrongAttack()
+    {
+        isStrongAttack = true;  
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,8 +51,13 @@ public class EnemyWeapon : MonoBehaviour
             CombatStatusManager combatStatus = player.GetComponent<CombatStatusManager>();
             if (!hitEnemies.Contains(player)) // 이미 공격한 적이 아니라면
             {
-                hitEnemies.Add(player); 
+                hitEnemies.Add(player);  // 적 HashSet에 추가
                 combatStatus.TakeDamage((20 + weapon_damage));
+                if(isStrongAttack) // 강공격인 경우
+                {
+                    Vector3 knockbackDir = (transform.position - player.transform.position).normalized;
+                    combatStatus.TakeKnockback(knockbackDir * knockbackPower);
+                }
             }
         }
 

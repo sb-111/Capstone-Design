@@ -3,8 +3,9 @@ using UnityEngine;
 public class AttackState : IMonsterState
 {
     Monster monster;
-    
+    int count = 0;
     int randomValue;
+    float time = 0;
     public AttackState(Monster monster)
     {
         this.monster = monster;
@@ -12,17 +13,9 @@ public class AttackState : IMonsterState
 
     public void EnterState()
     {
-        //if (monster.AttackController.isAttack)
-        //{
-        //    return;
-        //}
-
-        //randomValue = Random.Range(0, 2);
-        //monster.Anim.SetTrigger("doAttack");
-        //monster.Anim.SetInteger(randomValue, randomValue);
-
+        monster.transform.LookAt(monster.TargetPlayer);
         monster.Anim.SetTrigger("doAttack");
-        monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
+        monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
     }
 
     public void ExitState()
@@ -32,20 +25,30 @@ public class AttackState : IMonsterState
 
     public void ExecuteState()
     {
-        //monster.Anim.SetTrigger("doAttack");
-        //monster.Anim.SetInteger("randomValue", Random.Range(0,2));
+        AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
+        if (animatorStateInfo.IsName("attack1"))
+        {
+           Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
+        }
+        time += Time.deltaTime;
+        if (time >= 3f)
+        {
+            monster.transform.LookAt(monster.TargetPlayer);
+            monster.Anim.SetTrigger("doAttack");
+            //monster.Anim.SetInteger("randomValue", 0);
+            monster.Anim.SetInteger("randomValue", Random.Range(0,3));
+            time = 0f;
+        }
 
-        //if (monster.AttackController.isAttack)
+        // 재생중이 아닐때만 애니메이션 재생
+        //if (!IsAnimationRunning(monster.Anim, "attack1"))
         //{
-        //    return;
-        //}
-       
-        //if (monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8) //개선필요
-        //{
-        //    randomValue = Random.Range(0, 2);
+        //    Debug.Log("애니메이션 실행" + count);
         //    monster.Anim.SetTrigger("doAttack");
-        //    monster.Anim.SetInteger("randomValue", randomValue);
+        //    monster.Anim.SetInteger("randomValue", 0);
+        //    count++;
         //}
+        //Debug.Log("=========================================================");
     }
     bool IsAnimationRunning(Animator animator, string animationStateName)
     {
@@ -53,11 +56,51 @@ public class AttackState : IMonsterState
 
         // 애니메이터 첫번째 레이어 반환 
         AnimatorStateInfo animatorStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        AnimatorClipInfo[] animatorClipInfo = animator.GetCurrentAnimatorClipInfo(0);
         if (animatorStateInfo.IsName(animationStateName)) // 매개변수로 받아온 이름의 상태이면
         {
-            return animatorStateInfo.normalizedTime < 1f; // 실행 중이면 true 반환
+            Debug.Log($"normalizedTime :{animatorStateInfo.normalizedTime}");
+            if (animatorStateInfo.normalizedTime <= 1f)
+            {
+
+                //Debug.Log($"normalizedTime :{animatorStateInfo.normalizedTime}");
+                //Debug.Log("실행중입니다.");
+                return true;
+            }
+            else
+            {
+                Debug.Log("실행이 끝났습니다.");
+                return false;
+            }
         }
-        return false; // 아니면 false
+        else // 매개변수로 받아온 이름의 상태가 아니면
+        {
+            Debug.Log($"애니메이션 종류: {animator.GetCurrentAnimatorClipInfo(0)[0].clip.name}");
+            Debug.Log($"애니메이션 길이: {animator.GetCurrentAnimatorClipInfo(0)[0].clip.length}");
+            return false; // 아니면 false
+        }
+        //if(animatorStateInfo.IsName(animationStateName) && (animatorStateInfo.normalizedTime % 1.0f) < 1f)
+        //{
+        //    return true;
+        //}
+        //else
+        //{
+        //    return false;
+        //}
     }
 
 }
+//monster.Anim.SetTrigger("doAttack");
+//monster.Anim.SetInteger("randomValue", Random.Range(0,2));
+
+//if (monster.AttackController.isAttack)
+//{
+//    return;
+//}
+
+//if (monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.8) //개선필요
+//{
+//    randomValue = Random.Range(0, 2);
+//    monster.Anim.SetTrigger("doAttack");
+//    monster.Anim.SetInteger("randomValue", randomValue);
+//}
