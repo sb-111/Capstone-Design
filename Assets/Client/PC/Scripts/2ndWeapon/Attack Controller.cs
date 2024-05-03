@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AttackController : MonoBehaviour
 {
@@ -111,9 +112,18 @@ public class AttackController : MonoBehaviour
         }
     }
 
-    public void ShieldEffect()
+    public void SwordEffectLeft(int value = 0)
     {
-        weapon_right.ShieldEffectInstance();
+        if (value != 0)
+        {
+            bool reverse = false;
+            weapon_left.EffectInstance(reverse);
+        }
+        else
+        {
+            bool forward = true;
+            weapon_left.EffectInstance(forward);
+        }
     }
 
     public void StrongEffect()
