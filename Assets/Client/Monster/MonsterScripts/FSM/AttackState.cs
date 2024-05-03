@@ -3,9 +3,8 @@ using UnityEngine;
 public class AttackState : IMonsterState
 {
     Monster monster;
-    int count = 0;
-    int randomValue;
-    float time = 0;
+    float currentTime = 0;
+    float attackInterval = 3f;
     public AttackState(Monster monster)
     {
         this.monster = monster;
@@ -16,6 +15,7 @@ public class AttackState : IMonsterState
         monster.transform.LookAt(monster.TargetPlayer);
         monster.Anim.SetTrigger("doAttack");
         monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
+        //monster.Anim.SetInteger("randomValue", 2);
     }
 
     public void ExitState()
@@ -28,16 +28,17 @@ public class AttackState : IMonsterState
         AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
         if (animatorStateInfo.IsName("attack1"))
         {
-           Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
+            Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
         }
-        time += Time.deltaTime;
-        if (time >= 3f)
+        currentTime += Time.deltaTime;
+        if (currentTime >= attackInterval)
         {
             monster.transform.LookAt(monster.TargetPlayer);
             monster.Anim.SetTrigger("doAttack");
+            monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
+            currentTime = 0f;
             //monster.Anim.SetInteger("randomValue", 0);
-            monster.Anim.SetInteger("randomValue", Random.Range(0,3));
-            time = 0f;
+            //monster.Anim.SetInteger("randomValue", 2);
         }
 
         // 재생중이 아닐때만 애니메이션 재생

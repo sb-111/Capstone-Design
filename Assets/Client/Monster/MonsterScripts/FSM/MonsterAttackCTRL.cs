@@ -12,8 +12,6 @@ public class MonsterAttackCTRL : MonoBehaviour
     private void Awake()
     {
         //isAttack= false;
-        //monster = GetComponent<Monster>();
-        //Anim = GetComponent<Animator>();
     }
     // Start is called before the first frame update
     public void Start()

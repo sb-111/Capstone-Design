@@ -55,8 +55,10 @@ public class EnemyWeapon : MonoBehaviour
                 combatStatus.TakeDamage((20 + weapon_damage));
                 if(isStrongAttack) // 강공격인 경우
                 {
-                    Vector3 knockbackDir = (transform.position - player.transform.position).normalized;
-                    combatStatus.TakeKnockback(knockbackDir * knockbackPower);
+                    Vector3 knockbackDir = (player.transform.position - transform.position); // 넉백 방향
+                    knockbackDir.y = 0;
+                    knockbackDir = knockbackDir.normalized;
+                    combatStatus.TakeKnockback(knockbackDir);
                 }
             }
         }

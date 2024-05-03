@@ -204,6 +204,11 @@ public class Monster : MonoBehaviour
     }
     // 몬스터의 체력 깎는 함수
     // 플레이어쪽에서 이를 호출해야 한다.
+    /// <summary>
+    /// 몬스터의 체력 깎는 메서드: 플레이어가 호출
+    /// </summary>
+    /// <param name="damage">데미지</param>
+    /// <param name="enmenyPosition">?</param>
     public void TakeDamage(int damage,Vector3 enmenyPosition)
     {
         currentHP -= damage;
@@ -213,23 +218,27 @@ public class Monster : MonoBehaviour
             Die();
         }
     }
+    private bool IsDie()
+    {
+        return currentHP <= 0;
+    }
+    /// <summary>
+    /// DeadState로 바로 전환하는 메서드
+    /// </summary>
+    private void Die()
+    {
+        SetState(new DeadState(this));
+    }
 
+    /// <summary>
+    /// HitState로 바로 전환하는 메서드
+    /// </summary>
+    /// <param name="cctime"></param>
     public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
     {
         SetState(new HitState(this));
     }
     
-
-    private bool IsDie()
-    {
-        return currentHP <= 0;
-    }
-
-    private void Die()
-    {
-        // 죽은 상태로 전환
-        SetState(new DeadState(this));
-    }
 
     private void IsMoving()
     {
