@@ -10,10 +10,30 @@ public class Barricade : MonoBehaviour
     {
         
     }
+
+    void Update()
+    {
+        if (IsBreak())
+        {
+            Break();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.LogWarning("충돌");
+        if (other.tag == "Melee")
+        {
+            currentHP -= 10;
+            Debug.LogWarning("무기충돌");
+
+        }
+
+    }
     public void TakeDamage(int damage, Vector3 enmenyPosition)
     {
         currentHP -= damage;
-
+        Debug.LogWarning("데미지" + damage);
         if (IsBreak())
         {
             Break();
@@ -24,14 +44,12 @@ public class Barricade : MonoBehaviour
         return currentHP <= 0;
     }
 
+ 
     private void Break()
     {
         // 파괴
         Destroy(gameObject);
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

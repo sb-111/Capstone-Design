@@ -64,13 +64,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.055555556
-        functionName: IsHeavyAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.10325701
         functionName: WeaponUse
         data: 
@@ -92,13 +85,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.31028482
-        functionName: IsHeavyAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.33585915
         functionName: WeaponUse
         data: 
@@ -115,13 +101,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.47190645
         functionName: WeaponAttackOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5578095
-        functionName: IsHeavyAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

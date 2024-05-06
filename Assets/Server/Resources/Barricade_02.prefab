@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95eabe69eb25e0b4ab73165117ba7acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 100
+  currentHP: 30
 --- !u!54 &-1839638260681657911
 Rigidbody:
   m_ObjectHideFlags: 0

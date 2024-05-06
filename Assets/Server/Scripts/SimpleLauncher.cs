@@ -43,7 +43,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         Debug.Log("Connected to Master");
         if (isConnecting)
         {
-            PhotonNetwork.JoinRandomRoom();
+            SceneManager.LoadScene("MainMenuScene");
         }
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -58,13 +58,40 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
 
-        //PhotonNetwork.LoadLevel("MainScene");//씬 이름
-        StartCoroutine(LoadLevelWithProgress("MainScene"));
+
+        LoadScene("MainScene");
+
+
 
         Debug.Log("방 들어감");
         // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
 
     }
+
+    void LoadScene(string scene)
+    {
+        StartCoroutine(LoadScene_Coroutine(scene));
+    }
+    IEnumerator LoadScene_Coroutine(string scene)
+    {
+        loadingProgressBar.value = 0;
+        loadingUI.SetActive(true);
+        float progress = 0;
+        PhotonNetwork.LoadLevel(scene);
+        while (!PhotonNetwork.IsConnected)
+        {
+            progress = Mathf.MoveTowards(progress, PhotonNetwork.LevelLoadingProgress, Time.deltaTime * 0.5f);
+            loadingProgressBar.value = progress;
+            if (progress >= 0.9f)
+            {
+                loadingProgressBar.value = 1;
+            }
+            yield return null;
+        }
+        loadingUI.SetActive(false);
+    }
+
+
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
         // 로딩 UI 활성화

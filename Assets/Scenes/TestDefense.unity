@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.78482, g: 324.342, b: 429.31946, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,11 +500,35 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 1031318265}
+  - {fileID: 1031318264}
   - {fileID: 1031318262}
   - {fileID: 1031318261}
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1031318264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7877563303942974739, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+  m_PrefabInstance: {fileID: 1803035843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031318259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1031318265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2389297423298781671, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+  m_PrefabInstance: {fileID: 1803035843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031318259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1244756210
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,17 +981,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: ObservedComponents.Array.data[2]
+      value: 
+      objectReference: {fileID: 1031318262}
+    - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: ObservedComponents.Array.data[3]
+      value: 
+      objectReference: {fileID: 1031318261}
+    - target: {fileID: 4634095876821335854, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: m_TagString
+      value: Melee
+      objectReference: {fileID: 0}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1017,7 +1061,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5361170300420579470, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

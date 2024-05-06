@@ -7,18 +7,13 @@ using Photon.Pun;
 public class Monster : MonoBehaviour
 {
     private FSM _fsm;
-    public enum MonsterType { Cyclops, Goblin, Hobgoblin, Kobold, Troll }
-
-    [Header("몬스터 타입 설정")]
-    [SerializeField] private MonsterType _monsterType;
-    public MonsterType Type {  get { return _monsterType; }  }
 
     [Header("Idle 설정")]
     [SerializeField]
     private float wanderRadius = 5f; // 배회 반경
     private Vector3 spawnPoint; // 스폰포인트
-    public float WanderRadius { get { return wanderRadius; } }
     public Vector3 SpawnPoint { get { return spawnPoint; } }
+    public float WanderRadius { get { return wanderRadius; } }
 
     [Header("Chase 설정")]
     [SerializeField]
@@ -50,7 +45,6 @@ public class Monster : MonoBehaviour
     public BoxCollider Collider { get; private set; }
     public Animator Anim { get; private set; }
     public NavMeshAgent Agent { get; private set; }
-    public MonsterAttackCTRL AttackController { get; private set; }
 
     Material mat;
     Color originalColor;
@@ -61,8 +55,8 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-        //_enemyWeapon.enabled = false;
-        AttackController = GetComponent<MonsterAttackCTRL>();
+        _enemyWeapon.enabled = false;
+
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
     }
     void Start()
@@ -78,7 +72,7 @@ public class Monster : MonoBehaviour
         // _fsm을 통한 상태 변경 부분
         switch (_fsm.CurrentState) // fsm의 현재상태 프로퍼티 접근
         {
-            case IdleState:  
+            case IdleState:
                 if (CheckPlayerInSight()) // 시야 범위 내
                 {
                     if (CheckAttackRange()) // 사정거리 안
@@ -90,7 +84,6 @@ public class Monster : MonoBehaviour
                         SetState(new ChaseState(this));
                     }
                 }
-                //IsMoving();
                 break;
 
             case ChaseState:
@@ -101,11 +94,10 @@ public class Monster : MonoBehaviour
                         SetState(new AttackState(this));
                     }
                 }
-                else // 시야 범위 밖
+                else // 플레이어 시야 밖
                 {
                     SetState(new IdleState(this));
                 }
-                //IsMoving();
                 break;
 
             case AttackState:
@@ -119,20 +111,6 @@ public class Monster : MonoBehaviour
                 else // 시야 범위 밖
                 {
                     SetState(new IdleState(this));
-                }
-                break;
-
-            case HitState:
-                if (Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
-                {
-                    return;                     //피격 애니메이션 실행률 95%이하면 X
-                }
-                else
-                {
-                    // Hit -> Chase
-                    // 일반적으로 맞았으면 다시 추격, 공격 범위내 있으면 공격
-                    // 문제점: Chase에서 시야에 없다면 바로 Idle로 전환
-                    SetState(new ChaseState(this));
                 }
                 break;
         }
@@ -179,44 +157,6 @@ public class Monster : MonoBehaviour
     {
         _fsm.SetState(state);
     }
-    
-    // 몬스터의 체력 깎는 함수
-    // 플레이어쪽에서 이를 호출해야 한다.
-    /// <summary>
-    /// 몬스터의 체력 깎는 메서드: 플레이어가 호출
-    /// </summary>
-    /// <param name="damage">데미지</param>
-    /// <param name="enmenyPosition">?</param>
-    public void TakeDamage(int damage, Vector3 enmenyPosition)
-    {
-        currentHP -= damage;
-
-        if (IsDie())
-        {
-            Die();
-        }
-    }
-    private bool IsDie()
-    {
-        return currentHP <= 0;
-    }
-    /// <summary>
-    /// DeadState로 바로 전환하는 메서드
-    /// </summary>
-    private void Die()
-    {
-        SetState(new DeadState(this));
-    }
-
-    /// <summary>
-    /// HitState로 바로 전환하는 메서드
-    /// </summary>
-    /// <param name="cctime"></param>
-    public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
-    {
-        SetState(new HitState(this));
-    }
-
     // 기즈모
     private void OnDrawGizmos()
     {
@@ -245,27 +185,25 @@ public class Monster : MonoBehaviour
         Gizmos.DrawWireSphere (transform.position, sightRange);
 
     }
-    private void IsMoving()
+    // 몬스터의 체력 깎는 함수
+    // 플레이어쪽에서 이를 호출해야 한다.
+    public void TakeDamage(int damage,Vector3 enmenyPosition)
     {
-        if (Agent.velocity.magnitude >= 0.05f)
-        {
-            switch (_fsm.CurrentState)
-            {
-                case IdleState: // 각 state 구현으로 옮겨도 될듯
-                    Anim.SetBool("Walk", true);
-                    Anim.SetBool("Run", false);
-                    break;
+        currentHP -= damage;
 
-                case ChaseState:
-                    Anim.SetBool("Run", true);
-                    Anim.SetBool("Walk", false);
-                    break;
-            }
-        }
-        else
+        if(IsDie())
         {
-            Anim.SetBool("Walk", false);
-            Anim.SetBool("Run", false);
+            Die();
         }
+    }
+    private bool IsDie()
+    {
+        return currentHP <= 0;
+    }
+
+    private void Die()
+    {
+        // 죽은 상태로 전환
+        SetState(new DeadState(this));
     }
 }
