@@ -1682,7 +1682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4856585848717116729
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,7 +1692,7 @@ Transform:
   m_GameObject: {fileID: 3402199593375784136}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0.000000009219621, z: -0.000000011853803, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1816,8 +1816,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8188118361486413423}
   m_AABB:
-    m_Center: {x: -0.019794106, y: 0.015437752, z: 0.09720707}
-    m_Extent: {x: 0.54455346, y: 0.22574493, z: 0.17221451}
+    m_Center: {x: NaN, y: NaN, z: NaN}
+    m_Extent: {x: NaN, y: NaN, z: NaN}
   m_DirtyAABB: 0
 --- !u!183 &8154436825179452103
 Cloth:
@@ -8000,7 +8000,7 @@ GameObject:
   - component: {fileID: 1887557618392704136}
   m_Layer: 9
   m_Name: weaponPoint
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9851,7 +9851,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Defense
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doParrying
   m_SynchronizeLayers:
   - SynchronizeType: 1

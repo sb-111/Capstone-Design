@@ -8,18 +8,20 @@ using TMPro;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    [Header("�÷��̾� ����")]
-    [SerializeField]
+    [Header("플레이어 설정")]
+    //[SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject playerSpawnPoint;
-
-
-
-    public static bool portalOwner = false;
+    [SerializeField]
+    private float respawnTime = 10f;
+    public bool isGameover { get; private set; }
+    private PhotonView PV;
+    public bool portalOwner = false;
     private static GameManager instance = null;
-
-    //public TextMeshProUGUI gameOver;
+  
+    public TextMeshProUGUI gameOver;
+    public GameObject overPanel;
     void Awake()
     {
         if (instance == null)
@@ -33,20 +35,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
     }
+   
     void Start()
     {
-       // gameOver.enabled = false;
+        // gameOver.enabled = false;
+        PV = GetComponent<PhotonView>();
+        overPanel.SetActive(false);
+        playerPrefab = CharacterSelect.character;
         if (playerPrefab == null)
         {
-            Debug.LogError("������ ����");
+            Debug.LogError("프레팹 없음");
         }
         else
         {
-            PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
-            // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
-            Debug.Log("Ȯ��");
+
+            spawn();
+
         }
-       
     }
     public static GameManager Instance
     {
@@ -59,18 +64,55 @@ public class GameManager : MonoBehaviourPunCallbacks
             return instance;
         }
     }
+    public void GetPortal()
+    {
+        portalOwner = true;
+    }
+    public void PlayerDead()
+    {
+        overPanel.SetActive(true);
+        gameOver.enabled = true;
+        gameOver.text = "YOU DIED";
+        Invoke("spawn", respawnTime);
+    }
+    void spawn()
+    {
+        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
+        GameObject cameraObj = GameObject.Find("TPS Camera");
+        if (cameraObj != null)
+        {
+            CameraFollow camaraFollow = cameraObj.GetComponent<CameraFollow>();
+            if (camaraFollow != null)
+            {
+                camaraFollow.SetPlayer(playerObj);
+            }
+        }
+        Debug.Log("확인");
+        overPanel.SetActive(false);
+        gameOver.enabled = false;
+        isGameover = false;
+        // 리스폰 동작 실행
+        // 여기에 리스폰에 관련된 코드를 작성합니다.
+    }
     public void GameFinish()
     {
-        //gameOver.enabled = true;
+        PV.RPC("GameOver", RpcTarget.All);
+    }
+    [PunRPC]
+    private void GameOver()
+    {
+        Debug.Log("게임 종료");
+        isGameover = true;
+        overPanel.SetActive(true);
+        gameOver.enabled = true;
         if (portalOwner)
         {
-           // gameOver.text = "WIN";
+            gameOver.text = "WIN";
         }
         else
         {
-          //  gameOver.text = "LOSE";
+            gameOver.text = "LOSE";
         }
-
     }
     void LoadArena()
     {

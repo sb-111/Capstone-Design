@@ -123,6 +123,23 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.LogError("확인");
+        if (other.collider.CompareTag("Build"))
+        {
+            GameObject build = other.gameObject;
+            Barricade buildDamage = build.GetComponent<Barricade>();
+            if (!hitEnemies.Contains(build)) // 이미 공격한 적이 아니라면
+            {
+                hitEnemies.Add(build); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
+                buildDamage.TakeDamage((status.basicStats.atk + weapon_damage), transform.position);
+                cameraShaking.Shaking();
+            }
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ParryingBox" && canPrrying)
