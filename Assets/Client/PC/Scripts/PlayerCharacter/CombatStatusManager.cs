@@ -31,7 +31,7 @@ public class CombatStatusManager : MonoBehaviour
         int result_damage = (int)(damage * (1 - (player_status.basicStats.def / (player_status.basicStats.def + player_status.combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
         player_status.basicStats.hp -= result_damage;
         //Debug.Log(result_damage);
-        if (result_damage > 0 && player.dDown) //플레이어가 현재 방패로 막는 중이라면~
+        if (result_damage > 0 && player.isDefense) //플레이어가 현재 방패로 막는 중이라면 디펜싱 히트로
         {
             player.DefensingHit();
         }

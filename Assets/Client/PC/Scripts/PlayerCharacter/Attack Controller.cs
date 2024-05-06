@@ -16,8 +16,12 @@ public class AttackController : MonoBehaviour
     public CameraShake cameraShaking;
     Animator anim;
     Player player_controller;
-    
-   
+    [HideInInspector]
+    public bool stepupBuffer= false;        //어쌔신 캐릭터 E키 강화 여부
+    [HideInInspector]
+    public int curAttack;                   //현재 공격 값
+
+
     private void Awake()
     {
        anim = GetComponent<Animator>();
@@ -136,4 +140,23 @@ public class AttackController : MonoBehaviour
         weapon_right.isHeavyAttack = true;
         Debug.Log("강공격 상태: "+weapon_right.isHeavyAttack);
     }
+
+
+
+    //어쌔신 E키(강화) 스킬
+    public void AssassinStepUp()
+    {
+        stepupBuffer = true;
+        Invoke("AssassinStepDown", 15.0f);
+        weapon_right.HandEffect.gameObject.SetActive(true);
+        weapon_left.HandEffect.gameObject.SetActive(true);
+    }
+
+    public void AssassinStepDown()
+    {
+        stepupBuffer = false;
+        weapon_right.HandEffect.gameObject.SetActive(false);
+        weapon_left.HandEffect.gameObject.SetActive(false);
+    }
+
 }

@@ -14,6 +14,7 @@ public class Player : MonoBehaviourPun
     float sensivity = 1f;
     Vector3 moveVec;
     Vector3 jumpVec;
+    bool isDefenseCool=false;
 
     bool rDown;                                             //달리기 키
     bool jDown;                                             //구르기 키
@@ -22,6 +23,7 @@ public class Player : MonoBehaviourPun
     public bool isJump;                                     //구르는 중인가?
     [HideInInspector]
     public bool dDown;                                      //방어 키
+    bool dUp;
     [HideInInspector]
     public bool isDefense;                                  //방어 중인가?
     [HideInInspector]
@@ -65,7 +67,7 @@ public class Player : MonoBehaviourPun
         
         if (!isJump && !isDeath) canAttack = true;
         else canAttack = false;
-        if (!dDown) isDefense = false;
+        
         if (state.basicStats.hp <= 0) { Death(); }
 
         GetInput();
@@ -76,7 +78,8 @@ public class Player : MonoBehaviourPun
         Move();
         Jump();
         attack_controll();
-        Defenssing(dDown);
+        Defenssing();
+        
     }
     void attack_controll()                              //공격 입력 관리
     {
@@ -109,7 +112,9 @@ public class Player : MonoBehaviourPun
         left_attack = Input.GetMouseButtonDown(0);
         right_attack = Input.GetMouseButtonDown(1);
         strong_attack = Input.GetMouseButtonDown(2);
-        dDown = Input.GetKey(KeyCode.E);                                   //디펜스
+        dDown = Input.GetKeyDown(KeyCode.E);                                   //디펜스
+        dUp = Input.GetKeyUp(KeyCode.E);
+        
     }
 
     void Move()
@@ -135,6 +140,7 @@ public class Player : MonoBehaviourPun
         {
             moveVec = Vector3.zero;
         }
+        Stamina();
         // 월드 기준
         transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
         anim.SetBool("isWalk", moveVec != Vector3.zero);
@@ -163,7 +169,6 @@ public class Player : MonoBehaviourPun
         if (jDown && !isJump && !isAttack)
         {
             isJump = true;
-            //anim.SetBool("isJump", true);                                             //삭제 예정
             anim.SetTrigger("doJump");
             Invoke("JumpOut", 1.16f);
         }
@@ -171,26 +176,49 @@ public class Player : MonoBehaviourPun
 
     void JumpOut()
     {
-        //anim.SetBool("isJump", false);                                                //삭제 예정
         isJump = false;
     }
 
-
-    void Defenssing(bool dDwon)
+    void Stamina()
     {
-        if(dDown && !isDefense)
+        float staminaDecreasePerSec = 5;
+        if (rDown && moveVec != Vector3.zero)
+        {
+            if (state.moveStats.stamina < 5)
+            {
+                rDown = false;
+                return;
+            }
+            state.moveStats.stamina -= staminaDecreasePerSec * Time.deltaTime;
+        }
+        if (!rDown && state.moveStats.stamina < 100)
+        {
+            state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
+        }
+    }
+
+    void Defenssing()
+    {
+        if (dDown&&!isDefenseCool)                                         //처음 눌렀을 때(디펜스 시작 시)
         {
             isDefense = true;
-            anim.SetBool("Defense", dDown);
+            isDefenseCool = true;
+
+            anim.SetBool("Defense", true);
+            anim.SetTrigger("doDefense");
             attack_controller.weapon_right.ShieldEffectInstance();
         }
-        if(!dDown&&isDefense) {
 
+        if(dUp&&isDefense) {                                             //디펜스 끝날 때
             isDefense = false;
-            anim.SetBool("Defense", dDown);
+            anim.SetBool("Defense", false);
             attack_controller.weapon_right.ShieldEffectOut();
-            
+            Invoke("isDefensCoolDown", 30.0f);
         }
+    }
+    void isDefensCoolDown()
+    {
+        isDefenseCool = false;
     }
 
     public void DefensingHit()
@@ -213,10 +241,6 @@ public class Player : MonoBehaviourPun
         attack_controller.strongAttack();
     }
 
-    public void attackOut()
-    {
-        //isAttack = false;
-    }
 
     public void isAttackAnimation()             //공격 애니메이션 공용 이벤트 1 (시작 지점)
     {
