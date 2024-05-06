@@ -9401,7 +9401,7 @@ GameObject:
   - component: {fileID: 5361170300420579470}
   - component: {fileID: 6058203953304390727}
   m_Layer: 9
-  m_Name: SK_MercenaryWarrior_MergedB
+  m_Name: Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
