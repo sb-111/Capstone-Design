@@ -60,7 +60,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
         // 코루틴을 사용하여 씬 로딩 시작
-        StartCoroutine(LoadScene_Coroutine("MainScene"));
+        StartCoroutine(LoadLevelWithProgress("MainScene"));
     }
 
     // SimpleLauncher에서 가져온 LoadScene_Coroutine
@@ -86,7 +86,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     // SimpleLauncher에서 가져온 LoadLevelWithProgress
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
-        loadingUI.SetActive(true);
+        //loadingUI.SetActive(true);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
         asyncLoad.allowSceneActivation = false;
         loadingProgressBar.value = 0;
