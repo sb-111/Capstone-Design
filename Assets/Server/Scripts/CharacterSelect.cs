@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+
 using Photon.Realtime;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviourPunCallbacks
 {
@@ -14,10 +14,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public GameObject chara1;
     public GameObject chara2;
 
-    // √ﬂ∞°µ» UI ø‰º“
-    public Slider loadingProgressBar;
-    public GameObject loadingUI;
-
+    // Start is called before the first frame update
     void Start()
     {
         character = chara1;
@@ -35,55 +32,50 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             character = chara1;
         }
     }
-
     void OnChara2(bool _bool)
     {
         if (true)
-        {
+        {        
             character = chara2;
         }
     }
 
-    public void GameStart()
+
+    // Update is called once per frame
+    void Update()
     {
-        loadingUI.SetActive(true);
+        
+    }
+    public void GameStart() 
+    {
         PhotonNetwork.JoinRandomRoom();
     }
-
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("πÊª˝º∫");
+        Debug.Log("Î∞©ÏÉùÏÑ±");
+
+        //Î∞© ÏÉùÏÑ±
         PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        // ƒ⁄∑Á∆æ¿ª ªÁøÎ«œø© æ¿ ∑Œµ˘ Ω√¿€
+
+        // ÏΩîÎ£®Ìã¥ÏùÑ ÏÇ¨Ïö©ÌïòÏó¨ Ïî¨ Î°úÎî© ÏãúÏûë
         StartCoroutine(LoadScene_Coroutine("MainScene"));
     }
 
-    // SimpleLauncherø°º≠ ∞°¡Æø¬ LoadScene_Coroutine
-    IEnumerator LoadScene_Coroutine(string scene)
-    {
-        loadingProgressBar.value = 0;
-        loadingUI.SetActive(true);
-        float progress = 0;
-        PhotonNetwork.LoadLevel(scene);
-        while (!PhotonNetwork.IsConnected)
-        {
-            progress = Mathf.MoveTowards(progress, PhotonNetwork.LevelLoadingProgress, Time.deltaTime * 0.5f);
-            loadingProgressBar.value = progress;
-            if (progress >= 0.9f)
-            {
-                loadingProgressBar.value = 1;
-            }
-            yield return null;
-        }
-        loadingUI.SetActive(false);
-    }
 
-    // SimpleLauncherø°º≠ ∞°¡Æø¬ LoadLevelWithProgress
+        PhotonNetwork.LoadLevel("MainScene");//Ïî¨ Ïù¥Î¶Ñ
+    
+        //StartCoroutine(LoadLevelWithProgress("MainScene"));
+
+        Debug.Log("Î∞© Îì§Ïñ¥Í∞ê");
+        // PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0, 1, 0), Quaternion.identity);
+
+
+    // SimpleLauncherÏóêÏÑú Í∞ÄÏ†∏Ïò® LoadLevelWithProgress
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
         loadingUI.SetActive(true);
@@ -110,5 +102,8 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             yield return null;
         }
         loadingUI.SetActive(false);
+
     }
+
+
 }
