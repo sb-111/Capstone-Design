@@ -116,7 +116,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.60898745
+      - time: 0.61326706
         functionName: SwordEffectLeft
         data: 
         objectReferenceParameter: {instanceID: 0}
