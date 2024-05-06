@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5410211102063415656}
   - component: {fileID: 435909862863272321}
   - component: {fileID: 2163917856201839466}
-  - component: {fileID: 2714363390078713818}
+  - component: {fileID: 5037495098257051774}
+  - component: {fileID: 5617465976473064884}
   m_Layer: 0
   m_Name: TPS Camera
   m_TagString: MainCamera
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9210757657428909641}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.074978724, y: -0, z: -0, w: 0.9971852}
+  m_LocalRotation: {x: 0.074978724, y: 0, z: 0, w: 0.9971852}
   m_LocalPosition: {x: 0, y: 7.6699996, z: -5.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -66,11 +67,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 1.18067
+  far clip plane: 5000
+  field of view: 60.000004
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -223,7 +224,7 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &2714363390078713818
+--- !u!114 &5037495098257051774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,10 +233,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 9210757657428909641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b62b295633edd428e9018cb4ae60a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a432d3d97ac959449cc5a7e0ab97d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: 7.5, z: -5.5}
-  sensivity: 2
-  speed: 5
+  mainCamera: {fileID: 9185499967343244736}
+  shakeRotate: 0
+  originPos: {x: 0, y: 0, z: 0}
+  originRot: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5617465976473064884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210757657428909641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0eb85ccfcafd740b1d02ea44fc60d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 1.93, y: 12.2, z: -14.45}
+  sensivity: 1
+  speed: 3

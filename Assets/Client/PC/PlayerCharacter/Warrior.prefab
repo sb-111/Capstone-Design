@@ -9724,6 +9724,8 @@ MonoBehaviour:
   player: {fileID: 0}
   player_status: {fileID: 0}
   anim: {fileID: 0}
+  knockbackPower: 8
+  knockbackDuration: 0.2
 --- !u!1 &8599814381842078703
 GameObject:
   m_ObjectHideFlags: 0

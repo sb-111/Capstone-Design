@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2099,8 +2099,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cha1tog: {fileID: 1488169560}
   cha2tog: {fileID: 738131845}
-  chara1: {fileID: 8364360537352700500, guid: c1b4dbd0325dc9b42803c40ea9bdd3db, type: 3}
-  chara2: {fileID: 9144739715366340310, guid: 154f375fec78417418fe2e083fd87b41, type: 3}
+  chara1: {fileID: 8364360537352700500, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+  chara2: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
   loadingProgressBar: {fileID: 1232250858}
   loadingUI: {fileID: 397516170}
 --- !u!4 &1593433724

@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
-  weapon_rate: 0
+  knockbackPower: 10
   meleeArea: {fileID: 7076625165940627390}
 --- !u!1 &1424936620121359060
 GameObject:
@@ -1651,6 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27ef9cfa1795d445870fca5a5e87ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterType: 0
   wanderRadius: 5
   obstacleLayer:
     serializedVersion: 2
