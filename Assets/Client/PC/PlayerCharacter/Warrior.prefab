@@ -9566,7 +9566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c923584033050a4d93901f6db781188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon_left: {fileID: 1887557618392704136}
+  weapon_left: {fileID: 0}
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
   stepupBuffer: 0
