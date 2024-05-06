@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,75 +155,6 @@ Transform:
   - {fileID: 1251531196}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &153961175
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8931416526484982432, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_Name
-      value: Cyclops_PBR 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.800068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1300001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.441702
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.42183286
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.90667367
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 229.901
-      objectReference: {fileID: 0}
-    - target: {fileID: 8931416526485411648, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 47cf66239cdc25d469f1299a45760216, type: 3}
 --- !u!1 &167798449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3290328126158205734, guid: af1c9bb0159f2ef4fa52906ca2a8bfdb, type: 3}
@@ -465,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7956490492508933815, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -19.999878
+      value: -19.999634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -969,6 +900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_MercenaryWarrior_MergedB
       objectReference: {fileID: 0}
+    - target: {fileID: 8364360537352700500, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1021,10 +956,6 @@ PrefabInstance:
     - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1852506709697973581, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
-      propertyPath: sceneViewId
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_Name
@@ -2155,4 +2086,3 @@ SceneRoots:
   - {fileID: 776309535}
   - {fileID: 546767105}
   - {fileID: 1150322193}
-  - {fileID: 153961175}
