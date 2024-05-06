@@ -12,8 +12,8 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     public PhotonView playerPrefab;
     bool isConnecting;
 
-    /*public Slider loadingProgressBar;
-    public GameObject loadingUI;*/
+    public Slider loadingProgressBar;
+    public GameObject loadingUI;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
 
     public void OnLoginButtonClicked()
     {
-        //loadingUI.SetActive(true);
+        loadingUI.SetActive(true);
         Connect();
     }
     public void Connect()
@@ -54,7 +54,7 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
 
-   /* public override void OnJoinedRoom()
+    public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
 
@@ -128,6 +128,6 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
 
         // 로딩 완료 후 로딩 UI 비활성화
         loadingUI.SetActive(false);
-    }*/
+    }
 
 }

@@ -6,6 +6,7 @@ public class ChaseState : IMonsterState
 {
     private Monster monster;
     
+
     public ChaseState(Monster monster)
     {
         this.monster = monster;
@@ -13,21 +14,21 @@ public class ChaseState : IMonsterState
 
     public void EnterState()
     {
-        Debug.Log("Chase: Enter");
+        //Debug.Log("Chase State 진입");
         monster.Agent.isStopped = false;
     }
 
     public void ExitState()
     {
-        Debug.Log("Chase: Exit");
-        monster.Anim.SetBool("Run", false);
+        //Debug.Log("Chase State 탈출");
         monster.Agent.isStopped = true;
     }
 
     public void ExecuteState()
     {
-        Debug.Log("Chase: 진행중");
-        monster.Anim.SetBool("Run", (monster.Agent.velocity.magnitude >= 0.05f) ? true : false);
+
+        //Debug.Log("Chase State 진행중");
+
         monster.Agent.SetDestination(monster.TargetPlayer.position);
     }
 }
