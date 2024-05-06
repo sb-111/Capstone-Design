@@ -6,65 +6,69 @@ public class EnemyWeapon : MonoBehaviour
 {
     public enum WeaponType { Melee, Range };
     public WeaponType type;
-    public int weapon_damage=30; //무기별 공격력
-    public float weapon_rate; // 무기별 공격 속도
+    public int weapon_damage = 30; //무기별 공격력
+    public float knockbackPower = 10f;
+    private bool isStrongAttack = false;
+
+    //public float weapon_rate; // 무기별 공격 속도
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
     //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
-
+    private Animator Anim;
+    private Monster monster;
+    
     private void Start()
     {
         
     }
     private void Awake()
     {
-        
+        Anim = GetComponentInParent<Animator>();
+        monster = GetComponentInParent<Monster>();
     }
-    public void Use(float attackEndTime)
+    
+    public void WeaponUse()
     {
-        if (type == WeaponType.Melee)
-        {
-            StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            //Debug.Log("HashSet 클리어");
-
-            StartCoroutine(Weapon_Activation(attackEndTime));
-        }
-
-        if (type == WeaponType.Range)
-        {
-            StopCoroutine(Weapon_Activation(attackEndTime));
-            hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-
-            //Debug.Log("HashSet 클리어");
-
-            StartCoroutine(Weapon_Activation(attackEndTime));
-        }
+        hitEnemies.Clear();
+        meleeArea.enabled = true; // Collider 활성화
     }
 
-    IEnumerator Weapon_Activation(float attackEndTime)
+    public void WeaponOut()
     {
-        meleeArea.enabled = true;
-        //trailEffect.enabled = true;
-        yield return new WaitForSeconds(attackEndTime);
-        meleeArea.enabled = false;
-        yield return new WaitForSeconds(0.2f);
-        //trailEffect.enabled = false;
+        meleeArea.enabled = false; // Collider 비활성화
+        isStrongAttack = false;
+    }
+    public void SetStrongAttack()
+    {
+        isStrongAttack = true;  
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            GameObject enemy = other.gameObject;
-            Player enemyDamage = enemy.GetComponent<Player>();
-            if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+            GameObject player = other.gameObject;
+            CombatStatusManager combatStatus = player.GetComponent<CombatStatusManager>();
+            if (!hitEnemies.Contains(player)) // 이미 공격한 적이 아니라면
             {
-                hitEnemies.Add(enemy); 
-                enemyDamage.TakeDamage((20 + weapon_damage), transform.position);
+                hitEnemies.Add(player);  // 적 HashSet에 추가
+                combatStatus.TakeDamage((20 + weapon_damage));
+                if(isStrongAttack) // 강공격인 경우
+                {
+                    Vector3 knockbackDir = (player.transform.position - transform.position); // 넉백 방향
+                    knockbackDir.y = 0;
+                    knockbackDir = knockbackDir.normalized;
+                    combatStatus.TakeKnockback(knockbackDir);
+                }
             }
         }
-      
+
+        /*  
+        if (other.tag == "Melee")
+        {
+            Anim.SetTrigger("doParrying");
+        }
+        */ 
     }
     private void OnCollisionEnter(Collision other)
     {
