@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour
     [System.Serializable]
     public class MoveStats
     {
-        public int stamina = 100;
+        public float stamina = 100;
         public int speed = 10;
         //public float jumpPower = 7.0f;
     }

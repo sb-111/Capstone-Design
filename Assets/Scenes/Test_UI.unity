@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -294,6 +294,14 @@ PrefabInstance:
       propertyPath: minimapCamera
       value: 
       objectReference: {fileID: 1300173271}
+    - target: {fileID: 2403294733368995250, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 416.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2457549274350461395, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 496.90002
+      objectReference: {fileID: 0}
     - target: {fileID: 2810429780377388495, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -378,6 +386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4872373464490849660, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 456.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7060898633913239880, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 8.000122
@@ -387,10 +399,52 @@ PrefabInstance:
       value: -19.999634
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8308535518935313019, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+    - {fileID: 8505946374104852760, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7956490492508933815, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 441115771}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+--- !u!1 &441115770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441115771}
+  m_Layer: 5
+  m_Name: PcStaminaGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &441115771
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441115770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.250762, y: 0.21233344, z: 0.6806868}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 779625201}
+  - {fileID: 1666130320}
+  m_Father: {fileID: 674308883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -116, y: -27.8}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &546767105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,6 +510,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9e5d0db0b3f4c14fbf677bbf4e15754, type: 3}
+--- !u!224 &674308883 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7956490492508933815, guid: 5dfa3edccb759694f87a14bd73da29ed, type: 3}
+  m_PrefabInstance: {fileID: 412136140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &776309535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -706,6 +765,81 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!1 &779625200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779625201}
+  - component: {fileID: 779625203}
+  - component: {fileID: 779625202}
+  m_Layer: 5
+  m_Name: PC Stamina Frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &779625201
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779625200}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2716792, y: 3.8034403, z: 1.5568}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 441115771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 155.9, y: -96}
+  m_SizeDelta: {x: 224.5684, y: 54.8123}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &779625202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779625200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18431373, g: 0.50980395, b: 0.14509805, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ff6c731301c28f44b9029d486a287504, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &779625203
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779625200}
+  m_CullTransparentMesh: 1
 --- !u!1001 &879860851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -716,7 +850,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1248089970330846525, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1601519205112064676, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: cameraShaking
@@ -768,7 +902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8364360537352700500, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -823,25 +957,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1852506709697973581, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2345487057994509925, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
-      propertyPath: hitEffectPrefab
-      value: 
-      objectReference: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
-    - target: {fileID: 2345487057994509925, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
-      propertyPath: shieldEffectPrefab
-      value: 
-      objectReference: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
     - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_Name
       value: Assassin
-      objectReference: {fileID: 0}
-    - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1603,6 +1721,81 @@ MonoBehaviour:
   mainCamera: {fileID: 1596412051}
   target: {fileID: 1680211030}
   OriginPos: {x: 0, y: 20, z: -15}
+--- !u!1 &1666130319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666130320}
+  - component: {fileID: 1666130322}
+  - component: {fileID: 1666130321}
+  m_Layer: 5
+  m_Name: PC Stamina Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1666130320
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666130319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6236138, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 441115771}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 178, y: -91}
+  m_SizeDelta: {x: 419, y: 94}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1666130321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666130319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18320373, g: 0.509434, b: 0.14177644, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 04a6e0ed6518a6b42960f08cae229422, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1666130322
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666130319}
+  m_CullTransparentMesh: 1
 --- !u!4 &1680211030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7429762857904496939, guid: 52e53055686604d41a0fb9b977d8e7a5, type: 3}
