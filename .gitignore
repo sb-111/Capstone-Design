@@ -70,3 +70,14 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+#유료에셋 커밋제외
+ScansFactory/
+Fajrul FN/
+Project Dawn/
+KriptoFX/
+slash14-HNVFX/
+OrdosFX/
+HEROIC FANTASY CREATURES FULL PACK VOL 1/
+Rogue_Volume2/
+Fajrul FN2/
