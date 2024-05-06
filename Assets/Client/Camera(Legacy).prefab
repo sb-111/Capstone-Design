@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 260770075882604619}
   - component: {fileID: 4738073057441142097}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Camera(Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b62b295633edd428e9018cb4ae60a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraArm: {fileID: 5079278585648609077}
-  player: {fileID: 0}
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   sensivity: 1
   speed: 3
 --- !u!1 &6108753236856366839
