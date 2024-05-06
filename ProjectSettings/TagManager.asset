@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Floor
+  - Melee
+  - MonsterEnemy
+  - ParryingBox
+  - Enemy
+  - Knockback
+  - EnemyWeapon
+  - Portal
+  - PortalSpawner
+  - Build
   layers:
   - Default
   - TransparentFX
@@ -11,12 +21,12 @@ TagManager:
   - 
   - Water
   - UI
+  - MonsterEnemy
+  - MonsterEnemyDead
+  - Wall
+  - Player
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MinimapCamera
   - 
   - 
   - 
