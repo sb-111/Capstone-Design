@@ -58,7 +58,9 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
 
+
         LoadScene("MainScene");
+
 
 
         Debug.Log("방 들어감");

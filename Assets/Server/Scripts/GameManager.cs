@@ -8,7 +8,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
-    [Header("ÇÃ·¹ÀÌ¾î ¼³Á¤")]
+    [Header("í”Œë ˆì´ì–´ ì„¤ì •")]
     //[SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
@@ -44,12 +44,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         playerPrefab = CharacterSelect.character;
         if (playerPrefab == null)
         {
-            Debug.LogError("ÇÁ·¹ÆÕ ¾øÀ½");
+            Debug.LogError("í”„ë ˆíŒ¹ ì—†ìŒ");
         }
         else
         {
+
             spawn();
-          
+
         }
     }
     public static GameManager Instance
@@ -86,12 +87,12 @@ public class GameManager : MonoBehaviourPunCallbacks
                 camaraFollow.SetPlayer(playerObj);
             }
         }
-        Debug.Log("È®ÀÎ");
+        Debug.Log("í™•ì¸");
         overPanel.SetActive(false);
         gameOver.enabled = false;
         isGameover = false;
-        // ¸®½ºÆù µ¿ÀÛ ½ÇÇà
-        // ¿©±â¿¡ ¸®½ºÆù¿¡ °ü·ÃµÈ ÄÚµå¸¦ ÀÛ¼ºÇÕ´Ï´Ù.
+        // ë¦¬ìŠ¤í° ë™ì‘ ì‹¤í–‰
+        // ì—¬ê¸°ì— ë¦¬ìŠ¤í°ì— ê´€ë ¨ëœ ì½”ë“œë¥¼ ì‘ì„±í•©ë‹ˆë‹¤.
     }
     public void GameFinish()
     {
@@ -100,7 +101,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     private void GameOver()
     {
-        Debug.Log("°ÔÀÓ Á¾·á");
+        Debug.Log("ê²Œì„ ì¢…ë£Œ");
         isGameover = true;
         overPanel.SetActive(true);
         gameOver.enabled = true;
