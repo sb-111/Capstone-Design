@@ -17,8 +17,7 @@ public class PortalSpawnerManager : MonoBehaviourPun
             Countdown.mode = 1;
             PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
             if (collPhotonView.IsMine)
-                 GameManager.Instance.GetPortal();
-            SpawnManager.Instance.portalSpawn();
+                GameManager.Instance.GetPortal();
             Debug.Log("카운트 다운 변경");
             Destroy(gameObject);
             

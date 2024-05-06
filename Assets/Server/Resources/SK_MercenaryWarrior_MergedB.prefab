@@ -9851,7 +9851,7 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: Defense
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doParrying
   m_SynchronizeLayers:
   - SynchronizeType: 1

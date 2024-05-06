@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField]
     private float respawnTime = 10f;
     public bool isGameover { get; private set; }
-
+    private PhotonView PV;
     public bool portalOwner = false;
     private static GameManager instance = null;
   
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         // gameOver.enabled = false;
+        PV = GetComponent<PhotonView>();
         overPanel.SetActive(false);
         playerPrefab = CharacterSelect.character;
         if (playerPrefab == null)
@@ -87,24 +88,30 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         Debug.Log("확인");
         overPanel.SetActive(false);
+        gameOver.enabled = false;
         isGameover = false;
         // 리스폰 동작 실행
         // 여기에 리스폰에 관련된 코드를 작성합니다.
     }
     public void GameFinish()
     {
+        PV.RPC("GameOver", RpcTarget.All);
+    }
+    [PunRPC]
+    private void GameOver()
+    {
         Debug.Log("게임 종료");
         isGameover = true;
+        overPanel.SetActive(true);
         gameOver.enabled = true;
         if (portalOwner)
         {
-           gameOver.text = "WIN";
+            gameOver.text = "WIN";
         }
         else
         {
-          gameOver.text = "LOSE";
+            gameOver.text = "LOSE";
         }
-
     }
     void LoadArena()
     {
