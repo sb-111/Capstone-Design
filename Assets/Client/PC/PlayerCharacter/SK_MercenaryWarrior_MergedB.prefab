@@ -7872,7 +7872,9 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
   shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
-  hitEffectPrefab: {fileID: 1220124946045798, guid: 11df408a4cb6edc45a2fdd9814cbce89, type: 3}
+  hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+  HandEffect: {fileID: 0}
+  isShield: 0
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4710598195485606043
@@ -9404,7 +9406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7429762857904496939
 Transform:
   m_ObjectHideFlags: 0
@@ -9415,7 +9417,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730739001058309853}
@@ -9567,6 +9569,8 @@ MonoBehaviour:
   weapon_left: {fileID: 1887557618392704136}
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
+  stepupBuffer: 0
+  curAttack: 0
 --- !u!114 &1248089970330846525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9588,7 +9592,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 2389297423298781671}
   - {fileID: -7877563303942974739}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2389297423298781671

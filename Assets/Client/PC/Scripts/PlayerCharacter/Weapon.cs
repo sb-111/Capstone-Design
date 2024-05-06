@@ -27,7 +27,8 @@ public class Weapon : MonoBehaviour
     public GameObject strongEffectPrefab;//필살기 이펙트 프리팹
     public GameObject hitEffectPrefab; //타격시 이펙트 프리팹
     GameObject nEffectPrefab;
-    bool isShield=false;
+    public Transform HandEffect;       //자식 오브젝트의 핸드 이펙트 프리팹 할당해야 함
+    public bool isShield=false;
 
 
 
@@ -44,8 +45,7 @@ public class Weapon : MonoBehaviour
         status = GetComponentInParent<PlayerStatus>();
         attackController = GetComponentInParent<AttackController>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
-
-
+        if(HandEffect!=null)    HandEffect.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -80,9 +80,7 @@ public class Weapon : MonoBehaviour
     IEnumerator Weapon_Activation()
     {
         meleeArea.enabled = true;
-        Debug.Log("켜짐");
-        //trailEffect.enabled = true;
-      
+        Debug.Log("켜짐");  
         yield return null;
     }
 
@@ -98,12 +96,20 @@ public class Weapon : MonoBehaviour
         if (reverse)
         {
             GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation);
+            PrefabCreator info = effectInstance.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
+            info.isStrong = attackController.stepupBuffer;                                 //어쌔신 전용. 어쌔신 강화 중 인지 체크
+            info.attackNum = CurAttackKey();
+            info.weapon = this;
             Destroy(effectInstance, 1.0f);
         }
         if (!reverse)
             {
             Quaternion reverseRoation = Quaternion.Euler(0, 0, 180);
             GameObject effectInstance = Instantiate(effectPrefab, transform.position, transform.rotation* reverseRoation);
+            PrefabCreator info = effectInstance.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
+            info.isStrong = attackController.stepupBuffer;                                //어쌔신 전용. 어쌔신 강화 중 인지 체크
+            info.attackNum = CurAttackKey();
+            info.weapon = this;
             Destroy(effectInstance, 1.0f);
         }
     }
@@ -116,12 +122,17 @@ public class Weapon : MonoBehaviour
 
     public void ShieldEffectInstance()
     {
+        if (shieldEffectPrefab == null)
+        {
+            return;                                   
+        }
+
         if (!isShield)
         {
             Quaternion reverseRoation = Quaternion.Euler(0, 1, 0);
             nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,-1.0f),transform.rotation* reverseRoation);
-            PrefabCreator info = nEffectPrefab.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
-            info.creatorParentTransform = player.transform;                  //쉴드는 플레이어 기준으로 회전 해야 함
+            PrefabCreator info = nEffectPrefab.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아옴
+            info.creatorParentTransform = player.transform;                  //쉴드 플레이어 기준으로 회전
             isShield = true;
         }           
     }
@@ -135,6 +146,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    //공격 적용 트리거
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "EnemyWeapon" && canPrrying)
@@ -198,6 +210,30 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(parryingCooldown);
         canPrrying = true;
 
+    }
+
+
+    private int CurAttackKey()
+    {
+        Animator anim = player.anim;
+        int curAttack;
+
+        if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi1")) {return curAttack = 1; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi2")) { return curAttack = 2; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi3")) { return curAttack = 3; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("SingleRightAttack")) { return curAttack = 4; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("JumpAttack")) { return curAttack = 5; }
+        else { return curAttack = 0; }
+    }
+
+    public HashSet<GameObject> GethitEnemeies()
+    {
+        return hitEnemies;
+    }
+
+    public void AddToHitEnemeies(GameObject enemy)
+    {
+        hitEnemies.Add(enemy);
     }
 
 }
