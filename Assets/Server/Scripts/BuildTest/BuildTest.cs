@@ -29,6 +29,7 @@ public class BuildTest : MonoBehaviourPun
     
     void Update()
     {
+
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
             return;
@@ -118,8 +119,8 @@ public class BuildTest : MonoBehaviourPun
     {
         DestroyPreview();
         //PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
-      Instantiate(buildingPrefab, preview.transform.position, preview.transform.rotation);
-
+      
+        PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
         PlacePreview();
 
     }

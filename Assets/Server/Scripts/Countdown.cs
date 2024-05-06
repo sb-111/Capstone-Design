@@ -8,7 +8,7 @@ public class Countdown : MonoBehaviour
 {
     [SerializeField] int setTime = 100;
     [SerializeField] int setPortalTime = 40;
-    [SerializeField] Text countdownText;
+    Text countdownText;
     //[SerializeField] GameObject Player;
     //[SerializeField] SpawnPortal spawnPortal;
     int playerCount = 0;
@@ -25,6 +25,7 @@ public class Countdown : MonoBehaviour
     void Start()
     {
         PV = GetComponent<PhotonView>();
+        countdownText = GameObject.Find("Countdown").GetComponent<Text>();
         int initialMinutes = Mathf.FloorToInt(setTime / 60); // 시작할 때의 분
         int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // 시작할 때의 초
         countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // 시작할 때의 시간을 텍스트로 설정
@@ -44,16 +45,21 @@ public class Countdown : MonoBehaviour
             }
             if (mode ==1) {
 
-                ResetTimer(setPortalTime);
-                portalSpawned = true;
-                mode = 2;
-                Debug.Log("��Ż ����");
+                StartPortal();
             } 
 
         }
-
-
    
+    }
+
+    public void StartPortal()
+    {
+        ResetTimer(setPortalTime);
+        portalSpawned = true;
+       
+        SpawnManager.Instance.portalSpawn();
+        mode = 2;
+        Debug.Log("포탈 시작");
     }
 
     public void StartTimer(int time)
@@ -68,31 +74,41 @@ public class Countdown : MonoBehaviour
     }
     public void ResetTimer(int time)
     {
-        timerStop = 1;
+        if (mode == 1)
+            timerStop = 1;
         setTime = time;
         StartCoroutine("TimerCoroutine");
-        Debug.Log("Ÿ�̸� ����");
+        Debug.Log("타이머 리셋");
     }
 
 
     IEnumerator TimerCoroutine()
     {
-
-        while(setTime > 0)
+        if (timerStop == 1)
         {
-            if (timerStop == 1)
-            {
-                Debug.Log("stop ����");
-                timerStop = 0;
-                yield break;
-            }
+            Debug.Log("타이머 재 시작");
+            timerStop = 0;
+            yield break;
+        }
+        while (setTime > 0)
+        {
+            
     
             setTime -= 1;
             PV.RPC("ShowTimer", RpcTarget.All, setTime);
             yield return new WaitForSeconds(1);
         }
-            Debug.Log("Ÿ�̸� ����");
-        GameManager.Instance.GameFinish();
+            Debug.Log("타이머 종료");
+        if (mode == 2) {
+            GameManager.Instance.GameFinish();
+            Debug.Log("종료 확인");
+        
+        }
+        else
+        {
+            StartPortal();
+            Debug.Log("종료 확인");
+        }
 
         yield break;
 
