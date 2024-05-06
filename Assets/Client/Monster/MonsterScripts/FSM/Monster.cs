@@ -7,6 +7,11 @@ using Photon.Pun;
 public class Monster : MonoBehaviour
 {
     private FSM _fsm;
+    public enum MonsterType { Cyclops, Goblin, Hobgoblin, Kobold, Troll }
+
+    [Header("몬스터 타입 설정")]
+    [SerializeField] private MonsterType _monsterType;
+    public MonsterType Type {  get { return _monsterType; }  }
 
     [Header("Idle 설정")]
     [SerializeField]
@@ -85,7 +90,7 @@ public class Monster : MonoBehaviour
                         SetState(new ChaseState(this));
                     }
                 }
-                IsMoving();
+                //IsMoving();
                 break;
 
             case ChaseState:
@@ -100,7 +105,7 @@ public class Monster : MonoBehaviour
                 {
                     SetState(new IdleState(this));
                 }
-                IsMoving();
+                //IsMoving();
                 break;
 
             case AttackState:
@@ -174,6 +179,44 @@ public class Monster : MonoBehaviour
     {
         _fsm.SetState(state);
     }
+    
+    // 몬스터의 체력 깎는 함수
+    // 플레이어쪽에서 이를 호출해야 한다.
+    /// <summary>
+    /// 몬스터의 체력 깎는 메서드: 플레이어가 호출
+    /// </summary>
+    /// <param name="damage">데미지</param>
+    /// <param name="enmenyPosition">?</param>
+    public void TakeDamage(int damage, Vector3 enmenyPosition)
+    {
+        currentHP -= damage;
+
+        if (IsDie())
+        {
+            Die();
+        }
+    }
+    private bool IsDie()
+    {
+        return currentHP <= 0;
+    }
+    /// <summary>
+    /// DeadState로 바로 전환하는 메서드
+    /// </summary>
+    private void Die()
+    {
+        SetState(new DeadState(this));
+    }
+
+    /// <summary>
+    /// HitState로 바로 전환하는 메서드
+    /// </summary>
+    /// <param name="cctime"></param>
+    public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
+    {
+        SetState(new HitState(this));
+    }
+
     // 기즈모
     private void OnDrawGizmos()
     {
@@ -202,35 +245,6 @@ public class Monster : MonoBehaviour
         Gizmos.DrawWireSphere (transform.position, sightRange);
 
     }
-    // 몬스터의 체력 깎는 함수
-    // 플레이어쪽에서 이를 호출해야 한다.
-    public void TakeDamage(int damage,Vector3 enmenyPosition)
-    {
-        currentHP -= damage;
-
-        if(IsDie())
-        {
-            Die();
-        }
-    }
-
-    public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
-    {
-        SetState(new HitState(this));
-    }
-    
-
-    private bool IsDie()
-    {
-        return currentHP <= 0;
-    }
-
-    private void Die()
-    {
-        // 죽은 상태로 전환
-        SetState(new DeadState(this));
-    }
-
     private void IsMoving()
     {
         if (Agent.velocity.magnitude >= 0.05f)

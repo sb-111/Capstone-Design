@@ -10,6 +10,8 @@ public class CombatStatusManager : MonoBehaviour
     [HideInInspector] public PlayerStatus player_status;
     [HideInInspector] public Animator anim;
 
+    public float knockbackPower = 8f; // 넉백 파워
+    public float knockbackDuration = 0.2f; // 넉백 지속 시간
 
     // Start is called before the first frame update
     private void Awake()
@@ -44,5 +46,28 @@ public class CombatStatusManager : MonoBehaviour
     public void HitResponseEnd()
     {
         player.isCC = false;
+    }
+
+    /// <summary>
+    /// 캐릭터가 넉백되는 함수
+    /// </summary>
+    /// <param name="direction">넉백 방향벡터</param>
+    public void TakeKnockback(Vector3 direction)
+    {
+        // 받아온 방향벡터의 y성분이 존재하거나, 정규화가 안되어있는 경우를 가정
+        if(direction.y != 0) direction.y = 0; 
+        if(direction.magnitude > 1f) direction = direction.normalized; // 정규화
+
+        StartCoroutine(OnKnockback(direction));
+    }
+    private IEnumerator OnKnockback(Vector3 direction)
+    {
+        float elapsed = 0;
+        while (elapsed < knockbackDuration)
+        {
+            elapsed += Time.deltaTime;
+            transform.Translate(direction * knockbackPower * Time.deltaTime);
+            yield return null;
+        }
     }
 }

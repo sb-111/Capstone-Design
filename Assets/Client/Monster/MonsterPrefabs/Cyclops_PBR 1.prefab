@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 6320218430151310429}
 --- !u!1 &8931416526484982432
 GameObject:
@@ -101,7 +102,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.79278463, z: 0, w: 0.60950196}
   m_LocalPosition: {x: 36.31, y: 1.13, z: 3.29}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8931416526485411654}
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27ef9cfa1795d445870fca5a5e87ba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _monsterType: 0
   wanderRadius: 5
   obstacleLayer:
     serializedVersion: 2
@@ -218,9 +220,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 10
-  fieldOfView: 360
-  attackRange: 7.5
+  sightRange: 32
+  fieldOfView: 160
+  attackRange: 16
   basicCoolTime: 3
   _enemyWeapon: {fileID: 0}
   maxHP: 100000
@@ -2021,4 +2023,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   weapon_damage: 30
+  knockbackPower: 10
   meleeArea: {fileID: 2953048845922310992}

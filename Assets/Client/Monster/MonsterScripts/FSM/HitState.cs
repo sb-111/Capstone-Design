@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class HitState : MonoBehaviour, IMonsterState
 {
-
     private Monster monster;
-    private int randomValue;
     public HitState(Monster monster)
     {
         this.monster = monster;
@@ -16,10 +14,22 @@ public class HitState : MonoBehaviour, IMonsterState
     // 1. 최초 진입 시 1회 실행
     public void EnterState()
     {
-        //피격 애니메이션 실행 - 현재 애니메이션 없음
-        randomValue = Random.Range(0, 1);
+        //피격 애니메이션 실행
         monster.Anim.SetTrigger("getHit");
-        monster.Anim.SetInteger("randomValue", randomValue);
+        switch (monster.Type)
+        {
+            case Monster.MonsterType.Cyclops:
+                monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
+                break;
+            case Monster.MonsterType.Hobgoblin:
+                monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
+                break;
+            case Monster.MonsterType.Troll:
+                monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
+                break;
+        }
+        Debug.Log("피격 진입");
+
     }
     
     //2. 반복 실행
@@ -31,5 +41,6 @@ public class HitState : MonoBehaviour, IMonsterState
     public void ExitState()
     {
         //비어있음
+        Debug.Log("피격 탈출");
     }
 }
