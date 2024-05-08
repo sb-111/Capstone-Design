@@ -14986,9 +14986,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db31de5cd373dc45a4c6dc47d0cb57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  weapon_damage: 0
-  weapon_rate: 0
+  weapon_damage: 20
+  result_damage: 0
   meleeArea: {fileID: 8047265128082889449}
   isHeavyAttack: 0
   player: {fileID: 0}
@@ -16273,6 +16272,8 @@ MonoBehaviour:
   player: {fileID: 0}
   player_status: {fileID: 0}
   anim: {fileID: 0}
+  knockbackPower: 8
+  knockbackDuration: 0.2
 --- !u!114 &5101683047146215423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16915,9 +16916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db31de5cd373dc45a4c6dc47d0cb57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   weapon_damage: 0
-  weapon_rate: 0
+  result_damage: 0
   meleeArea: {fileID: 1483395595953376302}
   isHeavyAttack: 0
   player: {fileID: 0}
