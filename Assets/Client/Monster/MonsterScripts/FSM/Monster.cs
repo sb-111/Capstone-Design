@@ -34,8 +34,8 @@ public class Monster : MonoBehaviour
     [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
     [SerializeField] float basicCoolTime = 3f;
-    [SerializeField] EnemyWeapon _enemyWeapon;
-    public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
+    //[SerializeField] EnemyWeapon _enemyWeapon;
+    //public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
 
     [Header("몬스터 스탯 설정")]
     [SerializeField] int maxHP;
@@ -51,6 +51,7 @@ public class Monster : MonoBehaviour
     public Animator Anim { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public MonsterAttackCTRL AttackController { get; private set; }
+    public MonsterSound MSound { get; private set; }
 
     Material mat;
     Color originalColor;
@@ -64,6 +65,7 @@ public class Monster : MonoBehaviour
         //_enemyWeapon.enabled = false;
         AttackController = GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
+        MSound = GetComponent<MonsterSound>();
     }
     void Start()
     {
