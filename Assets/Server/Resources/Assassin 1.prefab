@@ -14932,7 +14932,7 @@ GameObject:
   - component: {fileID: 6545407105816050570}
   m_Layer: 0
   m_Name: WeaponPoint
-  m_TagString: Melee
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14986,7 +14986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db31de5cd373dc45a4c6dc47d0cb57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon_damage: 0
+  weapon_damage: 20
   result_damage: 0
   meleeArea: {fileID: 8047265128082889449}
   isHeavyAttack: 0
@@ -14998,7 +14998,6 @@ MonoBehaviour:
   shieldEffectPrefab: {fileID: 0}
   strongEffectPrefab: {fileID: 0}
   hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
-  hitEffectPrefab2: {fileID: 0}
   HandEffect: {fileID: 5824998482767814541}
   isShield: 0
   parryingParticle: {fileID: 0}
@@ -16167,7 +16166,7 @@ GameObject:
   - component: {fileID: 3974307780640356451}
   - component: {fileID: 9215559910638450422}
   m_Layer: 0
-  m_Name: Assassin
+  m_Name: Assassin 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16425,22 +16424,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce001f851ccf0b4cabaa1aba9de4c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingPrefab: {fileID: 1031083464, guid: abc00000000006808584559361833464, type: 3}
-  maxHeight: 5
+  buildingPrefab: {fileID: 0}
+  maxHeight: 1.5
   raycastDistance: 1
-  distance: 5
-  previewPrefab: {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
+  distance: 1
+  previewPrefab: {fileID: 0}
   isPreviewCol: 0
   buildArray:
-  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
-  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
-  - {fileID: 1031083464, guid: 3846852e038fd9f4791cf143524da44f, type: 3}
-  - {fileID: 5614368876582028328, guid: c0da0fca4a400444c8fdb75bae8e6662, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   previewArray:
-  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
-  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
-  - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
-  - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rotationSpeed: 50
 --- !u!136 &3974307780640356451
 CapsuleCollider:
@@ -16929,7 +16928,6 @@ MonoBehaviour:
   shieldEffectPrefab: {fileID: 0}
   strongEffectPrefab: {fileID: 0}
   hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
-  hitEffectPrefab2: {fileID: 0}
   HandEffect: {fileID: 6186078877192200794}
   isShield: 0
   parryingParticle: {fileID: 0}
