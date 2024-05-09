@@ -58,7 +58,6 @@ public class Monster : MonoBehaviour
     [Header("피격 후 스킨 설정")]
     [SerializeField] GameObject skin_30p;
     [SerializeField] GameObject skin_70p;
-    MonsterMaterial monster_mat;
 
 
 
@@ -71,7 +70,6 @@ public class Monster : MonoBehaviour
         //_enemyWeapon.enabled = false;
         AttackController = GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
-        monster_mat=GetComponentInChildren<MonsterMaterial>();
     }
     void Start()
     {
@@ -204,17 +202,14 @@ public class Monster : MonoBehaviour
         {
             Die();
         }
-        if (monster_mat == null) { return; }
         if (hpPercentage <= 0.7 && hpPercentage > 0.3)
         {
-            monster_mat.ChangeMat(hpPercentage);
-            //skin_70p.SetActive(true);
+            skin_70p.SetActive(true);
         }
         if (hpPercentage <= 0.3)
         {
-            monster_mat.ChangeMat(hpPercentage);
-            //skin_70p.SetActive(false);
-            //skin_30p.SetActive(true); 
+            skin_70p.SetActive(false);
+            skin_30p.SetActive(true); 
         }
 
     }
