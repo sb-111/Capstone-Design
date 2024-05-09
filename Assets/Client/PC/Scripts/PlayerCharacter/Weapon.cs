@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.VFX;
+using Photon.Pun;
 
-public class Weapon : MonoBehaviour
+public class Weapon : MonoBehaviourPun
 {
 
     public enum WeaponType { Melee, Range };
@@ -176,7 +177,7 @@ public class Weapon : MonoBehaviour
                     }
                 }
             }
-            else if (other.tag == "Player")
+            else if (other.tag == "Player"&& !(other.gameObject.GetComponent<PhotonView>().IsMine))
             {
                 CombatStatusManager enemyDamage = enemy.GetComponent<CombatStatusManager>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
