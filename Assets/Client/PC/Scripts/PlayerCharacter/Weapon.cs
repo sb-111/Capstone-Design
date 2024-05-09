@@ -21,10 +21,11 @@ public class Weapon : MonoBehaviour
     public CameraShake cameraShaking;
     public AttackController attackController;
 
-    public GameObject effectPrefab;//공격 이펙트 프리팹
-    public GameObject shieldEffectPrefab;//방어 이펙트 프리팹
-    public GameObject strongEffectPrefab;//필살기 이펙트 프리팹
-    public GameObject hitEffectPrefab; //타격시 이펙트 프리팹
+    [SerializeField] GameObject effectPrefab;//공격 이펙트 프리팹
+    [SerializeField] GameObject shieldEffectPrefab;//방어 이펙트 프리팹
+    [SerializeField] GameObject strongEffectPrefab;//필살기 이펙트 프리팹
+    [SerializeField] GameObject hitEffectPrefab; //타격시 이펙트 프리팹
+    [SerializeField] GameObject hitEffectPrefab2;//타격시 이펙트 프리팹 2(임시)
     GameObject nEffectPrefab;
     public Transform HandEffect;       //자식 오브젝트의 핸드 이펙트 프리팹 할당해야 함
     public bool isShield=false;
@@ -167,8 +168,9 @@ public class Weapon : MonoBehaviour
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                     enemyDamage.TakeDamage((result_damage), transform.position);
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    GameObject hiteffectInstance2 = Instantiate(hitEffectPrefab2, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);
-          
+                    Destroy(hiteffectInstance2, 0.5f);
                     if (isHeavyAttack) //강공격일 경우 피격 반응 애니메이션 처리
                     {
                         enemyDamage.HitResponse();
