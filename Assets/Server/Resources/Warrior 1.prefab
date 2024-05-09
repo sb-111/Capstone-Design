@@ -7871,8 +7871,8 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: 508acc9152bce3b4491d06c9fe254363, type: 3}
   shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
-  hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
-  hitEffectPrefab2: {fileID: 0}
+  hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
+  hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 0}
   isShield: 0
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
@@ -9401,7 +9401,7 @@ GameObject:
   - component: {fileID: 5361170300420579470}
   - component: {fileID: 6058203953304390727}
   m_Layer: 9
-  m_Name: Warrior
+  m_Name: Warrior 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9566,7 +9566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c923584033050a4d93901f6db781188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon_left: {fileID: 1887557618392704136}
+  weapon_left: {fileID: 0}
   weapon_right: {fileID: 1887557618392704136}
   cameraShaking: {fileID: 0}
   stepupBuffer: 0
