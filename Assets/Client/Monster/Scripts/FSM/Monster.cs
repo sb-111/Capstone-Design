@@ -55,6 +55,9 @@ public class Monster : MonoBehaviour
 
     Material mat;
     Color originalColor;
+    [Header("몬스터 material 설정")]
+    [SerializeField] GameObject skin_30p;
+    [SerializeField] GameObject skin_70p;
 
     private void Awake()    
     {
