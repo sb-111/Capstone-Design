@@ -19,7 +19,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     private string playerName;
     private int playerCount = 0;
-    // Ãß°¡µÈ UI ¿ä¼Ò
+    // ì¶”ê°€ëœ UI ìš”ì†Œ
     public Slider loadingProgressBar;
     public GameObject loadingUI;
     void awake()
@@ -68,7 +68,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("¹æ»ı¼º");
+        Debug.Log("ë°©ìƒì„±");
         PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
   
@@ -76,7 +76,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     {
 
         playerName += newPlayer.ActorNumber + "\n";
-        Debug.Log("µé¾î¿È");
+        Debug.Log("ë“¤ì–´ì˜´");
         playerNameText.text = playerName;
         
         if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
@@ -91,12 +91,14 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
+
         StartCoroutine(LoadScene_Coroutine("MainScene"));
-        // ÄÚ·çÆ¾À» »ç¿ëÇÏ¿© ¾À ·Îµù ½ÃÀÛ
+        // ì½”ë£¨í‹´ì„ ì‚¬ìš©í•˜ì—¬ ì”¬ ë¡œë”© ì‹œì‘
         //StartCoroutine(LoadScene_Coroutine("MainScene"));
+
     }
 
-    // SimpleLauncher¿¡¼­ °¡Á®¿Â LoadScene_Coroutine
+    // SimpleLauncherì—ì„œ ê°€ì ¸ì˜¨ LoadScene_Coroutine
     IEnumerator LoadScene_Coroutine(string scene)
     {
         loadingProgressBar.value = 0;
@@ -116,7 +118,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         loadingUI.SetActive(false);
     }
 
-    // SimpleLauncher¿¡¼­ °¡Á®¿Â LoadLevelWithProgress
+    // SimpleLauncherì—ì„œ ê°€ì ¸ì˜¨ LoadLevelWithProgress
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
         loadingUI.SetActive(true);
