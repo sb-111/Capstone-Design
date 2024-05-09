@@ -762,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6321208880978003322
 Transform:
   m_ObjectHideFlags: 0
@@ -1682,7 +1682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4856585848717116729
 Transform:
   m_ObjectHideFlags: 0
@@ -7860,9 +7860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db31de5cd373dc45a4c6dc47d0cb57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   weapon_damage: 0
-  weapon_rate: 0
+  result_damage: 0
   meleeArea: {fileID: 6198849175013970959}
   isHeavyAttack: 0
   player: {fileID: 0}
@@ -7873,6 +7872,7 @@ MonoBehaviour:
   shieldEffectPrefab: {fileID: 1881634734537756, guid: 602fdb704f6967f45b76a9a4e9a9c1ba, type: 3}
   strongEffectPrefab: {fileID: 1949624779417528, guid: e73124b5ba126cc499fb7e927b7a79ac, type: 3}
   hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+  hitEffectPrefab2: {fileID: 0}
   HandEffect: {fileID: 0}
   isShield: 0
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}

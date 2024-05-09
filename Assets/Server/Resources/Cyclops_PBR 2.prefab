@@ -85,11 +85,13 @@ GameObject:
   - component: {fileID: 7733619938157375974}
   - component: {fileID: 9103057795271810876}
   - component: {fileID: 8921924304209698110}
-  - component: {fileID: -9128188214670774826}
-  - component: {fileID: 3659046888685023638}
-  - component: {fileID: 1897249816364828238}
+  - component: {fileID: 4785813558816221277}
+  - component: {fileID: 4039614350048068051}
+  - component: {fileID: 4416886139696818188}
+  - component: {fileID: 5723075548531999943}
+  - component: {fileID: -6422529202614478102}
   m_Layer: 0
-  m_Name: Cyclops_PBR 1
+  m_Name: Cyclops_PBR 2
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,15 +105,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8931416526484982432}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.79278463, z: 0, w: 0.60950196}
-  m_LocalPosition: {x: 36.31, y: 1.13, z: 3.29}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8931416526485411654}
   - {fileID: 8931416526485411650}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 104.893, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8931416526492383428
 Animator:
   serializedVersion: 5
@@ -223,17 +225,18 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 32
+  sightRange: 12.8
   fieldOfView: 160
-  attackRange: 16
+  attackRange: 6.4
   basicCoolTime: 3
-  _enemyWeapon: {fileID: 0}
   maxHP: 100000
   currentHP: 100000
   attackPower: 5
   def: 10
   constant_def: 100
   speed: 10
+  skin_30p: {fileID: 0}
+  skin_70p: {fileID: 0}
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +251,133 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_right: {fileID: 8638425287879710753}
   weapon_left: {fileID: 2394925852962736433}
---- !u!114 &-9128188214670774826
+--- !u!82 &4785813558816221277
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982432}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4039614350048068051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdef84ffb937ba488b40fe6b447f02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 0457b95a60ac2874595b055fc52a7b5e, type: 3}
+--- !u!114 &4416886139696818188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &5723075548531999943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,28 +396,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 3659046888685023638}
-  - {fileID: 1897249816364828238}
+  - {fileID: 4416886139696818188}
+  - {fileID: -6422529202614478102}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3659046888685023638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931416526484982432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &1897249816364828238
+--- !u!114 &-6422529202614478102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,9 +416,6 @@ MonoBehaviour:
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 1
-    Name: getHit
   - Type: 4
     SynchronizeType: 1
     Name: Run
@@ -315,6 +425,9 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 1
     Name: doDie
+  - Type: 9
+    SynchronizeType: 1
+    Name: getHit
   - Type: 3
     SynchronizeType: 1
     Name: randomValue
