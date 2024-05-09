@@ -15,18 +15,15 @@ public class DeadState : MonoBehaviour, IMonsterState
         monster.Anim.SetTrigger("doDie");
         Destroy(monster.gameObject, 5f);
     }
-    // 2. 반복 실행
+    // 실행 X
     public void ExecuteState()
     {
-        // 몬스터 투명화되면서 없애기
         
     }
 
-    // 여기선 실행 안됨
+    // 실행 X
     public void ExitState()
     {
 
     }
-
-    
 }

@@ -34,8 +34,8 @@ public class Monster : MonoBehaviour
     [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
     [SerializeField] float basicCoolTime = 3f;
-    [SerializeField] EnemyWeapon _enemyWeapon;
-    public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
+    //[SerializeField] EnemyWeapon _enemyWeapon;
+    //public EnemyWeapon Weapon{ get {return _enemyWeapon;} } // 프로퍼티
 
     [Header("몬스터 스탯 설정")]
     [SerializeField] int maxHP;
@@ -51,15 +51,10 @@ public class Monster : MonoBehaviour
     public Animator Anim { get; private set; }
     public NavMeshAgent Agent { get; private set; }
     public MonsterAttackCTRL AttackController { get; private set; }
+    public MonsterSound MSound { get; private set; }
 
     Material mat;
     Color originalColor;
-    // HP에 따른 Material 변화
-    [Header("피격 후 스킨 설정")]
-    [SerializeField] GameObject skin_30p;
-    [SerializeField] GameObject skin_70p;
-
-
 
     private void Awake()    
     {
@@ -67,9 +62,9 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-        //_enemyWeapon.enabled = false;
         AttackController = GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
+        MSound = GetComponent<MonsterSound>();
     }
     void Start()
     {
@@ -176,7 +171,7 @@ public class Monster : MonoBehaviour
                 }
             }
         }
-        TargetPlayer = null;
+        //TargetPlayer = null;
         return false; // 시야 범위 내 플레이어 없음 || 장애물 존재
     }
 
@@ -196,12 +191,14 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int damage, Vector3 enmenyPosition)
     {
         currentHP -= damage;
+
         float hpPercentage = currentHP / (float)maxHP;
-        
+
         if (IsDie())
         {
             Die();
         }
+
         if (hpPercentage <= 0.7 && hpPercentage > 0.3)
         {
             skin_70p.SetActive(true);
@@ -231,6 +228,15 @@ public class Monster : MonoBehaviour
     /// <param name="cctime"></param>
     public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
     {
+        if(TargetPlayer == null)
+        {
+            Debug.Log("타겟없음");
+        }
+        else
+        {
+            Debug.Log($"힛리스폰즈: {TargetPlayer.name}");
+            
+        }
         SetState(new HitState(this));
     }
 

@@ -15,6 +15,7 @@ public class AttackState : IMonsterState
         monster.transform.LookAt(monster.TargetPlayer);
         monster.Anim.SetTrigger("doAttack");
         monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
+        monster.MSound.PlaySound(0);
         //monster.Anim.SetInteger("randomValue", 2);
     }
 
@@ -25,11 +26,11 @@ public class AttackState : IMonsterState
 
     public void ExecuteState()
     {
-        AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
-        if (animatorStateInfo.IsName("attack1"))
-        {
-            Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
-        }
+        //AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
+        //if (animatorStateInfo.IsName("attack1"))
+        //{
+        //    Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
+        //}
         currentTime += Time.deltaTime;
         if (currentTime >= attackInterval)
         {
@@ -37,6 +38,7 @@ public class AttackState : IMonsterState
             monster.Anim.SetTrigger("doAttack");
             monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
             currentTime = 0f;
+            monster.MSound.PlaySound(0);
             //monster.Anim.SetInteger("randomValue", 0);
             //monster.Anim.SetInteger("randomValue", 2);
         }
