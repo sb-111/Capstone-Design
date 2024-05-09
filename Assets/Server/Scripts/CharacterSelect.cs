@@ -13,19 +13,32 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public static GameObject character;
     public GameObject chara1;
     public GameObject chara2;
+    public GameObject charaPanel;
+    public GameObject roomPanel;
+    public Text playerNameText;
 
+    private string playerName;
+    private int playerCount = 0;
     // 추가된 UI 요소
     public Slider loadingProgressBar;
     public GameObject loadingUI;
-
+    void awake()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AddCallbackTarget(this);
+    }
     void Start()
     {
+        roomPanel.SetActive(false);
+        charaPanel.SetActive(true);
+        loadingUI.SetActive(false);
         character = chara1;
         cha1tog.onValueChanged.RemoveAllListeners();
         cha1tog.onValueChanged.AddListener(OnChara1);
 
         cha2tog.onValueChanged.RemoveAllListeners();
         cha2tog.onValueChanged.AddListener(OnChara2);
+       playerName = PhotonNetwork.LocalPlayer.NickName + "\n";
     }
 
     void OnChara1(bool _bool)
@@ -46,8 +59,11 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     public void GameStart()
     {
-        loadingUI.SetActive(true);
+        
         PhotonNetwork.JoinRandomRoom();
+        roomPanel.SetActive(true);
+        charaPanel.SetActive(false);
+        playerNameText.text = playerName;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -55,12 +71,29 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         Debug.Log("방생성");
         PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
+  
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+
+        playerName += newPlayer.ActorNumber + "\n";
+        Debug.Log("들어옴");
+        playerNameText.text = playerName;
+        
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
+        {
+            loadingUI.SetActive(true);
+            roomPanel.SetActive(false);
+            charaPanel.SetActive(false);
+            StartCoroutine(LoadScene_Coroutine("MainScene"));
+        }
+    }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        // 코루틴을 사용하여 씬 로딩 시작
         StartCoroutine(LoadScene_Coroutine("MainScene"));
+        // 코루틴을 사용하여 씬 로딩 시작
+        //StartCoroutine(LoadScene_Coroutine("MainScene"));
     }
 
     // SimpleLauncher에서 가져온 LoadScene_Coroutine
@@ -110,5 +143,10 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             yield return null;
         }
         loadingUI.SetActive(false);
+    }
+    void OnDestroy()
+    {
+     
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }
