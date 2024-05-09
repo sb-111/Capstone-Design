@@ -3,11 +3,9 @@ using UnityEngine;
 public class TerrainPortal : MonoBehaviour
 {
     public Transform player;
-    public Transform receiver; // 다른 포탈의 위치
+    public Transform receiver; 
 
     private bool playerIsOverlapping = false;
-
-    // 트리거 콜라이더에 무언가 진입하면 호출됩니다.
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -16,7 +14,6 @@ public class TerrainPortal : MonoBehaviour
         }
     }
 
-    // 트리거 콜라이더에서 무언가 나가면 호출됩니다.
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -25,7 +22,6 @@ public class TerrainPortal : MonoBehaviour
         }
     }
 
-    // 매 프레임마다 호출됩니다.
     void Update()
     {
         if (playerIsOverlapping)
