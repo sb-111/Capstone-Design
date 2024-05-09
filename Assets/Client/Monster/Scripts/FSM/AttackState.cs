@@ -26,11 +26,11 @@ public class AttackState : IMonsterState
 
     public void ExecuteState()
     {
-        AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
-        if (animatorStateInfo.IsName("attack1"))
-        {
-            Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
-        }
+        //AnimatorStateInfo animatorStateInfo = monster.Anim.GetCurrentAnimatorStateInfo(0);
+        //if (animatorStateInfo.IsName("attack1"))
+        //{
+        //    Debug.Log($"normalizedTime: {animatorStateInfo.normalizedTime}");
+        //}
         currentTime += Time.deltaTime;
         if (currentTime >= attackInterval)
         {

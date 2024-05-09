@@ -10,7 +10,6 @@ public class HitState : MonoBehaviour, IMonsterState
         this.monster = monster;
     }
 
-
     // 1. 최초 진입 시 1회 실행
     public void EnterState()
     {

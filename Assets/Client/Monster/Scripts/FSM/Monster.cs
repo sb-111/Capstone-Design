@@ -62,7 +62,6 @@ public class Monster : MonoBehaviour
         Collider = GetComponent<BoxCollider>();
         Anim = GetComponent<Animator>();
         Agent = GetComponent<NavMeshAgent>();
-        //_enemyWeapon.enabled = false;
         AttackController = GetComponent<MonsterAttackCTRL>();
         spawnPoint = gameObject.transform.position; // 스폰포인트는 몬스터의 처음 위치
         MSound = GetComponent<MonsterSound>();
@@ -172,7 +171,7 @@ public class Monster : MonoBehaviour
                 }
             }
         }
-        TargetPlayer = null;
+        //TargetPlayer = null;
         return false; // 시야 범위 내 플레이어 없음 || 장애물 존재
     }
 
@@ -216,6 +215,15 @@ public class Monster : MonoBehaviour
     /// <param name="cctime"></param>
     public void HitResponse(float cctime = 1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
     {
+        if(TargetPlayer == null)
+        {
+            Debug.Log("타겟없음");
+        }
+        else
+        {
+            Debug.Log($"힛리스폰즈: {TargetPlayer.name}");
+            
+        }
         SetState(new HitState(this));
     }
 
