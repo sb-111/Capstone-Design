@@ -9,11 +9,10 @@ public class Weapon : MonoBehaviour
 {
 
     public enum WeaponType { Melee, Range };
-    public WeaponType type;
-    public int weapon_damage; //무기별 공격력
-    public float weapon_rate; // 무기별 공격 속도
+    public WeaponType type { get; private set; }
+    public int weapon_damage = 20; //무기별 공격력
+    public int result_damage; //최종 데미지
     public BoxCollider meleeArea;   //무기의 공격 판정 범위
-    //public TrailRenderer trailEffect; //공격시 생성 이펙트
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
     public bool isHeavyAttack = false;
 
@@ -22,10 +21,11 @@ public class Weapon : MonoBehaviour
     public CameraShake cameraShaking;
     public AttackController attackController;
 
-    public GameObject effectPrefab;//공격 이펙트 프리팹
-    public GameObject shieldEffectPrefab;//방어 이펙트 프리팹
-    public GameObject strongEffectPrefab;//필살기 이펙트 프리팹
-    public GameObject hitEffectPrefab; //타격시 이펙트 프리팹
+    [SerializeField] GameObject effectPrefab;//공격 이펙트 프리팹
+    [SerializeField] GameObject shieldEffectPrefab;//방어 이펙트 프리팹
+    [SerializeField] GameObject strongEffectPrefab;//필살기 이펙트 프리팹
+    [SerializeField] GameObject hitEffectPrefab; //타격시 이펙트 프리팹
+    [SerializeField] GameObject hitEffectPrefab2;//타격시 이펙트 프리팹 2(임시)
     GameObject nEffectPrefab;
     public Transform HandEffect;       //자식 오브젝트의 핸드 이펙트 프리팹 할당해야 함
     public bool isShield=false;
@@ -48,17 +48,17 @@ public class Weapon : MonoBehaviour
         if(HandEffect!=null)    HandEffect.gameObject.SetActive(false);
     }
 
-    private void Start()
+    private void Update()
     {
-
+        
     }
-    public void Use()
+    public void Use(int key)
     {
         if (type == WeaponType.Melee)
         {
             StopCoroutine(Weapon_Activation());
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            //Debug.Log("HashSet 클리어");
+            result_damage = status.basicStats.atk + weapon_damage + key;
             StartCoroutine(Weapon_Activation());
         }
 
@@ -66,8 +66,8 @@ public class Weapon : MonoBehaviour
         {
             StopCoroutine(Weapon_Activation());
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
-            Debug.Log("HashSet 클리어");
             StartCoroutine(Weapon_Activation());
+            
         }
     }
     public void AttackOut()
@@ -79,8 +79,8 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Weapon_Activation()
     {
-        meleeArea.enabled = true;
-        Debug.Log("켜짐");  
+        Debug.Log("공격 들어갑니다." + result_damage);
+        meleeArea.enabled = true; 
         yield return null;
     }
 
@@ -156,7 +156,7 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Parrying());
         }
 
-        if (other.tag == "MonsterEnemy" || other.tag == "Enemy" || other.tag == "Player")
+        if (other.tag == "MonsterEnemy" || other.tag == "Player" || other.tag == "Enemy")
         {
             GameObject enemy = other.gameObject;
 
@@ -166,10 +166,11 @@ public class Weapon : MonoBehaviour
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage), transform.position);
+                    enemyDamage.TakeDamage((result_damage), transform.position);
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    GameObject hiteffectInstance2 = Instantiate(hitEffectPrefab2, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);
-          
+                    Destroy(hiteffectInstance2, 0.5f);
                     if (isHeavyAttack) //강공격일 경우 피격 반응 애니메이션 처리
                     {
                         enemyDamage.HitResponse();
@@ -178,11 +179,13 @@ public class Weapon : MonoBehaviour
             }
             else if (other.tag == "Player")
             {
+                if (enemy == player.gameObject) { return; }
+
                 CombatStatusManager enemyDamage = enemy.GetComponent<CombatStatusManager>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((status.basicStats.atk + weapon_damage));
+                    enemyDamage.TakeDamage((result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);
 
@@ -192,6 +195,20 @@ public class Weapon : MonoBehaviour
                     }
                 }
             }
+
+            else if (other.tag == "Enemy")
+            {
+                
+                Hit_Test_v2 enemyDamage = enemy.GetComponent<Hit_Test_v2>();
+                if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
+                {
+                    hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
+                    enemyDamage.TakeDamage((result_damage));
+                    GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    Destroy(hiteffectInstance, 0.5f);
+                }
+            }
+
             else return;
         }
 
@@ -216,15 +233,15 @@ public class Weapon : MonoBehaviour
     private int CurAttackKey()
     {
         Animator anim = player.anim;
-        int curAttack;
 
-        if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi1")) {return curAttack = 1; }
-        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi2")) { return curAttack = 2; }
-        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi3")) { return curAttack = 3; }
-        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("SingleRightAttack")) { return curAttack = 4; }
-        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("JumpAttack")) { return curAttack = 5; }
-        else { return curAttack = 0; }
+        if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi1")) {return  1; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi2")) { return  2; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("Combi3")) { return  3; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("SingleRightAttack")) { return 4; }
+        else if (anim != null && anim.GetCurrentAnimatorStateInfo(0).IsName("JumpAttack")) { return 5; }
+        else { return 0; }
     }
+
 
     public HashSet<GameObject> GethitEnemeies()
     {

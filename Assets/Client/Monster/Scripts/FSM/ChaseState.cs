@@ -13,7 +13,6 @@ public class ChaseState : IMonsterState
 
     public void EnterState()
     {
-        
         Debug.Log("Chase: Enter");
         monster.Agent.isStopped = false;
     }

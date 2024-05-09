@@ -192,10 +192,23 @@ public class Monster : MonoBehaviour
     {
         currentHP -= damage;
 
+        float hpPercentage = currentHP / (float)maxHP;
+
         if (IsDie())
         {
             Die();
         }
+
+        if (hpPercentage <= 0.7 && hpPercentage > 0.3)
+        {
+            skin_70p.SetActive(true);
+        }
+        if (hpPercentage <= 0.3)
+        {
+            skin_70p.SetActive(false);
+            skin_30p.SetActive(true); 
+        }
+
     }
     private bool IsDie()
     {

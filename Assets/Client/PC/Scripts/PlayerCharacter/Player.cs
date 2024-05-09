@@ -249,14 +249,14 @@ public class Player : MonoBehaviourPun
         isAttack = true;
     }
 
-    public void WeaponUse()                     //공격 애니메이션 공용 이벤트 2  (공격 모션 시작하는 지점)
+    public void WeaponUse(int key)                     //공격 애니메이션 공용 이벤트 2  (공격 모션 시작하는 지점)
     {
-        attack_controller.weapon_right.Use();
+        attack_controller.weapon_right.Use(key);
     }
 
-    public void WeaponUseLeft()                //공격 애니메이션 공용 이벤트 2_2 
+    public void WeaponUseLeft(int key)                //공격 애니메이션 공용 이벤트 2_2 
     {
-        attack_controller.weapon_left.Use();
+        attack_controller.weapon_left.Use(key);
     }
     public void WeaponAttackOut()               //공격 애니메이션 공용 이벤트 3 (공격 모션 끝나는 지점)
     {

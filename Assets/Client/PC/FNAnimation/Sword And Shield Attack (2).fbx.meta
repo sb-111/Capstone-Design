@@ -76,7 +76,7 @@ ModelImporter:
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 20
         messageOptions: 0
       - time: 0.47010937
         functionName: SwordEffect

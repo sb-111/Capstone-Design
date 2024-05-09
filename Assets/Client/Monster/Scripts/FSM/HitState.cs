@@ -10,10 +10,10 @@ public class HitState : MonoBehaviour, IMonsterState
         this.monster = monster;
     }
 
-    // 1. ÃÖÃÊ ÁøÀÔ ½Ã 1È¸ ½ÇÇà
+    // 1. ìµœì´ˆ ì§„ì… ì‹œ 1íšŒ ì‹¤í–‰
     public void EnterState()
     {
-        //ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+        //í”¼ê²© ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
         monster.Anim.SetTrigger("getHit");
         switch (monster.Type)
         {
@@ -27,19 +27,19 @@ public class HitState : MonoBehaviour, IMonsterState
                 monster.Anim.SetInteger("randomValue", Random.Range(0, 2));
                 break;
         }
-        Debug.Log("ÇÇ°İ ÁøÀÔ");
+        Debug.Log("í”¼ê²© ì§„ì…");
 
     }
     
-    //2. ¹İº¹ ½ÇÇà
+    //2. ë°˜ë³µ ì‹¤í–‰
     public void ExecuteState()
     {
-        //ºñ¾îÀÖÀ½
+        //ë¹„ì–´ìˆìŒ
     }
 
     public void ExitState()
     {
-        //ºñ¾îÀÖÀ½
-        Debug.Log("ÇÇ°İ Å»Ãâ");
+        //ë¹„ì–´ìˆìŒ
+        Debug.Log("í”¼ê²© íƒˆì¶œ");
     }
 }
