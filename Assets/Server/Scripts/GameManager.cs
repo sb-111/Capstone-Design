@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         PV.RPC("GameOver", RpcTarget.All);
     }
+
     [PunRPC]
     private void GameOver()
     {

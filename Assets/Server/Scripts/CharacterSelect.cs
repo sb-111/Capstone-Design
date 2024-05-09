@@ -13,19 +13,32 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public static GameObject character;
     public GameObject chara1;
     public GameObject chara2;
+    public GameObject charaPanel;
+    public GameObject roomPanel;
+    public Text playerNameText;
 
-    // Ãß°¡µÈ UI ¿ä¼Ò
+    private string playerName;
+    private int playerCount = 0;
+    // ì¶”ê°€ëœ UI ìš”ì†Œ
     public Slider loadingProgressBar;
     public GameObject loadingUI;
-
+    void awake()
+    {
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.AddCallbackTarget(this);
+    }
     void Start()
     {
+        roomPanel.SetActive(false);
+        charaPanel.SetActive(true);
+        loadingUI.SetActive(false);
         character = chara1;
         cha1tog.onValueChanged.RemoveAllListeners();
         cha1tog.onValueChanged.AddListener(OnChara1);
 
         cha2tog.onValueChanged.RemoveAllListeners();
         cha2tog.onValueChanged.AddListener(OnChara2);
+       playerName = PhotonNetwork.LocalPlayer.NickName + "\n";
     }
 
     void OnChara1(bool _bool)
@@ -46,24 +59,46 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     public void GameStart()
     {
-        loadingUI.SetActive(true);
+        
         PhotonNetwork.JoinRandomRoom();
+        roomPanel.SetActive(true);
+        charaPanel.SetActive(false);
+        playerNameText.text = playerName;
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("¹æ»ı¼º");
+        Debug.Log("ë°©ìƒì„±");
         PhotonNetwork.CreateRoom(null, new RoomOptions());
+    }
+  
+    public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
+    {
+
+        playerName += newPlayer.ActorNumber + "\n";
+        Debug.Log("ë“¤ì–´ì˜´");
+        playerNameText.text = playerName;
+        
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
+        {
+            loadingUI.SetActive(true);
+            roomPanel.SetActive(false);
+            charaPanel.SetActive(false);
+            StartCoroutine(LoadScene_Coroutine("MainScene"));
+        }
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");
-        // ÄÚ·çÆ¾À» »ç¿ëÇÏ¿© ¾À ·Îµù ½ÃÀÛ
-        StartCoroutine(LoadLevelWithProgress("MainScene"));
+
+        StartCoroutine(LoadScene_Coroutine("MainScene"));
+        // ì½”ë£¨í‹´ì„ ì‚¬ìš©í•˜ì—¬ ì”¬ ë¡œë”© ì‹œì‘
+        //StartCoroutine(LoadScene_Coroutine("MainScene"));
+
     }
 
-    // SimpleLauncher¿¡¼­ °¡Á®¿Â LoadScene_Coroutine
+    // SimpleLauncherì—ì„œ ê°€ì ¸ì˜¨ LoadScene_Coroutine
     IEnumerator LoadScene_Coroutine(string scene)
     {
         loadingProgressBar.value = 0;
@@ -83,7 +118,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         loadingUI.SetActive(false);
     }
 
-    // SimpleLauncher¿¡¼­ °¡Á®¿Â LoadLevelWithProgress
+    // SimpleLauncherì—ì„œ ê°€ì ¸ì˜¨ LoadLevelWithProgress
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
         loadingUI.SetActive(true);
@@ -110,5 +145,10 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             yield return null;
         }
         loadingUI.SetActive(false);
+    }
+    void OnDestroy()
+    {
+     
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
 }
