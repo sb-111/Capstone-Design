@@ -1,14 +1,42 @@
 using UnityEngine;
+using Photon.Pun; 
 
 public class TerrainPortal : MonoBehaviour
 {
     public Transform player;
-    public Transform receiver; 
+    public Transform receiver;
 
     private bool playerIsOverlapping = false;
+
+    void Start() 
+    {
+        FindLocalPlayer();
+    }
+
+    void FindLocalPlayer()
+    {
+        GameObject localPlayerObj = null;
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (obj.GetComponent<PhotonView>().IsMine)
+            {
+                localPlayerObj = obj;
+                break;
+            }
+        }
+        if (localPlayerObj != null)
+        {
+            player = localPlayerObj.transform;
+        }
+        else
+        {
+            Debug.LogWarning("로컬 플레이어를 찾을 수 없습니다.");
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             playerIsOverlapping = true;
         }
@@ -16,7 +44,7 @@ public class TerrainPortal : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             playerIsOverlapping = false;
         }

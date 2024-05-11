@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
+  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2334,7 +2334,7 @@ MonoBehaviour:
   cha1tog: {fileID: 1488169560}
   cha2tog: {fileID: 738131845}
   chara1: {fileID: 8364360537352700500, guid: 0e2c551cf6a07a643b130eb55185d564, type: 3}
-  chara2: {fileID: 6461216685500147717, guid: d615d4ee68518474599eb629dfeb8224, type: 3}
+  chara2: {fileID: 2572654029881809978, guid: d364944688bf9ce4e9b90bd53c7e6ceb, type: 3}
   charaPanel: {fileID: 1325209514}
   roomPanel: {fileID: 1431941398}
   playerNameText: {fileID: 206267928}
