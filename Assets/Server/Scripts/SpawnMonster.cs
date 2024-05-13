@@ -13,7 +13,7 @@ public class SpawnMonster : MonoBehaviour
     public GameObject cyclops;
     public GameObject goblin;
     public GameObject hobgoblin;
-    public GameObject kobold
+    public GameObject kobold;
     public GameObject Troll;
     // Start is called before the first frame update
     void Start()
