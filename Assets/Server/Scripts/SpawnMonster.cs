@@ -5,20 +5,27 @@ using Photon.Pun;
 
 public class SpawnMonster : MonoBehaviour
 {
-    public Transform[] monsterSpawnPoints;
-    public GameObject crocodile;
-
+    public Transform[] cyclopsSpawnPoints;
+    public Transform[] goblinSpawnPoints;
+    public Transform[] hobgoblinSpawnPoints;
+    public Transform[] koboldSpawnPoints;
+    public Transform[] TrollSpawnPoints;
+    public GameObject cyclops;
+    public GameObject goblin;
+    public GameObject hobgoblin;
+    public GameObject kobold
+    public GameObject Troll;
     // Start is called before the first frame update
     void Start()
     {
-        SpawnCrocodile();
+        SpawnCyclops();
       //  SpawnCrocodile();
     }
 
-    void SpawnCrocodile()
+    void SpawnCyclops()
     {
-        int number = Random.Range(0, monsterSpawnPoints.Length);
-        PhotonNetwork.InstantiateRoomObject(crocodile.name, monsterSpawnPoints[number].transform.position, transform.rotation, 0);
+        int number = Random.Range(0, cyclopsSpawnPoints.Length);
+        PhotonNetwork.InstantiateRoomObject(cyclops.name, cyclopsSpawnPoints[number].transform.position, transform.rotation, 0);
 
     }
 
