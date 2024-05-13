@@ -184,6 +184,7 @@ MonoBehaviour:
   speed: 10
   skin_30p: {fileID: 9028436527930971942}
   skin_70p: {fileID: 2758766303699457018}
+  soul: {fileID: 1150511042866377169, guid: 36d36a95c6a150f42b8f13d2622d70b0, type: 3}
   weakPoint: 0
 --- !u!114 &7723494953169275329
 MonoBehaviour:

@@ -16173,7 +16173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &206969736365183893
 Transform:
   m_ObjectHideFlags: 0
@@ -16240,6 +16240,9 @@ MonoBehaviour:
   isDefense: 0
   isCC: 0
   isAttack: 0
+  uiSoul: {fileID: 8949870570531329088, guid: 6ae15697b2772354ba8edfce3cd7267f, type: 3}
+  uiStatus: {fileID: 6446990777131936753, guid: 9dd115cb91468d5418489dc1eeaaa7c0, type: 3}
+  canvas: {fileID: 2844719206412972385, guid: 9f34f98442957ff4aaf0f5ca0d299e76, type: 3}
   attack_controller: {fileID: 0}
   state: {fileID: 0}
 --- !u!114 &4864509859839420764
