@@ -70,6 +70,288 @@ MonoBehaviour:
   weapon_damage: 30
   knockbackPower: 10
   meleeArea: {fileID: 6320218430151310429}
+--- !u!1 &3817095226719036164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4508964183239257647}
+  - component: {fileID: 159257711331895818}
+  m_Layer: 0
+  m_Name: SK_Cyclops 30p
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4508964183239257647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817095226719036164}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8931416526485411648}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &159257711331895818
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817095226719036164}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 684b150cd495a024bbd1313ec791fbd8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300002, guid: 5154bcfe9fbf8d9418fca71e2ae4cfb2, type: 3}
+  m_Bones:
+  - {fileID: 8931416526485411616}
+  - {fileID: 8931416526485411618}
+  - {fileID: 8931416526485411628}
+  - {fileID: 8931416526485411630}
+  - {fileID: 8931416526485411624}
+  - {fileID: 8931416526485411636}
+  - {fileID: 8931416526485411626}
+  - {fileID: 8931416526485411634}
+  - {fileID: 8931416526485411640}
+  - {fileID: 8931416526485411638}
+  - {fileID: 8931416526485411632}
+  - {fileID: 8931416526485411644}
+  - {fileID: 8931416526485411646}
+  - {fileID: 8931416526485411642}
+  - {fileID: 8931416526485411588}
+  - {fileID: 8931416526485411590}
+  - {fileID: 8931416526485411584}
+  - {fileID: 8931416526485411586}
+  - {fileID: 8931416526485411596}
+  - {fileID: 8931416526485411598}
+  - {fileID: 8931416526485411606}
+  - {fileID: 8931416526485411594}
+  - {fileID: 8931416526485411706}
+  - {fileID: 8931416526485411602}
+  - {fileID: 8931416526485411592}
+  - {fileID: 8931416526485411704}
+  - {fileID: 8931416526485411710}
+  - {fileID: 8931416526485411604}
+  - {fileID: 8931416526485411652}
+  - {fileID: 8931416526485411698}
+  - {fileID: 8931416526485411600}
+  - {fileID: 8931416526485411700}
+  - {fileID: 8931416526485411702}
+  - {fileID: 8931416526485411696}
+  - {fileID: 8931416526485411612}
+  - {fileID: 8931416526485411708}
+  - {fileID: 8931416526485411694}
+  - {fileID: 8931416526485411680}
+  - {fileID: 8931416526485411614}
+  - {fileID: 8931416526485411608}
+  - {fileID: 8931416526485411688}
+  - {fileID: 8931416526485411682}
+  - {fileID: 8931416526485411610}
+  - {fileID: 8931416526485411684}
+  - {fileID: 8931416526485411686}
+  - {fileID: 8931416526485411690}
+  - {fileID: 8931416526485411692}
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  m_RootBone: {fileID: 8931416526485411604}
+  m_AABB:
+    m_Center: {x: -0.3487631, y: 0.46796468, z: -0.12594008}
+    m_Extent: {x: 2.7657132, y: 1.4443648, z: 3.0129216}
+  m_DirtyAABB: 0
+--- !u!1 &5323329218396541629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6954150175283564829}
+  - component: {fileID: 3119062876899599047}
+  m_Layer: 0
+  m_Name: SK_Cyclops 70p
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6954150175283564829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323329218396541629}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8931416526485411648}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &3119062876899599047
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323329218396541629}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 45d241fecc692444488248a65db4e7a3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300002, guid: 5154bcfe9fbf8d9418fca71e2ae4cfb2, type: 3}
+  m_Bones:
+  - {fileID: 8931416526485411616}
+  - {fileID: 8931416526485411618}
+  - {fileID: 8931416526485411628}
+  - {fileID: 8931416526485411630}
+  - {fileID: 8931416526485411624}
+  - {fileID: 8931416526485411636}
+  - {fileID: 8931416526485411626}
+  - {fileID: 8931416526485411634}
+  - {fileID: 8931416526485411640}
+  - {fileID: 8931416526485411638}
+  - {fileID: 8931416526485411632}
+  - {fileID: 8931416526485411644}
+  - {fileID: 8931416526485411646}
+  - {fileID: 8931416526485411642}
+  - {fileID: 8931416526485411588}
+  - {fileID: 8931416526485411590}
+  - {fileID: 8931416526485411584}
+  - {fileID: 8931416526485411586}
+  - {fileID: 8931416526485411596}
+  - {fileID: 8931416526485411598}
+  - {fileID: 8931416526485411606}
+  - {fileID: 8931416526485411594}
+  - {fileID: 8931416526485411706}
+  - {fileID: 8931416526485411602}
+  - {fileID: 8931416526485411592}
+  - {fileID: 8931416526485411704}
+  - {fileID: 8931416526485411710}
+  - {fileID: 8931416526485411604}
+  - {fileID: 8931416526485411652}
+  - {fileID: 8931416526485411698}
+  - {fileID: 8931416526485411600}
+  - {fileID: 8931416526485411700}
+  - {fileID: 8931416526485411702}
+  - {fileID: 8931416526485411696}
+  - {fileID: 8931416526485411612}
+  - {fileID: 8931416526485411708}
+  - {fileID: 8931416526485411694}
+  - {fileID: 8931416526485411680}
+  - {fileID: 8931416526485411614}
+  - {fileID: 8931416526485411608}
+  - {fileID: 8931416526485411688}
+  - {fileID: 8931416526485411682}
+  - {fileID: 8931416526485411610}
+  - {fileID: 8931416526485411684}
+  - {fileID: 8931416526485411686}
+  - {fileID: 8931416526485411690}
+  - {fileID: 8931416526485411692}
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  m_RootBone: {fileID: 8931416526485411604}
+  m_AABB:
+    m_Center: {x: -0.3487631, y: 0.46796468, z: -0.12594008}
+    m_Extent: {x: 2.7657132, y: 1.4443648, z: 3.0129216}
+  m_DirtyAABB: 0
 --- !u!1 &8931416526484982432
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +363,6 @@ GameObject:
   - component: {fileID: 8931416526485411648}
   - component: {fileID: 8931416526492383428}
   - component: {fileID: 6460833502108097747}
-  - component: {fileID: 6019778644594316144}
   - component: {fileID: 7733619938157375974}
   - component: {fileID: 9103057795271810876}
   - component: {fileID: 8921924304209698110}
@@ -109,6 +390,8 @@ Transform:
   m_Children:
   - {fileID: 8931416526485411654}
   - {fileID: 8931416526485411650}
+  - {fileID: 4508964183239257647}
+  - {fileID: 6954150175283564829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8931416526492383428
@@ -159,27 +442,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &6019778644594316144
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931416526484982432}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.56, y: 4.66, z: 1.86}
-  m_Center: {x: 0, y: 2.47, z: 0.37}
 --- !u!195 &7733619938157375974
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -232,9 +494,9 @@ MonoBehaviour:
   def: 10
   constant_def: 100
   speed: 10
-  skin_30p: {fileID: 0}
-  skin_70p: {fileID: 0}
-  soul: {fileID: 1150511042866377169, guid: 36d36a95c6a150f42b8f13d2622d70b0, type: 3}
+  skin_30p: {fileID: 3817095226719036164}
+  skin_70p: {fileID: 5323329218396541629}
+  weakPoint: 0
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +834,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411616}
+  - component: {fileID: 1427606088579079576}
   m_Layer: 0
   m_Name: CYCLOPS_ Head
   m_TagString: Untagged
@@ -596,6 +859,27 @@ Transform:
   - {fileID: 8931416526485411652}
   m_Father: {fileID: 8931416526485411594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1427606088579079576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982528}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.8, y: 0.76, z: 0.67}
+  m_Center: {x: -0.24, y: 0.25, z: 0}
 --- !u!1 &8931416526484982530
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +891,7 @@ GameObject:
   - component: {fileID: 8931416526485411618}
   m_Layer: 0
   m_Name: CYCLOPS_ L Calf
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1339,9 +1623,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411698}
+  - component: {fileID: 4146783083003752845}
   m_Layer: 0
   m_Name: CYCLOPS_ R Thigh
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1362,6 +1647,27 @@ Transform:
   - {fileID: 8931416526485411600}
   m_Father: {fileID: 8931416526485411604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4146783083003752845
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982610}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.91, z: 0.76}
+  m_Center: {x: -0.49, y: 0, z: 0}
 --- !u!1 &8931416526484982612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,9 +1677,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411700}
+  - component: {fileID: 1532460066440572722}
   m_Layer: 0
   m_Name: CYCLOPS_ R Foot
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1394,6 +1701,27 @@ Transform:
   - {fileID: 8931416526485411708}
   m_Father: {fileID: 8931416526485411600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1532460066440572722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92, y: 0.74, z: 0.7}
+  m_Center: {x: 0.15, y: 0, z: -0.07}
 --- !u!1 &8931416526484982614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,9 +1731,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411702}
+  - component: {fileID: 1034735585518454105}
   m_Layer: 0
   m_Name: CYCLOPS_ R Forearm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1426,6 +1755,27 @@ Transform:
   - {fileID: 8931416526485411696}
   m_Father: {fileID: 8931416526485411710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1034735585518454105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.57, y: 0.83, z: 0.68}
+  m_Center: {x: -0.91, y: 0, z: 0}
 --- !u!1 &8931416526484982616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,9 +1882,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411710}
+  - component: {fileID: 2426555042294875948}
   m_Layer: 0
   m_Name: CYCLOPS_ R UpperArm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,6 +1906,27 @@ Transform:
   - {fileID: 8931416526485411702}
   m_Father: {fileID: 8931416526485411602}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2426555042294875948
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.34, y: 0.84, z: 0.73}
+  m_Center: {x: -0.4, y: -0.06, z: -0.05}
 --- !u!1 &8931416526484982624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,9 +1936,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411584}
+  - component: {fileID: 9125833166288993129}
   m_Layer: 0
   m_Name: CYCLOPS_ L Forearm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1587,6 +1960,27 @@ Transform:
   - {fileID: 8931416526485411586}
   m_Father: {fileID: 8931416526485411592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9125833166288993129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.57, y: 0.83, z: 0.68}
+  m_Center: {x: -0.91, y: 0, z: 0}
 --- !u!1 &8931416526484982626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1992,7 @@ GameObject:
   - component: {fileID: 8931416526485411586}
   m_Layer: 0
   m_Name: CYCLOPS_ L Hand
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1663,9 +2057,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411590}
+  - component: {fileID: 7658021370212390013}
   m_Layer: 0
   m_Name: CYCLOPS_ L Foot
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1686,6 +2081,27 @@ Transform:
   - {fileID: 8931416526485411598}
   m_Father: {fileID: 8931416526485411618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7658021370212390013
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.92, y: 0.74, z: 0.7}
+  m_Center: {x: 0.15, y: 0, z: 0.06}
 --- !u!1 &8931416526484982632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,9 +2111,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411592}
+  - component: {fileID: 701027947114134745}
   m_Layer: 0
   m_Name: CYCLOPS_ L UpperArm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1718,6 +2135,27 @@ Transform:
   - {fileID: 8931416526485411584}
   m_Father: {fileID: 8931416526485411628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &701027947114134745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.34, y: 0.84, z: 0.73}
+  m_Center: {x: -0.4, y: -0.06, z: 0.05}
 --- !u!1 &8931416526484982634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,9 +2197,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411596}
+  - component: {fileID: 7671178383964935671}
   m_Layer: 0
   m_Name: CYCLOPS_ L Thigh
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1782,6 +2221,27 @@ Transform:
   - {fileID: 8931416526485411618}
   m_Father: {fileID: 8931416526485411604}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7671178383964935671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982636}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.91, z: 0.76}
+  m_Center: {x: -0.49, y: 0, z: 0}
 --- !u!1 &8931416526484982638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,9 +2346,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411604}
+  - component: {fileID: 6705481467997214080}
   m_Layer: 0
   m_Name: CYCLOPS_ Pelvis
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1911,6 +2372,29 @@ Transform:
   - {fileID: 8931416526485411704}
   m_Father: {fileID: 8931416526485411622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6705481467997214080
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.75
+  m_Height: 3
+  m_Direction: 0
+  m_Center: {x: -1.07, y: 0.15, z: 0}
 --- !u!1 &8931416526484982646
 GameObject:
   m_ObjectHideFlags: 0

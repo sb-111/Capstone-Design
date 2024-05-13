@@ -1,5 +1,130 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1226797406590785522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286510334858345471}
+  - component: {fileID: 1133948784914224939}
+  m_Layer: 0
+  m_Name: SK_Troll 30p
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &286510334858345471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226797406590785522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2826394659216058762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1133948784914224939
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226797406590785522}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: c7da7895c5e0af24da48fd28ffd6668c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300002, guid: e3ea20e65f56f9b4b904c349ca08d7f2, type: 3}
+  m_Bones:
+  - {fileID: 2826394659216058766}
+  - {fileID: 2826394659216058764}
+  - {fileID: 2826394659216058754}
+  - {fileID: 2826394659216058752}
+  - {fileID: 2826394659216058758}
+  - {fileID: 2826394659216058778}
+  - {fileID: 2826394659216058756}
+  - {fileID: 2826394659216058780}
+  - {fileID: 2826394659216058776}
+  - {fileID: 2826394659216058782}
+  - {fileID: 2826394659216058770}
+  - {fileID: 2826394659216058768}
+  - {fileID: 2826394659216058774}
+  - {fileID: 2826394659216058772}
+  - {fileID: 2826394659216058794}
+  - {fileID: 2826394659216058792}
+  - {fileID: 2826394659216058798}
+  - {fileID: 2826394659216058796}
+  - {fileID: 2826394659216058786}
+  - {fileID: 2826394659216058784}
+  - {fileID: 2826394659216058790}
+  - {fileID: 2826394659216058840}
+  - {fileID: 2826394659216058810}
+  - {fileID: 2826394659216058842}
+  - {fileID: 2826394659216058820}
+  - {fileID: 2826394659216058816}
+  - {fileID: 2826394659216058788}
+  - {fileID: 2826394659216058822}
+  - {fileID: 2826394659216058830}
+  - {fileID: 2826394659216058828}
+  - {fileID: 2826394659216058818}
+  - {fileID: 2826394659216058814}
+  - {fileID: 2826394659216058808}
+  - {fileID: 2826394659216058812}
+  - {fileID: 2826394659216058802}
+  - {fileID: 2826394659216058800}
+  - {fileID: 2826394659216058804}
+  - {fileID: 2826394659216058826}
+  - {fileID: 2826394659216058806}
+  - {fileID: 2826394659216058824}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2826394659216058784}
+  m_AABB:
+    m_Center: {x: -0.43458903, y: 0.6730914, z: -0.000004529953}
+    m_Extent: {x: 2.8050385, y: 1.9982135, z: 3.341603}
+  m_DirtyAABB: 0
 --- !u!1 &2826394659216291232
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +261,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058760}
+  - component: {fileID: 3690869126080895054}
   m_Layer: 0
   m_Name: TROLL_
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +285,29 @@ Transform:
   - {fileID: 2826394659216058784}
   m_Father: {fileID: 2826394659216058844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3690869126080895054
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291240}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.72
+  m_Height: 3.21
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.08}
 --- !u!1 &2826394659216291242
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +319,6 @@ GameObject:
   - component: {fileID: 2826394659216058762}
   - component: {fileID: 2826394659208857194}
   - component: {fileID: 2553408917252234023}
-  - component: {fileID: 618568736332002418}
   - component: {fileID: 6464050693109606569}
   - component: {fileID: 6349026235680252524}
   - component: {fileID: 8777440285632183263}
@@ -182,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2826394659216058762
 Transform:
   m_ObjectHideFlags: 0
@@ -198,6 +346,8 @@ Transform:
   m_Children:
   - {fileID: 2826394659216058844}
   - {fileID: 2826394659216058834}
+  - {fileID: 286510334858345471}
+  - {fileID: 5880241650264645815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2826394659208857194
@@ -248,27 +398,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &618568736332002418
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826394659216291242}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.88, y: 4.81, z: 2.98}
-  m_Center: {x: 0, y: 2.47, z: 0.37}
 --- !u!195 &6464050693109606569
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -321,6 +450,9 @@ MonoBehaviour:
   def: 10
   constant_def: 100
   speed: 10
+  skin_30p: {fileID: 1226797406590785522}
+  skin_70p: {fileID: 4207583234546886744}
+  weakPoint: 0
 --- !u!114 &8777440285632183263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,9 +586,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058764}
+  - component: {fileID: 6637811480815865338}
   m_Layer: 0
   m_Name: TROLL_ L Calf
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,6 +610,27 @@ Transform:
   - {fileID: 2826394659216058774}
   m_Father: {fileID: 2826394659216058792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6637811480815865338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291244}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2, y: 0.73, z: 0.7}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!1 &2826394659216291246
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,9 +640,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058766}
+  - component: {fileID: 4676850797494472178}
   m_Layer: 0
   m_Name: TROLL_ Head
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -509,6 +664,27 @@ Transform:
   - {fileID: 2826394659216058790}
   m_Father: {fileID: 2826394659216058786}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4676850797494472178
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291246}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.9, z: 0.8}
+  m_Center: {x: -0.13, y: 0.12, z: 0}
 --- !u!1 &2826394659216291248
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,9 +1014,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058788}
+  - component: {fileID: 801038670854386985}
   m_Layer: 0
   m_Name: TROLL_ R Calf
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -861,6 +1038,27 @@ Transform:
   - {fileID: 2826394659216058830}
   m_Father: {fileID: 2826394659216058816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &801038670854386985
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2, y: 0.73, z: 0.7}
+  m_Center: {x: -0.5, y: 0, z: 0}
 --- !u!1 &2826394659216291270
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,9 +1099,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058792}
+  - component: {fileID: 1976469409046074639}
   m_Layer: 0
   m_Name: TROLL_ L Thigh
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,6 +1123,27 @@ Transform:
   - {fileID: 2826394659216058764}
   m_Father: {fileID: 2826394659216058784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1976469409046074639
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291272}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2, y: 0.78, z: 0.7}
+  m_Center: {x: -0.42, y: 0.02, z: 0}
 --- !u!1 &2826394659216291274
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,9 +1153,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058794}
+  - component: {fileID: 522860133141227129}
   m_Layer: 0
   m_Name: TROLL_ L Hand
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -959,6 +1180,27 @@ Transform:
   - {fileID: 3801050672363622390}
   m_Father: {fileID: 2826394659216058772}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &522860133141227129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291274}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7, y: 0.7, z: 0.8}
+  m_Center: {x: 0.31, y: 0, z: 0}
 --- !u!1 &2826394659216291276
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,9 +1210,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058796}
+  - component: {fileID: 2546372002765788167}
   m_Layer: 0
   m_Name: TROLL_ L UpperArm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -991,6 +1234,27 @@ Transform:
   - {fileID: 2826394659216058772}
   m_Father: {fileID: 2826394659216058754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2546372002765788167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291276}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.57, y: 0.8, z: 0.8}
+  m_Center: {x: -0.54, y: 0, z: 0}
 --- !u!1 &2826394659216291278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,9 +1549,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058816}
+  - component: {fileID: 9057203925385273903}
   m_Layer: 0
   m_Name: TROLL_ R Thigh
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,6 +1573,27 @@ Transform:
   - {fileID: 2826394659216058788}
   m_Father: {fileID: 2826394659216058784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9057203925385273903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291296}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2, y: 0.78, z: 0.7}
+  m_Center: {x: -0.42, y: 0.02, z: 0}
 --- !u!1 &2826394659216291298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,9 +1603,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058818}
+  - component: {fileID: 1246775431365375712}
   m_Layer: 0
   m_Name: TROLL_ R Hand
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1343,6 +1630,27 @@ Transform:
   - {fileID: 8690809774368658542}
   m_Father: {fileID: 2826394659216058828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1246775431365375712
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291298}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7, y: 0.7, z: 0.8}
+  m_Center: {x: 0.31, y: 0, z: 0}
 --- !u!1 &2826394659216291300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,9 +1660,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058820}
+  - component: {fileID: 9220957822539146913}
   m_Layer: 0
   m_Name: TROLL_ R UpperArm
-  m_TagString: Untagged
+  m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1375,6 +1684,27 @@ Transform:
   - {fileID: 2826394659216058828}
   m_Father: {fileID: 2826394659216058810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9220957822539146913
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291300}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.57, y: 0.8, z: 0.8}
+  m_Center: {x: -0.54, y: 0, z: 0}
 --- !u!1 &2826394659216291302
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +2156,131 @@ MonoBehaviour:
   weapon_damage: 30
   knockbackPower: 10
   meleeArea: {fileID: 4709391280644867172}
+--- !u!1 &4207583234546886744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5880241650264645815}
+  - component: {fileID: 6715693490953982192}
+  m_Layer: 0
+  m_Name: SK_Troll 70p
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5880241650264645815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207583234546886744}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2826394659216058762}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &6715693490953982192
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4207583234546886744}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 263b0f7bcb6ad624f990fc772f1107ef, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300002, guid: e3ea20e65f56f9b4b904c349ca08d7f2, type: 3}
+  m_Bones:
+  - {fileID: 2826394659216058766}
+  - {fileID: 2826394659216058764}
+  - {fileID: 2826394659216058754}
+  - {fileID: 2826394659216058752}
+  - {fileID: 2826394659216058758}
+  - {fileID: 2826394659216058778}
+  - {fileID: 2826394659216058756}
+  - {fileID: 2826394659216058780}
+  - {fileID: 2826394659216058776}
+  - {fileID: 2826394659216058782}
+  - {fileID: 2826394659216058770}
+  - {fileID: 2826394659216058768}
+  - {fileID: 2826394659216058774}
+  - {fileID: 2826394659216058772}
+  - {fileID: 2826394659216058794}
+  - {fileID: 2826394659216058792}
+  - {fileID: 2826394659216058798}
+  - {fileID: 2826394659216058796}
+  - {fileID: 2826394659216058786}
+  - {fileID: 2826394659216058784}
+  - {fileID: 2826394659216058790}
+  - {fileID: 2826394659216058840}
+  - {fileID: 2826394659216058810}
+  - {fileID: 2826394659216058842}
+  - {fileID: 2826394659216058820}
+  - {fileID: 2826394659216058816}
+  - {fileID: 2826394659216058788}
+  - {fileID: 2826394659216058822}
+  - {fileID: 2826394659216058830}
+  - {fileID: 2826394659216058828}
+  - {fileID: 2826394659216058818}
+  - {fileID: 2826394659216058814}
+  - {fileID: 2826394659216058808}
+  - {fileID: 2826394659216058812}
+  - {fileID: 2826394659216058802}
+  - {fileID: 2826394659216058800}
+  - {fileID: 2826394659216058804}
+  - {fileID: 2826394659216058826}
+  - {fileID: 2826394659216058806}
+  - {fileID: 2826394659216058824}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2826394659216058784}
+  m_AABB:
+    m_Center: {x: -0.43458903, y: 0.6730914, z: -0.000004529953}
+    m_Extent: {x: 2.8050385, y: 1.9982135, z: 3.341603}
+  m_DirtyAABB: 0
 --- !u!1 &7801515634647419588
 GameObject:
   m_ObjectHideFlags: 0
