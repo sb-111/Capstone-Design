@@ -15,6 +15,7 @@ TagManager:
   - PortalSpawner
   - Build
   - cut scene
+  - Soul
   layers:
   - Default
   - TransparentFX

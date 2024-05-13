@@ -19,7 +19,7 @@ public class CameraZoom : MonoBehaviour
 
     private void Awake()
     {
-        mapName.text = SceneManager.GetActiveScene().name;       
+        //mapName.text = SceneManager.GetActiveScene().name;       
     }
     // Start is called before the first frame update
     public void ZoomIn()

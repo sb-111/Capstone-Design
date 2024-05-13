@@ -61,8 +61,12 @@ public class Monster : MonoBehaviour
     [SerializeField] GameObject skin_30p;
     [SerializeField] GameObject skin_70p;
 
+
+    [Header("몬스터 Drop 설정")]
+    [SerializeField] GameObject soul;
     //패링 포인트
     public bool weakPoint= false;
+
 
     private void Awake()    
     {
@@ -207,15 +211,15 @@ public class Monster : MonoBehaviour
             Die();
         }
 
-        if (hpPercentage <= 0.7 && hpPercentage > 0.3)
-        {
-            skin_70p.SetActive(true);
-        }
-        if (hpPercentage <= 0.3)
-        {
-            skin_70p.SetActive(false);
-            skin_30p.SetActive(true); 
-        }
+        //if (hpPercentage <= 0.7 && hpPercentage > 0.3)
+        //{
+        //    skin_70p.SetActive(true);
+        //}
+        //if (hpPercentage <= 0.3)
+        //{
+        //    skin_70p.SetActive(false);
+        //    skin_30p.SetActive(true); 
+        //}
 
     }
 
@@ -243,6 +247,9 @@ public class Monster : MonoBehaviour
     /// </summary>
     private void Die()
     {
+        float height = 2.0f;
+        Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
+        GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);
         SetState(new DeadState(this));
     }
 
