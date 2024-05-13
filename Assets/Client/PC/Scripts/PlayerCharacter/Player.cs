@@ -19,6 +19,7 @@ public class Player : MonoBehaviourPun
     bool rDown;                                             //달리기 키
     bool jDown;                                             //구르기 키
     bool isDeath;                                           //죽는 중인가?
+    bool kDown;                                             // 스탯창 버튼 눌렀는가
     [HideInInspector]
     public bool isJump;                                     //구르는 중인가?
     [HideInInspector]
@@ -29,6 +30,7 @@ public class Player : MonoBehaviourPun
     [HideInInspector]
     public bool isCC = false;                               //CC 상태인가?
 
+
     //공격
     bool left_attack;                       //좌클릭 공격
     bool right_attack;                      //우클릭 공격
@@ -36,6 +38,9 @@ public class Player : MonoBehaviourPun
     public bool isAttack = false;           //공격 중?
     bool canAttack;
 
+    float soulCount = 0;
+    [SerializeField] private UISoul uiSoul;
+    [SerializeField] private UIStatus uiStatus;
 
     [HideInInspector] public AttackController attack_controller;
     public Animator anim { get; private set; }
@@ -81,7 +86,7 @@ public class Player : MonoBehaviourPun
         Jump();
         attack_controll();
         Defenssing();
-        
+        CkeckUI();
     }
     void attack_controll()                              //공격 입력 관리
     {
@@ -116,7 +121,7 @@ public class Player : MonoBehaviourPun
         strong_attack = Input.GetMouseButtonDown(2);
         dDown = Input.GetKeyDown(KeyCode.E);                                   //디펜스
         dUp = Input.GetKeyUp(KeyCode.E);
-        
+        kDown = Input.GetKeyDown(KeyCode.K);
     }
 
     void Move()
@@ -287,5 +292,24 @@ public class Player : MonoBehaviourPun
     void DestroyPlayer()
     {
         Destroy(gameObject);
+    }
+    /// <summary>
+    /// Soul 획득처리 및 UI 표시
+    /// </summary>
+    public void GetSoul()
+    {
+        soulCount++;
+        uiSoul.UpdateUI(soulCount.ToString());
+    }
+    /// <summary>
+    /// 스탯창 UI 설정
+    /// </summary>
+    void CkeckUI()
+    {
+        if (kDown)
+        {
+            uiStatus.SetUI();
+        }
+        
     }
 }
