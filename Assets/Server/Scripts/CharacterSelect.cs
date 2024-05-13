@@ -26,6 +26,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.AddCallbackTarget(this);
+        //miniMapController = FindObjectOfType<CanvasMiniMap>().GetComponent<MiniMapController>; // MiniMapController의 인스턴스 가져오기
     }
     void Start()
     {
@@ -43,7 +44,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     void OnChara1(bool _bool)
     {
-        if (true)
+        if (_bool)
         {
             character = chara1;
         }
@@ -51,7 +52,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     void OnChara2(bool _bool)
     {
-        if (true)
+        if (_bool)
         {
             character = chara2;
         }
@@ -59,7 +60,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
     public void GameStart()
     {
-        
+
         PhotonNetwork.JoinRandomRoom();
         roomPanel.SetActive(true);
         charaPanel.SetActive(false);
