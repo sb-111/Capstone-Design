@@ -103,6 +103,7 @@ public class Weapon : MonoBehaviourPun
             PrefabCreator info = effectInstance.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
             info.isStrong = attackController.stepupBuffer;                                 //어쌔신 전용. 어쌔신 강화 중 인지 체크
             info.attackNum = CurAttackKey();
+            info.result_damage= result_damage;
             info.weapon = this;
             Destroy(effectInstance, 1.0f);
         }
@@ -113,6 +114,7 @@ public class Weapon : MonoBehaviourPun
             PrefabCreator info = effectInstance.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아오기
             info.isStrong = attackController.stepupBuffer;                                //어쌔신 전용. 어쌔신 강화 중 인지 체크
             info.attackNum = CurAttackKey();
+            info.result_damage = result_damage;
             info.weapon = this;
             Destroy(effectInstance, 1.0f);
         }
@@ -170,7 +172,7 @@ public class Weapon : MonoBehaviourPun
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((result_damage), transform.position);
+                    enemyDamage.TakeDamage((result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     GameObject hiteffectInstance2 = Instantiate(hitEffectPrefab2, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);

@@ -11,7 +11,7 @@ public class PrefabCreator : MonoBehaviour
     public bool isStrong=false;
     public int attackNum=0;
     public Weapon weapon;
-
+    public int result_damage;
 
     private void Awake()
     {

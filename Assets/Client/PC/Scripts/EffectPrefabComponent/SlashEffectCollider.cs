@@ -26,16 +26,18 @@ public class SlashEffectCollider : MonoBehaviour
 
             if (other.tag == "MonsterEnemy")
             {
-                Monster enemyDamage = enemy.GetComponent<Monster>();
+                Monster enemyDamage = enemy.GetComponentInParent<Monster>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     //충돌 프리팹 생성
                     hitPos = other.ClosestPointOnBounds(transform.position);
                     GameObject hitEffect = Instantiate(hitEffectPrefab, hitPos, this.transform.rotation);
                     Destroy(hitEffect,0.5f);
-                    
+
+                   
                     prefabCreator.weapon.AddToHitEnemeies(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((prefabCreator.weapon.result_damage), transform.position);
+                    enemyDamage.TakeDamage((prefabCreator.result_damage));
+                  
                     if (prefabCreator.weapon.isHeavyAttack) //강공격일 경우 피격 반응 애니메이션 처리
                     {
                         enemyDamage.HitResponse();
@@ -55,7 +57,7 @@ public class SlashEffectCollider : MonoBehaviour
                     Destroy(hitEffect, 0.5f);
 
                     prefabCreator.weapon.AddToHitEnemeies(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((prefabCreator.weapon.result_damage));
+                    enemyDamage.TakeDamage((prefabCreator.result_damage));
                     if (prefabCreator.weapon.isHeavyAttack) //여기서 HeavyAttack false로 하면, 이후 피격 대상들이 적용 안됨
                     {
                         enemyDamage.HitResponse();
@@ -70,7 +72,7 @@ public class SlashEffectCollider : MonoBehaviour
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
-                    enemyDamage.TakeDamage((prefabCreator.weapon.result_damage));
+                    enemyDamage.TakeDamage((prefabCreator.result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     Destroy(hiteffectInstance, 0.5f);
                 }

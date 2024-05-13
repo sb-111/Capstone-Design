@@ -200,7 +200,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     /// <param name="damage">데미지</param>
     /// <param name="enmenyPosition">?</param>
-    public void TakeDamage(int damage, Vector3 enmenyPosition)
+    public void TakeDamage(int damage)
     {
         currentHP -= damage;
 
