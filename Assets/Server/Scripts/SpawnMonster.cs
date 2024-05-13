@@ -24,9 +24,12 @@ public class SpawnMonster : MonoBehaviour
 
     void SpawnCyclops()
     {
+        
         int number= cyclopsSpawnPoints.Length;
+        
         for (int i = 0; i < number; i++) {
-            PhotonNetwork.InstantiateRoomObject(cyclops.name, cyclopsSpawnPoints[number].transform.position, transform.rotation, 0);
+            PhotonNetwork.InstantiateRoomObject(cyclops.name, cyclopsSpawnPoints[i].transform.position, transform.rotation, 0);
+          
         }
     }
 
