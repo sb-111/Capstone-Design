@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Reflection;
 using Photon.Pun;
 [ExecuteInEditMode]
+
 public class MiniMapController : MonoBehaviourPunCallbacks {
 	//public bool isRadialMask = false;
 	//public Vector2 radialPadding = new Vector2(0.2f,0.2f);
@@ -67,6 +68,19 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
     Vector2 res;
     Image miniMapPanelImage;
 
+    void Start()
+    {
+        GameObject selectedCharacter = CharacterSelect.character;
+        
+        if (selectedCharacter != null)
+        {
+            target = selectedCharacter.transform;
+        }
+        else
+        {
+            Debug.LogError("CharacterSelect에서 선택된 캐릭터 정보가 없습니다.");
+        }
+    }
     //Initialize everything here
     public void OnEnable()
     {
