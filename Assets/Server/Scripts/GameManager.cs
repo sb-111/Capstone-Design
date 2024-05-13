@@ -79,12 +79,22 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
         GameObject cameraObj = GameObject.Find("TPS Camera");
+        GameObject mapObj = GameObject.Find("CanvasMiniMap");
+
         if (cameraObj != null)
         {
             CameraFollow camaraFollow = cameraObj.GetComponent<CameraFollow>();
             if (camaraFollow != null)
             {
                 camaraFollow.SetPlayer(playerObj);
+            }
+        }
+        if (mapObj != null)
+        {
+            MiniMapController miniMapController = mapObj.GetComponent<MiniMapController>();
+            if (miniMapController != null)
+            {
+                miniMapController.SetPlayer(playerObj);
             }
         }
         Debug.Log("확인");
@@ -125,8 +135,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.LogFormat("PhotonNetwork : Loading Level : ServerTestScene", PhotonNetwork.CurrentRoom.PlayerCount);
         PhotonNetwork.LoadLevel("MainScene");
     }
- 
 
+    public GameObject GetPlayerObject()
+    {
+        // 생성된 플레이어 오브젝트 반환 로직
+        // 여기에 적절한 코드를 작성하세요.
+        return playerPrefab; // playerObject는 플레이어 오브젝트를 가리키는 변수로 가정
+    }
 
 }
 

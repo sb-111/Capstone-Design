@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Reflection;
 using Photon.Pun;
+using System.ComponentModel;
 [ExecuteInEditMode]
 
 public class MiniMapController : MonoBehaviourPunCallbacks {
@@ -70,16 +71,32 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
 
     void Start()
     {
-        GameObject selectedCharacter = CharacterSelect.character;
-        
-        if (selectedCharacter != null)
+      /*  // GameManager의 인스턴스 가져오기
+        GameManager gameManager = GameManager.Instance;
+
+        // GameManager에서 생성된 플레이어 오브젝트 가져오기
+        if (gameManager != null)
         {
-            target = selectedCharacter.transform;
+            GameObject playerObj = gameManager.GetPlayerObject();
+            if (playerObj != null)
+            {
+                target = playerObj.transform;
+            }
+            else
+            {
+                Debug.LogError("GameManager에서 플레이어 오브젝트를 가져올 수 없습니다.");
+            }
         }
         else
         {
-            Debug.LogError("CharacterSelect에서 선택된 캐릭터 정보가 없습니다.");
-        }
+            Debug.LogError("GameManager 인스턴스를 가져올 수 없습니다.");
+        }*/
+    }
+    public void SetPlayer(GameObject clone)
+    {
+        target = clone.transform;
+       
+            Debug.LogWarning("플레이어 못 찾음");
     }
     //Initialize everything here
     public void OnEnable()
