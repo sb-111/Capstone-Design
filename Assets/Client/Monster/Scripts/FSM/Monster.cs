@@ -4,6 +4,8 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
+using Unity.VisualScripting;
+
 public class Monster : MonoBehaviour
 {
     private FSM _fsm;
@@ -58,6 +60,13 @@ public class Monster : MonoBehaviour
     [Header("몬스터 material 설정")]
     [SerializeField] GameObject skin_30p;
     [SerializeField] GameObject skin_70p;
+
+
+    [Header("몬스터 Drop 설정")]
+    [SerializeField] GameObject soul;
+    //패링 포인트
+    public bool weakPoint= false;
+
 
     private void Awake()    
     {
@@ -202,17 +211,33 @@ public class Monster : MonoBehaviour
             Die();
         }
 
-        if (hpPercentage <= 0.7 && hpPercentage > 0.3)
-        {
-            skin_70p.SetActive(true);
-        }
-        if (hpPercentage <= 0.3)
-        {
-            skin_70p.SetActive(false);
-            skin_30p.SetActive(true); 
-        }
+        //if (hpPercentage <= 0.7 && hpPercentage > 0.3)
+        //{
+        //    skin_70p.SetActive(true);
+        //}
+        //if (hpPercentage <= 0.3)
+        //{
+        //    skin_70p.SetActive(false);
+        //    skin_30p.SetActive(true); 
+        //}
 
     }
+
+    public void Parried()       //패링 당해서 스턴 상태 부여
+    {
+        if (weakPoint)
+        {
+            Anim.SetTrigger("Parried");
+            StunEffect stun = this.AddComponent<StunEffect>();
+            stun.Duration = 5.0f; //스턴 시간
+            stun.OnStart();
+
+            Debug.Log("패링당했습니다.");
+        }
+    }
+
+
+
     private bool IsDie()
     {
         return currentHP <= 0;
@@ -222,6 +247,9 @@ public class Monster : MonoBehaviour
     /// </summary>
     private void Die()
     {
+        float height = 2.0f;
+        Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
+        GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);
         SetState(new DeadState(this));
     }
 

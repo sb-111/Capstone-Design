@@ -15001,6 +15001,7 @@ MonoBehaviour:
   hitEffectPrefab2: {fileID: 0}
   HandEffect: {fileID: 5824998482767814541}
   isShield: 0
+  parryingAttack: 0
   parryingParticle: {fileID: 0}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1528898191054688703
@@ -16932,6 +16933,7 @@ MonoBehaviour:
   hitEffectPrefab2: {fileID: 0}
   HandEffect: {fileID: 6186078877192200794}
   isShield: 0
+  parryingAttack: 0
   parryingParticle: {fileID: 0}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &8017200053728718777

@@ -14932,7 +14932,7 @@ GameObject:
   - component: {fileID: 6545407105816050570}
   m_Layer: 0
   m_Name: WeaponPoint
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14997,10 +14997,12 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: f3f87720b2b703346bea9be0856dedb4, type: 3}
   shieldEffectPrefab: {fileID: 0}
   strongEffectPrefab: {fileID: 0}
-  hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+  hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
+  hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 5824998482767814541}
   isShield: 0
-  parryingParticle: {fileID: 0}
+  parryingAttack: 0
+  parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1528898191054688703
 GameObject:
@@ -16238,6 +16240,9 @@ MonoBehaviour:
   isDefense: 0
   isCC: 0
   isAttack: 0
+  uiSoul: {fileID: 8949870570531329088, guid: 6ae15697b2772354ba8edfce3cd7267f, type: 3}
+  uiStatus: {fileID: 6446990777131936753, guid: 9dd115cb91468d5418489dc1eeaaa7c0, type: 3}
+  canvas: {fileID: 2844719206412972385, guid: 9f34f98442957ff4aaf0f5ca0d299e76, type: 3}
   attack_controller: {fileID: 0}
   state: {fileID: 0}
 --- !u!114 &4864509859839420764
@@ -16296,7 +16301,7 @@ MonoBehaviour:
     luk: 0
   moveStats:
     stamina: 100
-    speed: 10
+    speed: 2
   combatStats:
     constant_def: 100
     attack_rate: 0.2
@@ -16409,6 +16414,18 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 0
     Name: getHit
+  - Type: 1
+    SynchronizeType: 0
+    Name: Blend
+  - Type: 1
+    SynchronizeType: 0
+    Name: Horizontal
+  - Type: 1
+    SynchronizeType: 0
+    Name: Vertical
+  - Type: 9
+    SynchronizeType: 0
+    Name: Parried
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
@@ -16489,7 +16506,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!1 &6700207241878212178
 GameObject:
@@ -16862,7 +16879,7 @@ GameObject:
   - component: {fileID: 2345487057994509925}
   m_Layer: 0
   m_Name: WeaponPoint
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16916,7 +16933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db31de5cd373dc45a4c6dc47d0cb57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon_damage: 0
+  weapon_damage: 20
   result_damage: 0
   meleeArea: {fileID: 1483395595953376302}
   isHeavyAttack: 0
@@ -16927,10 +16944,12 @@ MonoBehaviour:
   effectPrefab: {fileID: 463714468668174405, guid: f3f87720b2b703346bea9be0856dedb4, type: 3}
   shieldEffectPrefab: {fileID: 0}
   strongEffectPrefab: {fileID: 0}
-  hitEffectPrefab: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
+  hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
+  hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 6186078877192200794}
   isShield: 0
-  parryingParticle: {fileID: 0}
+  parryingAttack: 0
+  parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &8017200053728718777
 GameObject:
