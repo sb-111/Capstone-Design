@@ -8,6 +8,13 @@ using UnityEngine;
  */
 public abstract class StatusEffect : MonoBehaviour
 {
+
+    public float Duration
+    {
+        get { return duration; }
+        set { duration = value; }
+    }
+
     protected float duration; // 지속 시간
     private float currentTime = 0f; // 현재 시간
 

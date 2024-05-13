@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviourPun
 {
@@ -34,8 +35,9 @@ public class Player : MonoBehaviourPun
     bool right_attack;                      //우클릭 공격
     bool strong_attack;                     //좌+우클릭 공격 합친거
     public bool isAttack = false;           //공격 중?
-    bool canAttack;
-
+    bool downParryingSkill;                 //패링전용 스킬 키
+    bool isParrying=false;
+    bool ParryingCoolTime=false;
 
     [HideInInspector] public AttackController attack_controller;
     public Animator anim { get; private set; }
@@ -67,9 +69,6 @@ public class Player : MonoBehaviourPun
         }
 
         
-        if (!isJump && !isDeath) canAttack = true;
-        else canAttack = false;
-        
         if (state.basicStats.hp <= 0) { Death(); }
 
         GetInput();
@@ -85,7 +84,7 @@ public class Player : MonoBehaviourPun
     }
     void attack_controll()                              //공격 입력 관리
     {
-        if (canAttack)
+        if (!isJump && !isDeath)
         {
             if (left_attack)
             {
@@ -98,6 +97,10 @@ public class Player : MonoBehaviourPun
             else if (strong_attack)
             {
                 strongAttack();
+            }
+            else if(downParryingSkill)
+            {
+                ParryingSkill();
             }
         }
     }
@@ -116,7 +119,7 @@ public class Player : MonoBehaviourPun
         strong_attack = Input.GetMouseButtonDown(2);
         dDown = Input.GetKeyDown(KeyCode.E);                                   //디펜스
         dUp = Input.GetKeyUp(KeyCode.E);
-        
+        downParryingSkill= Input.GetKeyDown(KeyCode.Q); 
     }
 
     void Move()
@@ -144,9 +147,14 @@ public class Player : MonoBehaviourPun
         }
         Stamina();
         // 월드 기준
-        transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
+        if (moveVec!=Vector3.zero)
+        {
+            transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
+            anim.SetFloat("Horizontal", hAxis,0.5f,Time.deltaTime);
+            anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
+        }
     }
 
     //void Turn()
@@ -243,7 +251,28 @@ public class Player : MonoBehaviourPun
         attack_controller.strongAttack();
     }
 
+    void ParryingSkill()
+    {
+        if (!isParrying && !isAttack&&!ParryingCoolTime)
+        {
+            isParrying = true;
+            attack_controller.parryingAttack();
+        }
+        
+    }
 
+    public void ParryingSkillOut()
+    {
+        ParryingCoolTime = true;
+        isParrying = false;
+        attack_controller.weapon_right.parryingAttack = false;
+        Invoke("ParryingCoolTimeOut", 3.0f);
+    }
+
+    void ParryingCoolTimeOut()
+    {
+        ParryingCoolTime = false;
+    }
     public void isAttackAnimation()             //공격 애니메이션 공용 이벤트 1 (시작 지점)
     {
         isAttack = true;

@@ -66,7 +66,6 @@ public class AttackController : MonoBehaviour
         if(player_controller.isAttack) { return; }
         StartCoroutine(coStrongAttack());
     }
-
     IEnumerator coStrongAttack()
     {
         anim.SetTrigger("doStrongAttack");
@@ -80,10 +79,23 @@ public class AttackController : MonoBehaviour
         */
         yield return null;
     }
+    public void parryingAttack()
+    {
+        if(player_controller.isAttack) { return; }
+        StartCoroutine(coParryingAttack());
+    }
+
+    IEnumerator coParryingAttack()
+    {
+        anim.SetTrigger("doParrying");
+        weapon_right.parryingAttack = true;
+        yield return null;
+    }
+
 
     public void Parrying() // 즉시 패링 애니메이션
     {
-        anim.SetTrigger("doParrying");
+        anim.SetTrigger("Parried");
     }
 
 
