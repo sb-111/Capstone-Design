@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MonsterAttackCTRL : MonoBehaviour
 {
-    //public bool isAttack { get; private set; }
+    Monster monster;
     [Header("무기 오브젝트 설정")]
     [SerializeField] EnemyWeapon weapon_right;
     [SerializeField] EnemyWeapon weapon_left;
 
     private void Awake()
     {
-        //isAttack= false;
+        monster= GetComponent<Monster>();
     }
     // Start is called before the first frame update
     public void Start()
@@ -57,4 +57,15 @@ public class MonsterAttackCTRL : MonoBehaviour
     //{
     //    isAttack = false;
     //}
+
+
+    public void weakPointOn()
+    {
+        monster.weakPoint = true;
+    }
+
+    public void weakPointOut()
+    {
+        monster.weakPoint = false;
+    }
 }

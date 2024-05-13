@@ -4,6 +4,8 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
+using Unity.VisualScripting;
+
 public class Monster : MonoBehaviour
 {
     private FSM _fsm;
@@ -58,6 +60,9 @@ public class Monster : MonoBehaviour
     [Header("몬스터 material 설정")]
     [SerializeField] GameObject skin_30p;
     [SerializeField] GameObject skin_70p;
+
+    //패링 포인트
+    public bool weakPoint= false;
 
     private void Awake()    
     {
@@ -213,6 +218,22 @@ public class Monster : MonoBehaviour
         }
 
     }
+
+    public void Parried()       //패링 당해서 스턴 상태 부여
+    {
+        if (weakPoint)
+        {
+            Anim.SetTrigger("Parried");
+            StunEffect stun = this.AddComponent<StunEffect>();
+            stun.Duration = 5.0f; //스턴 시간
+            stun.OnStart();
+
+            Debug.Log("패링당했습니다.");
+        }
+    }
+
+
+
     private bool IsDie()
     {
         return currentHP <= 0;

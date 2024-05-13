@@ -237,6 +237,7 @@ MonoBehaviour:
   speed: 10
   skin_30p: {fileID: 0}
   skin_70p: {fileID: 0}
+  weakPoint: 0
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0

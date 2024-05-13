@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
@@ -63,12 +64,21 @@ public class EnemyWeapon : MonoBehaviour
             }
         }
 
-        /*  
+
         if (other.tag == "Melee")
         {
-            Anim.SetTrigger("doParrying");
+            Weapon weapon = other.GetComponent<Weapon>();
+            if (weapon.parryingAttack)
+            {
+                Anim.SetTrigger("Parried");
+                StunEffect stun = monster.gameObject.AddComponent<StunEffect>();
+                stun.Duration = 5.0f; //스턴 시간
+                stun.OnStart();
+
+                Debug.Log("패링당했습니다.");
+            }
         }
-        */ 
+        
     }
     private void OnCollisionEnter(Collision other)
     {

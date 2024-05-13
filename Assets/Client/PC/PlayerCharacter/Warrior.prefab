@@ -7875,6 +7875,7 @@ MonoBehaviour:
   hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 0}
   isShield: 0
+  parryingAttack: 0
   parryingParticle: {fileID: 3190257210400536245, guid: f89ab1244f1b6f84e90378263caf48a2, type: 3}
   parryingPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4710598195485606043
@@ -9500,7 +9501,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &7823537686280230912
 CapsuleCollider:
@@ -9547,7 +9548,7 @@ MonoBehaviour:
     luk: 0
   moveStats:
     stamina: 100
-    speed: 10
+    speed: 2
   combatStats:
     constant_def: 100
     attack_rate: 0.2
@@ -9677,6 +9678,18 @@ MonoBehaviour:
   - Type: 9
     SynchronizeType: 0
     Name: getHit
+  - Type: 1
+    SynchronizeType: 0
+    Name: Blend
+  - Type: 1
+    SynchronizeType: 0
+    Name: Horizontal
+  - Type: 1
+    SynchronizeType: 0
+    Name: Vertical
+  - Type: 9
+    SynchronizeType: 0
+    Name: Parried
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
