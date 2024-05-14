@@ -12,14 +12,14 @@ public class GameManager : MonoBehaviourPunCallbacks
     //[SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
-    private GameObject playerSpawnPoint;
+    private GameObject[] playerSpawnPoints; // 여러 개의 스폰 포인트를 담을 배열로 변경
     [SerializeField]
     private float respawnTime = 10f;
     public bool isGameover { get; private set; }
     private PhotonView PV;
     public bool portalOwner = false;
     private static GameManager instance = null;
-  
+
     public TextMeshProUGUI gameOver;
     public GameObject overPanel;
     void Awake()
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
     }
-   
+
     void Start()
     {
         // gameOver.enabled = false;
@@ -48,9 +48,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else
         {
-
             spawn();
-
         }
     }
     public static GameManager Instance
@@ -77,7 +75,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
+        // 랜덤 스폰 포인트 선택
+        int spawnIndex = Random.Range(0, playerSpawnPoints.Length);
+        Vector3 spawnPosition = playerSpawnPoints[spawnIndex].transform.position;
+
+        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnPosition, Quaternion.identity);
         GameObject cameraObj = GameObject.Find("TPS Camera");
         GameObject mapObj = GameObject.Find("CanvasMiniMap");
 
@@ -144,4 +146,3 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
 }
-
