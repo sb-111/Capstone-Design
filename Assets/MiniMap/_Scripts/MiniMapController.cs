@@ -71,7 +71,7 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
 
     void Start()
     {
-        // GameManager의 인스턴스 가져오기
+       /* // GameManager의 인스턴스 가져오기
         GameManager gameManager = GameManager.Instance;
 
         // GameManager에서 생성된 플레이어 오브젝트 가져오기
@@ -90,7 +90,7 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
         else
         {
             Debug.LogError("GameManager 인스턴스를 가져올 수 없습니다.");
-        }
+        }*/
     }
     public void SetPlayer(GameObject clone)
     {
