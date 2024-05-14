@@ -1,5 +1,6 @@
 using UnityEngine;
 using Photon.Pun;
+using System.Collections;
 
 public class TerrainPortal : MonoBehaviour
 {
@@ -44,9 +45,20 @@ public class TerrainPortal : MonoBehaviour
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 overlappingPlayer.position = receiver.position + positionOffset;
 
+                // 이동 후 겹치는 플레이어 정보 초기화
                 playerIsOverlapping = false;
-                overlappingPlayer = null; // 이동 후 겹치는 플레이어 정보 초기화
+                overlappingPlayer = null;
+
+                // Receiver의 Collider를 비활성화하고 3초 뒤에 다시 활성화
+                StartCoroutine(DisableColliderTemporarily(receiver.GetComponent<Collider>(), 3f));
             }
         }
+    }
+
+    private IEnumerator DisableColliderTemporarily(Collider collider, float delay)
+    {
+        collider.enabled = false; // Collider 비활성화
+        yield return new WaitForSeconds(delay); // 3초 대기
+        collider.enabled = true; // Collider 다시 활성화
     }
 }
