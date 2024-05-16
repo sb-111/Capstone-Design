@@ -220,10 +220,12 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
     //Register's minimap objects here
     public MapObject RegisterMapObject(GameObject owner, MiniMapEntity mme)
     {
+       
         GameObject curMGO = Instantiate(iconPref);
         MapObject curMO = curMGO.AddComponent<MapObject>();
         curMO.SetMiniMapEntityValues(this, mme, owner, mapCamera, miniMapPanel);
         ownerIconMap.Add(owner, curMGO);
+
         return owner.GetComponent<MapObject>();
     }
 

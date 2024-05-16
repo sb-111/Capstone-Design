@@ -22,7 +22,7 @@ public class Countdown : MonoBehaviour
     private bool portalSpawned = false;
     private bool gameStarted = false;
 
-    void Start()
+    void OnEnable()
     {
         PV = GetComponent<PhotonView>();
         countdownText = GameObject.Find("Countdown").GetComponent<Text>();
@@ -34,22 +34,22 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
-  
-        if (PhotonNetwork.IsMasterClient)
-        {
-           if(!gameStarted)
+        if (!GameManager.Instance.isGameover) {
+            if (PhotonNetwork.IsMasterClient)
             {
-                StartTimer(setTime);
-                gameStarted = true;
-                Debug.Log("timertest");
+                if (!gameStarted)
+                {
+                    StartTimer(setTime);
+                    gameStarted = true;
+                    Debug.Log("timertest");
+                }
+                if (mode == 1) {
+
+                    StartPortal();
+                }
+
             }
-            if (mode ==1) {
-
-                StartPortal();
-            } 
-
         }
-   
     }
 
     public void StartPortal()
@@ -141,6 +141,7 @@ public class Countdown : MonoBehaviour
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         //countdownText.text = timerValue.ToString();
+        Debug.Log("승패 확인 xkdlaj" + PhotonNetwork.CurrentRoom.CustomProperties["Winner"]);
     }
 
 
