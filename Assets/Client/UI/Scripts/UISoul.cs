@@ -9,7 +9,7 @@ public class UISoul : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soulText;
     void Start()
     {
-        soulText.text = "500";
+        //soulText.text = "500";
         GrowthSystem.OnSoulChanged += UpdateUI; // 이벤트 구독
     }
     /// <summary>

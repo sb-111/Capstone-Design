@@ -33,12 +33,12 @@ public class GrowthSystem : MonoBehaviour
             {1,5}, {2,10}, {3,15}, {4,20}, {5,25},
             {6,30}, {7,35}, {8,40}, {9,45}, {10,50},
         };
-        Debug.Log($"Awake: {soulPerLevel.Count}");
     }
     private void Start()
     {
         status = GetComponent<PlayerStatus>();
         Debug.Log("GrowthSystem ID: " + GetInstanceID());
+        OnSoulChanged(soulCount.ToString()); // 초기 소울 개수 이벤트 발생
     }
     /// <summary>
     /// Soul 획득처리 및 UI 표시
@@ -47,7 +47,6 @@ public class GrowthSystem : MonoBehaviour
     {
         soulCount += count;
         OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
-        Debug.Log($"소울딕셔너리:{soulPerLevel.Count}" );
     }
     public void OnPressEnhanceHealthBtn()
     {
@@ -55,7 +54,6 @@ public class GrowthSystem : MonoBehaviour
         if(hpLevel < 10 && soulCount >= soulPerLevel[hpLevel])
         {
             soulCount -= soulPerLevel[hpLevel];
-            //uiSoul.UpdateUI(soulCount.ToString());
             hpLevel++;
             status.IncreaseHealth();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
@@ -66,7 +64,6 @@ public class GrowthSystem : MonoBehaviour
         if (defLevel < 10 && soulCount >= soulPerLevel[defLevel])
         {
             soulCount -= soulPerLevel[defLevel];
-            //uiSoul.UpdateUI(soulCount.ToString());
             defLevel++;
             status.IncreaseDefense();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
@@ -77,7 +74,6 @@ public class GrowthSystem : MonoBehaviour
         if (atkLevel < 10 && soulCount >= soulPerLevel[atkLevel])
         {
             soulCount -= soulPerLevel[atkLevel];
-            //uiSoul.UpdateUI(soulCount.ToString());
             atkLevel++;
             status.IncreaseAttack();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
@@ -88,7 +84,6 @@ public class GrowthSystem : MonoBehaviour
         if (dexLevel < 10 && soulCount >= soulPerLevel[dexLevel])
         {
             soulCount -= soulPerLevel[dexLevel];
-            //uiSoul.UpdateUI(soulCount.ToString());
             dexLevel++;
             status.IncreaseDex();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
@@ -99,15 +94,9 @@ public class GrowthSystem : MonoBehaviour
         if (intLevel < 10 && soulCount >= soulPerLevel[intLevel])
         {
             soulCount -= soulPerLevel[intLevel];
-            //uiSoul.UpdateUI(soulCount.ToString());
             intLevel++;
             status.IncreaseInt();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
         }
     }
-    public int GetDicCnt()
-    {
-        return soulPerLevel.Count;
-    }
-   
 }

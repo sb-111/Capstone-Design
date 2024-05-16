@@ -10392,6 +10392,10 @@ PrefabInstance:
       propertyPath: growthSystem
       value: 
       objectReference: {fileID: 1503317438871303154}
+    - target: {fileID: 6885825628528653748, guid: cbf2cce8224188d4193fc1e5d20a9ef1, type: 3}
+      propertyPath: playerStatus
+      value: 
+      objectReference: {fileID: 8989307028388258042}
     - target: {fileID: 7880394456205467307, guid: cbf2cce8224188d4193fc1e5d20a9ef1, type: 3}
       propertyPath: m_Name
       value: Canvas
