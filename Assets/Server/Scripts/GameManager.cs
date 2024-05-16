@@ -5,7 +5,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
@@ -13,20 +12,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     //[SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
-    private GameObject playerSpawnPoint;
-    [SerializeField]
-    private GameObject[] playerSpawnPoints;
+    private GameObject[] playerSpawnPoints; // 여러 개의 스폰 포인트를 담을 배열로 변경
     [SerializeField]
     private float respawnTime = 10f;
-    public bool isGameover = false;
+    public bool isGameover { get; private set; }
     private PhotonView PV;
     public bool portalOwner = false;
     private static GameManager instance = null;
-    private GameObject cameraObj;
-    private GameObject mapObj;
+
     public TextMeshProUGUI gameOver;
     public GameObject overPanel;
-    private int gameMode=06895;
     void Awake()
     {
         if (instance == null)
@@ -40,26 +35,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
 
     }
-  
+
     void Start()
     {
         // gameOver.enabled = false;
         PV = GetComponent<PhotonView>();
         overPanel.SetActive(false);
         playerPrefab = CharacterSelect.character;
-        cameraObj = GameObject.Find("TPS Camera");
-
-        playerSpawnPoint = playerSpawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1) % 3];
-        mapObj = GameObject.Find("CanvasMiniMap");
         if (playerPrefab == null)
         {
             Debug.LogError("프레팹 없음");
         }
         else
         {
-
             spawn();
-
         }
     }
     public static GameManager Instance
@@ -73,16 +62,10 @@ public class GameManager : MonoBehaviourPunCallbacks
             return instance;
         }
     }
-
-    public void GetPortal(string winnerPlayerID)
+    public void GetPortal()
     {
-        // CustomProperties를 사용하여 우승자 정보를 전달
-    
-        PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "Winner", winnerPlayerID } });
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "승패 확인" + winnerPlayerID + "챙겼나" + PV.Owner.NickName);
+        portalOwner = true;
     }
-  
-
     public void PlayerDead()
     {
         overPanel.SetActive(true);
@@ -92,8 +75,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
-        playerObj.name = "player: "+PV.Owner.NickName;
+        // 랜덤 스폰 포인트 선택
+        int spawnIndex = Random.Range(0, playerSpawnPoints.Length);
+        Vector3 spawnPosition = playerSpawnPoints[spawnIndex].transform.position;
+
+        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, spawnPosition, Quaternion.identity);
+        GameObject cameraObj = GameObject.Find("TPS Camera");
+        GameObject mapObj = GameObject.Find("CanvasMiniMap");
 
         if (cameraObj != null)
         {
@@ -120,27 +108,19 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void GameFinish()
     {
-        Debug.Log("게임 종료");
-        PV.RPC("GameOver", RpcTarget.All,gameMode);
-        Debug.Log("승패 확인" + PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "챙겼나" + PV.Owner.NickName);
+        PV.RPC("GameOver", RpcTarget.All);
     }
 
     [PunRPC]
-    public void GameOver(int mode)
+    private void GameOver()
     {
-        Debug.Log("승패 확인"+ PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "챙겼나"+PV.Owner.NickName);
+        Debug.Log("게임 종료");
         isGameover = true;
         overPanel.SetActive(true);
         gameOver.enabled = true;
-        gameOver.text = "종료";
-        string a = PhotonNetwork.CurrentRoom.CustomProperties["Winner"].ToString();
-        string b = PV.Owner.NickName;
-        if (a==b)
+        if (portalOwner)
         {
-            if (PV.IsMine)
             gameOver.text = "WIN";
-            else
-                gameOver.text = "LOSE";
         }
         else
         {
@@ -160,9 +140,9 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject GetPlayerObject()
     {
-        
-        return playerPrefab; 
+        // 생성된 플레이어 오브젝트 반환 로직
+        // 여기에 적절한 코드를 작성하세요.
+        return playerPrefab; // playerObject는 플레이어 오브젝트를 가리키는 변수로 가정
     }
 
 }
-

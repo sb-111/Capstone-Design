@@ -71,7 +71,7 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
 
     void Start()
     {
-      /*  // GameManager의 인스턴스 가져오기
+       /* // GameManager의 인스턴스 가져오기
         GameManager gameManager = GameManager.Instance;
 
         // GameManager에서 생성된 플레이어 오브젝트 가져오기
@@ -220,12 +220,10 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
     //Register's minimap objects here
     public MapObject RegisterMapObject(GameObject owner, MiniMapEntity mme)
     {
-       
         GameObject curMGO = Instantiate(iconPref);
         MapObject curMO = curMGO.AddComponent<MapObject>();
         curMO.SetMiniMapEntityValues(this, mme, owner, mapCamera, miniMapPanel);
         ownerIconMap.Add(owner, curMGO);
-
         return owner.GetComponent<MapObject>();
     }
 

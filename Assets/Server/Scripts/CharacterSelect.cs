@@ -5,7 +5,6 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class CharacterSelect : MonoBehaviourPunCallbacks
 {
@@ -71,11 +70,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("방생성");
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 3;
-        roomOptions.CustomRoomProperties = new Hashtable() { { "Winner", "없음" } };
-
-        PhotonNetwork.CreateRoom(null,roomOptions );
+        PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
   
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)

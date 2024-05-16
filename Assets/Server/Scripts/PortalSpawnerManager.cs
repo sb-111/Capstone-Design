@@ -5,7 +5,7 @@ using Photon.Pun;
 public class PortalSpawnerManager : MonoBehaviourPun
 {
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         
     }
@@ -16,10 +16,8 @@ public class PortalSpawnerManager : MonoBehaviourPun
         {
             Countdown.mode = 1;
             PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
-            
-            string playerID = collPhotonView.Owner.NickName;
-            GameManager.Instance.GetPortal(playerID);
-            
+            if (collPhotonView.IsMine)
+                GameManager.Instance.GetPortal();
             Debug.Log("카운트 다운 변경");
             Destroy(gameObject);
             

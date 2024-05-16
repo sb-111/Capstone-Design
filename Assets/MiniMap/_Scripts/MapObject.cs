@@ -27,7 +27,6 @@ public class MapObject : MonoBehaviour {
 
 	}
 
-
 	public void SetMiniMapEntityValues(MiniMapController controller,MiniMapEntity mme, GameObject attachedGO, Camera renderCamera, GameObject parentPanelGO){
 		linkedMiniMapEntity = mme;
 		owner = attachedGO;
@@ -40,32 +39,25 @@ public class MapObject : MonoBehaviour {
 		rt = panelGO.GetComponent<RectTransform> ();
 		mmc = controller;
 		miniMapTarget = mmc.target;
-        Debug.Log(mmc+"맵");
-        SetPositionAndRotation ();
+		SetPositionAndRotation ();
 
 	}
 
 	void SetPositionAndRotation(){
 		transform.SetParent (panelGO.transform, false);
-		
-			SetPosition();
-			SetRotation();
-		
+
+		SetPosition ();
+		SetRotation ();
 	}
 	void SetPosition(){
 		cornerss = new Vector3[4];
 		rt.GetWorldCorners (cornerss);
-		
-		screenPos = RectTransformUtility.WorldToScreenPoint(mapCamera, owner.transform.position);
-		if (linkedMiniMapEntity.clampInBorder && Mathf.Abs(Vector3.Distance(owner.transform.position, mmc.target.transform.position)) < linkedMiniMapEntity.clampDist)
-		{
+		screenPos = RectTransformUtility.WorldToScreenPoint (mapCamera, owner.transform.position);
+		if (linkedMiniMapEntity.clampInBorder && Mathf.Abs(Vector3.Distance(owner.transform.position, mmc.target.transform.position)) < linkedMiniMapEntity.clampDist) {
 			ClampIconColliderWise();
+		} else {
+			sprRect.anchoredPosition = screenPos-rt.sizeDelta/2f;
 		}
-		else
-		{
-			sprRect.anchoredPosition = screenPos - rt.sizeDelta / 2f;
-		}
-	
 	}
 	void ClampIconColliderWise(){
 		sprRect.anchoredPosition = screenPos-rt.sizeDelta/2f;
