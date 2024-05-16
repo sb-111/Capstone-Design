@@ -153,7 +153,10 @@ public class AttackController : MonoBehaviour
         Debug.Log("강공격 상태: "+weapon_right.isHeavyAttack);
     }
 
+    public void IsHeavyAttackOut()
+    {
 
+    }
 
     //어쌔신 E키(강화) 스킬
     public void AssassinStepUp()
