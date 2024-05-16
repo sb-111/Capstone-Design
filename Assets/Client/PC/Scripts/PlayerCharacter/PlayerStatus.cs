@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class PlayerStatus : MonoBehaviour
@@ -10,6 +11,14 @@ public class PlayerStatus : MonoBehaviour
     public BasicStats basicStats;
     public MoveStats moveStats;
     public CombatStats combatStats;
+
+    [SerializeField] private UIStatus uiStatus;
+    [SerializeField] private UnityEvent OnHPChanged;
+    //const float MaxHealth = 2000f;
+    //const float MaxAttack = 500f;
+    //const float MaxDefense = 300f;
+    //const float MaxDex = 300f;
+    //const float MaxInt = 300f;
 
     [System.Serializable]
     public class BasicStats
@@ -51,5 +60,25 @@ public class PlayerStatus : MonoBehaviour
         player = GetComponent<Player>();  
         rigid = GetComponent<Rigidbody>();
     }
-   
+    public void IncreaseHealth()
+    {
+        basicStats.maxhp += 100;
+        //uiStatus.
+    }
+    public void IncreaseDefense()
+    {
+        basicStats.def += 10;
+    }
+    public void IncreaseAttack() 
+    {
+        basicStats.atk += 30;
+    }
+    public void IncreaseDex()
+    {
+        basicStats.dex += 30;
+    }
+    public void IncreaseInt()
+    {
+        basicStats.intell += 30;
+    }
 }
