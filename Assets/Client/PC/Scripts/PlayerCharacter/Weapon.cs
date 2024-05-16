@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviourPun
     public PlayerStatus status;
     public CameraShake cameraShaking;
     public AttackController attackController;
+    WeaponSoundEffect soundEffect;
 
     [SerializeField] GameObject effectPrefab;//공격 이펙트 프리팹
     [SerializeField] GameObject shieldEffectPrefab;//방어 이펙트 프리팹
@@ -48,8 +49,10 @@ public class Weapon : MonoBehaviourPun
         player = GetComponentInParent<Player>();
         status = GetComponentInParent<PlayerStatus>();
         attackController = GetComponentInParent<AttackController>();
+        soundEffect = GetComponentInChildren<WeaponSoundEffect>();
         cameraShaking = Camera.main.GetComponent<CameraShake>();
         if(HandEffect!=null)    HandEffect.gameObject.SetActive(false);
+
     }
 
     private void Update()
@@ -64,6 +67,7 @@ public class Weapon : MonoBehaviourPun
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
             result_damage = status.basicStats.atk + weapon_damage + key;
             StartCoroutine(Weapon_Activation());
+            if(!isHeavyAttack)  soundEffect.PlayWeaponSound("Swing");
         }
 
         if (type == WeaponType.Range)
@@ -175,6 +179,7 @@ public class Weapon : MonoBehaviourPun
                     enemyDamage.TakeDamage((result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     GameObject hiteffectInstance2 = Instantiate(hitEffectPrefab2, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
                     Destroy(hiteffectInstance2, 0.5f);
                     if (isHeavyAttack) //강공격일 경우 피격 반응 애니메이션 처리
@@ -198,6 +203,7 @@ public class Weapon : MonoBehaviourPun
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                     enemyDamage.TakeDamage((result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
 
                     if (isHeavyAttack) //여기서 HeavyAttack false로 하면, 이후 피격 대상들이 적용 안됨
@@ -216,6 +222,7 @@ public class Weapon : MonoBehaviourPun
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                     enemyDamage.TakeDamage((result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
                 }
             }

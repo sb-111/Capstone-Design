@@ -10,12 +10,15 @@ public class SlashEffectCollider : MonoBehaviour
     //충돌 효과 관련
     Vector3 hitPos;
     public GameObject hitEffectPrefab;
+    WeaponSoundEffect soundEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         prefabCreator = GetComponentInParent<PrefabCreator>();
         hitEnemies = prefabCreator.weapon.GethitEnemeies();
+        soundEffect=GetComponent<WeaponSoundEffect>();
+        Invoke("PlaySound", 0.05f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,6 +35,7 @@ public class SlashEffectCollider : MonoBehaviour
                     //충돌 프리팹 생성
                     hitPos = other.ClosestPointOnBounds(transform.position);
                     GameObject hitEffect = Instantiate(hitEffectPrefab, hitPos, this.transform.rotation);
+                     soundEffect.PlayWeaponSound("Monster");
                     Destroy(hitEffect,0.5f);
 
                    
@@ -54,6 +58,7 @@ public class SlashEffectCollider : MonoBehaviour
                     //충돌 프리팹 생성
                     hitPos = other.ClosestPointOnBounds(transform.position);
                     GameObject hitEffect = Instantiate(hitEffectPrefab, hitPos, this.transform.rotation);
+                    soundEffect.PlayWeaponSound("Monster");
                     Destroy(hitEffect, 0.5f);
 
                     prefabCreator.weapon.AddToHitEnemeies(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
@@ -74,6 +79,7 @@ public class SlashEffectCollider : MonoBehaviour
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                     enemyDamage.TakeDamage((prefabCreator.result_damage));
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
+                    soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
                 }
             }
@@ -81,8 +87,8 @@ public class SlashEffectCollider : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    void PlaySound()
     {
-        
+        soundEffect.PlayWeaponSound("Weapon");
     }
 }

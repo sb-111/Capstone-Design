@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -44,6 +45,8 @@ public class AttackController : MonoBehaviour
     {
         anim.SetTrigger("doRattack");
         anim.SetBool("isRattack", true);
+        //weapon_right.isHeavyAttack = true;
+        //if(weapon_left.isHeavyAttack) { weapon_left.isHeavyAttack = true; }
         yield return null;
         
     }
@@ -153,7 +156,10 @@ public class AttackController : MonoBehaviour
         Debug.Log("강공격 상태: "+weapon_right.isHeavyAttack);
     }
 
+    public void IsHeavyAttackOut()
+    {
 
+    }
 
     //어쌔신 E키(강화) 스킬
     public void AssassinStepUp()
