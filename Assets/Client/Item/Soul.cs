@@ -25,8 +25,8 @@ public class Soul : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GrowthSystem growthSystem = other.gameObject.GetComponent<GrowthSystem>();
-            growthSystem.GetSoul(1);
+            Player player = other.gameObject.GetComponent<Player>();
+            player.GetSoul();
             Destroy(gameObject);
         }
     }
