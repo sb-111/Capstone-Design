@@ -27,7 +27,6 @@ public class PortalManager : MonoBehaviour
         {
             currentHP -= 10;
             Debug.LogWarning("무기충돌");
-          
 
         }
     }
