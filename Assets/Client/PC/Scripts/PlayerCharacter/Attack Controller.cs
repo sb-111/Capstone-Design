@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -44,6 +45,8 @@ public class AttackController : MonoBehaviour
     {
         anim.SetTrigger("doRattack");
         anim.SetBool("isRattack", true);
+        //weapon_right.isHeavyAttack = true;
+        //if(weapon_left.isHeavyAttack) { weapon_left.isHeavyAttack = true; }
         yield return null;
         
     }

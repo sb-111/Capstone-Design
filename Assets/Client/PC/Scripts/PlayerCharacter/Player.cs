@@ -165,12 +165,13 @@ public class Player : MonoBehaviourPun
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
         if (moveVec!=Vector3.zero)
-        { 
-                movements = moveVec * speed * (rDown ? 2.0f : 1.0f)*Time.deltaTime;
+        {
+           
+                movements = moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
                 characterController.Move(movements);
                 //transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
                 anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
-                anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);            
+                anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         }
     }
 
