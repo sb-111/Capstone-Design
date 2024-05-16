@@ -34,22 +34,22 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         playerCount = PhotonNetwork.PlayerList.Length;
-  
-        if (PhotonNetwork.IsMasterClient)
-        {
-           if(!gameStarted)
+        if (!GameManager.Instance.isGameover) {
+            if (PhotonNetwork.IsMasterClient)
             {
-                StartTimer(setTime);
-                gameStarted = true;
-                Debug.Log("timertest");
+                if (!gameStarted)
+                {
+                    StartTimer(setTime);
+                    gameStarted = true;
+                    Debug.Log("timertest");
+                }
+                if (mode == 1) {
+
+                    StartPortal();
+                }
+
             }
-            if (mode ==1) {
-
-                StartPortal();
-            } 
-
         }
-   
     }
 
     public void StartPortal()

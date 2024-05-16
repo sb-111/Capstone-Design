@@ -137,7 +137,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         string b = PV.Owner.NickName;
         if (a==b)
         {
+            if (PV.IsMine)
             gameOver.text = "WIN";
+            else
+                gameOver.text = "LOSE";
         }
         else
         {
@@ -157,9 +160,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public GameObject GetPlayerObject()
     {
-        // 생성된 플레이어 오브젝트 반환 로직
-        // 여기에 적절한 코드를 작성하세요.
-        return playerPrefab; // playerObject는 플레이어 오브젝트를 가리키는 변수로 가정
+        
+        return playerPrefab; 
     }
 
 }
