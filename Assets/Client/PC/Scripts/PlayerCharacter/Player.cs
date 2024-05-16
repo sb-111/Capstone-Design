@@ -54,6 +54,9 @@ public class Player : MonoBehaviourPun
     public Rigidbody rigid { get; private set; }
     [HideInInspector] public PlayerStatus state;
 
+    CharacterController characterController;
+    Vector3 movements;
+
     public float VRotation { get;  private set; } // 수직 회전 값
 
     // Start is called before the first frame update
@@ -63,6 +66,7 @@ public class Player : MonoBehaviourPun
         rigid = GetComponent<Rigidbody>();
         state = GetComponent<PlayerStatus>();
         attack_controller = GetComponent<AttackController>();      
+        characterController= GetComponent<CharacterController>();
     }
     void Start()
     {
@@ -161,10 +165,12 @@ public class Player : MonoBehaviourPun
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
         if (moveVec!=Vector3.zero)
-        {
-            transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
-            anim.SetFloat("Horizontal", hAxis,0.5f,Time.deltaTime);
-            anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
+        { 
+                movements = moveVec * speed * (rDown ? 2.0f : 1.0f)*Time.deltaTime;
+                characterController.Move(movements);
+                //transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
+                anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+                anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);            
         }
     }
 
