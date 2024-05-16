@@ -1,7 +1,24 @@
 fileFormatVersion: 2
-guid: 4b493a9815f56f04b82664c55aca969a
-PrefabImporter:
-  externalObjects: {}
+guid: 41218d6e69636a34daa4aa908626cee6
+labels:
+- game
+- bricks
+- magic
+- hardsurface
+- mobile
+- lowpoly
+- building
+- fantasy
+- handpainted
+- defence
+- moba
+- stylize
+- stylized
+- mage
+- tower
+timeCreated: 1452788973
+licenseType: Store
+NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
