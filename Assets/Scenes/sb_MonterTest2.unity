@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 255.33719, g: 315.9613, b: 416.69763, a: 1}
+  m_IndirectSpecularColor: {r: 260.16022, g: 322.64163, b: 427.36365, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,22 +293,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 8364360537352700500, guid: 16c0b8d17e91d2e41a9fe2ef46a51290, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c0b8d17e91d2e41a9fe2ef46a51290, type: 3}
---- !u!114 &355850745 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 28535376864614744, guid: 16c0b8d17e91d2e41a9fe2ef46a51290, type: 3}
-  m_PrefabInstance: {fileID: 355850744}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3aa6c4447e8c5f240a6e388f76d1eff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &438493350
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +470,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &555593245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 206969736365183893, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852506709697973581, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_Name
+      value: Assassin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+--- !u!114 &555593246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3875790047376983911, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+  m_PrefabInstance: {fileID: 555593245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa6c4447e8c5f240a6e388f76d1eff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &664356888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,7 +2253,7 @@ PrefabInstance:
     - target: {fileID: 983914740737115881, guid: 87b9bb49d0c7b61498efa4635fd19fa0, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 355850745}
+      objectReference: {fileID: 555593246}
     - target: {fileID: 2181127473793357747, guid: 87b9bb49d0c7b61498efa4635fd19fa0, type: 3}
       propertyPath: m_Name
       value: TPS Camera
@@ -2265,3 +2330,4 @@ SceneRoots:
   - {fileID: 665797708}
   - {fileID: 226474698}
   - {fileID: 355850744}
+  - {fileID: 555593245}
