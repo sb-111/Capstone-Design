@@ -17,6 +17,6 @@ public class Hit_Test_v2 : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
-        Debug.Log("데미지를 " + damage +" 만큼 입었습니다.");
+        //Debug.Log("데미지를 " + damage +" 만큼 입었습니다.");
     }
 }

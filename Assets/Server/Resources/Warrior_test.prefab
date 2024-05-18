@@ -6731,8 +6731,6 @@ MonoBehaviour:
   isDefense: 0
   isCC: 0
   isAttack: 0
-  uiSoul: {fileID: 8949870570531329088, guid: 6ae15697b2772354ba8edfce3cd7267f, type: 3}
-  uiStatus: {fileID: 6446990777131936753, guid: 9dd115cb91468d5418489dc1eeaaa7c0, type: 3}
   attack_controller: {fileID: 0}
   state: {fileID: 0}
 --- !u!114 &7531130057994299615
@@ -6778,7 +6776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_left: {fileID: 0}
   weapon_right: {fileID: 1933689715435690673}
-  cameraShaking: {fileID: 0}
+  cameraEffect: {fileID: 0}
   stepupBuffer: 0
   curAttack: 0
 --- !u!114 &7308435040664623120

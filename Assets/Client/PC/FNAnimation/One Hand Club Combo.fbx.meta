@@ -57,14 +57,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.04265401
+      - time: 0.039958596
         functionName: isAttackAnimation
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.055555556
+      - time: 0.05929919
         functionName: IsHeavyAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -92,13 +92,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.31028482
-        functionName: IsHeavyAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.33585915
         functionName: WeaponUse
         data: 
@@ -120,13 +113,6 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5578095
-        functionName: IsHeavyAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.57411116
         functionName: WeaponUse
         data: 
@@ -134,7 +120,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 40
         messageOptions: 0
-      - time: 0.6162968
+      - time: 0.62168765
         functionName: SwordEffect
         data: 
         objectReferenceParameter: {instanceID: 0}

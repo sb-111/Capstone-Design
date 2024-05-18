@@ -14,7 +14,7 @@ public class AttackController : MonoBehaviour
     public Weapon weapon_right;
 
     [Header("자동 설정")]
-    public CameraShake cameraShaking;
+    public CameraShake cameraEffect;
     Animator anim;
     Player player_controller;
     [HideInInspector]
@@ -27,7 +27,7 @@ public class AttackController : MonoBehaviour
     {
        anim = GetComponent<Animator>();
        player_controller = GetComponent<Player>();
-       cameraShaking = Camera.main.GetComponent<CameraShake>();
+       cameraEffect = GetComponentInChildren<CameraShake>();
         
     }
 
@@ -37,18 +37,14 @@ public class AttackController : MonoBehaviour
     }
     public void attack1()
     {
-        StartCoroutine(coAttack1());
-        
+        StartCoroutine(coAttack1()); 
     }
     
     IEnumerator coAttack1()
     {
         anim.SetTrigger("doRattack");
         anim.SetBool("isRattack", true);
-        //weapon_right.isHeavyAttack = true;
-        //if(weapon_left.isHeavyAttack) { weapon_left.isHeavyAttack = true; }
         yield return null;
-        
     }
 
 
@@ -106,13 +102,13 @@ public class AttackController : MonoBehaviour
 
 
     //공격 카메라 효과
-    public void ShakeCamera(float a = 0.5f, float b = 2.0f)
+    public void ShakeCamera()
     {
-        cameraShaking.Shaking(a, b);
+        cameraEffect.Shaking(0.5f, 2.0f);
     }
-    public void ZoomCamera(float a = 0.36f, float b = 0.2f , float c = 0.0f , float d = 10.0f)
+    public void ZoomCamera()
     {
-        cameraShaking.Zoom(a,b,c,d);
+        cameraEffect.Zoom(2.0f, 2.0f, 0.5f, 40.0f);
     }
 
 
@@ -153,12 +149,7 @@ public class AttackController : MonoBehaviour
     public void IsHeavyAttack()
     {
         weapon_right.isHeavyAttack = true;
-        Debug.Log("강공격 상태: "+weapon_right.isHeavyAttack);
-    }
-
-    public void IsHeavyAttackOut()
-    {
-
+        if (weapon_left != null) { weapon_left.isHeavyAttack = true; }
     }
 
     //어쌔신 E키(강화) 스킬

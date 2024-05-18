@@ -67,7 +67,8 @@ public class Weapon : MonoBehaviourPun
             hitEnemies.Clear();                         //HashSet 초기화, 공격이 새롭게 시작될 때 마다 초기화.
             result_damage = status.basicStats.atk + weapon_damage + key;
             StartCoroutine(Weapon_Activation());
-            if(!isHeavyAttack)  soundEffect.PlayWeaponSound("Swing");
+            if (!isHeavyAttack) soundEffect.PlayWeaponSound("Swing");
+            else soundEffect.PlayWeaponSound("HeavySwing");
         }
 
         if (type == WeaponType.Range)
@@ -81,13 +82,11 @@ public class Weapon : MonoBehaviourPun
     public void AttackOut()
     {
         meleeArea.enabled = false; 
-        isHeavyAttack = false;                          //강공격 Out
     }
 
 
     IEnumerator Weapon_Activation()
     {
-        Debug.Log("공격 들어갑니다." + result_damage);
         meleeArea.enabled = true; 
         yield return null;
     }
@@ -224,6 +223,8 @@ public class Weapon : MonoBehaviourPun
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
+
+                    if(isHeavyAttack) { Debug.Log("강공격 들어감"); }
                 }
             }
 
