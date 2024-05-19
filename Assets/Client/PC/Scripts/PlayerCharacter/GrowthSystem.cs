@@ -55,7 +55,7 @@ public class GrowthSystem : MonoBehaviour
         {
             soulCount -= soulPerLevel[hpLevel];
             hpLevel++;
-            status.IncreaseHealth();
+            status.IncreaseMaxHealth();
             OnSoulChanged(soulCount.ToString()); // UI 업데이트 이벤트 발생
         }
     }
