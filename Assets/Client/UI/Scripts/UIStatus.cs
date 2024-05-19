@@ -43,7 +43,7 @@ public class UIStatus : MonoBehaviour
         intEnhanceButton.onClick.AddListener(growthSystem.OnPressEnhanceIntBtn);
 
         // 이벤트 등록(스탯)
-        playerStatus.OnHPStatChanged += UpdateMaxHP;
+        playerStatus.OnMaxHPStatChanged += UpdateMaxHP;
         playerStatus.OnAtkStatChanged += UpdateAttack;
         playerStatus.OnDefStatChanged += UpdateDefense;
         playerStatus.OnDexStatChanged += UpdateDex;
@@ -70,7 +70,7 @@ public class UIStatus : MonoBehaviour
         intEnhanceButton.onClick.RemoveAllListeners();
 
         // 이벤트 해제
-        playerStatus.OnHPStatChanged -= UpdateMaxHP;
+        playerStatus.OnMaxHPStatChanged -= UpdateMaxHP;
         playerStatus.OnAtkStatChanged -= UpdateAttack;
         playerStatus.OnDefStatChanged -= UpdateDefense;
         playerStatus.OnDexStatChanged -= UpdateDex;
@@ -102,4 +102,5 @@ public class UIStatus : MonoBehaviour
     {
         soulText.text = count;
     }
+    
 }

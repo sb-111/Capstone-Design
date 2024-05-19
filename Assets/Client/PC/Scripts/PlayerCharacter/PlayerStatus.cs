@@ -14,11 +14,16 @@ public class PlayerStatus : MonoBehaviour
 
     // 발행할 이벤트 모음
     public delegate void StatChangedHandler(string numberText);
-    public event StatChangedHandler OnHPStatChanged;
+    public event StatChangedHandler OnMaxHPStatChanged;
     public event StatChangedHandler OnAtkStatChanged;
     public event StatChangedHandler OnDefStatChanged;
     public event StatChangedHandler OnDexStatChanged;
     public event StatChangedHandler OnIntStatChanged;
+
+    public delegate void BarChangedHandler(int currentNumber, int maxNumber);
+    public event BarChangedHandler OnHPBarChanged;
+    public event BarChangedHandler OnStaminaBarChanged;
+
     //const float MaxHealth = 2000f;
     //const float MaxAttack = 500f;
     //const float MaxDefense = 300f;
@@ -68,16 +73,19 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         // 시작할 때 스탯을 보여줌
-        OnHPStatChanged(basicStats.maxhp.ToString());
+        OnMaxHPStatChanged(basicStats.maxhp.ToString());
         OnDefStatChanged(basicStats.def.ToString());
         OnAtkStatChanged(basicStats.atk.ToString());
         OnDexStatChanged(basicStats.dex.ToString());
         OnIntStatChanged(basicStats.intell.ToString());
+
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp);
     }
-    public void IncreaseHealth()
+    public void IncreaseMaxHealth()
     {
         basicStats.maxhp += 100;
-        OnHPStatChanged(basicStats.maxhp.ToString()); // UI 업데이트 이벤트 발생
+        OnMaxHPStatChanged(basicStats.maxhp.ToString()); // UI 업데이트 이벤트 발생
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
     }
     public void IncreaseDefense()
     {
@@ -98,5 +106,10 @@ public class PlayerStatus : MonoBehaviour
     {
         basicStats.intell += 30;
         OnIntStatChanged(basicStats.intell.ToString()); // UI 업데이트 이벤트 발생
+    }
+    public void DecreaseHP(int damage)
+    {
+        basicStats.hp -= damage;
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
     }
 }
