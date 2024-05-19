@@ -15,7 +15,7 @@ public class Player : MonoBehaviourPun
     float sensivity = 1f;
     Vector3 moveVec;
     Vector3 jumpVec;
-    bool isDefenseCool=false;
+    bool isDefenseCool = false;
 
     bool rDown;                                             //달리기 키
     bool jDown;                                             //구르기 키
@@ -43,21 +43,29 @@ public class Player : MonoBehaviourPun
     private GrowthSystem growthSystem;
     //[SerializeField] private UISoul uiSoul;
     //[SerializeField] private UIStatus uiStatus;
-    
+
     bool downParryingSkill;                 //패링전용 스킬 키
-    bool isParrying=false;
-    bool ParryingCoolTime=false;
+    bool isParrying = false;
+    bool ParryingCoolTime = false;
 
 
     [HideInInspector] public AttackController attack_controller;
     public Animator anim { get; private set; }
     public Rigidbody rigid { get; private set; }
     [HideInInspector] public PlayerStatus state;
-
     CharacterController characterController;
+    public CharacterSound characterSound { get; private set; }
     Vector3 movements;
+    //장애물 감지 
+    RaycastHit hit;                     //장애물 감지를 위한 Raycast 추가
+    float distanceToObstacle = 0.5f;    //장애물 감지 거리 0.5f;
+    float angle;                  //감지할 각도
+    float blockAngle=90.0f;
+    Vector3 leftRayDirection;
+    Vector3 rightRayDirection;
+    bool isObstacleDetected;
 
-    public float VRotation { get;  private set; } // 수직 회전 값
+    public float VRotation { get; private set; } // 수직 회전 값
 
     // Start is called before the first frame update
     private void Awake()
@@ -65,9 +73,10 @@ public class Player : MonoBehaviourPun
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
         state = GetComponent<PlayerStatus>();
-        attack_controller = GetComponent<AttackController>();    
-        growthSystem = GetComponent<GrowthSystem>();    
-        characterController= GetComponent<CharacterController>();
+        attack_controller = GetComponent<AttackController>();
+        growthSystem = GetComponent<GrowthSystem>();
+        characterController = GetComponent<CharacterController>();
+        characterSound = GetComponent<CharacterSound>();
     }
     void Start()
     {
@@ -82,15 +91,9 @@ public class Player : MonoBehaviourPun
         {
             return;
         }
-
-        
         if (state.basicStats.hp <= 0) { Death(); }
-
         GetInput();
         MouseRotate();
-        //임시 임시 임시
-        //Turn();
-        //임시 임시 임시
         Move();
         Jump();
         attack_controll();
@@ -113,7 +116,7 @@ public class Player : MonoBehaviourPun
             {
                 strongAttack();
             }
-            else if(downParryingSkill)
+            else if (downParryingSkill)
             {
                 ParryingSkill();
             }
@@ -135,7 +138,7 @@ public class Player : MonoBehaviourPun
         dDown = Input.GetKeyDown(KeyCode.E);                                   //디펜스
         dUp = Input.GetKeyUp(KeyCode.E);
         //kDown = Input.GetKeyDown(KeyCode.K);
-        downParryingSkill= Input.GetKeyDown(KeyCode.Q); 
+        downParryingSkill = Input.GetKeyDown(KeyCode.Q);
     }
 
     void Move()
@@ -144,14 +147,19 @@ public class Player : MonoBehaviourPun
         Vector3 lookRight = new Vector3(transform.right.x, 0f, transform.right.z).normalized;
         moveVec = (lookForward * vAxis + lookRight * hAxis).normalized;
 
-        //임시 임시 임시 + 위 주석 해제해서 사용해야 함
-        //moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-        //임시 임시 임시
-        Debug.DrawRay(transform.position, moveVec * 10f, Color.red) ;
+        Debug.DrawRay(transform.position, moveVec * 10f, Color.red);
         Debug.DrawRay(transform.position, transform.forward * 10f, Color.blue);
         Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
-        
 
+        //장애물 감지
+        if(Physics.Raycast(transform.position, moveVec, out hit, distanceToObstacle))
+        {
+            if (!hit.collider.isTrigger)
+            {
+                moveVec = Vector3.zero;
+            }
+        }
+        
         if (isJump)
         {
             moveVec = jumpVec;
@@ -167,20 +175,14 @@ public class Player : MonoBehaviourPun
         anim.SetBool("isRun", rDown);
         if (moveVec!=Vector3.zero)
         {
-           
-                movements = moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
-                characterController.Move(movements);
-                //transform.position += moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
-                anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
-                anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
+              movements = moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
+              characterController.Move(movements);
+              anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+              anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         }
+        MoveSound();
     }
-
-    //void Turn()
-    //{
-    //    transform.LookAt(transform.position+moveVec);
-    //}
-
+    
     void MouseRotate()
     {
         // 플레이어의 수평회전 처리
@@ -199,6 +201,7 @@ public class Player : MonoBehaviourPun
         {
             isJump = true;
             anim.SetTrigger("doJump");
+            characterSound.PlayCharacterSound("Roll");
             Invoke("JumpOut", 1.16f);
         }
     }
@@ -255,6 +258,18 @@ public class Player : MonoBehaviourPun
         anim.SetTrigger("getDefenseHIt");
     }
 
+    void CharacterAttackSounds(int key)
+    {
+        if(key == 0)
+        {
+            characterSound.PlayCharacterSound("Attack");
+        }
+        else 
+        { 
+            characterSound.PlayCharacterSound("ComboAttack"); 
+        }
+        
+    }
     void attack1()         
     {
         attack_controller.attack1();
@@ -318,6 +333,8 @@ public class Player : MonoBehaviourPun
     public void isAttackAnimationEnd()          //공격 애니메이션 공용 이벤트 4 (종료 지점)
     {
         isAttack = false;
+        attack_controller.weapon_right.isHeavyAttack = false;
+        if (attack_controller.weapon_left != null) { attack_controller.weapon_right.isHeavyAttack = false; }
     }
    
 
@@ -327,7 +344,7 @@ public class Player : MonoBehaviourPun
         {
             anim.SetTrigger("doDeath");
             isDeath = true;
-
+            characterSound.PlayCharacterSound("Death");
             Invoke("DestroyPlayer", 5.0f);
         }
     }
@@ -336,7 +353,19 @@ public class Player : MonoBehaviourPun
     {
         Destroy(gameObject);
     }
-    
+
+    void MoveSound()
+    {
+        if (!isJump&&!isAttack&&!isDeath)
+        {
+            if (moveVec != Vector3.zero)
+            { characterSound.PlayWalkSound(); }
+            else
+            { characterSound.StopFootsteps(); }
+            characterSound.IsRunning(rDown);
+        }
+    }
+
     ///// <summary>
     ///// 스탯창 UI 설정
     ///// </summary>
@@ -347,6 +376,6 @@ public class Player : MonoBehaviourPun
     //    Debug.Log("유아이 호출");
     //        uiStatus.SetUI();
     //    }
-        
+
     //}
 }

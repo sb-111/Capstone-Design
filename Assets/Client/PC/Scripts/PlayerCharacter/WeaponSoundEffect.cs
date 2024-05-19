@@ -10,6 +10,7 @@ public class WeaponSoundEffect : MonoBehaviour
     public AudioClip[] hitStoneSounds;
     public AudioClip[] hitWeaponSounds;
     public AudioClip[] SwingSounds;
+    public AudioClip[] HeavySwingSounds;
     private AudioSource audioSource;
     
     
@@ -39,6 +40,9 @@ public class WeaponSoundEffect : MonoBehaviour
                 break;
             case "Swing":
                 clipToPlay = SwingSounds[Random.Range(0,SwingSounds.Length)];
+                break;
+            case "HeavySwing":
+                clipToPlay = HeavySwingSounds[Random.Range(0, HeavySwingSounds.Length)];
                 break;
         }
 

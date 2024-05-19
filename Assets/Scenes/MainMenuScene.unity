@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cha1tog: {fileID: 1488169560}
   cha2tog: {fileID: 738131845}
-  chara1: {fileID: 2943700535879914374, guid: 8785d8ced6befd345a894af87a05efef, type: 3}
+  chara1: {fileID: 8364360537352700500, guid: de9ecf7abb430b24d82bcd966fe43a9d, type: 3}
   chara2: {fileID: 6461216685500147717, guid: c76261a325422634abf0e00e631b49df, type: 3}
   charaPanel: {fileID: 1325209514}
   roomPanel: {fileID: 1431941398}
