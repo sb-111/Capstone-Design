@@ -10,6 +10,7 @@ public class CharacterSound : MonoBehaviour
 
     public AudioClip[] rollSounds;
     public AudioClip[] attackSoudns;
+    public AudioClip[] attackComboSounds;
     public AudioClip[] eKeySounds;
     public AudioClip[] deadSoudns;
     public AudioSource audioSource;
@@ -37,10 +38,13 @@ public class CharacterSound : MonoBehaviour
             case "Attack":                  //각 공격에 따른 목소리 출력으로 바꿔야 함
                 clipToPlay = attackSoudns[Random.Range(0, attackSoudns.Length)];
                 break;
+            case "ComboAttack":
+                clipToPlay = attackComboSounds[Random.Range(0,attackComboSounds.Length)];
+                break;
             case "EKey":
                 clipToPlay = eKeySounds[Random.Range(0, eKeySounds.Length)];
                 break;
-            case "Dead":
+            case "Death":
                 clipToPlay = deadSoudns[Random.Range(0, deadSoudns.Length)];    
                 break;
         }

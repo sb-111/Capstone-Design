@@ -54,7 +54,7 @@ public class Player : MonoBehaviourPun
     public Rigidbody rigid { get; private set; }
     [HideInInspector] public PlayerStatus state;
     CharacterController characterController;
-    CharacterSound characterSound;
+    public CharacterSound characterSound { get; private set; }
     Vector3 movements;
     //장애물 감지 
     RaycastHit hit;                     //장애물 감지를 위한 Raycast 추가
@@ -258,6 +258,18 @@ public class Player : MonoBehaviourPun
         anim.SetTrigger("getDefenseHIt");
     }
 
+    void CharacterAttackSounds(int key)
+    {
+        if(key == 0)
+        {
+            characterSound.PlayCharacterSound("Attack");
+        }
+        else 
+        { 
+            characterSound.PlayCharacterSound("ComboAttack"); 
+        }
+        
+    }
     void attack1()         
     {
         attack_controller.attack1();
@@ -332,7 +344,7 @@ public class Player : MonoBehaviourPun
         {
             anim.SetTrigger("doDeath");
             isDeath = true;
-
+            characterSound.PlayCharacterSound("Death");
             Invoke("DestroyPlayer", 5.0f);
         }
     }
@@ -344,7 +356,7 @@ public class Player : MonoBehaviourPun
 
     void MoveSound()
     {
-        if (!isJump)
+        if (!isJump&&!isAttack&&!isDeath)
         {
             if (moveVec != Vector3.zero)
             { characterSound.PlayWalkSound(); }
