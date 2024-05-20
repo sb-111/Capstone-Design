@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using UnityEngine.AI;
 public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField]
@@ -15,6 +15,7 @@ public class MonsterSpawner : MonoBehaviour
     private int createTime;
     private GameObject mon;
     private int monNum;
+    int flow=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,8 @@ public class MonsterSpawner : MonoBehaviour
 
             if (monNum < monMax)
             {
-                PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
+               
+                randspawn();
                 yield return new WaitForSeconds(createTime);
             }
             else
@@ -38,6 +40,22 @@ public class MonsterSpawner : MonoBehaviour
             }
         }
     }
+    void randspawn()
+    {
+        
+        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
+        float randX = Mathf.Cos(randomAngle) * detectionRadius;
+        float randZ = Mathf.Sin(randomAngle) * detectionRadius;
+        Vector3 randomPosition = transform.position + new Vector3(randX, 0f, randZ);
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomPosition, out hit, 0.1f, NavMesh.AllAreas))
+        {
+            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
+        }
+   
+
+    }
+
 
     void controlMonNum()
     {
