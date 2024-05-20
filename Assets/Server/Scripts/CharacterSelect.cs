@@ -96,11 +96,11 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public void GameStart()
     {
 
-        //PhotonNetwork.JoinRandomRoom();
+        PhotonNetwork.JoinRandomRoom();
         roomPanel.SetActive(true);
         charaPanel.SetActive(false);
         playerNameText.text = playerName;
-        loadingUI.SetActive(true);
+        //loadingUI.SetActive(true);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
