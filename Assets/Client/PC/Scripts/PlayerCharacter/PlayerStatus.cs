@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class PlayerStatus : MonoBehaviour
@@ -10,6 +11,24 @@ public class PlayerStatus : MonoBehaviour
     public BasicStats basicStats;
     public MoveStats moveStats;
     public CombatStats combatStats;
+
+    // 발행할 이벤트 모음
+    public delegate void StatChangedHandler(string numberText);
+    public event StatChangedHandler OnMaxHPStatChanged;
+    public event StatChangedHandler OnAtkStatChanged;
+    public event StatChangedHandler OnDefStatChanged;
+    public event StatChangedHandler OnDexStatChanged;
+    public event StatChangedHandler OnIntStatChanged;
+
+    public delegate void BarChangedHandler(int currentNumber, int maxNumber);
+    public event BarChangedHandler OnHPBarChanged;
+    public event BarChangedHandler OnStaminaBarChanged;
+
+    //const float MaxHealth = 2000f;
+    //const float MaxAttack = 500f;
+    //const float MaxDefense = 300f;
+    //const float MaxDex = 300f;
+    //const float MaxInt = 300f;
 
     [System.Serializable]
     public class BasicStats
@@ -51,5 +70,46 @@ public class PlayerStatus : MonoBehaviour
         player = GetComponent<Player>();  
         rigid = GetComponent<Rigidbody>();
     }
-   
+    private void Start()
+    {
+        // 시작할 때 스탯을 보여줌
+        OnMaxHPStatChanged(basicStats.maxhp.ToString());
+        OnDefStatChanged(basicStats.def.ToString());
+        OnAtkStatChanged(basicStats.atk.ToString());
+        OnDexStatChanged(basicStats.dex.ToString());
+        OnIntStatChanged(basicStats.intell.ToString());
+
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp);
+    }
+    public void IncreaseMaxHealth()
+    {
+        basicStats.maxhp += 100;
+        OnMaxHPStatChanged(basicStats.maxhp.ToString()); // UI 업데이트 이벤트 발생
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
+    }
+    public void IncreaseDefense()
+    {
+        basicStats.def += 10;
+        OnDefStatChanged(basicStats.def.ToString()); // UI 업데이트 이벤트 발생
+    }
+    public void IncreaseAttack() 
+    {
+        basicStats.atk += 30;
+        OnAtkStatChanged(basicStats.atk.ToString()); // UI 업데이트 이벤트 발생
+    }
+    public void IncreaseDex()
+    {
+        basicStats.dex += 30;
+        OnDexStatChanged(basicStats.dex.ToString()); // UI 업데이트 이벤트 발생
+    }
+    public void IncreaseInt()
+    {
+        basicStats.intell += 30;
+        OnIntStatChanged(basicStats.intell.ToString()); // UI 업데이트 이벤트 발생
+    }
+    public void DecreaseHP(int damage)
+    {
+        basicStats.hp -= damage;
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
+    }
 }

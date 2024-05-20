@@ -14,7 +14,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 0.2
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.78
   m_HasExitTime: 1
@@ -272,7 +272,7 @@ AnimatorStateMachine:
     m_Position: {x: -160, y: 290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6179814180047798278}
-    m_Position: {x: 570, y: 310, z: 0}
+    m_Position: {x: 570, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -975612709840762797}
     m_Position: {x: 440, y: 880, z: 0}
@@ -605,7 +605,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.15
   m_TransitionOffset: 0
   m_ExitTime: 0.90625
   m_HasExitTime: 1
@@ -671,7 +671,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Parried_Reaction
-  m_Speed: 1
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9106752184468917658}
@@ -1392,7 +1392,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1079096956721473534, guid: 57bfc3fe91d74fbbbb41ee15adf540eb, type: 3}
+  m_Motion: {fileID: 4163678015774210400, guid: f0f4dc622a9c35146a2707ce338a7f87, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1642,7 +1642,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Roll
-  m_Speed: 0.6
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -9118445885717134208}

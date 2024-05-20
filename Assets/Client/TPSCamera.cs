@@ -11,8 +11,14 @@ public class TPSCamera : MonoBehaviour
     [SerializeField] private float sensivity = 1.0f;
     [SerializeField] private float speed = 3.0f;
     float currentY = 0f;
-    
+
+
     // 플레이어의 움직임이 끝나면 카메라 이동
+
+    private void Start()
+    {
+        target = GetComponentInParent<Player>();
+    }
     private void LateUpdate()
     {
         // -z축 방향으로 offset 크기만큼 떨어진 벡터 
@@ -30,5 +36,4 @@ public class TPSCamera : MonoBehaviour
 
     }
 
-    
 }
