@@ -184,7 +184,7 @@ MonoBehaviour:
   speed: 10
   skin_30p: {fileID: 9028436527930971942}
   skin_70p: {fileID: 2758766303699457018}
-  soul: {fileID: 1150511042866377169, guid: 36d36a95c6a150f42b8f13d2622d70b0, type: 3}
+  soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
 --- !u!114 &7723494953169275329
 MonoBehaviour:
@@ -1473,7 +1473,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 554a955bea4b8c94a902ab05b61bef04, type: 2}
-  - {fileID: 2100000, guid: bfedf3f104ce5604ea60e6ee45947928, type: 2}
+  - {fileID: 2100000, guid: e11b03862fc410c44b61e999afb07c10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2394,7 +2394,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 554a955bea4b8c94a902ab05b61bef04, type: 2}
-  - {fileID: 2100000, guid: bfedf3f104ce5604ea60e6ee45947928, type: 2}
+  - {fileID: 2100000, guid: e11b03862fc410c44b61e999afb07c10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4349,7 +4349,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 554a955bea4b8c94a902ab05b61bef04, type: 2}
-  - {fileID: 2100000, guid: bfedf3f104ce5604ea60e6ee45947928, type: 2}
+  - {fileID: 2100000, guid: e11b03862fc410c44b61e999afb07c10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

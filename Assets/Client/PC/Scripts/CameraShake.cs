@@ -21,6 +21,7 @@ public class CameraShake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = this.transform;
         originPos = mainCamera.localPosition;
         originRot = mainCamera.localRotation;
 
