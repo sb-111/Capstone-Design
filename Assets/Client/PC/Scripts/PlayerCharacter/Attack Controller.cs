@@ -145,6 +145,7 @@ public class AttackController : MonoBehaviour
     public void StrongEffect()
     {
         weapon_right.StrongEffectInstance();
+        if (weapon_left != null) weapon_left.StrongEffectInstance();
     }
 
     public void IsHeavyAttack()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.8995, g: 324.45413, b: 429.43256, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1509,6 +1509,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2345487057994509925, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: strongEffectPrefab
+      value: 
+      objectReference: {fileID: 8332568290553208141, guid: c34207dd2f444794a83c703ca44191bd, type: 3}
     - target: {fileID: 3913891584615299538, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: SwingSounds.Array.size
       value: 2
@@ -1545,6 +1549,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assassin
       objectReference: {fileID: 0}
+    - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545407105816050570, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: strongEffectPrefab
+      value: 
+      objectReference: {fileID: 8332568290553208141, guid: c34207dd2f444794a83c703ca44191bd, type: 3}
     - target: {fileID: 7758620828745686714, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: SwingSounds.Array.size
       value: 2
