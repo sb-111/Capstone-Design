@@ -3403,7 +3403,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1577492729}
-  - {fileID: 397516173}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3422,10 +3421,6 @@ PrefabInstance:
     - target: {fileID: 5769540434933353582, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769540434939925342, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4292008684
       objectReference: {fileID: 0}
     - target: {fileID: 5769540435787166494, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -3522,10 +3517,6 @@ PrefabInstance:
     - target: {fileID: 5769540436417256170, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769540436417256171, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4281283905
       objectReference: {fileID: 0}
     - target: {fileID: 5769540436417349774, guid: ba04fe2ec5f985f4d84a3556c619c5f3, type: 3}
       propertyPath: m_text
