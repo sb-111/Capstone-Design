@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 8169ed6a53e299748945e9f27b0ef2e1
+guid: f0f4dc622a9c35146a2707ce338a7f87
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
   - first:
-      74: 4903744124284374976
-    second: attackB_05
+      74: 4163678015774210400
+    second: attackB_01
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: attackB_05
-      takeName: attackB_05
+      name: attackB_01
+      takeName: attackB_01
       internalID: 0
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -61,69 +61,34 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: IsHeavyAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
         functionName: isAttackAnimation
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.076479524
-        functionName: CharacterAttackSounds
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.32081726
-        functionName: WeaponUse
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 20
-        messageOptions: 0
-      - time: 0.34669027
-        functionName: SwordEffect
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.3799981
-        functionName: WeaponAttackOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7309641
+      - time: 0.30170056
         functionName: WeaponUseLeft
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 20
-        messageOptions: 0
-      - time: 0.8467705
-        functionName: SwordEffectLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.88460284
+      - time: 0.5159561
         functionName: WeaponAttackOutLeft
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9179764
+      - time: 0.89717865
+        functionName: ParryingSkillOut
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.91493666
         functionName: isAttackAnimationEnd
         data: 
         objectReferenceParameter: {instanceID: 0}

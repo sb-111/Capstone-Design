@@ -162,6 +162,7 @@ public class Weapon : MonoBehaviourPun
     {
         if (other.tag == "EnemyWeapon" && parryingAttack)
         {
+            
             parryingPos = other.ClosestPointOnBounds(transform.position);
             attackController.Parrying();
             soundEffect.PlayWeaponSound("Weapon");

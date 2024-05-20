@@ -67,6 +67,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: IsHeavyAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.065412186
+        functionName: CharacterAttackSounds
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.24248981
         functionName: WeaponUseLeft
         data: 
@@ -132,13 +146,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.919524
         functionName: isAttackAnimationEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: IsHeavyAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

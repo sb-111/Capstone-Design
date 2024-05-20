@@ -88,6 +88,7 @@ public class AttackController : MonoBehaviour
     {
         anim.SetTrigger("doParrying");
         weapon_right.parryingAttack = true;
+        if (weapon_left != null) { weapon_left.parryingAttack = true; }
         yield return null;
     }
 

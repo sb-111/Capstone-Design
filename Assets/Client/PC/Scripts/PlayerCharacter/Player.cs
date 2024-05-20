@@ -300,6 +300,7 @@ public class Player : MonoBehaviourPun
         ParryingCoolTime = true;
         isParrying = false;
         attack_controller.weapon_right.parryingAttack = false;
+        if (attack_controller.weapon_left != null) attack_controller.weapon_left.parryingAttack = false;
         Invoke("ParryingCoolTimeOut", 3.0f);
     }
 
@@ -334,7 +335,7 @@ public class Player : MonoBehaviourPun
     {
         isAttack = false;
         attack_controller.weapon_right.isHeavyAttack = false;
-        if (attack_controller.weapon_left != null) { attack_controller.weapon_right.isHeavyAttack = false; }
+        if (attack_controller.weapon_left != null) { attack_controller.weapon_left.isHeavyAttack = false; }
     }
    
 
