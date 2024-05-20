@@ -26,7 +26,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject mapObj;
     public TextMeshProUGUI gameOver;
     public GameObject overPanel;
+    GameObject playerObj;
     private int gameMode=06895;
+    [Header("게임 설정")]
+    [SerializeField] public int setTime = 100;
+    [SerializeField] public int setDefenceTime = 40;
+    public int mode = 0; //0 : 파밍 1: 디펜스 
+    public bool isPlaying = false;
     void Awake()
     {
         if (instance == null)
@@ -82,6 +88,26 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "승패 확인" + winnerPlayerID + "챙겼나" + PV.Owner.NickName);
     }
   
+    public void GameStart()
+    {
+        SpawnManager.Instance.TimerSpawn();
+        SpawnManager.Instance.PortalSpawnerSpawn();
+        PV.RPC("StartSetting", RpcTarget.All);
+    }
+    public void PlayerReset()
+    {
+        if (playerObj.GetComponent<PhotonView>().IsMine) 
+            PhotonNetwork.Destroy(playerObj);
+        spawn();
+    }
+    public void DefenceStart()
+    {
+        mode = 1;
+        PhotonNetwork.Destroy(GameObject.Find("timer"));
+        setTime = setDefenceTime;
+        SpawnManager.Instance.TimerSpawn();
+        SpawnManager.Instance.portalSpawn();
+    }
 
     public void PlayerDead()
     {
@@ -92,7 +118,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        GameObject playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
+        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
         playerObj.name = "player: "+PV.Owner.NickName;
 
         if (cameraObj != null)
@@ -125,11 +151,31 @@ public class GameManager : MonoBehaviourPunCallbacks
         Debug.Log("승패 확인" + PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "챙겼나" + PV.Owner.NickName);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerReset();
+        }
+        else if (Input.GetKeyDown(KeyCode.O)) 
+        {
+            if (!isPlaying)
+                 GameStart();
+            
+           else
+              Debug.Log("세명 아님/게임 시작중");
+
+        
+        }
+    }
+
     [PunRPC]
     public void GameOver(int mode)
     {
+        mode = 0;
         Debug.Log("승패 확인"+ PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "챙겼나"+PV.Owner.NickName);
         isGameover = true;
+        isPlaying = false;
         overPanel.SetActive(true);
         gameOver.enabled = true;
         gameOver.text = "종료";
@@ -146,6 +192,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             gameOver.text = "LOSE";
         }
+    }
+    [PunRPC]
+    public void StartSetting()
+    {
+        mode = 1;
+        isPlaying = true;
+
     }
     void LoadArena()
     {

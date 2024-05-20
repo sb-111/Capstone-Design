@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class PortalManager : MonoBehaviour
+public class PortalManager : MonoBehaviourPun
 {
     [SerializeField] int currentHP = 100;
     // Start is called before the first frame update
@@ -40,6 +42,10 @@ public class PortalManager : MonoBehaviour
     {
         // ÆÄ±«
         GameManager.Instance.GameFinish();
-        Destroy(gameObject);
+        PhotonView PV = this.GetComponent<PhotonView>();
+        if (PV.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

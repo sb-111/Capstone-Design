@@ -6,6 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using TMPro;
 
 public class CharacterSelect : MonoBehaviourPunCallbacks
 {
@@ -16,13 +17,19 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public GameObject chara2;
     public GameObject charaPanel;
     public GameObject roomPanel;
-    public Text playerNameText;
-
+    public TextMeshProUGUI playerNameText;
+    public TextMeshProUGUI charnametxt;
+    public GameObject chartxt1;
+    public GameObject chartxt2;
+    private int charnum=0;
     private string playerName;
     private int playerCount = 0;
+    public GameObject chaimg1;
+    public GameObject chaimg2;
     // 추가된 UI 요소
     public Slider loadingProgressBar;
     public GameObject loadingUI;
+ 
     void awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -34,30 +41,57 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         roomPanel.SetActive(false);
         charaPanel.SetActive(true);
         loadingUI.SetActive(false);
+        chaimg1.SetActive(true);
+        chaimg2.SetActive(false);
         character = chara1;
-        cha1tog.onValueChanged.RemoveAllListeners();
-        cha1tog.onValueChanged.AddListener(OnChara1);
-
-        cha2tog.onValueChanged.RemoveAllListeners();
-        cha2tog.onValueChanged.AddListener(OnChara2);
+    
        playerName = PhotonNetwork.LocalPlayer.NickName + "\n";
     }
-
-    void OnChara1(bool _bool)
+    void Update()
     {
-        if (_bool)
+        switch (charnum)
         {
-            character = chara1;
+            case 0:
+                charnametxt.text = "Warrior";
+                chaimg1.SetActive(true);
+                chaimg2.SetActive(false);
+                chartxt1.SetActive(true);
+                chartxt2.SetActive(false);
+                character = chara1;
+                break;
+            case 1:
+                charnametxt.text = "Assassin";
+                chaimg1.SetActive(false);
+                chaimg2.SetActive(true);
+                chartxt1.SetActive(false);
+                chartxt2.SetActive(true);
+                character = chara2;
+                break;
+            default:
+                break;
         }
     }
-
-    void OnChara2(bool _bool)
-    {
-        if (_bool)
+    public void Lbtn() {
+        if (charnum < 1)
         {
-            character = chara2;
+            charnum++;
         }
+        else
+            charnum = 0;
     }
+    public void Rbtn()
+    {
+        if (charnum > 0)
+        {
+            charnum--;
+        }
+        else
+            charnum = 1;
+
+    }
+
+
+  
 
     public void GameStart()
     {

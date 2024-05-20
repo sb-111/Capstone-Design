@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 public class NicknameManager : MonoBehaviour
 {
-    public InputField nicknameInputField; // InputField 컴포넌트를 할당받을 변수
+    public TMP_InputField nicknameInputField; // InputField 컴포넌트를 할당받을 변수
     const string nickname ="name"; // 사용자의 닉네임을 저장할 변수
     public void SaveNickname(string value)
     {
@@ -28,7 +29,7 @@ public class NicknameManager : MonoBehaviour
     {
 
         string defaultName = string.Empty;
-        nicknameInputField = this.GetComponent<InputField>();
+
         if (nicknameInputField != null)
         {
             if (PlayerPrefs.HasKey(nickname))
