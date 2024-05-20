@@ -21,7 +21,11 @@ public class MapObject : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (owner == null)
+		{
+			mmc = null;
+			miniMapTarget = null;
 			Destroy (this.gameObject);
+		}
 		else
 			SetPositionAndRotation ();
 
@@ -85,6 +89,8 @@ public class MapObject : MonoBehaviour {
 	}
 
 	void SetRotation(){
+		if (miniMapTarget == null || owner == null)
+			return;
 		if (linkedMiniMapEntity.rotateWithObject) {
 			if (Mathf.Abs (linkedMiniMapEntity.upAxis.y) == 1) {
 				if (mmc.rotateWithTarget)
