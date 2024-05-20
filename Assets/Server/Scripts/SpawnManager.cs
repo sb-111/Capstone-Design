@@ -28,6 +28,8 @@ public class SpawnManager : MonoBehaviour
     public int koboldMax;
     public int TrollMax;
 
+    private GameObject timer2;
+
     //몬스터 스폰 포인트
     private static SpawnManager instance = null;
     void Awake()
@@ -41,13 +43,16 @@ public class SpawnManager : MonoBehaviour
         else
         {
 
-            Destroy(this.gameObject);
+            PhotonNetwork.Destroy(this.gameObject);
         }
     }
-
+    public void TimerDestroy()
+    {
+        PhotonNetwork.Destroy(timer2);
+    }
     public void TimerSpawn()
     {
-        PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
+        timer2= PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
 
     }
     public void PortalSpawnerSpawn() {

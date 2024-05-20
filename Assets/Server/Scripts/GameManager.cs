@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void DefenceStart()
     {
         mode = 1;
-        PhotonNetwork.Destroy(GameObject.Find("timer"));
+        SpawnManager.Instance.TimerDestroy();
         setTime = setDefenceTime;
         SpawnManager.Instance.TimerSpawn();
         SpawnManager.Instance.portalSpawn();
