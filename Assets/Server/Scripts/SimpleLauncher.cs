@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class SimpleLauncher : MonoBehaviourPunCallbacks
 {
 
-    public PhotonView playerPrefab;
-    bool isConnecting;
 
+    bool isConnecting;
+    public GameObject MenuUI;
     /*public Slider loadingProgressBar;
     public GameObject loadingUI;*/
 
@@ -37,7 +37,30 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         // 로딩 UI 활성화
         //loadingUI.SetActive(true);
     }
+    public void GoToMenu()
+    {
+   
+        // 메뉴 UI 활성화
+        MenuUI.SetActive(true);
+    }
+    public void End()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
+      
+    }
+    public void GoToSetting()
+    {
+        //SceneLoader.instance.LoadScene(1);
+        isConnecting = true;
+        PhotonNetwork.ConnectUsingSettings();
 
+        // 로딩 UI 활성화
+        //loadingUI.SetActive(true);
+    }
     public override void OnConnectedToMaster()
     {
         Debug.Log("Connected to Master");
