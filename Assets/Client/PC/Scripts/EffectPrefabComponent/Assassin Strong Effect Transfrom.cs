@@ -7,12 +7,14 @@ public class AssassinStrongEffectTransfrom : MonoBehaviour
     
     private HashSet<GameObject> hitEnemies = new HashSet<GameObject>();
     private PrefabCreator prefabCreator;
+    private BoxCollider boxCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         prefabCreator = GetComponentInParent<PrefabCreator>();
         transform.rotation=prefabCreator.weapon.player.transform.rotation;
+        boxCollider= GetComponent<BoxCollider>();
     }
     
     private void Update()
