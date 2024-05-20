@@ -22,6 +22,7 @@ public class MonsterSpawner : MonoBehaviour
         mon = SpawnManager.Instance.getMonster(monType);
         monNum = 0;
         StartCoroutine("SpawnMon");
+        Debug.Log(mon+"몬스터");
     }
     IEnumerator SpawnMon()
     {
@@ -42,17 +43,17 @@ public class MonsterSpawner : MonoBehaviour
     }
     void randspawn()
     {
-        
+        Debug.Log("실행됨" + mon);
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
         float randX = Mathf.Cos(randomAngle) * detectionRadius;
         float randZ = Mathf.Sin(randomAngle) * detectionRadius;
         Vector3 randomPosition = transform.position + new Vector3(randX, 0f, randZ);
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPosition, out hit, 0.1f, NavMesh.AllAreas))
-        {
-            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
-        }
-   
+       // if (NavMesh.SamplePosition(randomPosition, out hit, 0.1f, NavMesh.AllAreas))
+       // {
+            PhotonNetwork.InstantiateRoomObject(mon.name, randomPosition, transform.rotation, 0);
+     //   }
+       
 
     }
 
@@ -68,7 +69,7 @@ public class MonsterSpawner : MonoBehaviour
                 a++; // 대상 태그를 가진 물체이면 개수 증가
             }
         }
-        Debug.Log(a+"몬스터 감지 개수"+monNum);
+       
         monNum = a;
 
        

@@ -1199,9 +1199,9 @@ GameObject:
   - component: {fileID: 444710745186485585}
   - component: {fileID: 8094098018902324507}
   - component: {fileID: 1178881961339848675}
-  - component: {fileID: -1170788841484008121}
-  - component: {fileID: 3135939932021791502}
-  - component: {fileID: 2193967038128813500}
+  - component: {fileID: 7226725773781245412}
+  - component: {fileID: 2248643030306098976}
+  - component: {fileID: -6940879439457313711}
   m_Layer: 0
   m_Name: Goblin_PBR 1
   m_TagString: MonsterEnemy
@@ -1332,7 +1332,7 @@ MonoBehaviour:
   speed: 10
   skin_30p: {fileID: 4834615913766697710}
   skin_70p: {fileID: 5897908492744132016}
-  soul: {fileID: 1150511042866377169, guid: 36d36a95c6a150f42b8f13d2622d70b0, type: 3}
+  soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
 --- !u!114 &444710745186485585
 MonoBehaviour:
@@ -1458,65 +1458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 8bf8e346073541947bb96a7776fe6c6f, type: 3}
---- !u!114 &-1170788841484008121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4771965993147790748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &3135939932021791502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4771965993147790748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: Run
-  - Type: 4
-    SynchronizeType: 1
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 1
-    Name: doDie
-  - Type: 9
-    SynchronizeType: 1
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 1
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 1
-    Name: randomValue
-  - Type: 4
-    SynchronizeType: 1
-    Name: isAttack
-  - Type: 9
-    SynchronizeType: 1
-    Name: Parried
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
---- !u!114 &2193967038128813500
+--- !u!114 &7226725773781245412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1535,11 +1477,42 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: -1170788841484008121}
-  - {fileID: 3135939932021791502}
+  - {fileID: 2248643030306098976}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2248643030306098976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771965993147790748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &-6940879439457313711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771965993147790748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &4834615913766697710
 GameObject:
   m_ObjectHideFlags: 0
