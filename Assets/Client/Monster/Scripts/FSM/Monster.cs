@@ -206,6 +206,11 @@ public class Monster : MonoBehaviour
         Debug.Log("TakeDamage() 호출");
         currentHP -= damage;
 
+        // 9버전 추가(테스트) - 후방 공격 시 플레이어쪽으로 바로 돌아보게 하기 위함 + 타게팅 설정까지
+        Vector3 vec = transform.forward * -1f;
+        transform.LookAt(vec);
+        CheckPlayerInSight();
+
         float hpPercentage = currentHP / (float)maxHP;
 
         if (IsDie())
