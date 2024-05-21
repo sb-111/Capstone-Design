@@ -402,7 +402,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8021867562802766427, guid: 0bb68a1805016e040ac8dc902547d433, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16.799988
+      value: 16.799927
       objectReference: {fileID: 0}
     - target: {fileID: 8021867562802766427, guid: 0bb68a1805016e040ac8dc902547d433, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
