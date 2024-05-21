@@ -140,12 +140,13 @@ public class Monster : MonoBehaviour
                 {
                     return;                     //피격 애니메이션 실행률 95%이하면 X
                 }
-                else
+                else // Hit -> Chase
                 {
-                    // Hit -> Chase
-                    // 일반적으로 맞았으면 다시 추격, 공격 범위내 있으면 공격
-                    // 문제점: Chase에서 시야에 없다면 바로 Idle로 전환
                     SetState(new ChaseState(this));
+                    // Chase ->
+                    // 시야밖: Idle
+                    // 시야 범위 내 사정거리 밖: Chase
+                    // 시야 범위 내 사정거리 안: Attack
                 }
                 break;
         }
@@ -202,6 +203,7 @@ public class Monster : MonoBehaviour
     /// <param name="enmenyPosition">?</param>
     public void TakeDamage(int damage)
     {
+        Debug.Log("TakeDamage() 호출");
         currentHP -= damage;
 
         float hpPercentage = currentHP / (float)maxHP;
@@ -247,6 +249,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     private void Die()
     {
+        Debug.Log("Die() 호출");
         float height = 2.0f;
         Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
         GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);

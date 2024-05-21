@@ -16,7 +16,16 @@ public class IdleState : MonoBehaviour, IMonsterState
     public void EnterState()
     {
         Debug.Log("Idle: Enter");
+        if(monster.TargetPlayer != null)
+        {
+            Debug.Log($"{monster.TargetPlayer.name}");
+        }
         monster.Agent.isStopped = false; // Agent 활성화
+
+        // Chase -> Idle 전환 시 타게팅 하고있던 플레이어를 잠시동안 따라올 수 있으므로
+        // 뭐가 더 자연스러운지 판단 필요
+        Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint, monster.WanderRadius, -1);
+        monster.Agent.SetDestination(newPos);
     }
 
     public void ExitState()
@@ -28,12 +37,11 @@ public class IdleState : MonoBehaviour, IMonsterState
 
     public void ExecuteState()
     {
-        Debug.Log("Idle: 진행중");
         monster.Anim.SetBool("Walk", (monster.Agent.velocity.magnitude > 0.05f) ? true : false);
         timer += Time.deltaTime;
         if (timer >= wanderTimer)
         {
-            Debug.Log("위치 전환");
+            Debug.Log("Idle: Execute - 위치 전환");
             Vector3 newPos = SetRandomPosInSpawnPointRange(monster.SpawnPoint, monster.WanderRadius, -1);
             monster.Agent.SetDestination(newPos);
             timer = 0f;
