@@ -32,7 +32,7 @@ public class CombatStatusManager : MonoBehaviourPun
     public void TakeDamage(int damage)
     {
         pv.RPC("RPCDamage", RpcTarget.All, damage);
-
+        //서버 접속하지 않았을 시 아래 함수 사용
     }
 
     [PunRPC]

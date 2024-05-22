@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         cameraObj = GameObject.Find("TPS Camera");
 
         //playerSpawnPoint = playerSpawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1) % 3];
-        playerSpawnPoint = playerSpawnPoints[1];
+        playerSpawnPoint = playerSpawnPoints[0];
         mapObj = GameObject.Find("CanvasMiniMap");
         if (playerPrefab == null)
         {

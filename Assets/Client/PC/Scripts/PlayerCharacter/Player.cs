@@ -352,7 +352,8 @@ public class Player : MonoBehaviourPun
 
     void DestroyPlayer()
     {
-        Destroy(gameObject);
+        PhotonNetwork.Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     void MoveSound()
