@@ -134,9 +134,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058752}
+  - component: {fileID: 6169783151429700402}
   m_Layer: 0
   m_Name: TROLL_ L Finger0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +158,27 @@ Transform:
   - {fileID: 2826394659216058758}
   m_Father: {fileID: 2826394659216058794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6169783151429700402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291232}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.001, y: 0.001, z: 0.001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2826394659216291234
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +623,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -7631983457565799205}
+  - {fileID: -278090240603560571}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -618,8 +641,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: Run
+  - Type: 4
+    SynchronizeType: 0
+    Name: Walk
+  - Type: 9
+    SynchronizeType: 0
+    Name: doDie
+  - Type: 9
+    SynchronizeType: 0
+    Name: getHit
+  - Type: 9
+    SynchronizeType: 0
+    Name: doAttack
+  - Type: 3
+    SynchronizeType: 0
+    Name: randomValue
+  - Type: 9
+    SynchronizeType: 0
+    Name: Parried
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!114 &-278090240603560571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,9 +699,6 @@ MonoBehaviour:
   - Type: 3
     SynchronizeType: 1
     Name: randomValue
-  - Type: 4
-    SynchronizeType: 1
-    Name: isAttack
   - Type: 9
     SynchronizeType: 1
     Name: Parried
@@ -2150,7 +2193,7 @@ GameObject:
   - component: {fileID: 2826394659216058844}
   m_Layer: 0
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

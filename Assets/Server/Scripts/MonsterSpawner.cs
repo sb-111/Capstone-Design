@@ -28,11 +28,11 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (!GameManager.Instance.isGameover)
         {
-
+            controlMonNum();
             if (monNum < monMax)
             {
-               
-                randspawn();
+
+                PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
                 yield return new WaitForSeconds(createTime);
             }
             else

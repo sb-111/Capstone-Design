@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static PlayerStatus;
+using Photon.Pun;
 
-public class CombatStatusManager : MonoBehaviour
+public class CombatStatusManager : MonoBehaviourPun
 {
     [HideInInspector] public Player player;
     [HideInInspector] public PlayerStatus player_status;
@@ -12,13 +13,14 @@ public class CombatStatusManager : MonoBehaviour
 
     public float knockbackPower = 8f; // 넉백 파워
     public float knockbackDuration = 0.2f; // 넉백 지속 시간
-
+    PhotonView pv;
     // Start is called before the first frame update
     private void Awake()
     {
         player=GetComponent<Player>();
         anim=GetComponent<Animator>();
         player_status=GetComponent<PlayerStatus>();
+        pv= GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,15 @@ public class CombatStatusManager : MonoBehaviour
     {
         
     }
+
     public void TakeDamage(int damage)
+    {
+        pv.RPC("RPCDamage", RpcTarget.All, damage);
+
+    }
+
+    [PunRPC]
+    public void RPCDamage(int damage)
     {
         int result_damage = (int)(damage * (1 - (player_status.basicStats.def / (player_status.basicStats.def + player_status.combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
         //player_status.basicStats.hp -= result_damage; // 캡슐화 이용한 밑줄이 더 적합

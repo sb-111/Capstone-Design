@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class TPSCamera : MonoBehaviour
+using Photon.Pun;
+public class TPSCamera : MonoBehaviourPun
 {
     //[SerializeField] private Transform cameraArm;
     [SerializeField] private Player target;
@@ -17,10 +17,24 @@ public class TPSCamera : MonoBehaviour
 
     private void Start()
     {
+        PhotonView photonView = GetComponentInParent<PhotonView>();
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            this.enabled = false;
+        }
         target = GetComponentInParent<Player>();
+    }
+    private void Update()
+    {
+        PhotonView photonView = GetComponentInParent<PhotonView>();
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
+        {
+            this.enabled = false;
+        }
     }
     private void LateUpdate()
     {
+      
         // -z축 방향으로 offset 크기만큼 떨어진 벡터 
         Vector3 direction = new Vector3(0, 0, -offset.magnitude);
 

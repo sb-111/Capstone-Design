@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: ObservedComponents.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1519412148903362002, guid: cb427f9f15b5a564484302dd3a1b420e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4214383097868382590, guid: cb427f9f15b5a564484302dd3a1b420e, type: 3}
       propertyPath: m_UseGravity
       value: 0

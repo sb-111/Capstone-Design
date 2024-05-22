@@ -27,8 +27,8 @@ public class AttackController : MonoBehaviour
     {
        anim = GetComponent<Animator>();
        player_controller = GetComponent<Player>();
-       cameraEffect = GetComponentInChildren<CameraShake>();
-        
+       cameraEffect = GameManager.Instance.SetEffect();
+
     }
 
     private void Start()
