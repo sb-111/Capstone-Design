@@ -38,6 +38,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         meleeArea.enabled = false; // Collider 비활성화
         isStrongAttack = false;
+        
     }
     public void SetStrongAttack()
     {
@@ -54,13 +55,13 @@ public class EnemyWeapon : MonoBehaviour
             {
                 hitEnemies.Add(player);  // 적 HashSet에 추가
                 combatStatus.TakeDamage((20 + weapon_damage));
-                if(isStrongAttack) // 강공격인 경우
+                /*if(isStrongAttack) // 강공격인 경우
                 {
                     Vector3 knockbackDir = (player.transform.position - transform.position); // 넉백 방향
                     knockbackDir.y = 0;
                     knockbackDir = knockbackDir.normalized;
                     combatStatus.TakeKnockback(knockbackDir);
-                }
+                }*/
             }
         }
 

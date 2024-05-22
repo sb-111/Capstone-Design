@@ -35,6 +35,7 @@ public class AttackState : IMonsterState
         if (currentTime >= attackInterval)
         {
             monster.transform.LookAt(monster.TargetPlayer);
+            monster.TransformTrigger();
             monster.Anim.SetTrigger("doAttack");
             monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
             currentTime = 0f;

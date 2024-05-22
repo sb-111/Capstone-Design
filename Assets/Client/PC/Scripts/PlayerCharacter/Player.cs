@@ -152,6 +152,7 @@ public class Player : MonoBehaviourPun
         Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
 
         //장애물 감지
+        /*
         if(Physics.Raycast(transform.position, moveVec, out hit, distanceToObstacle))
         {
             if (!hit.collider.isTrigger)
@@ -159,7 +160,7 @@ public class Player : MonoBehaviourPun
                 moveVec = Vector3.zero;
             }
         }
-        
+        */
         if (isJump)
         {
             moveVec = jumpVec;
@@ -202,7 +203,7 @@ public class Player : MonoBehaviourPun
             isJump = true;
             anim.SetTrigger("doJump");
             characterSound.PlayCharacterSound("Roll");
-            Invoke("JumpOut", 1.16f);
+            Invoke("JumpOut", 1.0f);
         }
     }
 

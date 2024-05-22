@@ -494,10 +494,17 @@ MonoBehaviour:
   def: 10
   constant_def: 100
   speed: 10
-  skin_30p: {fileID: 3817095226719036164}
-  skin_70p: {fileID: 5323329218396541629}
-  soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
+  skin_30p: {fileID: 0}
+  skin_70p: {fileID: 0}
+  soul: {fileID: 1150511042866377169, guid: 36d36a95c6a150f42b8f13d2622d70b0, type: 3}
   weakPoint: 0
+  ArmCollider:
+  - {fileID: 701027947114134745}
+  - {fileID: 2426555042294875948}
+  - {fileID: 1427606088579079576}
+  - {fileID: 7671178383964935671}
+  - {fileID: 4146783083003752845}
+  bodyCollider: {fileID: 6705481467997214080}
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0
