@@ -330,6 +330,11 @@ public class Monster : MonoBehaviour
                     Anim.SetBool("Run", true);
                     Anim.SetBool("Walk", false);
                     break;
+
+                case AttackState:
+                    Anim.SetBool("Run", true);;
+                    Anim.SetBool("Walk", false);
+                    break;
             }
         }
         else
