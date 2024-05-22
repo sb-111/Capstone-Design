@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour
     private float sightRange = 10f; // 몬스터의 시야 범위(원형)
     [SerializeField]
     private float fieldOfView = 120f; // 몬스터의 시야각
-    public Transform TargetPlayer { get; private set; } // 몬스터가 추적하는 플레이어
+    public Transform TargetPlayer { get; set; } // 몬스터가 추적하는 플레이어
 
     [Header("Attack 설정")]
     [SerializeField] float attackRange = 2f;
@@ -140,12 +140,13 @@ public class Monster : MonoBehaviour
                 {
                     return;                     //피격 애니메이션 실행률 95%이하면 X
                 }
-                else
+                else // Hit -> Chase
                 {
-                    // Hit -> Chase
-                    // 일반적으로 맞았으면 다시 추격, 공격 범위내 있으면 공격
-                    // 문제점: Chase에서 시야에 없다면 바로 Idle로 전환
                     SetState(new ChaseState(this));
+                    // Chase ->
+                    // 시야밖: Idle
+                    // 시야 범위 내 사정거리 밖: Chase
+                    // 시야 범위 내 사정거리 안: Attack
                 }
                 break;
         }
@@ -202,7 +203,16 @@ public class Monster : MonoBehaviour
     /// <param name="enmenyPosition">?</param>
     public void TakeDamage(int damage)
     {
+        Debug.Log("TakeDamage() 호출");
         currentHP -= damage;
+
+        // 9버전 추가 - 후방 공격 시 플레이어쪽으로 바로 돌아보게 하기 위함 + 타게팅 설정까지
+        if(TargetPlayer == null)
+        {
+            Vector3 vec = transform.forward * -1f;
+            transform.LookAt(vec);
+        }
+        CheckPlayerInSight(); // 강공격 당할 때 필요함(Idle -> Hit -> Chase에서 타게팅 과정이 없으므로)
 
         float hpPercentage = currentHP / (float)maxHP;
 
@@ -247,6 +257,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     private void Die()
     {
+        Debug.Log("Die() 호출");
         float height = 2.0f;
         Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
         GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);

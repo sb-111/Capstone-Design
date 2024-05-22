@@ -12,6 +12,7 @@ public class AttackState : IMonsterState
 
     public void EnterState()
     {
+        Debug.Log("Attack: Enter");
         monster.transform.LookAt(monster.TargetPlayer);
         monster.Anim.SetTrigger("doAttack");
         monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
