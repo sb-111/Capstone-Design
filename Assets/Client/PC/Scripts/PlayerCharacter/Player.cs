@@ -283,6 +283,7 @@ public class Player : MonoBehaviourPun
 
     void strongAttack()
     {
+        if (!attack_controller.strongCoolTime)
         attack_controller.strongAttack();
     }
 
