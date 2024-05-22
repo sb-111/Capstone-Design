@@ -16,10 +16,12 @@ public class IdleState : MonoBehaviour, IMonsterState
     public void EnterState()
     {
         Debug.Log("Idle: Enter");
+        
         if(monster.TargetPlayer != null)
         {
             Debug.Log($"{monster.TargetPlayer.name}");
         }
+        monster.TargetPlayer = null; // 버전 9 추가: Idle 진입 시에 플레이어 타겟 초기화
         monster.Agent.isStopped = false; // Agent 활성화
 
         // Chase -> Idle 전환 시 타게팅 하고있던 플레이어를 잠시동안 따라올 수 있으므로
