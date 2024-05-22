@@ -399,6 +399,20 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.28892606
+        functionName: weakPointOn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.42919114
+        functionName: weakPointOut
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.44324234
         functionName: leftWeaponUse
         data: 
@@ -427,15 +441,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.28892606
-        functionName: weakPointOn
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.42919114
-        functionName: weakPointOut
+      - time: 0.9486094
+        functionName: TriggerOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

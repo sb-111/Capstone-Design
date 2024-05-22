@@ -22,13 +22,14 @@ public class AttackController : MonoBehaviour
     [HideInInspector]
     public int curAttack;                   //현재 공격 값
 
+    public bool strongCoolTime { get; private set; }
 
     private void Awake()
     {
        anim = GetComponent<Animator>();
        player_controller = GetComponent<Player>();
        cameraEffect = GetComponentInChildren<CameraShake>();
-        
+        strongCoolTime = false;
     }
 
     private void Start()
@@ -62,11 +63,13 @@ public class AttackController : MonoBehaviour
 
     public void strongAttack()
     {
+        strongCoolTime = true;
         if(player_controller.isAttack) { return; }
         StartCoroutine(coStrongAttack());
     }
     IEnumerator coStrongAttack()
     {
+        Debug.Log("쿨타임 입니다.");
         anim.SetTrigger("doStrongAttack");
         /*
         yield return new WaitForSeconds(0.58f);
@@ -76,7 +79,9 @@ public class AttackController : MonoBehaviour
         yield return new WaitForSeconds(1.18f);
         cameraShaking.Shaking(0.5f,7.5f);
         */
-        yield return null;
+        yield return new WaitForSeconds(10.0f);
+        Debug.Log("쿨타임 끝났 습니다.");
+        strongCoolTime = false;
     }
     public void parryingAttack()
     {

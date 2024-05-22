@@ -67,6 +67,10 @@ public class Monster : MonoBehaviour
     //패링 포인트
     public bool weakPoint= false;
 
+    [Header("몬스터 공격시 트리거 전환 설정")]
+    [SerializeField] BoxCollider[] ArmCollider;
+    [SerializeField] CapsuleCollider bodyCollider;
+
 
     private void Awake()    
     {
@@ -203,6 +207,7 @@ public class Monster : MonoBehaviour
     /// <param name="enmenyPosition">?</param>
     public void TakeDamage(int damage)
     {
+
         Debug.Log("TakeDamage() 호출");
         currentHP -= damage;
 
@@ -332,5 +337,25 @@ public class Monster : MonoBehaviour
             Anim.SetBool("Walk", false);
             Anim.SetBool("Run", false);
         }
+    }
+
+
+    public void TransformTrigger()
+    {
+        bodyCollider.isTrigger = true;
+        for (int i =0;i<ArmCollider.Length;i++)
+        {
+            ArmCollider[i].isTrigger = true;
+        }
+        
+    }
+
+    public void TrasnformTriggerOut()
+    {
+        for (int i = 0; i < ArmCollider.Length; i++)
+        {
+            ArmCollider[i].isTrigger = false;
+        }
+        bodyCollider.isTrigger = false;
     }
 }

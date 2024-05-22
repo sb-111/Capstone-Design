@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Troll_PBR 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2826394659216291242, guid: b995e32a7e2ca70458a5cd7589453b1d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -198,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5134878664520601869, guid: e040fed9364558541bb6583b064025c2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5134878664520601869, guid: e040fed9364558541bb6583b064025c2, type: 3}
       propertyPath: m_TagString
@@ -440,6 +444,10 @@ PrefabInstance:
     - target: {fileID: 8364360537352700500, guid: 16c0b8d17e91d2e41a9fe2ef46a51290, type: 3}
       propertyPath: m_Name
       value: Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364360537352700500, guid: 16c0b8d17e91d2e41a9fe2ef46a51290, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -728,7 +736,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622190705950947033, guid: 663927e8b0ca89c48988b719523e8e3b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290550582741064585, guid: 663927e8b0ca89c48988b719523e8e3b, type: 3}
+      propertyPath: maxHP
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290550582741064585, guid: 663927e8b0ca89c48988b719523e8e3b, type: 3}
+      propertyPath: currentHP
+      value: 110
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1343,13 +1359,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1045441457972226442, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40.499878
+      objectReference: {fileID: 0}
+    - target: {fileID: 1045441457972226442, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.924072
+      objectReference: {fileID: 0}
     - target: {fileID: 1852506709697973581, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5101683047146215423, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: basicStats.hp
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101683047146215423, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: basicStats.maxhp
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2a0dee03246177747833f1553e75832d, type: 2}
     - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_Name
       value: Assassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
