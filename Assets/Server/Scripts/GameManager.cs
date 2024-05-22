@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         playerPrefab = CharacterSelect.character;
         cameraObj = GameObject.Find("TPS Camera");
 
-        playerSpawnPoint = playerSpawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1) % 3];
+        //playerSpawnPoint = playerSpawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1) % 3];
+        playerSpawnPoint = playerSpawnPoints[0];
         mapObj = GameObject.Find("CanvasMiniMap");
         if (playerPrefab == null)
         {
@@ -67,6 +68,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             spawn();
 
         }
+    }
+    public CameraShake SetEffect()
+    {
+  
+        return cameraObj.GetComponent<CameraShake>();
     }
     public static GameManager Instance
     {
@@ -153,8 +159,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.P))
         {
+
             PlayerReset();
         }
         else if (Input.GetKeyDown(KeyCode.O)) 

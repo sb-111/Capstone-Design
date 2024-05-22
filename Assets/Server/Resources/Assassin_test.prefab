@@ -16240,8 +16240,6 @@ MonoBehaviour:
   isDefense: 0
   isCC: 0
   isAttack: 0
-  uiSoul: {fileID: 8949870570531329088, guid: 6ae15697b2772354ba8edfce3cd7267f, type: 3}
-  uiStatus: {fileID: 6446990777131936753, guid: 9dd115cb91468d5418489dc1eeaaa7c0, type: 3}
   attack_controller: {fileID: 0}
   state: {fileID: 0}
 --- !u!114 &4864509859839420764
@@ -16258,7 +16256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_left: {fileID: 6545407105816050570}
   weapon_right: {fileID: 2345487057994509925}
-  cameraShaking: {fileID: 0}
+  cameraEffect: {fileID: 0}
   stepupBuffer: 0
   curAttack: 0
 --- !u!114 &4844159157407011689
@@ -16363,70 +16361,70 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isRun
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isWalk
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isJump
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doJump
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doDeath
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doLattack
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doRattack
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doDodge
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doStrongAttack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isLattack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isRattack
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: isStrongAttack
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doDefense
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: getDefenseHIt
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Defense
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: doParrying
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: getHit
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Blend
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Horizontal
   - Type: 1
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Vertical
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Parried
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
 --- !u!114 &8837196207363048671
 MonoBehaviour:
