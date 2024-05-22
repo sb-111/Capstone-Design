@@ -240,6 +240,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hobgoblin_PBR 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3290550582741064585, guid: 663927e8b0ca89c48988b719523e8e3b, type: 3}
+      propertyPath: maxHP
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290550582741064585, guid: 663927e8b0ca89c48988b719523e8e3b, type: 3}
+      propertyPath: currentHP
+      value: 10000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -464,6 +472,14 @@ PrefabInstance:
     - target: {fileID: 1852506709697973581, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: sceneViewId
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101683047146215423, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: basicStats.hp
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101683047146215423, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
+      propertyPath: basicStats.maxhp
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6461216685500147717, guid: b751e02ec59e679408514b0b97f31ff5, type: 3}
       propertyPath: m_Name
