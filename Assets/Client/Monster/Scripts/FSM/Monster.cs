@@ -71,6 +71,7 @@ public class Monster : MonoBehaviour
     [SerializeField] BoxCollider[] ArmCollider;
     [SerializeField] CapsuleCollider bodyCollider;
 
+    private bool isDead = false;
 
     private void Awake()    
     {
@@ -221,9 +222,10 @@ public class Monster : MonoBehaviour
 
         float hpPercentage = currentHP / (float)maxHP;
 
-        if (IsDie())
+        if (IsDie() && !isDead) // Die()의 중복 호출 방지
         {
             Die();
+            isDead = true;  
         }
 
         //if (hpPercentage <= 0.7 && hpPercentage > 0.3)
@@ -265,6 +267,7 @@ public class Monster : MonoBehaviour
         Debug.Log("Die() 호출");
         float height = 2.0f;
         Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
+       
         GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);
         SetState(new DeadState(this));
     }
