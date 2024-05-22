@@ -2,13 +2,15 @@
 
 ## <div align="center">UnderWorld</div>
 
-### 팀명: Coffee Cat
+
 
 ---
 
 <div align="center">
-  <img src="https://via.placeholder.com/150" alt="Coffee Cat Logo" style="border-radius: 50%; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);"/>
+  <img src="./image/coffee cat logo.png" width="256" height="256"/>
 </div>
+
+### 팀명: Coffee Cat
 
 ---
 
@@ -27,18 +29,22 @@ UnderWorld는 3D 던전 디펜스 게임으로, 플레이어는 다양한 몬스
 
 ### 스크린샷
 <div align="center">
-  <img src="https://via.placeholder.com/500x300" alt="게임 스크린샷" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px;"/>
+  <img src="./image/map.png" alt="게임 스크린샷" style="border: 1px solid #ddd; border-radius: 4px; padding: 5px;"/>
 </div>
 
 ### 설치 및 실행 방법
 1. 이 저장소를 클론합니다.
     ```bash
-    git clone https://github.com/your-repo/UnderWorld.git
+    git clone https://github.com/sb-111/Capstone-Design.git
     ```
 2. Unity를 사용하여 프로젝트를 엽니다.
 3. `Play` 버튼을 눌러 게임을 실행합니다.
 
 ### 사용된 기술
+<div aling="center">
+  <img src="./image/적용 기술 및 구조.png" />
+</div>
+
 - **Unity**: 게임 개발을 위해 사용한 엔진
 - **C#**: 게임 로직 구현에 사용한 프로그래밍 언어
 - **Photon**: 멀티플레이어 기능 구현에 사용한 네트워크 라이브러리
