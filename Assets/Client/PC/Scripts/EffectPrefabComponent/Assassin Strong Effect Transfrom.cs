@@ -20,7 +20,7 @@ public class AssassinStrongEffectTransfrom : MonoBehaviour
     private void Update()
     {
         transform.position += transform.forward*0.3f;
-        transform.position += transform.up * -0.1f;
+        transform.position += transform.up * -0.05f;
     }
 
     // Update is called once per frame
@@ -28,11 +28,11 @@ public class AssassinStrongEffectTransfrom : MonoBehaviour
     {
         if (other.tag == "MonsterEnemy" || other.tag == "Enemy" || other.tag == "Player")
         {
-            GameObject enemy = other.gameObject;
+            GameObject enemy = other.transform.root.gameObject;
 
             if (other.tag == "MonsterEnemy")
             {
-                Monster enemyDamage = enemy.GetComponentInParent<Monster>();
+                Monster enemyDamage = enemy.GetComponent<Monster>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
