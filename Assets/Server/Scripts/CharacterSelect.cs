@@ -21,7 +21,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     public TextMeshProUGUI charnametxt;
     public GameObject chartxt1;
     public GameObject chartxt2;
-    private int charnum=0;
+    private int charnum = 0;
     private string playerName;
     private int playerCount = 0;
     public GameObject chaimg1;
@@ -29,7 +29,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     // 추가된 UI 요소
     public Slider loadingProgressBar;
     public GameObject loadingUI;
- 
+
     void awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -44,8 +44,8 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         chaimg1.SetActive(true);
         chaimg2.SetActive(false);
         character = chara1;
-    
-       playerName = PhotonNetwork.LocalPlayer.NickName + "\n";
+
+        playerName = PhotonNetwork.LocalPlayer.NickName + "\n";
     }
     void Update()
     {
@@ -71,7 +71,8 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
                 break;
         }
     }
-    public void Lbtn() {
+    public void Lbtn()
+    {
         if (charnum < 1)
         {
             charnum++;
@@ -91,7 +92,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     }
 
 
-  
+
 
     public void GameStart()
     {
@@ -100,7 +101,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         roomPanel.SetActive(true);
         charaPanel.SetActive(false);
         playerNameText.text = playerName;
-        //loadingUI.SetActive(true);
+        loadingUI.SetActive(true);
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -110,16 +111,16 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = 3;
         roomOptions.CustomRoomProperties = new Hashtable() { { "Winner", "없음" } };
 
-        PhotonNetwork.CreateRoom(null,roomOptions );
+        PhotonNetwork.CreateRoom(null, roomOptions);
     }
-  
+
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
 
         playerName += newPlayer.ActorNumber + "\n";
         Debug.Log("들어옴");
         playerNameText.text = playerName;
-        
+
         if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
         {
             loadingUI.SetActive(true);
@@ -140,7 +141,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     }
 
     // SimpleLauncher에서 가져온 LoadScene_Coroutine
-    IEnumerator LoadScene_Coroutine(string scene)
+    /*IEnumerator LoadScene_Coroutine(string scene)
     {
         loadingProgressBar.value = 0;
         loadingUI.SetActive(true);
@@ -157,8 +158,33 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             yield return null;
         }
         loadingUI.SetActive(false);
-    }
+    }*/
+    IEnumerator LoadScene_Coroutine(string scene)
+    {
+        loadingProgressBar.value = 0;
+        loadingUI.SetActive(true);
+        float progress = 0;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        asyncLoad.allowSceneActivation = false;
 
+        while (!asyncLoad.isDone)
+        {
+            progress = Mathf.MoveTowards(progress, asyncLoad.progress, Time.deltaTime * 0.5f);
+            loadingProgressBar.value = progress;
+            if (progress >= 0.9f)
+            {
+                loadingProgressBar.value = 1;
+                if (asyncLoad.progress >= 0.9f)
+                {
+                    asyncLoad.allowSceneActivation = true;
+                }
+            }
+            yield return null;
+        }
+
+        // 씬 로드가 완료된 후에 loadingUI를 비활성화합니다.
+        loadingUI.SetActive(false);
+    }
     // SimpleLauncher에서 가져온 LoadLevelWithProgress
     IEnumerator LoadLevelWithProgress(string sceneName)
     {
@@ -189,7 +215,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     }
     void OnDestroy()
     {
-     
+
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 }

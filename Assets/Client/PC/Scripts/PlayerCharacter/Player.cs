@@ -356,7 +356,12 @@ public class Player : MonoBehaviourPun
 
     void DestroyPlayer()
     {
-        Destroy(gameObject);
+        PhotonView PV = this.GetComponent<PhotonView>();
+        if (PV.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+        //Destroy(gameObject);
     }
 
     void MoveSound()

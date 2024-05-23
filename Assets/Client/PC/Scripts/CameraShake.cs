@@ -17,7 +17,13 @@ public class CameraShake : MonoBehaviour
 
     bool isZoom;
     bool isShake;
-
+    public void SetPlayer(GameObject clone)
+    {
+        
+        mainCamera = clone.GetComponent<Transform>();
+        originPos = mainCamera.localPosition;
+        originRot = mainCamera.localRotation;
+    }
     // Start is called before the first frame update
     void Start()
     {

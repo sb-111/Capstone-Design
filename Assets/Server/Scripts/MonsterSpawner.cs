@@ -7,7 +7,6 @@ public class MonsterSpawner : MonoBehaviour
 {
     [SerializeField]
     public int monType; //0: cyclops 1: goblin; 2:hobgoblin 3:kobold 4:Troll
-    [SerializeField]
     private int monMax;
     [SerializeField]
     private float detectionRadius = 5f;
@@ -15,75 +14,61 @@ public class MonsterSpawner : MonoBehaviour
     private int createTime;
     private GameObject mon;
     private int monNum;
-    int flow=0;
+    int flow=0; 
+    MonsterCounter monsterCounter;
     // Start is called before the first frame update
     void Start()
     {
         mon = SpawnManager.Instance.getMonster(monType);
-        monNum = 0;
+        monsterCounter = this.transform.parent.GetComponent<MonsterCounter>();
+        monMax = monsterCounter.monMax;
+        monNum = monsterCounter.monMax;
         StartCoroutine("SpawnMon");
+        Debug.Log(mon+"ëª¬ìŠ¤í„°");
     }
     IEnumerator SpawnMon()
     {
         while (!GameManager.Instance.isGameover)
         {
-
+            Debug.Log(monNum);
+            monNum = monsterCounter.controlMonNum();
             if (monNum < monMax)
             {
-               
-                randspawn();
+                Debug.Log("ì†Œí™˜");
+                 PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
+                //Instantiate(mon, transform.position, transform.rotation);
                 yield return new WaitForSeconds(createTime);
             }
             else
             {
-                yield return null;
+                Debug.Log("ì‹¤íŒ¨");
+                yield return new WaitForSeconds(createTime);
             }
         }
     }
     void randspawn()
     {
-        
+        Debug.Log("ì‹¤í–‰ë¨" + mon);
         float randomAngle = Random.Range(0f, Mathf.PI * 2f);
         float randX = Mathf.Cos(randomAngle) * detectionRadius;
         float randZ = Mathf.Sin(randomAngle) * detectionRadius;
         Vector3 randomPosition = transform.position + new Vector3(randX, 0f, randZ);
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPosition, out hit, 0.1f, NavMesh.AllAreas))
-        {
-            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
-        }
-   
+       // if (NavMesh.SamplePosition(randomPosition, out hit, 0.1f, NavMesh.AllAreas))
+       // {
+            PhotonNetwork.InstantiateRoomObject(mon.name, randomPosition, transform.rotation, 0);
+     //   }
+       
 
     }
 
 
-    void controlMonNum()
-    {
-        int a=0;
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius);
-        foreach (Collider col in colliders)
-        {
-            if (col.CompareTag("MonsterEnemy"))
-            {
-                a++; // ´ë»ó ÅÂ±×¸¦ °¡Áø ¹°Ã¼ÀÌ¸é °³¼ö Áõ°¡
-            }
-        }
-        Debug.Log(a+"¸ó½ºÅÍ °¨Áö °³¼ö"+monNum);
-        monNum = a;
 
-       
-       
-    }
     // Update is called once per frame
     void Update()
     {
-        controlMonNum();
+     
 
     }
-    void OnDrawGizmosSelected()
-    {
 
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position , detectionRadius);
-    }
 }

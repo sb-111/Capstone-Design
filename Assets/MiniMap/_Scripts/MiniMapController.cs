@@ -202,7 +202,7 @@ public class MiniMapController : MonoBehaviourPunCallbacks {
         if (target == null)
         {
 #if UNITY_EDITOR
-            Debug.Log("Please assign the target");
+      //      Debug.Log("Please assign the target");
 #endif
         }
         else
