@@ -3622,8 +3622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cha1tog: {fileID: 1488169560}
   cha2tog: {fileID: 738131845}
-  chara1: {fileID: 8364360537352700500, guid: ad158a800f532ac4aa55a458dff20c98, type: 3}
-  chara2: {fileID: 6461216685500147717, guid: 13a64919a76ff9e45baca6ebd5f38443, type: 3}
+  chara1: {fileID: 8364360537352700500, guid: 23b2b5aca05287145a25a34ac622683c, type: 3}
+  chara2: {fileID: 6461216685500147717, guid: 9fab45d544ea9844395292f3402e6baa, type: 3}
   charaPanel: {fileID: 179208148}
   roomPanel: {fileID: 1560569624}
   playerNameText: {fileID: 1577492730}

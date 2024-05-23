@@ -501,6 +501,8 @@ MonoBehaviour:
   skin_70p: {fileID: 5323329218396541629}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
+  ArmCollider: []
+  bodyCollider: {fileID: 0}
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0

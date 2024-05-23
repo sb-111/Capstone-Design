@@ -14,7 +14,7 @@ public class DeadState : MonoBehaviour, IMonsterState
         Debug.Log("DeadState 진입");
         // Dead 애니메이션 실행
         monster.Anim.SetTrigger("doDie");
-        Destroy(monster.gameObject, 5f);
+        Destroy(monster.gameObject, 1f);
     }
     // 실행 X
     public void ExecuteState()
