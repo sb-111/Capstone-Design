@@ -14,12 +14,15 @@ public class DeadState : MonoBehaviour, IMonsterState
         Debug.Log("DeadState 진입");
         // Dead 애니메이션 실행
         monster.Anim.SetTrigger("doDie");
-        Destroy(monster.gameObject, 1f);
     }
-    // 실행 X
+    // 2. Dead 애니메이션 완전히 실행 후 몬스터 삭제 및 스크립트 정지
     public void ExecuteState()
     {
-        
+            if(monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+            {
+                Destroy(monster.gameObject);
+                monster.enabled = false; 
+            }
     }
 
     // 실행 X
