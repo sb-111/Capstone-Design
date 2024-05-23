@@ -16381,7 +16381,7 @@ Animator:
   m_GameObject: {fileID: 6461216685500147717}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 43f22a575a6a0f7449e0e966cb746bf2, type: 3}
-  m_Controller: {fileID: 9100000, guid: 42f7aeb0015b330469e5cc67871051da, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2a0dee03246177747833f1553e75832d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -16458,8 +16458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicStats:
-    hp: 100
-    maxhp: 100
+    hp: 10000
+    maxhp: 10000
     def: 10
     atk: 30
     dex: 30
@@ -16649,7 +16649,7 @@ CharacterController:
   m_StepOffset: 0.7
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.92, z: 0}
+  m_Center: {x: 0, y: 0.86, z: 0}
 --- !u!114 &3645114140907248480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18118,6 +18118,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 206969736365183893}
     m_Modifications:
+    - target: {fileID: 2041867958158460934, guid: cbf2cce8224188d4193fc1e5d20a9ef1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40.499878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2041867958158460934, guid: cbf2cce8224188d4193fc1e5d20a9ef1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.924072
+      objectReference: {fileID: 0}
     - target: {fileID: 3193092379633661184, guid: cbf2cce8224188d4193fc1e5d20a9ef1, type: 3}
       propertyPath: m_Texture
       value: 

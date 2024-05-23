@@ -174,12 +174,14 @@ public class Player : MonoBehaviourPun
         // 월드 기준
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
+        anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+        anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         if (moveVec!=Vector3.zero)
         {
               movements = moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
               characterController.Move(movements);
-              anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
-              anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
+              //anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+              //anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         }
         MoveSound();
     }
