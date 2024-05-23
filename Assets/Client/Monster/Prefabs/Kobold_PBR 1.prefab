@@ -186,6 +186,13 @@ MonoBehaviour:
   skin_70p: {fileID: 2758766303699457018}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
+  ArmCollider:
+  - {fileID: 1858018647508264123}
+  - {fileID: 8792533351789970552}
+  - {fileID: 8906834514342371651}
+  - {fileID: 3572683317770798931}
+  - {fileID: 2684511886215613810}
+  bodyCollider: {fileID: 3194026342263027727}
 --- !u!114 &7723494953169275329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1662,7 +1669,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3102,7 +3109,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

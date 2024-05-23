@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 0171c49add2455c4487ba683781afe17
+guid: 6174d5cd3ad34864a8caf1ac63cbb424
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
   - first:
-      74: 6316787697799549915
-    second: attackB_06
+      74: 6384056011127690399
+    second: roll_left
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: attackB_06
-      takeName: attackB_06
+      name: roll_left
+      takeName: roll_right
       internalID: 0
       firstFrame: 0
-      lastFrame: 27
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -56,151 +56,10 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 1
       heightFromFeet: 0
-      mirror: 0
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.003733903
-        functionName: isAttackAnimation
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.110074535
-        functionName: WeaponUseLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.14514905
-        functionName: WeaponAttackOutLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.3423513
-        functionName: WeaponUse
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.3998415
-        functionName: WeaponAttackOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.77462703
-        functionName: WeaponUse
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8594095
-        functionName: WeaponAttackOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9195438
-        functionName: isAttackAnimationEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: attackB_06_2
-      takeName: attackB_06
-      internalID: -3844487687186469197
-      firstFrame: 26
-      lastFrame: 75
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 1
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.0004261984
-        functionName: isAttackAnimation
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.110261194
-        functionName: WeaponUseLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.17090109
-        functionName: WeaponAttackOutLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.34711495
-        functionName: WeaponUse
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4140082
-        functionName: WeaponAttackOut
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7052913
-        functionName: WeaponUseLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7972786
-        functionName: WeaponAttackOutLeft
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9243922
-        functionName: isAttackAnimationEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -672,13 +531,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: 00_T-pose_B(Clone)
+    - name: 00_T-pose_A(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0.0000004592338, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Bip001
-      parentName: 00_T-pose_B(Clone)
+      parentName: 00_T-pose_A(Clone)
       position: {x: -0, y: 0.95722115, z: -0.0052999994}
       rotation: {x: -0.50000036, y: 0.49999967, z: 0.49999967, w: 0.50000036}
       scale: {x: 0.99999994, y: 0.99999994, z: 1}
@@ -764,8 +623,8 @@ ModelImporter:
       scale: {x: 0.99999964, y: 1, z: 0.99999994}
     - name: Bip001 L Finger0
       parentName: Bip001 L Hand
-      position: {x: -0.037956357, y: 0.008791689, z: -0.026991393}
-      rotation: {x: -0.5926537, y: 0.33677894, z: -0.31550243, w: -0.66015136}
+      position: {x: -0.037961483, y: 0.008787397, z: -0.026991095}
+      rotation: {x: -0.37749168, y: 0.4003174, z: -0.110344, w: -0.8276897}
       scale: {x: 1.0000004, y: 1.0000004, z: 1.0000001}
     - name: Bip001 L Finger01
       parentName: Bip001 L Finger0
@@ -874,8 +733,8 @@ ModelImporter:
       scale: {x: 1.0000006, y: 1.0000006, z: 1.0000005}
     - name: Bip001 R Finger0
       parentName: Bip001 R Hand
-      position: {x: -0.038251214, y: 0.008848739, z: 0.026987277}
-      rotation: {x: -0.4972461, y: 0.38653213, z: 0.18871762, w: 0.75347525}
+      position: {x: -0.038307242, y: 0.008868528, z: 0.026988111}
+      rotation: {x: -0.65820396, y: 0.2898247, z: 0.241537, w: 0.6514822}
       scale: {x: 1.0000004, y: 1, z: 1.0000004}
     - name: Bip001 R Finger01
       parentName: Bip001 R Finger0
@@ -953,7 +812,7 @@ ModelImporter:
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1.001034, y: 1.001034, z: 1.001035}
     - name: STYLIZED-BASEMESH-BIGMALE-OBJ
-      parentName: 00_T-pose_B(Clone)
+      parentName: 00_T-pose_A(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
@@ -969,7 +828,7 @@ ModelImporter:
     hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 8321412534aa4bc286915468eca78579, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e6ac180c3f2d4b6b9d7847b00381e5f7, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1

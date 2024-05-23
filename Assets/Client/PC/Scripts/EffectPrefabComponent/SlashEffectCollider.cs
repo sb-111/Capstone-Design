@@ -25,11 +25,11 @@ public class SlashEffectCollider : MonoBehaviour
     {
         if (other.tag == "MonsterEnemy" || other.tag == "Enemy" || other.tag == "Player")
         {
-            GameObject enemy = other.gameObject;
+            GameObject enemy = other.transform.root.gameObject;
 
             if (other.tag == "MonsterEnemy")
             {
-                Monster enemyDamage = enemy.GetComponentInParent<Monster>();
+                Monster enemyDamage = enemy.GetComponent<Monster>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     //충돌 프리팹 생성

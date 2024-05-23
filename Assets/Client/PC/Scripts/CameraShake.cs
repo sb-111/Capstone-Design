@@ -36,18 +36,7 @@ public class CameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))  {
-            if(!isShake)  {
-                StartCoroutine(Shake(0.1f,5.0f));
-            }
-        }
-            
-
-        if (Input.GetKeyDown(KeyCode.Z))   {
-            if(!isZoom)  {
-                StartCoroutine(ZoomCamera(defaultZoomInTime, defaultZoomOutTime, defaultZoomWaitTime, defaultZoomAmount));
-            }
-        }
+       
     }
     public void Shaking(float shakeTime = 0.1f, float amount = 5.0f)
     {

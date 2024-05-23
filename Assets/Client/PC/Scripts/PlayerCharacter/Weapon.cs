@@ -171,15 +171,19 @@ public class Weapon : MonoBehaviourPun
 
         if (other.tag == "MonsterEnemy" || other.tag == "Player" || other.tag == "Enemy")
         {
-            GameObject enemy = other.gameObject;
+            
+            GameObject enemy = other.transform.root.gameObject;
 
             if (other.tag == "MonsterEnemy")
             {
-                Monster enemyDamage = enemy.GetComponentInParent<Monster>();
+                Monster enemyDamage = enemy.GetComponent<Monster>();
                 if (!hitEnemies.Contains(enemy)) // 이미 공격한 적이 아니라면
                 {
                     hitEnemies.Add(enemy); // 이 적을 공격한 적 목록에 추가 //enemyDamage.curHP -= damage;//++ 여기에 enemy에게 데미지 적용하는 라인 추가 //if (hitEnemies.Contains(enemy))    {Debug.Log("추가됨");  }
                     enemyDamage.TakeDamage((result_damage));
+                    
+                    
+                    
                     GameObject hiteffectInstance = Instantiate(hitEffectPrefab, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     GameObject hiteffectInstance2 = Instantiate(hitEffectPrefab2, other.ClosestPointOnBounds(transform.position), Quaternion.identity);
                     soundEffect.PlayWeaponSound("Monster");
@@ -228,7 +232,7 @@ public class Weapon : MonoBehaviourPun
                     soundEffect.PlayWeaponSound("Monster");
                     Destroy(hiteffectInstance, 0.5f);
 
-                    if(isHeavyAttack) { Debug.Log("강공격 들어감"); }
+                    //if(isHeavyAttack) { Debug.Log("강공격 들어감"); }
                 }
             }
 

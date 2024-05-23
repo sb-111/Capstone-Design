@@ -47,6 +47,11 @@ public class MonsterAttackCTRL : MonoBehaviour
             weapon_right.WeaponOut();
     }
 
+    public void TriggerOff()
+    {
+        monster.TrasnformTriggerOut();
+    }
+
     //// called by animator
     //public void IsAttack()
     //{

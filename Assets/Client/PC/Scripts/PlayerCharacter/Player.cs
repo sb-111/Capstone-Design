@@ -152,6 +152,7 @@ public class Player : MonoBehaviourPun
         Debug.DrawRay(transform.position, transform.right * 10f, Color.blue);
 
         //장애물 감지
+        /*
         if(Physics.Raycast(transform.position, moveVec, out hit, distanceToObstacle))
         {
             if (!hit.collider.isTrigger)
@@ -159,7 +160,7 @@ public class Player : MonoBehaviourPun
                 moveVec = Vector3.zero;
             }
         }
-        
+        */
         if (isJump)
         {
             moveVec = jumpVec;
@@ -173,12 +174,14 @@ public class Player : MonoBehaviourPun
         // 월드 기준
         anim.SetBool("isWalk", moveVec != Vector3.zero);
         anim.SetBool("isRun", rDown);
+        anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+        anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         if (moveVec!=Vector3.zero)
         {
               movements = moveVec * speed * (rDown ? 2.0f : 1.0f) * Time.deltaTime;
               characterController.Move(movements);
-              anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
-              anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
+              //anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
+              //anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         }
         MoveSound();
     }
@@ -202,7 +205,7 @@ public class Player : MonoBehaviourPun
             isJump = true;
             anim.SetTrigger("doJump");
             characterSound.PlayCharacterSound("Roll");
-            Invoke("JumpOut", 1.16f);
+            Invoke("JumpOut", 1.0f);
         }
     }
 
@@ -282,6 +285,7 @@ public class Player : MonoBehaviourPun
 
     void strongAttack()
     {
+        if (!attack_controller.strongCoolTime)
         attack_controller.strongAttack();
     }
 

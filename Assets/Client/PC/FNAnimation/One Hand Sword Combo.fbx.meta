@@ -229,28 +229,28 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.039999984
+      - time: 0.0010705437
         functionName: isAttackAnimation
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9970588
-        functionName: isAttackAnimationEnd
+      - time: 0.98053527
+        functionName: WeaponAttackOut
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 1
-        functionName: WeaponAttackOut
+      - time: 0.9994919
+        functionName: isAttackAnimationEnd
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -8,25 +8,28 @@ using UnityEngine.UIElements;
 
 public class AttackController : MonoBehaviour
 {
-    // Àü»ç´Â weapon_right¸¸ »ç¿ë ******** ¾î½Ø½ÅÀº µÑ ´Ù »ç¿ë
-    [Header("¼öµ¿ ¼³Á¤")]
+    // ì „ì‚¬ëŠ” weapon_rightë§Œ ì‚¬ìš© ******** ì–´ìŒ”ì‹ ì€ ë‘˜ ë‹¤ ì‚¬ìš©
+    [Header("ìˆ˜ë™ ì„¤ì •")]
     public Weapon weapon_left;
     public Weapon weapon_right;
 
-    [Header("ÀÚµ¿ ¼³Á¤")]
+    [Header("ìë™ ì„¤ì •")]
     public CameraShake cameraEffect;
     Animator anim;
     Player player_controller;
     [HideInInspector]
-    public bool stepupBuffer= false;        //¾î½Ø½Å Ä³¸¯ÅÍ EÅ° °­È­ ¿©ºÎ
+    public bool stepupBuffer= false;        //ì–´ìŒ”ì‹  ìºë¦­í„° Eí‚¤ ê°•í™” ì—¬ë¶€
     [HideInInspector]
-    public int curAttack;                   //ÇöÀç °ø°İ °ª
+    public int curAttack;                   //í˜„ì¬ ê³µê²© ê°’
 
+    public bool strongCoolTime { get; private set; }
 
     private void Awake()
     {
        anim = GetComponent<Animator>();
        player_controller = GetComponent<Player>();
+       //cameraEffect = GetComponentInChildren<CameraShake>();
+        strongCoolTime = false;
        cameraEffect = GameManager.Instance.SetEffect();
 
     }
@@ -62,11 +65,13 @@ public class AttackController : MonoBehaviour
 
     public void strongAttack()
     {
+        strongCoolTime = true;
         if(player_controller.isAttack) { return; }
         StartCoroutine(coStrongAttack());
     }
     IEnumerator coStrongAttack()
     {
+        Debug.Log("ì¿¨íƒ€ì„ ì…ë‹ˆë‹¤.");
         anim.SetTrigger("doStrongAttack");
         /*
         yield return new WaitForSeconds(0.58f);
@@ -76,7 +81,9 @@ public class AttackController : MonoBehaviour
         yield return new WaitForSeconds(1.18f);
         cameraShaking.Shaking(0.5f,7.5f);
         */
-        yield return null;
+        yield return new WaitForSeconds(10.0f);
+        Debug.Log("ì¿¨íƒ€ì„ ëë‚¬ ìŠµë‹ˆë‹¤.");
+        strongCoolTime = false;
     }
     public void parryingAttack()
     {
@@ -93,7 +100,7 @@ public class AttackController : MonoBehaviour
     }
 
 
-    public void Parrying() // Áï½Ã ÆĞ¸µ ¾Ö´Ï¸ŞÀÌ¼Ç
+    public void Parrying() // ì¦‰ì‹œ íŒ¨ë§ ì• ë‹ˆë©”ì´ì…˜
     {
         anim.SetTrigger("Parried");
     }
@@ -102,7 +109,7 @@ public class AttackController : MonoBehaviour
 
 
 
-    //°ø°İ Ä«¸Ş¶ó È¿°ú
+    //ê³µê²© ì¹´ë©”ë¼ íš¨ê³¼
     public void ShakeCamera()
     {
         cameraEffect.Shaking(0.5f, 2.0f);
@@ -113,7 +120,7 @@ public class AttackController : MonoBehaviour
     }
 
 
-    //°ø°İ&¹æ¾î ÀÌÆåÆ®
+    //ê³µê²©&ë°©ì–´ ì´í™íŠ¸
     public void SwordEffect(int value = 0)
     {
         if (value != 0)
@@ -154,7 +161,7 @@ public class AttackController : MonoBehaviour
         if (weapon_left != null) { weapon_left.isHeavyAttack = true; }
     }
 
-    //¾î½Ø½Å EÅ°(°­È­) ½ºÅ³
+    //ì–´ìŒ”ì‹  Eí‚¤(ê°•í™”) ìŠ¤í‚¬
     public void AssassinStepUp()
     {
         stepupBuffer = true;
