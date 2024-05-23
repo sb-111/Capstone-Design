@@ -42,7 +42,8 @@ public class MonsterSpawner : MonoBehaviour
             else
             {
                 Debug.Log("실패");
-                yield return new WaitForSeconds(createTime);
+                //yield return new WaitForSeconds(createTime);
+                yield return new WaitForSeconds(60f); // 몬스터 죽고 1분 후 생성
             }
         }
     }
