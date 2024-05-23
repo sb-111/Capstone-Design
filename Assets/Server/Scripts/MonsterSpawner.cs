@@ -37,13 +37,13 @@ public class MonsterSpawner : MonoBehaviour
                 Debug.Log("소환");
                  PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
                 //Instantiate(mon, transform.position, transform.rotation);
-                yield return new WaitForSeconds(createTime);
+                yield return new WaitForSeconds(createTime + Random.Range(0, 5));
             }
             else
             {
                 Debug.Log("실패");
                 //yield return new WaitForSeconds(createTime);
-                yield return new WaitForSeconds(60f); // 몬스터 죽고 1분 후 생성
+                yield return new WaitForSeconds(createTime + Random.Range(0, 5)); // 몬스터 죽고 1분 후 생성
             }
         }
     }
