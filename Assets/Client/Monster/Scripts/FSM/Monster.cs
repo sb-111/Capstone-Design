@@ -268,7 +268,9 @@ public class Monster : MonoBehaviour
         float height = 2.0f;
         Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
        
-        GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity);
+        GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity); // 소울 Instantiate
+        Soul cshSoul = droppedSoul.GetComponent<Soul>(); // 해당 소울의 스크립트 가져오기
+        cshSoul.SetMonsterType(_monsterType); // 몬스터 타입 전달
         SetState(new DeadState(this));
     }
 
