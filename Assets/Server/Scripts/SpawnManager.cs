@@ -18,10 +18,8 @@ public class SpawnManager : MonoBehaviour
     private GameObject timer;
     [Header("몬스터 설정")]
     public GameObject[] monsterPrefabs;
-    public GameObject goblin;
-    public GameObject hobgoblin;
-    public GameObject kobold;
-    public GameObject Troll;
+    
+
     public int cyclopsMax;
     public int goblinMax;
     public int hobgoblinMax;

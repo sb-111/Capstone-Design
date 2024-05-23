@@ -12,11 +12,14 @@ public class PortalSpawnerManager : MonoBehaviourPun
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("충돌");
-        if (coll.tag == "Melee")
+        Debug.Log("Collision detected with " + coll.name);
+        if (coll.tag == "Player")
         {
+            //임시로 플레이어가 닿으면으로
             GameManager.Instance.DefenceStart();
-            PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
-            
+            PhotonView collPhotonView = coll.GetComponent<PhotonView>();
+            //PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
+
             string playerID = collPhotonView.Owner.NickName;
             GameManager.Instance.GetPortal(playerID);
             

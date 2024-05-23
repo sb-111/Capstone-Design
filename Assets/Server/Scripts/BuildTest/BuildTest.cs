@@ -16,6 +16,10 @@ public class BuildTest : MonoBehaviourPun
     private GameObject preview;
     public GameObject[] buildArray = new GameObject[4];
     public GameObject[] previewArray = new GameObject[4];
+    public int[] maxBuilds = new int[4];
+    int nowBuild;
+
+    public int[] buildNums = new int[4];
 
     public float rotationSpeed = 50f;
     private float height = 0;
@@ -32,6 +36,11 @@ public class BuildTest : MonoBehaviourPun
 
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true)
         {
+            return;
+        }
+        if (GameManager.Instance.mode != 1)
+        {
+            DestroyPreview();
             return;
         }
 
@@ -58,7 +67,10 @@ public class BuildTest : MonoBehaviourPun
             
             if (Input.GetKeyDown(KeyCode.T))
             {
-                Build();
+                if (maxBuilds[nowBuild] >= buildNums[nowBuild])
+                    Build();
+                else
+                    Debug.Log("개수초과");
                 
                 Debug.Log("설치");
             }
@@ -97,6 +109,7 @@ public class BuildTest : MonoBehaviourPun
     {
         buildingPrefab= buildArray[x];
         previewPrefab= previewArray[x];
+        nowBuild = x;
         DestroyPreview();
         PlacePreview();
     }
@@ -117,6 +130,7 @@ public class BuildTest : MonoBehaviourPun
 
     void Build()
     {
+        buildNums[nowBuild]++;
         DestroyPreview();
         //PhotonNetwork.Instantiate(buildingPrefab.name, preview.transform.position, preview.transform.rotation);
       
