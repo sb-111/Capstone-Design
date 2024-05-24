@@ -8,18 +8,19 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Tower
-  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 9ebb2a1b29220ba479c554c51eb390ba, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
+  m_InvalidKeywords:
   - _NORMALMAP_TANGENT_SPACE
-  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2225
-  stringTagMap: {}
+  stringTagMap:
+    MotionVector: User
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -30,6 +31,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Smoothness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -164,6 +169,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Boolean_8D2075D0: 1
+    - Boolean_8DF6575E: 1
+    - Vector1_19174781: 1
+    - Vector1_2E02C893: 1
+    - Vector1_31C5A0D2: 1
+    - Vector1_5DE2A733: 1
+    - Vector1_5E4C65CA: 1
+    - Vector1_60757AD5: 0
+    - Vector1_99C632AB: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -182,6 +196,7 @@ Material:
     - _BlendMode: 0
     - _BumpScale: 1
     - _CoatMask: 0
+    - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
@@ -245,6 +260,8 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -256,10 +273,12 @@ Material:
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
     - _StencilWriteMaskDepth: 9
+    - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _SubsurfaceMask: 1
@@ -288,6 +307,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_B058D3E1: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

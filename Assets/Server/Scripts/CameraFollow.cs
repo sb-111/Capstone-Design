@@ -11,8 +11,8 @@ public class CameraFollow : MonoBehaviourPunCallbacks
     [SerializeField] private float sensivity = 1.0f;
     [SerializeField] private float speed = 3.0f;
     float currentY = 0f;
-    Player target;
-    bool isFollowing = false;
+    public Player target;
+    public bool isFollowing = false;
 
     bool isDie = false;
     bool isSpawn = false;

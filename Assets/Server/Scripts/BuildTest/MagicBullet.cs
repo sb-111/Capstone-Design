@@ -12,9 +12,9 @@ public class MagicBullet : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        thisTransform = GetComponent<Transform>();
-        FireBullet();
-        Invoke("DestoryBullet", 5f);
+        //thisTransform = GetComponent<Transform>();
+        //FireBullet();
+        //Invoke("DestoryBullet", 5f);
     }
 
     void FireBullet()

@@ -12,7 +12,7 @@ public class MagicTower : MonoBehaviour
     private float cooldown = 3f; // 마법 발사 쿨타임
     private float nextFireTime = 0f; // 다음 마법 발사 시간
     private bool isCoolingDown = false; // 쿨타임 중인지 여부
-
+    public GameObject bullet;
     void Start()
     {
 
@@ -24,15 +24,15 @@ public class MagicTower : MonoBehaviour
     {
         if (!isCoolingDown && !hasMonsterPosition)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position - new Vector3(0, 4, 0), detectionRadius);
+            Collider[] colliders = Physics.OverlapSphere(transform.position - new Vector3(0, 5, 0), detectionRadius);
 
             foreach (Collider collider in colliders)
             {
-                if (collider.CompareTag("Player"))
+                if (collider.CompareTag("MonsterEnemy"))
                 {
 
 
-                    lastMonsterPosition = collider.transform.position + new Vector3(0, 1, 0);
+                    lastMonsterPosition = collider.transform.position + new Vector3(0, 2, 0);
                     transform.LookAt(lastMonsterPosition);
                     hasMonsterPosition = true;
                     StartCooldown(); //쿨타임
@@ -53,7 +53,7 @@ public class MagicTower : MonoBehaviour
 
 
 
-        var bullet = ObjectPool.GetObject(transform);
+        Instantiate(bullet, transform.position,transform.rotation);
 
 
 
@@ -79,6 +79,6 @@ public class MagicTower : MonoBehaviour
     {
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position - new Vector3(0, 4, 0), detectionRadius);
+        Gizmos.DrawWireSphere(transform.position - new Vector3(0, 5, 0), detectionRadius);
     }
 }
