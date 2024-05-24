@@ -14,7 +14,7 @@ public class PortalManager : MonoBehaviourPun
     [SerializeField] int stime = 5;
     [SerializeField] int tmax = 5;
     [SerializeField] int ttime = 3;
-
+    public GameObject mot; 
     int mod = 0;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class PortalManager : MonoBehaviourPun
 
     void OnEnable()
     {
+        mot.gameObject.SetActive(false);
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].gameObject.SetActive(true);
@@ -34,7 +35,8 @@ public class PortalManager : MonoBehaviourPun
     {
          for (int i = 0; i<enemies.Length; i++)
         {
-     
+           mot.gameObject.SetActive(true);
+
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
         }
 
