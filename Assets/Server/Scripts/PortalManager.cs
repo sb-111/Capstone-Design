@@ -7,18 +7,73 @@ using Photon.Realtime;
 public class PortalManager : MonoBehaviourPun
 {
     [SerializeField] int currentHP = 100;
+    [SerializeField] GameObject[] enemies;
+    [SerializeField] int fmax = 1;
+    [SerializeField] int ftime = 5;
+    [SerializeField] int smax = 3;
+    [SerializeField] int stime = 5;
+    [SerializeField] int tmax = 5;
+    [SerializeField] int ttime = 3;
+
+    int mod = 0;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
+    void OnEnable()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            enemies[i].gameObject.SetActive(true);
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax,ftime);
+        }
+    }
+    void monSpawn2()
+    {
+         for (int i = 0; i<enemies.Length; i++)
+        {
+     
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
+        }
+
+    }
+    void monSpawn3()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
         if (IsBreak())
         {
             Break();
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+             monSpawn2();
+           
+        
+       
+         
+            
+            Debug.Log("몬스터 시작");
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+     
+
+
+            monSpawn3();
+
+
+            Debug.Log("몬스터 시작");
         }
     }
 
