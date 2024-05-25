@@ -9,11 +9,12 @@ public class PortalManager : MonoBehaviourPun
     [SerializeField] int currentHP = 100;
     [SerializeField] GameObject[] enemies;
     [SerializeField] int fmax = 1;
-    [SerializeField] int ftime = 5;
+    [SerializeField] int ftime = 3;
     [SerializeField] int smax = 3;
-    [SerializeField] int stime = 5;
+    [SerializeField] int stime = 2;
     [SerializeField] int tmax = 5;
-    [SerializeField] int ttime = 3;
+    [SerializeField] int ttime = 1;
+    [SerializeField] int waittime =5;
     public GameObject mot; 
     int mod = 0;
     // Start is called before the first frame update
@@ -25,11 +26,18 @@ public class PortalManager : MonoBehaviourPun
     void OnEnable()
     {
         mot.gameObject.SetActive(false);
+        Invoke("monspawn", waittime+10);
+
+    }
+    void monspawn()
+    {
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].gameObject.SetActive(true);
-            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax,ftime);
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax, ftime);
         }
+        Invoke("monspawn2", waittime+10);
+
     }
     void monSpawn2()
     {
@@ -39,14 +47,14 @@ public class PortalManager : MonoBehaviourPun
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
         }
-
+        Invoke("monspawn3", waittime+15);
     }
     void monSpawn3()
     {
         for (int i = 0; i < enemies.Length; i++)
         {
 
-            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime+20);
         }
 
     }
@@ -57,26 +65,7 @@ public class PortalManager : MonoBehaviourPun
         {
             Break();
         }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-             monSpawn2();
-           
-        
-       
-         
-            
-            Debug.Log("몬스터 시작");
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-     
-
-
-            monSpawn3();
-
-
-            Debug.Log("몬스터 시작");
-        }
+  
     }
 
     void OnTriggerEnter(Collider coll)

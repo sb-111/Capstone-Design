@@ -7,6 +7,7 @@ public class CreatePortal : MonoBehaviour
     public Vector3 raisePosition = new Vector3(0, 0, 0); 
     public float speed = 5f;
     public GameObject portal;
+    public GameObject bomb;
     bool isRaising = false;
     private Collider[] allColliders;
     private Rigidbody[] allRigidbodies;
@@ -15,6 +16,7 @@ public class CreatePortal : MonoBehaviour
     {
         allRigidbodies = this.GetComponentsInChildren<Rigidbody>();
         portal.gameObject.SetActive(false);
+        bomb.gameObject.SetActive(false);
         DisableAllColliders();
     }
 
@@ -24,6 +26,7 @@ public class CreatePortal : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             isRaising = true;
+            bomb.gameObject.SetActive(true);
         }
 
         if (isRaising)
