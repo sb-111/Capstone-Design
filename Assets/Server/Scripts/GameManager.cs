@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void DefenceStart()
     {
-        mode = 1;
+        PV.RPC("StartDefence", RpcTarget.All);
         SpawnManager.Instance.TimerDestroy();
         setTime = setDefenceTime;
         SpawnManager.Instance.TimerSpawn();
@@ -204,9 +204,15 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartSetting()
     {
-        mode = 1;
+        mode = 0;
         isPlaying = true;
 
+    }
+    [PunRPC]
+    public void StartDefence()
+    {
+        mode = 1;
+        
     }
     void LoadArena()
     {
