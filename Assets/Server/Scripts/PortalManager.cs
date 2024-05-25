@@ -22,7 +22,10 @@ public class PortalManager : MonoBehaviourPun
     {
         
     }
-
+    public bool getDefense()
+    {
+        return true;
+    }
     void OnEnable()
     {
         mot.gameObject.SetActive(false);

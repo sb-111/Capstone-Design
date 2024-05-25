@@ -72,7 +72,8 @@ public class Monster : MonoBehaviour
     [SerializeField] CapsuleCollider bodyCollider;
 
     private bool isDead = false;
-
+    private bool isDefense = false;
+    private PortalManager portalManager;
     private void Awake()    
     {
         Rigid = GetComponent<Rigidbody>();
@@ -87,12 +88,87 @@ public class Monster : MonoBehaviour
     {
         // fsm 세팅
         _fsm = new FSM(this);
-
+        portalManager = GameObject.FindWithTag("Portal").GetComponent<PortalManager>();
         // 
     }
 
     void Update()
     {
+        //디펜스 모드 수정
+        if (portalManager.getDefense())
+        {
+            isDefense = true;
+            SetState(new DefenseState(this));
+        }
+
+        if (isDefense)
+        {
+            switch (_fsm.CurrentState) // fsm의 현재상태 프로퍼티 접근
+            {
+                case DefenseState:
+                    if (CheckPlayerInSight()) // 시야 범위 내
+                    {
+                        if (CheckAttackRange()) // 사정거리 안
+                        {
+                            SetState(new AttackState(this));
+                        }
+                        else // 사정거리 밖
+                        {
+                            SetState(new ChaseState(this));
+                        }
+                    }
+                    //IsMoving();
+                    break;
+
+                case ChaseState:
+                    if (CheckPlayerInSight()) // 시야 범위 내
+                    {
+                        if (CheckAttackRange()) // 사정거리 안
+                        {
+                            SetState(new AttackState(this));
+                        }
+                    }
+                    else // 시야 범위 밖
+                    {
+                        SetState(new DefenseState(this));
+                    }
+                    //IsMoving();
+                    break;
+
+                case AttackState:
+                    if (CheckPlayerInSight()) // 시야 범위 내 
+                    {
+                        if (!CheckAttackRange()) // 공격 범위 밖
+                        {
+                            SetState(new ChaseState(this));
+                        }
+                    }
+                    else // 시야 범위 밖
+                    {
+                        SetState(new DefenseState(this));
+                    }
+                    break;
+
+                case HitState:
+                    if (Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.95f)
+                    {
+                        return;                     //피격 애니메이션 실행률 95%이하면 X
+                    }
+                    else // Hit -> Chase
+                    {
+                        SetState(new ChaseState(this));
+                        // Chase ->
+                        // 시야밖: Idle
+                        // 시야 범위 내 사정거리 밖: Chase
+                        // 시야 범위 내 사정거리 안: Attack
+                    }
+                    break;
+            }
+        }
+        //문제 발생시 여기 삭제 하면 됨
+        else
+        { 
+      
         // _fsm을 통한 상태 변경 부분
         switch (_fsm.CurrentState) // fsm의 현재상태 프로퍼티 접근
         {
@@ -155,7 +231,7 @@ public class Monster : MonoBehaviour
                 }
                 break;
         }
-
+        }
         // _fsm을 통해 변경된 상태를 실행
         _fsm.ExecuteState();
     }
