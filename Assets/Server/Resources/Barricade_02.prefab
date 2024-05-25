@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1388730028937966231}
   - component: {fileID: -1839638260681657911}
   - component: {fileID: -567820688651520210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Barricade_02
   m_TagString: Build
   m_Icon: {fileID: 0}

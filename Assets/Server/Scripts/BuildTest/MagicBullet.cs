@@ -15,6 +15,7 @@ public class MagicBullet : MonoBehaviour
         //thisTransform = GetComponent<Transform>();
         //FireBullet();
         //Invoke("DestoryBullet", 5f);
+        Destroy(gameObject,10);
     }
 
     void FireBullet()
@@ -24,12 +25,13 @@ public class MagicBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "MonsterEnemy")
         {
-            GameObject player = other.gameObject;
-            CombatStatusManager combatStatus = player.GetComponent<CombatStatusManager>();
-            combatStatus.TakeDamage((20 + weapon_damage));
-            ObjectPool.ReturnObject(this);
+            GameObject enemy = other.transform.root.gameObject;
+            Monster enemyDamage = enemy.GetComponent<Monster>();
+            enemyDamage.TakeDamage(300);
+           
+         
 
         }
        

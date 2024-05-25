@@ -31,7 +31,15 @@ public class CombatStatusManager : MonoBehaviourPun
 
     public void TakeDamage(int damage)
     {
-        pv.RPC("RPCDamage", RpcTarget.All, damage);
+        int result_damage = (int)(damage * (1 - (player_status.basicStats.def / (player_status.basicStats.def + player_status.combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
+        //player_status.basicStats.hp -= result_damage; // 캡슐화 이용한 밑줄이 더 적합
+        player_status.DecreaseHP(result_damage);
+        //Debug.Log(result_damage);
+        if (result_damage > 0 && player.isDefense) //플레이어가 현재 방패로 막는 중이라면 디펜싱 히트로
+        {
+            player.DefensingHit();
+        }
+        //pv.RPC("RPCDamage", RpcTarget.All, damage);
         //서버 접속하지 않았을 시 아래 함수 사용
     }
 

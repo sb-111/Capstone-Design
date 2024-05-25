@@ -29,37 +29,40 @@ public class PortalManager : MonoBehaviourPun
     void OnEnable()
     {
         mot.gameObject.SetActive(false);
-        Invoke("monspawn", waittime+10);
+        Invoke("monSpawn", waittime+10);
+       
+     
 
     }
-    void monspawn()
+    void monSpawn()
     {
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].gameObject.SetActive(true);
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax, ftime);
         }
-        Invoke("monspawn2", waittime+10);
+        Invoke("monSpawn2", 10);
 
     }
     void monSpawn2()
     {
-         for (int i = 0; i<enemies.Length; i++)
+        mot.gameObject.SetActive(true);
+        for (int i = 0; i<enemies.Length; i++)
         {
-           mot.gameObject.SetActive(true);
+          
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
         }
-        Invoke("monspawn3", waittime+15);
+        Invoke("monSpawn3", waittime + 10);
     }
     void monSpawn3()
     {
         for (int i = 0; i < enemies.Length; i++)
         {
 
-            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime+20);
+            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
         }
-
+    
     }
     // Update is called once per frame
     void Update()

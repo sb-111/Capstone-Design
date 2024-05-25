@@ -26,6 +26,8 @@ public class Monster : MonoBehaviour
     [SerializeField]
     private LayerMask obstacleLayer; // 장애물 레이어
     [SerializeField]
+    private LayerMask Wall; // 구조물 레이어
+    [SerializeField]
     private LayerMask playerLayer; // 플레이어 레이어
     [SerializeField]
     private float sightRange = 10f; // 몬스터의 시야 범위(원형)
@@ -117,11 +119,30 @@ public class Monster : MonoBehaviour
                             SetState(new ChaseState(this));
                         }
                     }
+                    else if (CheckBuildInSight()) // 시야 범위 내
+                    {
+                        Debug.Log("벽 확인 했나");
+                        if (CheckAttackRange()) // 사정거리 안
+                        {
+                            SetState(new AttackState(this));
+                        }
+                        else // 사정거리 밖
+                        {
+                            SetState(new ChaseState(this));
+                        }
+                    }
                     //IsMoving();
                     break;
 
                 case ChaseState:
                     if (CheckPlayerInSight()) // 시야 범위 내
+                    {
+                        if (CheckAttackRange()) // 사정거리 안
+                        {
+                            SetState(new AttackState(this));
+                        }
+                    }
+                    else if (CheckBuildInSight()) // 시야 범위 내
                     {
                         if (CheckAttackRange()) // 사정거리 안
                         {
@@ -137,6 +158,13 @@ public class Monster : MonoBehaviour
 
                 case AttackState:
                     if (CheckPlayerInSight()) // 시야 범위 내 
+                    {
+                        if (!CheckAttackRange()) // 공격 범위 밖
+                        {
+                            SetState(new ChaseState(this));
+                        }
+                    }
+                    else if (CheckBuildInSight()) // 시야 범위 내 
                     {
                         if (!CheckAttackRange()) // 공격 범위 밖
                         {
@@ -241,7 +269,34 @@ public class Monster : MonoBehaviour
         Vector3 directionToPlayer = TargetPlayer.position - transform.position;
         return directionToPlayer.magnitude < attackRange;
     }
+    private bool CheckBuildInSight()
+    {
+        // 1. sightRange(시야범위) 내 playerLayer 검출
+        Collider[] colliders = Physics.OverlapSphere(transform.position, sightRange, Wall);
+      
+        // 2. colliders에 대해서 검사 
 
+        foreach (var collider in colliders)
+        {
+            Transform player = collider.transform;
+            // 몬스터->플레이어 방향벡터
+            Vector3 directionToPlayer = (player.position - transform.position);
+            // 방향벡터와 전방벡터 각도
+            float angle = Vector3.Angle(directionToPlayer, transform.forward);
+
+            if (angle < fieldOfView / 2) // 시야각/2 보다 작으면 플레이어가 있음을 의미
+            {
+                // Raycast(원점, 방향단위벡터, 최대길이, 검출 원하는 layerMask)
+                if (!Physics.Raycast(transform.position, directionToPlayer.normalized, directionToPlayer.magnitude, obstacleLayer))
+                {
+                    TargetPlayer = player; // 타겟 설정
+                    return true; // 시야 범위 내 플레이어 존재 && 장애물 없는 경우
+                }
+            }
+        }
+        //TargetPlayer = null;
+        return false; // 시야 범위 내 플레이어 없음 || 장애물 존재
+    }
     private bool CheckPlayerInSight()
     {
         // 1. sightRange(시야범위) 내 playerLayer 검출

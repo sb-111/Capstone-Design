@@ -26,14 +26,15 @@ public class MonsterEndSpawn : MonoBehaviour
     {
         while (max>=num)
           {
-
+            Debug.Log(num + "몬스터 생성 체크");
            // Instantiate(mon, transform.position + new Vector3(2, 0, 4), transform.rotation);
-            Instantiate(mon, transform.position+new Vector3(2,0,0), transform.rotation);
+            //Instantiate(mon, transform.position+new Vector3(2,0,0), transform.rotation);
             Instantiate(boss, transform.position + new Vector3(0, 0, 4), transform.rotation);
-            Instantiate(mon, transform.position + new Vector3(-2, 0, 0), transform.rotation);
+            //Instantiate(mon, transform.position + new Vector3(-2, 0, 0), transform.rotation);
             //Instantiate(mon, transform.position + new Vector3(-2, 0, -4), transform.rotation);
-            yield return new WaitForSeconds(time);
             num++;
+            yield return new WaitForSeconds(time);
+         
          }
     }
     // Update is called once per frame
