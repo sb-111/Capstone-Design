@@ -17,6 +17,8 @@ public class PortalManager : MonoBehaviourPun
     [SerializeField] int waittime =5;
     public GameObject mot; 
     bool isGame = false;
+    public GameObject fportal;
+    public GameObject sportal;
     int mode = 0;
     int line = 1;
     int monnum = 0;
@@ -32,6 +34,8 @@ public class PortalManager : MonoBehaviourPun
     void OnEnable()
     {
         mot.gameObject.SetActive(false);
+        fportal.gameObject.SetActive(false);
+        sportal.gameObject.SetActive(false);
         Invoke("monSpawn", waittime+10);
         SpawnManager.Instance.TimerDestroy();
         GameManager.Instance.setTime = waittime + 10;
@@ -55,6 +59,7 @@ public class PortalManager : MonoBehaviourPun
     {
         Debug.Log("2¶ó");
         mot.gameObject.SetActive(true);
+        fportal.gameObject.SetActive(true);
         for (int i = 0; i<enemies.Length; i++)
         {
           
@@ -66,6 +71,7 @@ public class PortalManager : MonoBehaviourPun
     }
     void monSpawn3()
     {
+        sportal.gameObject.SetActive(true);
         Debug.Log("3¶ó");
         for (int i = 0; i < enemies.Length; i++)
         {
