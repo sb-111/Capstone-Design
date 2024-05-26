@@ -328,6 +328,10 @@ public class Monster : MonoBehaviour
     // 상태 변경 _fsm에 위임
     private void SetState(IMonsterState state)
     {
+        if (_fsm.CurrentState is DeadState)
+        {
+            return;
+        }
         _fsm.SetState(state);
     }
     
