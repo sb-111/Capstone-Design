@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8418263761003260056}
-  - component: {fileID: 6906560558786286651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger0
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 1827494999537020976}
   m_Father: {fileID: 1767160498360459453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6906560558786286651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 28274384593909600}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.001, y: 0.001, z: 0.001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &480817633438815965
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7404378695424491274}
   - component: {fileID: 3035551400544731386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -118,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9181911938628398495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4242526320520815366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1827494999537020976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7014716879048258581}
   - component: {fileID: 7026654749605257860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -268,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538881178242474370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Front_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506912175155982059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3526292101825747244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Back_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 644417381855510288}
   - component: {fileID: 1224301446987713712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_HobgoblinBody 70p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206491598212172791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3053739263391010904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 660307874250252923}
   - component: {fileID: 4887711995176028239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_HobgoblinBody 30p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1741988955617733412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974016999706364955}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780065}
   - component: {fileID: 1622190705964612181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780067}
   - component: {fileID: 1622190705964612183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_FlankProtection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622190705950780071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,7 +953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780073}
   - component: {fileID: 1622190705964612189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_HobgoblinBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780077}
   - component: {fileID: 1622190705964612177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_ForearmStraps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1198,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780079}
   - component: {fileID: 1622190705964612179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1264,7 @@ GameObject:
   - component: {fileID: 1622190705950780081}
   - component: {fileID: 1622190705949977411}
   - component: {fileID: 1622190705949010307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bracelet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1347,7 @@ GameObject:
   - component: {fileID: 1622190705950780083}
   - component: {fileID: 1622190705949977421}
   - component: {fileID: 1622190705949010317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_HobgoblinMace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780085}
   - component: {fileID: 1622190705964612185}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_ShoulderPadLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1543,7 +1521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1622190705950780087}
   - component: {fileID: 1622190705964612187}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_SpikyShoulderPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1612,7 @@ GameObject:
   - component: {fileID: 1622190705950780093}
   - component: {fileID: 1622190705949977423}
   - component: {fileID: 1622190705949010319}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Horns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1715,9 +1693,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622190705950780147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: root
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1754,10 +1732,10 @@ GameObject:
   - component: {fileID: 4101444167090578962}
   - component: {fileID: -3658414497817258718}
   - component: {fileID: 753876089268239751}
-  - component: {fileID: 9205635293811952481}
-  - component: {fileID: 7348480160070724389}
-  - component: {fileID: -397094293700184303}
-  m_Layer: 0
+  - component: {fileID: 9171449496613502994}
+  - component: {fileID: 3408500169649500352}
+  - component: {fileID: 5515420492053065023}
+  m_Layer: 6
   m_Name: Hobgoblin_PBR 1
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1886,8 +1864,8 @@ MonoBehaviour:
   fieldOfView: 160
   attackRange: 4.8
   basicCoolTime: 3
-  maxHP: 100
-  currentHP: 100
+  maxHP: 0
+  currentHP: 0
   attackPower: 5
   def: 10
   constant_def: 100
@@ -1896,8 +1874,13 @@ MonoBehaviour:
   skin_70p: {fileID: 1304308497229441576}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
-  ArmCollider: []
-  bodyCollider: {fileID: 0}
+  ArmCollider:
+  - {fileID: 1420806974968798029}
+  - {fileID: 8632792034521292918}
+  - {fileID: 7850202463393269932}
+  - {fileID: 6975759221636270268}
+  - {fileID: 3035551400544731386}
+  bodyCollider: {fileID: 5222810403382859813}
 --- !u!114 &4101444167090578962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2022,7 +2005,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: f4d9fc1eddc768545a2cdeaf3ea18fda, type: 3}
---- !u!114 &9205635293811952481
+--- !u!114 &9171449496613502994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622190705950947033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Run
+  - Type: 4
+    SynchronizeType: 1
+    Name: Walk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doDie
+  - Type: 9
+    SynchronizeType: 1
+    Name: getHit
+  - Type: 3
+    SynchronizeType: 1
+    Name: randomValue
+  - Type: 9
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 9
+    SynchronizeType: 1
+    Name: Parried
+  - Type: 9
+    SynchronizeType: 0
+    Name: doParrying
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &3408500169649500352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2041,12 +2066,12 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 7348480160070724389}
-  - {fileID: -397094293700184303}
+  - {fileID: 9171449496613502994}
+  - {fileID: 5515420492053065023}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &7348480160070724389
+--- !u!114 &5515420492053065023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2055,81 +2080,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622190705950947033}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 0
-    Name: doDie
-  - Type: 4
-    SynchronizeType: 0
-    Name: Run
-  - Type: 4
-    SynchronizeType: 0
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 0
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 0
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 0
-    Name: randomValue
-  - Type: 9
-    SynchronizeType: 0
-    Name: doParrying
-  - Type: 9
-    SynchronizeType: 0
-    Name: Parried
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
---- !u!114 &-397094293700184303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622190705950947033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: Run
-  - Type: 4
-    SynchronizeType: 1
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 1
-    Name: doDie
-  - Type: 9
-    SynchronizeType: 1
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 1
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 1
-    Name: randomValue
-  - Type: 9
-    SynchronizeType: 1
-    Name: Parried
-  - Type: 9
-    SynchronizeType: 0
-    Name: doParrying
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &1622190705950947075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622190705950780195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Horns_SLot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2171,7 +2128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1622190705950780259}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bracelet_Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2203,7 +2160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7882598866435416921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2235,7 +2192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8748619848066566913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2267,7 +2224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947094762645942053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Front_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2299,7 +2256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3820489467303440321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2331,7 +2288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4947882254325916782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ RThighTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2363,7 +2320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 789350167622891715}
   - component: {fileID: 1420806974968798029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2417,7 +2374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3923689936997790531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ LUpArmTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,7 +2405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2110361687677174166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Back_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2480,7 +2437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9027394706762517395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,7 +2471,7 @@ GameObject:
   - component: {fileID: 932036460876614912}
   - component: {fileID: 4640201259633064473}
   - component: {fileID: 15710361191622198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -2583,7 +2540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7004907762858403318}
   - component: {fileID: 567735832215630016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2637,7 +2594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721373684503916692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Ponytail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2668,7 +2625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8877052640678291084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2700,7 +2657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248330907360704844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2732,7 +2689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172524377990989023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Back_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2763,7 +2720,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2410338438771935416}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4952731233448832768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Front_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2829,7 +2786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7587518967882929540}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2865,7 +2822,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5843076003122595678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_EyeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2897,7 +2854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683190308053049915}
   - component: {fileID: 958006344470632988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2940,7 +2897,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2955,7 +2912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2245824893837085119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ShoudlerPadRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2986,7 +2943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6694304695533301997}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3018,7 +2975,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 176284959599006652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3050,7 +3007,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6437182082549956526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3083,7 +3040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4975436983901796599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3114,7 +3071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8001262732499186939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Back_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3146,7 +3103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497325908882325364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3178,7 +3135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8574685965608442923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R ForeTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3209,7 +3166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3020326915377165357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3240,7 +3197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1697340043439147192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ RCalfTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3272,7 +3229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829716315049599914}
   - component: {fileID: 7850202463393269932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Head
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -3328,7 +3285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3841726025545232731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3360,7 +3317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6951830185493607042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3392,7 +3349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5395524142878826286}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Back_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3425,7 +3382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9134104976284401420}
   - component: {fileID: 8632792034521292918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -3480,7 +3437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7760055652104997450}
   - component: {fileID: 5686340534843447626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_LegsStraps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3572,7 +3529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2520160753269957481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3608,7 +3565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1767160498360459453}
   - component: {fileID: 5268210041037193547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -3649,7 +3606,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3664,7 +3621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 183465883132543735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3697,7 +3654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8055157454215361467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Front_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3728,7 +3685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6958007857074734639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ LCalfTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3759,7 +3716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 563865734550522498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3790,7 +3747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3952184340816529717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3822,7 +3779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7733448548007690621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_EyeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3854,7 +3811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3499695654073149369}
   - component: {fileID: 5222810403382859813}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -3909,7 +3866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 460409372227911780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3941,7 +3898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4749519026636620159}
   - component: {fileID: 6975759221636270268}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -3995,7 +3952,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4334406022157813335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4027,7 +3984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9078259286090773980}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4058,7 +4015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 185302008202598232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -4090,7 +4047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7927713089458215456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4122,7 +4079,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757990509186460716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_Cloth_Front_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4154,7 +4111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 194500563663594624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ R Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4186,7 +4143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3695888645451764737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ RUpArmTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4217,7 +4174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3496580413339024036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4249,7 +4206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2987460181674830755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L ForeTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4280,7 +4237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 957903014165094748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ LThighTwist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4311,7 +4268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 553673817420832671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hobgoblin_ L Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}

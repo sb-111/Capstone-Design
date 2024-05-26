@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8990731889888843372}
   - component: {fileID: 6320218430151310429}
   - component: {fileID: 8638425287879710753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4508964183239257647}
   - component: {fileID: 159257711331895818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops 30p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6954150175283564829}
   - component: {fileID: 3119062876899599047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops 70p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 8921924304209698110}
   - component: {fileID: 4785813558816221277}
   - component: {fileID: 4039614350048068051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cyclops_PBR 1
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -481,6 +481,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
+  Wall:
+    serializedVersion: 2
+    m_Bits: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -639,7 +642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411650}
   - component: {fileID: 8931416526496482822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +782,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ROOT_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411616}
   - component: {fileID: 1427606088579079576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -929,7 +932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1119,7 +1122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1151,7 +1154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1247,7 +1250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1311,7 +1314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1374,7 +1377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411682}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1438,7 +1441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1501,7 +1504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,7 +1566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1598,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1632,7 +1635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411698}
   - component: {fileID: 4146783083003752845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1686,7 +1689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411700}
   - component: {fileID: 1532460066440572722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1740,7 +1743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411702}
   - component: {fileID: 1034735585518454105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Forearm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1793,7 +1796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1859,7 +1862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1891,7 +1894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411710}
   - component: {fileID: 2426555042294875948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1945,7 +1948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411584}
   - component: {fileID: 9125833166288993129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Forearm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1998,7 +2001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2034,7 +2037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2066,7 +2069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411590}
   - component: {fileID: 7658021370212390013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2120,7 +2123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411592}
   - component: {fileID: 701027947114134745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2173,7 +2176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2206,7 +2209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411596}
   - component: {fileID: 7671178383964935671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2259,7 +2262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2290,7 +2293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2355,7 +2358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411604}
   - component: {fileID: 6705481467997214080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Pelvis
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2412,7 +2415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Ponytail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2443,7 +2446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2474,7 +2477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2506,7 +2509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2538,7 +2541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2572,7 +2575,7 @@ GameObject:
   - component: {fileID: 4615364213087587090}
   - component: {fileID: 2953048845922310992}
   - component: {fileID: 2394925852962736433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}

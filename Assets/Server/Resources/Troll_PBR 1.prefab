@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 286510334858345471}
   - component: {fileID: 1133948784914224939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Troll 30p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +134,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058752}
-  - component: {fileID: 6169783151429700402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger0
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,27 +157,6 @@ Transform:
   - {fileID: 2826394659216058758}
   m_Father: {fileID: 2826394659216058794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6169783151429700402
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826394659216291232}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.001, y: 0.001, z: 0.001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2826394659216291234
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058754}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058760}
   - component: {fileID: 3690869126080895054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -346,16 +324,16 @@ GameObject:
   - component: {fileID: 8777440285632183263}
   - component: {fileID: -7776741360413722282}
   - component: {fileID: 6233943786543579048}
-  - component: {fileID: 7081651989217780517}
-  - component: {fileID: -7631983457565799205}
-  - component: {fileID: -278090240603560571}
-  m_Layer: 0
+  - component: {fileID: 1125950119686187932}
+  - component: {fileID: -8132016893316773205}
+  - component: {fileID: -3826143824772136707}
+  m_Layer: 6
   m_Name: Troll_PBR 1
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2826394659216058762
 Transform:
   m_ObjectHideFlags: 0
@@ -472,8 +450,8 @@ MonoBehaviour:
   fieldOfView: 160
   attackRange: 6.8
   basicCoolTime: 3
-  maxHP: 100
-  currentHP: 100
+  maxHP: 0
+  currentHP: 0
   attackPower: 5
   def: 10
   constant_def: 100
@@ -482,8 +460,13 @@ MonoBehaviour:
   skin_70p: {fileID: 4207583234546886744}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
-  ArmCollider: []
-  bodyCollider: {fileID: 0}
+  ArmCollider:
+  - {fileID: 2546372002765788167}
+  - {fileID: 9220957822539146913}
+  - {fileID: 4676850797494472178}
+  - {fileID: 1976469409046074639}
+  - {fileID: 9057203925385273903}
+  bodyCollider: {fileID: 3690869126080895054}
 --- !u!114 &8777440285632183263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +591,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: fb2c830076cdcf7458e9f4b780379630, type: 3}
---- !u!114 &7081651989217780517
+--- !u!114 &1125950119686187932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &-8132016893316773205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826394659216291242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: Run
+  - Type: 4
+    SynchronizeType: 1
+    Name: Walk
+  - Type: 9
+    SynchronizeType: 1
+    Name: doDie
+  - Type: 9
+    SynchronizeType: 1
+    Name: getHit
+  - Type: 3
+    SynchronizeType: 1
+    Name: randomValue
+  - Type: 9
+    SynchronizeType: 1
+    Name: doAttack
+  - Type: 9
+    SynchronizeType: 1
+    Name: Parried
+  m_SynchronizeLayers:
+  - SynchronizeType: 1
+    LayerIndex: 0
+--- !u!114 &-3826143824772136707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,89 +665,11 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: -7631983457565799205}
-  - {fileID: -278090240603560571}
+  - {fileID: 1125950119686187932}
+  - {fileID: -8132016893316773205}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &-7631983457565799205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826394659216291242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 0
-    Name: Run
-  - Type: 4
-    SynchronizeType: 0
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 0
-    Name: doDie
-  - Type: 9
-    SynchronizeType: 0
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 0
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 0
-    Name: randomValue
-  - Type: 9
-    SynchronizeType: 0
-    Name: Parried
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
---- !u!114 &-278090240603560571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826394659216291242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: Run
-  - Type: 4
-    SynchronizeType: 1
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 1
-    Name: doDie
-  - Type: 9
-    SynchronizeType: 1
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 1
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 1
-    Name: randomValue
-  - Type: 9
-    SynchronizeType: 1
-    Name: Parried
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
 --- !u!1 &2826394659216291244
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058764}
   - component: {fileID: 6637811480815865338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -774,7 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058766}
   - component: {fileID: 4676850797494472178}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Head
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -827,7 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +850,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1050,7 +1010,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1115,7 +1075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058788}
   - component: {fileID: 801038670854386985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1201,7 +1161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Queue de cheval 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058792}
   - component: {fileID: 1976469409046074639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1287,7 +1247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058794}
   - component: {fileID: 522860133141227129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1328,7 +1288,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1344,7 +1304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058796}
   - component: {fileID: 2546372002765788167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1397,7 +1357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1428,7 +1388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1619,7 +1579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,7 +1610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1683,7 +1643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058816}
   - component: {fileID: 9057203925385273903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1737,7 +1697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058818}
   - component: {fileID: 1246775431365375712}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1778,7 +1738,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1794,7 +1754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058820}
   - component: {fileID: 9220957822539146913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1847,7 +1807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1909,7 +1869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1941,7 +1901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1973,7 +1933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058830}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ R Foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2006,7 +1966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2826394659216058834}
   - component: {fileID: 2826394659213113512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Troll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2130,7 +2090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058840}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2164,7 +2124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TROLL_ Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2196,9 +2156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826394659216058844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: root
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2230,7 +2190,7 @@ GameObject:
   - component: {fileID: 8690809774368658542}
   - component: {fileID: 4709391280644867172}
   - component: {fileID: 3476650877063230976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -2299,7 +2259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5880241650264645815}
   - component: {fileID: 6715693490953982192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Troll 70p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2425,7 +2385,7 @@ GameObject:
   - component: {fileID: 3801050672363622390}
   - component: {fileID: 5988639781325347435}
   - component: {fileID: 5873967385734312462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
