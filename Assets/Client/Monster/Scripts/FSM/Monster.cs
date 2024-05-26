@@ -240,6 +240,38 @@ public class Monster : MonoBehaviour
         }
         // _fsm을 통해 변경된 상태를 실행
         _fsm.ExecuteState();
+        DetectAndResolveOverlap();
+    }
+
+
+    void DetectAndResolveOverlap()
+    {
+        // 모든 콜라이더에 대해서 감지
+        foreach (var myCollider in GetComponentsInChildren<Collider>())
+        {
+            if (!myCollider.isTrigger)
+            {
+                Collider[] overlaps = Physics.OverlapBox(myCollider.bounds.center, myCollider.bounds.extents, Quaternion.identity, LayerMask.GetMask("MonsterEnemy"), QueryTriggerInteraction.Collide);
+                foreach (var hit in overlaps)
+                {
+                    if (hit != myCollider && !hit.isTrigger&&hit.transform.root != myCollider.transform.root)
+                    {
+                        Vector3 direction;
+                        float distance;
+                        if (Physics.ComputePenetration(
+                            myCollider, myCollider.transform.position, Quaternion.identity,
+                            hit, hit.transform.position, hit.transform.rotation,
+                            out direction, out distance
+                        ))
+                        {
+                            Vector3 displacement = direction * distance;
+                            displacement.y = 0;  // Y축 고정
+                            transform.position += displacement;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private bool CheckAttackRange()

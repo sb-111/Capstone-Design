@@ -5065,7 +5065,7 @@ GameObject:
   - component: {fileID: 5969235427227525861}
   - component: {fileID: 2432687789594829584}
   - component: {fileID: 4167793804165821047}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: weaponPoint
   m_TagString: Melee
   m_Icon: {fileID: 0}
