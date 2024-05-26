@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 public class DeadState : MonoBehaviour, IMonsterState
 {
@@ -20,7 +21,7 @@ public class DeadState : MonoBehaviour, IMonsterState
     {
             if(monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
             {
-                Destroy(monster.gameObject);
+                PhotonNetwork.Destroy(monster.gameObject);
                 monster.enabled = false; 
             }
     }

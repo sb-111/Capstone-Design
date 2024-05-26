@@ -9,6 +9,7 @@ public class CreatePortal : MonoBehaviourPun
     public Vector3 raisePosition = new Vector3(0, 0, 0); 
     public float speed = 5f;
     public GameObject portal;
+        public GameObject spawner;
     public GameObject bomb;
     bool isRaising = false;
     private Collider[] allColliders;
@@ -34,6 +35,8 @@ public class CreatePortal : MonoBehaviourPun
 
         if (isRaising)
         {
+
+          
             portal.gameObject.SetActive(true);
             GameManager.Instance.DefenceStart();
             bomb.gameObject.SetActive(true);
@@ -55,8 +58,15 @@ public class CreatePortal : MonoBehaviourPun
         if (coll.tag == "Melee")
         {
             isRaising = true;
-          
-          
+
+            GameObject[] mons = GameObject.FindGameObjectsWithTag("MonsterEnemy");
+            foreach (GameObject mon in mons)
+            {
+
+                PhotonNetwork.Destroy(mon);
+            }
+            if (spawner != null)
+                PhotonNetwork.Destroy(spawner);
             //PhotonView collPhotonView = coll.GetComponent<PhotonView>();
             PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
 
