@@ -16,7 +16,10 @@ public class PortalManager : MonoBehaviourPun
     [SerializeField] int ttime = 1;
     [SerializeField] int waittime =5;
     public GameObject mot; 
-    int mod = 0;
+    bool isGame = false;
+    int mode = 0;
+    int line = 1;
+    int monnum = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class PortalManager : MonoBehaviourPun
         SpawnManager.Instance.TimerDestroy();
         GameManager.Instance.setTime = waittime + 10;
         SpawnManager.Instance.TimerSpawn();
+        line = 0;
 
 
     }
@@ -44,10 +48,8 @@ public class PortalManager : MonoBehaviourPun
             enemies[i].gameObject.SetActive(true);
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax, ftime);
         }
-        Invoke("monSpawn2", waittime + 10);
-        SpawnManager.Instance.TimerDestroy();
-        GameManager.Instance.setTime = waittime + 10;
-        SpawnManager.Instance.TimerSpawn();
+        line = 1;
+        isGame = true;
     }
     void monSpawn2()
     {
@@ -59,10 +61,8 @@ public class PortalManager : MonoBehaviourPun
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
         }
-        Invoke("monSpawn3", waittime + 15);
-        SpawnManager.Instance.TimerDestroy();
-        GameManager.Instance.setTime = waittime + 15;
-        SpawnManager.Instance.TimerSpawn();
+        line = 2;
+        isGame = true;
     }
     void monSpawn3()
     {
@@ -72,19 +72,52 @@ public class PortalManager : MonoBehaviourPun
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
         }
-        Invoke("GameFinish", waittime + 20);
-        SpawnManager.Instance.TimerDestroy();
-        GameManager.Instance.setTime = waittime + 20;
-        SpawnManager.Instance.TimerSpawn();
+        line = 3;
+        isGame = true;
     }
     void GameFinish()
     {
 
         GameManager.Instance.GameFinish();
     }
+    int MonCheck()
+    {
+        monnum = 0;
+         GameObject[] mons = GameObject.FindGameObjectsWithTag("MonsterEnemy");
+            foreach (GameObject mon in mons)
+            {
+            monnum++;
+            }
+        return monnum;
+    }
     // Update is called once per frame
     void Update()
     {
+     
+        if (isGame&& MonCheck()==0)
+        {
+            isGame = false;
+            switch (line)
+            {
+                case 1:
+                    Invoke("monSpawn2", waittime);
+                    SpawnManager.Instance.TimerDestroy();
+                    GameManager.Instance.setTime = waittime;
+                    SpawnManager.Instance.TimerSpawn();
+                    break;
+                case 2:
+                    Invoke("monSpawn3", waittime);
+                    SpawnManager.Instance.TimerDestroy();
+                    GameManager.Instance.setTime = waittime;
+                    SpawnManager.Instance.TimerSpawn();
+                    break;
+                case 3:
+                    GameFinish();
+                    break;
+            }
+
+
+        }
         if (IsBreak())
         {
             Break();

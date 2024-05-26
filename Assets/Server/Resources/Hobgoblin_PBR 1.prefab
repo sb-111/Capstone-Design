@@ -1864,8 +1864,8 @@ MonoBehaviour:
   fieldOfView: 160
   attackRange: 4.8
   basicCoolTime: 3
-  maxHP: 0
-  currentHP: 0
+  maxHP: 150
+  currentHP: 150
   attackPower: 5
   def: 10
   constant_def: 100

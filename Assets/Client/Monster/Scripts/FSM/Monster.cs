@@ -120,30 +120,12 @@ public class Monster : MonoBehaviour
                             SetState(new ChaseState(this));
                         }
                     }
-                    else if (CheckBuildInSight()) // 시야 범위 내
-                    {
-                        Debug.Log("벽 확인 했나");
-                        if (CheckAttackRange()) // 사정거리 안
-                        {
-                            SetState(new AttackState(this));
-                        }
-                        else // 사정거리 밖
-                        {
-                            SetState(new ChaseState(this));
-                        }
-                    }
+                    
                     //IsMoving();
                     break;
 
                 case ChaseState:
                     if (CheckPlayerInSight()) // 시야 범위 내
-                    {
-                        if (CheckAttackRange()) // 사정거리 안
-                        {
-                            SetState(new AttackState(this));
-                        }
-                    }
-                    else if (CheckBuildInSight()) // 시야 범위 내
                     {
                         if (CheckAttackRange()) // 사정거리 안
                         {
@@ -165,13 +147,7 @@ public class Monster : MonoBehaviour
                             SetState(new ChaseState(this));
                         }
                     }
-                    else if (CheckBuildInSight()) // 시야 범위 내 
-                    {
-                        if (!CheckAttackRange()) // 공격 범위 밖
-                        {
-                            SetState(new ChaseState(this));
-                        }
-                    }
+                    
                     else // 시야 범위 밖
                     {
                         SetState(new DefenseState(this));
