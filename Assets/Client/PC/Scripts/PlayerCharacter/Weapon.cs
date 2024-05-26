@@ -220,7 +220,7 @@ public class Weapon : MonoBehaviourPun
                 }
             }
 
-            else if (other.tag == "Enemy")
+            /*else if (other.tag == "Enemy")
             {
                 
                 Hit_Test_v2 enemyDamage = enemy.GetComponent<Hit_Test_v2>();
@@ -234,7 +234,7 @@ public class Weapon : MonoBehaviourPun
 
                     //if(isHeavyAttack) { Debug.Log("강공격 들어감"); }
                 }
-            }
+            }*/
 
             else return;
         }
