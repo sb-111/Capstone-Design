@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void GameStart()
     {
         SpawnManager.Instance.TimerSpawn();
-        SpawnManager.Instance.PortalSpawnerSpawn();
+        //SpawnManager.Instance.PortalSpawnerSpawn();
         PV.RPC("StartSetting", RpcTarget.All);
     }
     public void PlayerReset()
@@ -109,10 +109,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void DefenceStart()
     {
         PV.RPC("StartDefence", RpcTarget.All);
-        SpawnManager.Instance.TimerDestroy();
-        setTime = setDefenceTime;
-        SpawnManager.Instance.TimerSpawn();
-        SpawnManager.Instance.portalSpawn();
+       // SpawnManager.Instance.TimerDestroy();
+        //setTime = setDefenceTime;
+       // SpawnManager.Instance.TimerSpawn();
+        //SpawnManager.Instance.portalSpawn();
     }
 
     public void PlayerDead()

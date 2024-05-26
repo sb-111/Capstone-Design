@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class MonsterEndSpawn : MonoBehaviour
+public class MonsterEndSpawn : MonoBehaviourPun
 {
     // Start is called before the first frame update
     public GameObject mon;
@@ -28,9 +29,9 @@ public class MonsterEndSpawn : MonoBehaviour
           {
             Debug.Log(num + "몬스터 생성 체크");
            // Instantiate(mon, transform.position + new Vector3(2, 0, 4), transform.rotation);
-            Instantiate(mon, transform.position+new Vector3(2,0,0), transform.rotation);
-            Instantiate(boss, transform.position + new Vector3(0, 0, 4), transform.rotation);
-            Instantiate(mon, transform.position + new Vector3(-2, 0, 0), transform.rotation);
+            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position+new Vector3(2,0,0), transform.rotation);
+            PhotonNetwork.InstantiateRoomObject(boss.name, transform.position + new Vector3(0, 0, 4), transform.rotation);
+            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position + new Vector3(-2, 0, 0), transform.rotation);
             //Instantiate(mon, transform.position + new Vector3(-2, 0, -4), transform.rotation);
             num++;
             yield return new WaitForSeconds(time);

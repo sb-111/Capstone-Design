@@ -38,7 +38,7 @@ public class BuildTest : MonoBehaviourPun
         {
             return;
         }
-        if (GameManager.Instance.mode != 2)
+        if (GameManager.Instance.mode != 1)
         {
             DestroyPreview();
             return;

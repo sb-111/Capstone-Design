@@ -30,22 +30,28 @@ public class PortalManager : MonoBehaviourPun
     {
         mot.gameObject.SetActive(false);
         Invoke("monSpawn", waittime+10);
-       
-     
+        SpawnManager.Instance.TimerDestroy();
+        GameManager.Instance.setTime = waittime + 10;
+        SpawnManager.Instance.TimerSpawn();
+
 
     }
     void monSpawn()
     {
+        Debug.Log("1¶ó");
         for (int i = 0; i < enemies.Length; i++)
         {
             enemies[i].gameObject.SetActive(true);
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax, ftime);
         }
-        Invoke("monSpawn2", 10);
-
+        Invoke("monSpawn2", waittime + 10);
+        SpawnManager.Instance.TimerDestroy();
+        GameManager.Instance.setTime = waittime + 10;
+        SpawnManager.Instance.TimerSpawn();
     }
     void monSpawn2()
     {
+        Debug.Log("2¶ó");
         mot.gameObject.SetActive(true);
         for (int i = 0; i<enemies.Length; i++)
         {
@@ -53,16 +59,28 @@ public class PortalManager : MonoBehaviourPun
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
         }
-        Invoke("monSpawn3", waittime + 10);
+        Invoke("monSpawn3", waittime + 15);
+        SpawnManager.Instance.TimerDestroy();
+        GameManager.Instance.setTime = waittime + 15;
+        SpawnManager.Instance.TimerSpawn();
     }
     void monSpawn3()
     {
+        Debug.Log("3¶ó");
         for (int i = 0; i < enemies.Length; i++)
         {
 
             enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
         }
-    
+        Invoke("GameFinish", waittime + 20);
+        SpawnManager.Instance.TimerDestroy();
+        GameManager.Instance.setTime = waittime + 20;
+        SpawnManager.Instance.TimerSpawn();
+    }
+    void GameFinish()
+    {
+
+        GameManager.Instance.GameFinish();
     }
     // Update is called once per frame
     void Update()

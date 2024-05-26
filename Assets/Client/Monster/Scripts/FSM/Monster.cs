@@ -97,7 +97,8 @@ public class Monster : MonoBehaviour
     void Update()
     {
         //디펜스 모드 수정
-        if (portalManager.getDefense())
+       
+        if (GameManager.Instance.mode==1)
         {
             isDefense = true;
             SetState(new DefenseState(this));

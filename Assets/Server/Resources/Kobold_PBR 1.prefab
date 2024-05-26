@@ -172,6 +172,9 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
+  Wall:
+    serializedVersion: 2
+    m_Bits: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -179,8 +182,8 @@ MonoBehaviour:
   fieldOfView: 160
   attackRange: 3.2
   basicCoolTime: 3
-  maxHP: 0
-  currentHP: 0
+  maxHP: 100
+  currentHP: 100
   attackPower: 5
   def: 10
   constant_def: 100
@@ -189,6 +192,8 @@ MonoBehaviour:
   skin_70p: {fileID: 2758766303699457018}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
+  ArmCollider: []
+  bodyCollider: {fileID: 0}
 --- !u!114 &7723494953169275329
 MonoBehaviour:
   m_ObjectHideFlags: 0

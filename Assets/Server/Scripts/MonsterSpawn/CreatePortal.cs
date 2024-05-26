@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class CreatePortal : MonoBehaviour
+public class CreatePortal : MonoBehaviourPun
 {
     public Vector3 raisePosition = new Vector3(0, 0, 0); 
     public float speed = 5f;
@@ -17,6 +19,7 @@ public class CreatePortal : MonoBehaviour
         allRigidbodies = this.GetComponentsInChildren<Rigidbody>();
         portal.gameObject.SetActive(false);
         bomb.gameObject.SetActive(false);
+        //bomb.gameObject.SetActive(false);
         DisableAllColliders();
     }
 
@@ -25,26 +28,44 @@ public class CreatePortal : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            isRaising = true;
-            bomb.gameObject.SetActive(true);
+            //isRaising = true;
+          // bomb.gameObject.SetActive(true);
         }
 
         if (isRaising)
         {
             portal.gameObject.SetActive(true);
-
-
+            GameManager.Instance.DefenceStart();
+            bomb.gameObject.SetActive(true);
+            //PhotonNetwork.InstantiateRoomObject(bomb.name, transform.position, transform.rotation, 0);
             portal.transform.Translate(Vector3.up * speed * Time.deltaTime);
 
             if (portal.transform.position.y >= raisePosition.y)
             {
                 isRaising = false;
                 EnableAllColliders();
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }
 
+    void OnTriggerEnter(Collider coll)
+    {
+        Debug.Log("충돌");
+        if (coll.tag == "Melee")
+        {
+            isRaising = true;
+          
+          
+            //PhotonView collPhotonView = coll.GetComponent<PhotonView>();
+            PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
+
+            string playerID = collPhotonView.Owner.NickName;
+            GameManager.Instance.GetPortal(playerID);
+
+
+        }
+    }
     void OnCollisionEnter(Collision col)
     {
         Debug.Log("충돌");

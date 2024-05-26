@@ -60,11 +60,11 @@ public class Timer : MonoBehaviourPun
         }
         if (GameManager.Instance.mode == 0)
         {
-            GameManager.Instance.DefenceStart();
+            //GameManager.Instance.DefenceStart();
             StopTimer();
         }
         else {
-            GameManager.Instance.GameFinish();
+            //GameManager.Instance.GameFinish();
             StopTimer();
                 }
         yield break;

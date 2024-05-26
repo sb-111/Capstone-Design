@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviourPun
 {
     public int maxHP;
     public int curHP;
@@ -85,7 +86,7 @@ public class Enemy : MonoBehaviour
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec*5, ForceMode.Impulse);
-            Destroy(gameObject, 5); // 5초후 삭제
+            PhotonNetwork.Destroy(gameObject); // 5초후 삭제
         }
     }
 }
