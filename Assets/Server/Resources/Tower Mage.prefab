@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 5
-  cooldown: 3
-  bullet: {fileID: 1758863767508122, guid: 482d1b03634169d4b965867e2965b19c, type: 3}
+  cooldown: 2
+  bullet: {fileID: 1758863767508122, guid: f4b0dbcff41dcdc44bd068c52adfd73b, type: 3}
 --- !u!1 &6107286060173570562
 GameObject:
   m_ObjectHideFlags: 0
