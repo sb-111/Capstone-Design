@@ -35,7 +35,7 @@ public class MonsterSpawner : MonoBehaviour
             if (monNum < monMax)
             {
                 Debug.Log("소환");
-                 PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
+                 PhotonNetwork.Instantiate(mon.name, transform.position, transform.rotation, 0);
                 //Instantiate(mon, transform.position, transform.rotation);
                 yield return new WaitForSeconds(createTime + Random.Range(0, 5));
             }

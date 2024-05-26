@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviourPun
             reactVec = reactVec.normalized;
             reactVec += Vector3.up;
             rigid.AddForce(reactVec*5, ForceMode.Impulse);
-            PhotonNetwork.Destroy(gameObject); // 5초후 삭제
+            Destroy(gameObject, 5);// 5초후 삭제
         }
     }
 }
