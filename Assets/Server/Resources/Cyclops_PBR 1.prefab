@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8990731889888843372}
   - component: {fileID: 6320218430151310429}
   - component: {fileID: 8638425287879710753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4508964183239257647}
   - component: {fileID: 159257711331895818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops 30p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6954150175283564829}
   - component: {fileID: 3119062876899599047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops 70p
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,10 +368,10 @@ GameObject:
   - component: {fileID: 8921924304209698110}
   - component: {fileID: 4785813558816221277}
   - component: {fileID: 4039614350048068051}
-  - component: {fileID: -9022020608251445970}
-  - component: {fileID: 8311645274120396796}
-  - component: {fileID: 1763289966652650680}
-  m_Layer: 0
+  - component: {fileID: 6682286547035599599}
+  - component: {fileID: 5755028280694365967}
+  - component: {fileID: 3044734042222202428}
+  m_Layer: 6
   m_Name: Cyclops_PBR 1
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -494,8 +494,8 @@ MonoBehaviour:
   fieldOfView: 160
   attackRange: 6.4
   basicCoolTime: 3
-  maxHP: 100
-  currentHP: 100
+  maxHP: 100000
+  currentHP: 100000
   attackPower: 5
   def: 10
   constant_def: 100
@@ -504,8 +504,13 @@ MonoBehaviour:
   skin_70p: {fileID: 5323329218396541629}
   soul: {fileID: 8886004188924093421, guid: db12b58ddbabc8e45b8145e94a6c0fef, type: 3}
   weakPoint: 0
-  ArmCollider: []
-  bodyCollider: {fileID: 0}
+  ArmCollider:
+  - {fileID: 701027947114134745}
+  - {fileID: 2426555042294875948}
+  - {fileID: 1427606088579079576}
+  - {fileID: 7671178383964935671}
+  - {fileID: 4146783083003752845}
+  bodyCollider: {fileID: 6705481467997214080}
 --- !u!114 &8921924304209698110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,62 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 0457b95a60ac2874595b055fc52a7b5e, type: 3}
---- !u!114 &-9022020608251445970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931416526484982432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 1
-    Name: Run
-  - Type: 4
-    SynchronizeType: 1
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 1
-    Name: doDie
-  - Type: 9
-    SynchronizeType: 1
-    Name: getHit
-  - Type: 9
-    SynchronizeType: 1
-    Name: doAttack
-  - Type: 3
-    SynchronizeType: 1
-    Name: randomValue
-  - Type: 9
-    SynchronizeType: 1
-    Name: Parried
-  m_SynchronizeLayers:
-  - SynchronizeType: 1
-    LayerIndex: 0
---- !u!114 &8311645274120396796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931416526484982432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &1763289966652650680
+--- !u!114 &6682286547035599599
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -704,11 +654,43 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: -9022020608251445970}
-  - {fileID: 8311645274120396796}
+  - {fileID: 5755028280694365967}
+  - {fileID: 3044734042222202428}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5755028280694365967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &3044734042222202428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8931416526484982432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &8931416526484982434
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411650}
   - component: {fileID: 8931416526496482822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SK_Cyclops
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ROOT_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411616}
   - component: {fileID: 1427606088579079576}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Calf
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1009,7 +991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1041,7 +1023,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1055,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,10 +1118,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411630}
-  - component: {fileID: 3638748506919907399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger0
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1160,27 +1141,6 @@ Transform:
   - {fileID: 8931416526485411624}
   m_Father: {fileID: 8931416526485411586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3638748506919907399
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8931416526484982542}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.001, y: 0.001, z: 0.001}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8931416526484982544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1253,7 +1213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1285,7 +1245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411640}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1349,7 +1309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411642}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1381,7 +1341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411682}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1571,7 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,7 +1563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,7 +1625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1697,7 +1657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1734,7 +1694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411698}
   - component: {fileID: 4146783083003752845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1788,7 +1748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411700}
   - component: {fileID: 1532460066440572722}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1842,7 +1802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411702}
   - component: {fileID: 1034735585518454105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Forearm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -1895,7 +1855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1927,7 +1887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411706}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1961,7 +1921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1993,7 +1953,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411710}
   - component: {fileID: 2426555042294875948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2047,7 +2007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411584}
   - component: {fileID: 9125833166288993129}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Forearm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2100,7 +2060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Hand
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2136,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Finger32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2168,7 +2128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411590}
   - component: {fileID: 7658021370212390013}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Foot
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2222,7 +2182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411592}
   - component: {fileID: 701027947114134745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L UpperArm
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2275,7 +2235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411594}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2308,7 +2268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411596}
   - component: {fileID: 7671178383964935671}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Thigh
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2361,7 +2321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411598}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ L Toe0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2392,7 +2352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Calf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2424,7 +2384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Clavicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2457,7 +2417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8931416526485411604}
   - component: {fileID: 6705481467997214080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Pelvis
   m_TagString: MonsterEnemy
   m_Icon: {fileID: 0}
@@ -2514,7 +2474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ Ponytail1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2545,7 +2505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411608}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2576,7 +2536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2608,7 +2568,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2600,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8931416526485411614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CYCLOPS_ R Finger01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2674,7 +2634,7 @@ GameObject:
   - component: {fileID: 4615364213087587090}
   - component: {fileID: 2953048845922310992}
   - component: {fileID: 2394925852962736433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}

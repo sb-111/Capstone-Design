@@ -64,6 +64,10 @@ public class Player : MonoBehaviourPun
     Vector3 leftRayDirection;
     Vector3 rightRayDirection;
     bool isObstacleDetected;
+    //충돌처리 방지
+    [SerializeField] private LayerMask enemyLayerMask;
+    [SerializeField] private float capsuleHeight = 1.7f;
+    [SerializeField] private float capsuleRadius = 0.32f;
 
     public float VRotation { get; private set; } // 수직 회전 값
 
@@ -183,9 +187,36 @@ public class Player : MonoBehaviourPun
               //anim.SetFloat("Horizontal", hAxis, 0.5f, Time.deltaTime);
               //anim.SetFloat("Vertical", vAxis, 0.5f, Time.deltaTime);
         }
+        DetectOverlapEnemies();
         MoveSound();
     }
-    
+
+
+    private void DetectOverlapEnemies()
+    {
+        Vector3 point1 = transform.position+new Vector3 (0.0f,0.86f,0.0f) + transform.up * capsuleHeight / 2;
+        Vector3 point2 = transform.position+ new Vector3(0.0f, 0.86f, 0.0f) - transform.up * capsuleHeight / 2;
+
+        Debug.Log(transform.position);
+
+        Collider[] hits = Physics.OverlapCapsule(point1, point2, capsuleRadius, enemyLayerMask);
+        foreach (var hit in hits)
+        {
+            Vector3 direction;
+            float distance;
+            if (Physics.ComputePenetration(
+                    characterController, transform.position, transform.rotation,
+                    hit, hit.transform.position, hit.transform.rotation,
+                    out direction, out distance
+                ))
+            {
+                Vector3 displacement = direction * distance*0.5f;
+                displacement.y = 0;
+                characterController.Move(displacement);
+            }
+        }
+
+    }
     void MouseRotate()
     {
         // 플레이어의 수평회전 처리
