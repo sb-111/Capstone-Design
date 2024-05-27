@@ -23,7 +23,7 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dexText;
     [SerializeField] private TextMeshProUGUI intText;
     [SerializeField] private TextMeshProUGUI soulText;
-    private void Start()
+    private void Awake()
     {
         // 버튼의 모든 리스너 삭제
         hpEnhanceButton.onClick.RemoveAllListeners();
