@@ -13,17 +13,21 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     private int createTime;
     private GameObject mon;
+    private GameObject monster;
     private int monNum;
-    int flow=0; 
+    int flow=0;
+    int mode = 0;
     MonsterCounter monsterCounter;
     // Start is called before the first frame update
+
     void Start()
     {
         mon = SpawnManager.Instance.getMonster(monType);
-        monsterCounter = this.transform.parent.GetComponent<MonsterCounter>();
-        monMax = monsterCounter.monMax;
-        monNum = monsterCounter.monMax;
-        StartCoroutine("SpawnMon");
+        //monsterCounter = this.transform.parent.GetComponent<MonsterCounter>();
+        //monMax = monsterCounter.monMax;
+       // monNum = monsterCounter.monMax;
+        Spawn();
+        // StartCoroutine("SpawnMon");
         Debug.Log(mon+"몬스터");
     }
     IEnumerator SpawnMon()
@@ -47,6 +51,21 @@ public class MonsterSpawner : MonoBehaviour
             }
         }
     }
+   
+    void Spawn()
+    {
+        monster = PhotonNetwork.Instantiate(mon.name, transform.position, transform.rotation, 0);
+        mode = 1;
+    }
+    void Update()
+    {
+        if (monster == null&&mode ==1)
+        {
+            Invoke("Spawn", createTime);
+            mode = 0;
+        }
+    }
+
     void randspawn()
     {
         Debug.Log("실행됨" + mon);
@@ -65,11 +84,5 @@ public class MonsterSpawner : MonoBehaviour
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
-     
-
-    }
 
 }
