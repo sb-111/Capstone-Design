@@ -14997,7 +14997,7 @@ MonoBehaviour:
   attackController: {fileID: 0}
   effectPrefab: {fileID: 463714468668174405, guid: f3f87720b2b703346bea9be0856dedb4, type: 3}
   shieldEffectPrefab: {fileID: 0}
-  strongEffectPrefab: {fileID: 8332568290553208141, guid: c34207dd2f444794a83c703ca44191bd, type: 3}
+  strongEffectPrefab: {fileID: 8332568290553208141, guid: 5ca26b97292b7fd49ae1800713512191, type: 3}
   hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
   hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 5824998482767814541}
@@ -16411,6 +16411,11 @@ MonoBehaviour:
   isAttack: 0
   attack_controller: {fileID: 0}
   state: {fileID: 0}
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  capsuleHeight: 1.7
+  capsuleRadius: 0.32
 --- !u!114 &4864509859839420764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16623,6 +16628,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  maxBuilds: 00000000000000000000000000000000
+  buildNums: 00000000000000000000000000000000
   rotationSpeed: 50
 --- !u!143 &2319732085218024377
 CharacterController:

@@ -1862,7 +1862,7 @@ MonoBehaviour:
     m_Bits: 512
   sightRange: 12.8
   fieldOfView: 160
-  attackRange: 4.8
+  attackRange: 5
   basicCoolTime: 3
   maxHP: 150
   currentHP: 150
@@ -2512,8 +2512,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 0.7, z: 3.07}
-  m_Center: {x: -0.3, y: 0.02, z: 0.94}
+  m_Size: {x: 0.83, y: 0.95, z: 3.23}
+  m_Center: {x: -0.3, y: 0.02, z: 1.04}
 --- !u!114 &15710361191622198
 MonoBehaviour:
   m_ObjectHideFlags: 0
