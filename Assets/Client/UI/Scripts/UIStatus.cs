@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIStatus : MonoBehaviour
 {
-    
+    private Player player;
     [SerializeField] private GrowthSystem growthSystem; 
     [SerializeField] private PlayerStatus playerStatus; // 이벤트 발행자
 
@@ -51,6 +51,8 @@ public class UIStatus : MonoBehaviour
 
         // 이벤트 등록(소울 개수)
         GrowthSystem.OnSoulChanged += UpdateSoul;
+
+        player = GetComponentInParent<Player>();
     }
     private void Update()
     {
@@ -58,6 +60,7 @@ public class UIStatus : MonoBehaviour
         {
             Debug.Log("호출됨");
             statBar.SetActive(!statBar.activeSelf);
+            player.CanReceiveInput = !statBar.activeSelf;
         }
     }
     private void OnDestroy()
