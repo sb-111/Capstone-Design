@@ -26,7 +26,7 @@ public class ChaseState : IMonsterState
 
     public void ExecuteState()
     {
-        //Debug.Log("Chase: 진행중");
+        Debug.Log("Chase: 진행중");
         monster.Anim.SetBool("Run", (monster.Agent.velocity.magnitude >= 0.05f) ? true : false);
         if (monster.TargetPlayer != null)
         {

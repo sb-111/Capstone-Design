@@ -22,7 +22,7 @@ public class AttackState : IMonsterState
 
     public void ExitState()
     {
-
+        Debug.Log("Attack: Exit");
     }
 
     public void ExecuteState()

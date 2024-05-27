@@ -75,7 +75,6 @@ public class Monster : MonoBehaviour
 
     private bool isDead = false;
     private bool isDefense = false;
-    private PortalManager portalManager;
     private void Awake()    
     {
         Rigid = GetComponent<Rigidbody>();
@@ -90,7 +89,7 @@ public class Monster : MonoBehaviour
     {
         // fsm 세팅
         _fsm = new FSM(this);
-        portalManager = GameObject.FindWithTag("Portal").GetComponent<PortalManager>();
+  
         // 
     }
 
@@ -98,7 +97,7 @@ public class Monster : MonoBehaviour
     {
         //디펜스 모드 수정
        
-        if (GameManager.Instance.mode==1)
+        if (GameManager.Instance.mode==1&&!isDefense)
         {
             isDefense = true;
             SetState(new DefenseState(this));
@@ -143,8 +142,10 @@ public class Monster : MonoBehaviour
                 case AttackState:
                     if (CheckPlayerInSight()) // 시야 범위 내 
                     {
+                        Debug.Log("디펜스 모드 체크 플레이어" + CheckPlayerInSight());
                         if (!CheckAttackRange()) // 공격 범위 밖
                         {
+                            Debug.Log("디펜스 모드 체크 어텍" + CheckAttackRange());
                             SetState(new ChaseState(this));
                         }
                     }
