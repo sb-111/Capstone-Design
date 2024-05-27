@@ -43,11 +43,9 @@ public class Timer : MonoBehaviourPun
     }
     public void StopTimer()
     {
-        PhotonView PV = this.GetComponent<PhotonView>();
-        if (PV.IsMine)
-        {
+     
             PhotonNetwork.Destroy(gameObject);
-        }
+        
     }
     IEnumerator TimerCoroutine()
     {

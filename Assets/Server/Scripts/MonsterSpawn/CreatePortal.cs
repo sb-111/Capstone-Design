@@ -14,9 +14,11 @@ public class CreatePortal : MonoBehaviourPun
     bool isRaising = false;
     private Collider[] allColliders;
     private Rigidbody[] allRigidbodies;
+    PhotonView PV;
     // Start is called before the first frame update
     void Start()
     {
+        PV = GetComponent<PhotonView>();
         allRigidbodies = this.GetComponentsInChildren<Rigidbody>();
         portal.gameObject.SetActive(false);
         bomb.gameObject.SetActive(false);
@@ -36,13 +38,11 @@ public class CreatePortal : MonoBehaviourPun
         if (isRaising)
         {
 
-          
-            portal.gameObject.SetActive(true);
-            GameManager.Instance.DefenceStart();
-            bomb.gameObject.SetActive(true);
-            //PhotonNetwork.InstantiateRoomObject(bomb.name, transform.position, transform.rotation, 0);
-            portal.transform.Translate(Vector3.up * speed * Time.deltaTime);
 
+
+            //PhotonNetwork.InstantiateRoomObject(bomb.name, transform.position, transform.rotation, 0);
+
+            PV.RPC("Raising", RpcTarget.All);
             if (portal.transform.position.y >= raisePosition.y)
             {
                 isRaising = false;
@@ -52,6 +52,14 @@ public class CreatePortal : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
+    public void Raising()
+    {
+        portal.gameObject.SetActive(true);
+        GameManager.Instance.DefenceStart();
+        bomb.gameObject.SetActive(true);
+        portal.transform.Translate(Vector3.up * speed * Time.deltaTime);
+    }
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("Ãæµ¹");

@@ -158,6 +158,8 @@ GameObject:
   - component: {fileID: 904113641171170775}
   - component: {fileID: 3951095098107802673}
   - component: {fileID: 4041084245887873902}
+  - component: {fileID: -2858630862793166123}
+  - component: {fileID: 7414647282283632429}
   m_Layer: 0
   m_Name: Terrain 2 1
   m_TagString: Untagged
@@ -244,6 +246,44 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: fe4b786bd1ffe1c44bbedb935f1de7e2, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &-2858630862793166123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308557177421887996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7414647282283632429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308557177421887996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1001 &20552255568360134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7303,6 +7343,8 @@ MonoBehaviour:
   ttime: 3
   waittime: 5
   mot: {fileID: 2167962139292652414}
+  fportal: {fileID: 0}
+  sportal: {fileID: 0}
 --- !u!4 &8051260462064063910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 892306575797419132, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}

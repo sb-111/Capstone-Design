@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f1d25968e1842419ca8bffdd30f5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
+  detectionRadius: 10
   cooldown: 2
   bullet: {fileID: 1758863767508122, guid: f4b0dbcff41dcdc44bd068c52adfd73b, type: 3}
 --- !u!1 &6107286060173570562
@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 1358312181646136831}
   - component: {fileID: 2801490752839047979}
   - component: {fileID: 4008630544560284316}
+  - component: {fileID: 8314653216032515071}
   m_Layer: 0
   m_Name: Tower Mage
   m_TagString: Untagged
@@ -339,10 +340,27 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 8314653216032515071}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8314653216032515071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8307354356344144871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &8640727785913758173
 GameObject:
   m_ObjectHideFlags: 0
