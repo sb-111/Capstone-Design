@@ -264,7 +264,7 @@ public class Monster : MonoBehaviour
                             out direction, out distance
                         ))
                         {
-                            Vector3 displacement = direction * distance;
+                            Vector3 displacement = direction * distance*0.5f;
                             displacement.y = 0;  // Y축 고정
                             transform.position += displacement;
                         }

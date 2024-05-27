@@ -14,6 +14,8 @@ public class CombatStatusManager : MonoBehaviourPun
     public float knockbackPower = 8f; // 넉백 파워
     public float knockbackDuration = 0.2f; // 넉백 지속 시간
     PhotonView pv;
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -31,6 +33,8 @@ public class CombatStatusManager : MonoBehaviourPun
 
     public void TakeDamage(int damage)
     {
+        if (player.isJump) return;              //구르기 중이라면 무적
+
         int result_damage = (int)(damage * (1 - (player_status.basicStats.def / (player_status.basicStats.def + player_status.combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
         //player_status.basicStats.hp -= result_damage; // 캡슐화 이용한 밑줄이 더 적합
         player_status.DecreaseHP(result_damage);
@@ -46,6 +50,8 @@ public class CombatStatusManager : MonoBehaviourPun
     [PunRPC]
     public void RPCDamage(int damage)
     {
+        if (player.isJump) return;              //구르기 중이라면 무적
+
         int result_damage = (int)(damage * (1 - (player_status.basicStats.def / (player_status.basicStats.def + player_status.combatStats.constant_def))));//데미지 = 데미지*피해흡수율(= 방어력/방어력+방어상수)
         //player_status.basicStats.hp -= result_damage; // 캡슐화 이용한 밑줄이 더 적합
         player_status.DecreaseHP(result_damage); 
