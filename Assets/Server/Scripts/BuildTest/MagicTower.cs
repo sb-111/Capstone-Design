@@ -52,7 +52,7 @@ public class MagicTower : MonoBehaviourPun
     void ShootMagic()
     {
 
-
+        Debug.Log("몬스터 타격 확인");
 
         PhotonNetwork.Instantiate(bullet.name, transform.position,transform.rotation);
 
