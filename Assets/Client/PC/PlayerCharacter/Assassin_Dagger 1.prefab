@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3012298513691312965}
   m_Layer: 0
-  m_Name: Assassin_Dagger
+  m_Name: Assassin_Dagger 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,6 +262,42 @@ PrefabInstance:
     - target: {fileID: 4658754447692346, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_Color.g
+      value: 0.1490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4709842
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_AreaSize.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_AreaSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 54.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 108079055870544786, guid: a7395870f00d35343b60efac8ba0c811, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.4921875
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

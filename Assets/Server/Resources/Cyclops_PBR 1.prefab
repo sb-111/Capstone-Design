@@ -52,7 +52,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.78, y: 1, z: 1}
+  m_Size: {x: 1.91, y: 1.12, z: 1.12}
   m_Center: {x: -0.2, y: 0, z: 0.13}
 --- !u!114 &8638425287879710753
 MonoBehaviour:
@@ -492,7 +492,7 @@ MonoBehaviour:
     m_Bits: 512
   sightRange: 12.8
   fieldOfView: 160
-  attackRange: 6.4
+  attackRange: 6.7
   basicCoolTime: 3
   maxHP: 200
   currentHP: 200
@@ -2720,7 +2720,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 1.78, y: 1, z: 1}
+  m_Size: {x: 1.91, y: 1.12, z: 1.12}
   m_Center: {x: -0.08, y: 0, z: -0.07}
 --- !u!114 &2394925852962736433
 MonoBehaviour:

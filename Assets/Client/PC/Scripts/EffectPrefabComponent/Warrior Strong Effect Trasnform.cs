@@ -21,6 +21,9 @@ public class WarriorStrongEffectTrasnform : MonoBehaviour
         prefabCreator = GetComponentInParent<PrefabCreator>();
         initialCenter = collider.center;
         startTime = Time.time;
+
+        transform.position = prefabCreator.weapon.player.transform.position;
+        transform.rotation = prefabCreator.weapon.player.transform.rotation;
     }
 
     // Update is called once per frame

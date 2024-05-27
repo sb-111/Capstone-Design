@@ -180,7 +180,7 @@ MonoBehaviour:
     m_Bits: 512
   sightRange: 12.8
   fieldOfView: 160
-  attackRange: 3.2
+  attackRange: 3.5
   basicCoolTime: 3
   maxHP: 100
   currentHP: 100
@@ -1891,7 +1891,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.48, z: 0.8}
+  m_Size: {x: 0.35, y: 0.57, z: 0.8}
   m_Center: {x: -0.14, y: 0, z: 0}
 --- !u!1 &4241338568960728118
 GameObject:
@@ -3555,7 +3555,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.36, y: 0.24, z: 0.9}
+  m_Size: {x: 0.51, y: 0.27, z: 0.96}
   m_Center: {x: -0.14, y: 0, z: 0.25}
 --- !u!1 &6558103871388760582
 GameObject:
