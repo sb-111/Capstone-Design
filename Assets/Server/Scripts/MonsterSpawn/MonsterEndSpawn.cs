@@ -25,12 +25,12 @@ public class MonsterEndSpawn : MonoBehaviourPun
     }
     IEnumerator SpawnMon()
     {
-        while (max>=num)
+        while (max>=num&& PhotonNetwork.IsMasterClient)
           {
             Debug.Log(num + "몬스터 생성 체크");
            // Instantiate(mon, transform.position + new Vector3(2, 0, 4), transform.rotation);
             PhotonNetwork.InstantiateRoomObject(mon.name, transform.position+new Vector3(4,0,0), transform.rotation);
-            PhotonNetwork.Instantiate(boss.name, transform.position + new Vector3(0, 0, 6), transform.rotation);
+            PhotonNetwork.InstantiateRoomObject(boss.name, transform.position + new Vector3(0, 0, 6), transform.rotation);
             PhotonNetwork.InstantiateRoomObject(mon.name, transform.position + new Vector3(-4, 0, 0), transform.rotation);
             //Instantiate(mon, transform.position + new Vector3(-2, 0, -4), transform.rotation);
             num++;

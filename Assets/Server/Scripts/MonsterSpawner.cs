@@ -28,7 +28,7 @@ public class MonsterSpawner : MonoBehaviour
     }
     IEnumerator SpawnMon()
     {
-        while (!GameManager.Instance.isGameover)
+        while (!GameManager.Instance.isGameover&&PhotonNetwork.IsMasterClient)
         {
             Debug.Log(monNum);
             monNum = monsterCounter.controlMonNum();

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class MagicTower : MonoBehaviour
+public class MagicTower : MonoBehaviourPun
 {
     [SerializeField]
     private float detectionRadius = 5f; // 몬스터 감지 범위
@@ -53,7 +54,7 @@ public class MagicTower : MonoBehaviour
 
 
 
-        Instantiate(bullet, transform.position,transform.rotation);
+        PhotonNetwork.Instantiate(bullet.name, transform.position,transform.rotation);
 
 
 
