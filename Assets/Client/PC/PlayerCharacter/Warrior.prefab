@@ -8010,8 +8010,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.15, z: 1.09}
-  m_Center: {x: 0.1, y: 0, z: 0.69}
+  m_Size: {x: 0.26, y: 0.3, z: 1.51}
+  m_Center: {x: 0.1, y: 0, z: 0.78}
 --- !u!114 &1887557618392704136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9645,6 +9645,11 @@ MonoBehaviour:
   isAttack: 0
   attack_controller: {fileID: 0}
   state: {fileID: 0}
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  capsuleHeight: 2
+  capsuleRadius: 0.5
 --- !u!114 &8989307028388258042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9840,6 +9845,8 @@ MonoBehaviour:
   - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
   - {fileID: 1031083464, guid: 9b5f7f4cbaa8577429dd84e5bf5a8e28, type: 3}
   - {fileID: 5614368876582028328, guid: 35ea6e6f5ac443e41b5bff72d7564974, type: 3}
+  maxBuilds: 00000000000000000000000000000000
+  buildNums: 00000000000000000000000000000000
   rotationSpeed: 50
 --- !u!114 &6058203953304390727
 MonoBehaviour:

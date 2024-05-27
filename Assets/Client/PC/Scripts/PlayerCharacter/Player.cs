@@ -210,7 +210,7 @@ public class Player : MonoBehaviourPun
                     out direction, out distance
                 ))
             {
-                Vector3 displacement = direction * distance*0.5f;
+                Vector3 displacement = direction * distance*0.4f;
                 displacement.y = 0;
                 characterController.Move(displacement);
             }
