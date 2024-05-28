@@ -412,6 +412,14 @@ public class Player : MonoBehaviourPun
             characterSound.IsRunning(rDown);
         }
     }
+    public void SetVSensivity(float value)
+    {
+        vSensivity = value;
+    }
+    public void SetHSensivity(float value)
+    {
+        hSensivity = value;
+    }
 
     ///// <summary>
     ///// 스탯창 UI 설정
