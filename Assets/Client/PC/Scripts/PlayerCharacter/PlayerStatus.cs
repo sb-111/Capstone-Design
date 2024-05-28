@@ -20,9 +20,11 @@ public class PlayerStatus : MonoBehaviour
     public event StatChangedHandler OnDexStatChanged;
     public event StatChangedHandler OnIntStatChanged;
 
-    public delegate void BarChangedHandler(int currentNumber, int maxNumber);
-    public event BarChangedHandler OnHPBarChanged;
-    public event BarChangedHandler OnStaminaBarChanged;
+    public delegate void BarChangedIntHandler(int currentNumber, int maxNumber);
+    public event BarChangedIntHandler OnHPBarChanged;
+
+    public delegate void BarChangedFloatHandler(float currentNumber, float maxNumber);
+    public event BarChangedFloatHandler OnStaminaBarChanged;
 
     //const float MaxHealth = 2000f;
     //const float MaxAttack = 500f;
@@ -45,7 +47,8 @@ public class PlayerStatus : MonoBehaviour
     [System.Serializable]
     public class MoveStats
     {
-        public float stamina = 100;
+        public float stamina = 100f;
+        public float maxStamina = 100f;
         public int speed = 10;
         //public float jumpPower = 7.0f;
     }
@@ -112,4 +115,16 @@ public class PlayerStatus : MonoBehaviour
         basicStats.hp -= damage;
         OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
     }
+    public void DecreaseStamina(float amount)
+    {
+        moveStats.stamina -= amount; // 스태미나 감소
+        OnStaminaBarChanged(moveStats.stamina, moveStats.maxStamina); // 스태미나바 UI 업데이트 이벤트 발생
+
+    }
+    public void IncreaseStamina(float amount) 
+    {
+        moveStats.stamina += amount; // 스태미나 회복
+        OnStaminaBarChanged(moveStats.stamina, moveStats.maxStamina); // 스태미나바 UI 업데이트 이벤트 발생
+    }
+
 }

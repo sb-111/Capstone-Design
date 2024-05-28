@@ -258,11 +258,13 @@ public class Player : MonoBehaviourPun
                 rDown = false;
                 return;
             }
-            state.moveStats.stamina -= staminaDecreasePerSec * Time.deltaTime;
+            //state.moveStats.stamina -= staminaDecreasePerSec * Time.deltaTime;
+            state.DecreaseStamina(staminaDecreasePerSec * Time.deltaTime);
         }
         if (!rDown && state.moveStats.stamina < 100)
         {
-            state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
+            //state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
+            state.IncreaseStamina(staminaDecreasePerSec - 2 * Time.deltaTime);
         }
     }
 

@@ -58,7 +58,6 @@ public class UIStatus : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log("»£√‚µ ");
             statBar.SetActive(!statBar.activeSelf);
             player.CanReceiveInput = !statBar.activeSelf;
         }
