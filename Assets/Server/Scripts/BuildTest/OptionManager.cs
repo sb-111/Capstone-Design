@@ -10,6 +10,8 @@ public class OptionManager : MonoBehaviour
     private Toggle fullTog;
     [SerializeField]
     private TextMeshProUGUI ScreenText;
+    [SerializeField]
+    private GameObject option;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class OptionManager : MonoBehaviour
             fullTog.isOn = true;
         else
             fullTog.isOn = false;
+        ScreenText.text = "1920X1080";
     }
     void Awake()
     {
@@ -50,9 +53,23 @@ public class OptionManager : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
        
     }
+
+    public void optionClose()
+    {
+        option.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
-        ScreenText.text = "1920X1080";
+      
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (option.activeSelf)
+            {
+        Application.Quit();
+            }
+            else
+                option.SetActive(true);
+        }
     }
 }

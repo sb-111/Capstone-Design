@@ -172,15 +172,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             PlayerReset();
         }
-        else if (Input.GetKeyDown(KeyCode.O)) 
+
+        else if (mode == 1)
+            return;
+        else if (Input.GetKeyDown(KeyCode.O))
         {
             if (!isPlaying)
-                 GameStart();
-            
-           else
-              Debug.Log("세명 아님/게임 시작중");
+                GameStart();
 
-        
+            else
+                Debug.Log("세명 아님/게임 시작중");
+
+
         }
     }
 
