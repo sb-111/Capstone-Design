@@ -126,7 +126,9 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             loadingUI.SetActive(true);
             roomPanel.SetActive(false);
             charaPanel.SetActive(false);
-            StartCoroutine(LoadScene_Coroutine("MainScene"));
+            //StartCoroutine(LoadScene_Coroutine("MainScene"));
+            //PhotonNetwork.LoadLevel("MainScene");
+
         }
     }
 
@@ -134,14 +136,14 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined a room.");
 
-        StartCoroutine(LoadScene_Coroutine("MainScene"));
-        // 코루틴을 사용하여 씬 로딩 시작
         //StartCoroutine(LoadScene_Coroutine("MainScene"));
-
+        // 코루틴을 사용하여 씬 로딩 시작
+        StartCoroutine(LoadLevel_Coroutine("MainScene"));
+        //PhotonNetwork.LoadLevel("MainScene");
     }
 
     // SimpleLauncher에서 가져온 LoadScene_Coroutine
-    /*IEnumerator LoadScene_Coroutine(string scene)
+    IEnumerator LoadLevel_Coroutine(string scene)
     {
         loadingProgressBar.value = 0;
         loadingUI.SetActive(true);
@@ -158,7 +160,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
             yield return null;
         }
         loadingUI.SetActive(false);
-    }*/
+    }
     IEnumerator LoadScene_Coroutine(string scene)
     {
         loadingProgressBar.value = 0;

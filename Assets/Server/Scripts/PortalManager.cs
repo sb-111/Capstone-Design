@@ -40,7 +40,8 @@ public class PortalManager : MonoBehaviourPun
         sportal.gameObject.SetActive(false);
         isGame = true;
         phase = 0;
-        StartCoroutine("Defense");
+        if (GameManager.Instance.IsMaster())
+            StartCoroutine("Defense");
         StartCoroutine("GrowOverTime");
     }
     IEnumerator GrowOverTime()
