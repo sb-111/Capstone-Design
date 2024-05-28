@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c80386a3c6f71404ca170a372f81563c, type: 2}
+  - {fileID: 2100000, guid: dac30fe181f468347a957d53a7b22ba3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,7 +191,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2c33233a3341574189aa8072e3ac425, type: 2}
+  - {fileID: 2100000, guid: dac30fe181f468347a957d53a7b22ba3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -222,14 +222,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3090993865196320384}
-  - component: {fileID: 1707360094228187935}
   - component: {fileID: 1310095665569120171}
   - component: {fileID: 1358312181646136831}
   - component: {fileID: 2801490752839047979}
   - component: {fileID: 4008630544560284316}
   - component: {fileID: 8314653216032515071}
   m_Layer: 0
-  m_Name: Tower Mage
+  m_Name: Tower Mage 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,27 +252,6 @@ Transform:
   - {fileID: 691625321244226518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1707360094228187935
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8307354356344144871}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d052d933598dac241a51c227cfe7a313, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1310095665569120171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +280,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
