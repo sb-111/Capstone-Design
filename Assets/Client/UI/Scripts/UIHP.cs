@@ -12,19 +12,20 @@ public class UIHP : MonoBehaviour
     private void Awake()
     {
         status.OnHPBarChanged += UpdateHp;
+        status.OnStaminaBarChanged += UpdateStamina;
     }
 
     public void UpdateHp(int currentHP, int maxHP)
     {
-        Debug.Log($"hpBar 업데이트{currentHP}");
-        hpBar.fillAmount = currentHP / maxHP;
+        hpBar.fillAmount = (float)currentHP / maxHP;
     }
-    public void UpdateStamina(int currentStamina, int maxStamina)
+    public void UpdateStamina(float currentStamina, float maxStamina)
     {
-
+        staminaBar.fillAmount = (float)currentStamina / maxStamina;
     }
     private void OnDestroy()
     {
         status.OnHPBarChanged -= UpdateHp; 
+        status.OnStaminaBarChanged -= UpdateStamina;
     }
 }

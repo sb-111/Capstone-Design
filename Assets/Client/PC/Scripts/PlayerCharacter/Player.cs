@@ -12,7 +12,8 @@ public class Player : MonoBehaviourPun
     float mouseValueX;
     float mouseValueY;
     int speed;
-    float sensivity = 1f;
+    float hSensivity = 1f; // 수평 감도
+    float vSensivity = 1f; // 수직 감도
     Vector3 moveVec;
     Vector3 jumpVec;
     bool isDefenseCool = false;
@@ -223,11 +224,11 @@ public class Player : MonoBehaviourPun
     void MouseRotate()
     {
         // 플레이어의 수평회전 처리
-        float hRotation = transform.rotation.eulerAngles.y + (mouseValueX * sensivity); // 수평 회전 값(y축 회전)
+        float hRotation = transform.rotation.eulerAngles.y + (mouseValueX * hSensivity); // 수평 회전 값(y축 회전)
         transform.rotation = Quaternion.Euler(0f, hRotation, 0f);
 
         // 카메라의 수직회전을 위한 프로퍼티
-        VRotation -= (mouseValueY * sensivity);                                         // 수직 회전 값(x축 회전)
+        VRotation -= (mouseValueY * vSensivity);                                         // 수직 회전 값(x축 회전)
         VRotation = Mathf.Clamp(VRotation, 25f, 70f);
     }
 
@@ -258,11 +259,13 @@ public class Player : MonoBehaviourPun
                 rDown = false;
                 return;
             }
-            state.moveStats.stamina -= staminaDecreasePerSec * Time.deltaTime;
+            //state.moveStats.stamina -= staminaDecreasePerSec * Time.deltaTime;
+            state.DecreaseStamina(staminaDecreasePerSec * Time.deltaTime);
         }
         if (!rDown && state.moveStats.stamina < 100)
         {
-            state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
+            //state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
+            state.IncreaseStamina(staminaDecreasePerSec - 2 * Time.deltaTime);
         }
     }
 
