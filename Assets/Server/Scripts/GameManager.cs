@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool IsMaster()
     {
      
-        if (PhotonNetwork.IsMasterClient)
+        if (photonView.IsMine)
              return true;
         else
             return false;

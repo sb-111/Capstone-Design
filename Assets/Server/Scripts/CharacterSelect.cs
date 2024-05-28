@@ -113,7 +113,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
         PhotonNetwork.CreateRoom(null, roomOptions);
     }
-
+    /*
     public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
     {
 
@@ -131,7 +131,7 @@ public class CharacterSelect : MonoBehaviourPunCallbacks
 
         }
     }
-
+    */
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room.");

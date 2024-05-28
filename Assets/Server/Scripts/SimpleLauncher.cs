@@ -56,6 +56,8 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
     {
         //SceneLoader.instance.LoadScene(1);
         isConnecting = true;
+        PhotonNetwork.GameVersion = "테스트";
+        PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
 
         // 로딩 UI 활성화
@@ -68,13 +70,6 @@ public class SimpleLauncher : MonoBehaviourPunCallbacks
         {
             SceneManager.LoadScene("MainMenuScene");
         }
-    }
-    public override void OnJoinRandomFailed(short returnCode, string message)
-    {
-        Debug.Log("방생성");
-
-        //방 생성
-        PhotonNetwork.CreateRoom(null, new RoomOptions());
     }
 
    /* public override void OnJoinedRoom()

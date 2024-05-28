@@ -26,7 +26,8 @@ public class MonsterSpawner : MonoBehaviour
         //monsterCounter = this.transform.parent.GetComponent<MonsterCounter>();
         //monMax = monsterCounter.monMax;
        // monNum = monsterCounter.monMax;
-        Spawn();
+       if(PhotonNetwork.IsMasterClient)
+            Spawn();
         // StartCoroutine("SpawnMon");
         Debug.Log(mon+"몬스터");
     }
@@ -34,12 +35,12 @@ public class MonsterSpawner : MonoBehaviour
     {
         while (!GameManager.Instance.isGameover&&GameManager.Instance.IsMaster())
         {
-            Debug.Log(monNum);
+           
             monNum = monsterCounter.controlMonNum();
             if (monNum < monMax)
             {
                 Debug.Log("소환");
-                 PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
+                 PhotonNetwork.Instantiate(mon.name, transform.position, transform.rotation, 0);
                 //Instantiate(mon, transform.position, transform.rotation);
                 yield return new WaitForSeconds(createTime + Random.Range(0, 5));
             }
@@ -54,11 +55,15 @@ public class MonsterSpawner : MonoBehaviour
    
     void Spawn()
     {
+        Debug.Log("포톤 네트워크 확인 " + PhotonNetwork.IsMasterClient);
+        Debug.Log("포톤 네트워크 확인 " + GameManager.Instance.IsMaster());
         monster = PhotonNetwork.Instantiate(mon.name, transform.position, transform.rotation, 0);
         mode = 1;
     }
     void Update()
     {
+        if (!PhotonNetwork.IsMasterClient)
+            return;
         if (monster == null&&mode ==1)
         {
             Invoke("Spawn", createTime);
