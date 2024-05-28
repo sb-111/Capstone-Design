@@ -3429,6 +3429,7 @@ MonoBehaviour:
     luk: 0
   moveStats:
     stamina: 100
+    maxStamina: 100
     speed: 5
   combatStats:
     constant_def: 100
