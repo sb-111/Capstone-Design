@@ -55,6 +55,8 @@ RPG, 고난이도 전투, 전략 시뮬레이션을 결합한 게임을 제안�
 ## 라이센스
 에셋 스토어상 유료 에셋 패키지들이 있어 clone후 사용이 불가합니다. .gitignore을 참고해주세요
 
+## 게임 트레일러 영상
+[![썸네일 이미지](https://img.youtube.com/vi/IHzPKSxICCo/0.jpg)](https://www.youtube.com/embed/IHzPKSxICCo)
 
 ## 팀원 소개
 - **허승빈**: 몬스터 AI, 스탯 UI, 플레이어 성장시스템 구축
