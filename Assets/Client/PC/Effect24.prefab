@@ -14748,6 +14748,7 @@ GameObject:
   - component: {fileID: 198983838425757232}
   - component: {fileID: 199283878850545010}
   - component: {fileID: 114620075341575344}
+  - component: {fileID: 928182028937013830}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -19548,6 +19549,27 @@ MonoBehaviour:
   GraphIntensityMultiplier: 170
   IsLoop: 0
   UseSharedMaterial: 0
+--- !u!65 &928182028937013830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606657272102914}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 3.46, z: 0.85}
+  m_Center: {x: 0.09, y: 0, z: 0.37}
 --- !u!1 &1786509401934180
 GameObject:
   m_ObjectHideFlags: 0

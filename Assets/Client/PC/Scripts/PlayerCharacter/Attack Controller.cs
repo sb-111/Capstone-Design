@@ -65,8 +65,8 @@ public class AttackController : MonoBehaviour
 
     public void strongAttack()
     {
+        if (player_controller.isAttack) { return; }
         strongCoolTime = true;
-        if(player_controller.isAttack) { return; }
         StartCoroutine(coStrongAttack());
     }
     IEnumerator coStrongAttack()
@@ -82,7 +82,6 @@ public class AttackController : MonoBehaviour
         cameraShaking.Shaking(0.5f,7.5f);
         */
         yield return new WaitForSeconds(10.0f);
-        Debug.Log("쿨타임 끝났 습니다.");
         strongCoolTime = false;
     }
     public void parryingAttack()
