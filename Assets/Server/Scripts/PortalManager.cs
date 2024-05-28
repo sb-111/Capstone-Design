@@ -181,7 +181,14 @@ public class PortalManager : MonoBehaviourPun
     {
         return currentHP <= 0;
     }
-
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("충돌");
+        if (col.gameObject.CompareTag("EnemyWeapon"))
+        {
+            Debug.Log("적충돌");
+        }
+    }
 
     private void Break()
     {

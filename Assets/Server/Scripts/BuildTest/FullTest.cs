@@ -9,10 +9,12 @@ public class FullTest : MonoBehaviour
     bool isGame = true;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
 
         Screen.SetResolution(1920, 1080, true);
+        Screen.fullScreen = true;
         StartCoroutine("Defense");
+        Cursor.lockState = CursorLockMode.Locked;
     }
     IEnumerator Defense()
     {
@@ -52,6 +54,10 @@ public class FullTest : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("¾È ´­¸²");
+        }
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            Screen.fullScreen = !Screen.fullScreen;
         }
 
     }
