@@ -6,12 +6,15 @@ using TMPro;
 
 public class OptionManager : MonoBehaviour
 {
-    [SerializeField]
-    private Toggle fullTog;
-    [SerializeField]
-    private TextMeshProUGUI ScreenText;
+
+    [SerializeField] private Toggle fullTog;
+    [SerializeField] private TextMeshProUGUI ScreenText;
+    [SerializeField] private Slider vSlider;
+    [SerializeField] private Slider hSlider;
+    [SerializeField] private Player player;
     [SerializeField]
     private GameObject option;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +27,8 @@ public class OptionManager : MonoBehaviour
     void Awake()
     {
         fullTog.onValueChanged.AddListener(delegate { FullToggle(); });
-      
-
+        vSlider.onValueChanged.AddListener(delegate { OnVSlide(vSlider.value); });
+        hSlider.onValueChanged.AddListener (delegate { OnHSlide(hSlider.value); });
     }
     public void SetScreen1920()
     {
@@ -54,9 +57,19 @@ public class OptionManager : MonoBehaviour
        
     }
 
+    public void OnVSlide(float value)
+    {
+        Debug.Log($"�����̵尪:{value}");
+        player.SetVSensivity(value);
+    }
+    private void OnHSlide(float value)
+    {
+        player.SetHSensivity(value);
+    }
     public void optionClose()
     {
         option.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
