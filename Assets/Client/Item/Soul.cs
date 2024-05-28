@@ -46,13 +46,13 @@ public class Soul : MonoBehaviour
                 amount = 25;
                 break;
             case Monster.MonsterType.Goblin:
-                amount = 10;
+                amount = 5;
                 break;
             case Monster.MonsterType.Hobgoblin:
-                amount = 20;
+                amount = 10;
                 break;
             case Monster.MonsterType.Kobold: 
-                amount = 10;
+                amount = 5;
                 break;  
             case Monster.MonsterType.Troll: 
                 amount = 25;

@@ -2808,8 +2808,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.09, z: 0.16}
-  m_Center: {x: 0.12, y: -0.03, z: 0}
+  m_Size: {x: 0.84, y: 0.09, z: 0.22}
+  m_Center: {x: 0.03, y: -0.03, z: 0}
 --- !u!114 &5227440482653728389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2989,8 +2989,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.09, z: 0.16}
-  m_Center: {x: -0.07, y: -0.02, z: -0.05}
+  m_Size: {x: 0.84, y: 0.09, z: 0.22}
+  m_Center: {x: -0.01, y: -0.02, z: -0.05}
 --- !u!114 &4470691182120802115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3420,10 +3420,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicStats:
-    hp: 1000
-    maxhp: 1000
-    def: 50
-    atk: 30
+    hp: 1500
+    maxhp: 1500
+    def: 60
+    atk: 40
     dex: 30
     intell: 30
     luk: 0

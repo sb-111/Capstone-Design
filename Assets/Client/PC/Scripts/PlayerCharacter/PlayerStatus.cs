@@ -87,6 +87,7 @@ public class PlayerStatus : MonoBehaviour
     public void IncreaseMaxHealth()
     {
         basicStats.maxhp += 100;
+        //basicStats.hp += 100;
         OnMaxHPStatChanged(basicStats.maxhp.ToString()); // UI 업데이트 이벤트 발생
         OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
     }
@@ -97,17 +98,17 @@ public class PlayerStatus : MonoBehaviour
     }
     public void IncreaseAttack() 
     {
-        basicStats.atk += 30;
+        basicStats.atk += 10;
         OnAtkStatChanged(basicStats.atk.ToString()); // UI 업데이트 이벤트 발생
     }
     public void IncreaseDex()
     {
-        basicStats.dex += 30;
+        basicStats.dex += 10;
         OnDexStatChanged(basicStats.dex.ToString()); // UI 업데이트 이벤트 발생
     }
     public void IncreaseInt()
     {
-        basicStats.intell += 30;
+        basicStats.intell += 10;
         OnIntStatChanged(basicStats.intell.ToString()); // UI 업데이트 이벤트 발생
     }
     public void DecreaseHP(int damage)
@@ -126,5 +127,11 @@ public class PlayerStatus : MonoBehaviour
         moveStats.stamina += amount; // 스태미나 회복
         OnStaminaBarChanged(moveStats.stamina, moveStats.maxStamina); // 스태미나바 UI 업데이트 이벤트 발생
     }
-
+    public void HpUp()
+    {
+        int recoverHP = basicStats.maxhp / 2;
+        basicStats.hp += recoverHP;
+        if (basicStats.hp >= basicStats.maxhp) basicStats.hp = basicStats.maxhp;
+        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
+    }
 }

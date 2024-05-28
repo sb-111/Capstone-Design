@@ -62,5 +62,5 @@ public class IdleState : MonoBehaviour, IMonsterState
 
         return navHit.position;
     }
-  
+ 
 }
