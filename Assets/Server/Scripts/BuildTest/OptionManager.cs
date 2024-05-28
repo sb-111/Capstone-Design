@@ -6,15 +6,14 @@ using TMPro;
 
 public class OptionManager : MonoBehaviour
 {
-
+    [SerializeField] private Button exitButton;
     [SerializeField] private Toggle fullTog;
     [SerializeField] private TextMeshProUGUI ScreenText;
     [SerializeField] private Slider vSlider;
     [SerializeField] private Slider hSlider;
-    [SerializeField] private Player player;
-    [SerializeField]
-    private GameObject option;
-
+    [SerializeField] private GameObject optionBar;
+    [SerializeField] private GameObject statBar;
+    private Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,9 +25,12 @@ public class OptionManager : MonoBehaviour
     }
     void Awake()
     {
+        exitButton.onClick.AddListener(OnPressExitBtn);
         fullTog.onValueChanged.AddListener(delegate { FullToggle(); });
         vSlider.onValueChanged.AddListener(delegate { OnVSlide(vSlider.value); });
         hSlider.onValueChanged.AddListener (delegate { OnHSlide(hSlider.value); });
+        
+        player = GetComponentInParent<Player>();    
     }
     public void SetScreen1920()
     {
@@ -57,32 +59,45 @@ public class OptionManager : MonoBehaviour
        
     }
 
-    public void OnVSlide(float value)
+    private void OnVSlide(float value)
     {
-        Debug.Log($"�����̵尪:{value}");
+        Debug.Log($"수직 감도:{value}");
         player.SetVSensivity(value);
     }
     private void OnHSlide(float value)
     {
         player.SetHSensivity(value);
     }
-    public void optionClose()
+    private void OnPressExitBtn()
     {
-        option.SetActive(false);
-
+        optionBar.SetActive(false);
+        player.CanReceiveInput = true;
     }
     // Update is called once per frame
     void Update()
     {
-      
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !statBar.activeSelf)
         {
-            if (option.activeSelf)
-            {
-        Application.Quit();
-            }
-            else
-                option.SetActive(true);
+            optionBar.SetActive(!optionBar.activeSelf);
+            player.CanReceiveInput = !optionBar.activeSelf;
         }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (option.activeSelf)
+        //    {
+        //        Application.Quit();
+        //    }
+        //    else
+        //    {
+        //        option.SetActive(true);
+        //    }
+        //}
+    }
+    private void OnDestroy()
+    {
+        exitButton.onClick.RemoveAllListeners();
+        fullTog.onValueChanged.RemoveAllListeners();
+        vSlider.onValueChanged.RemoveAllListeners();
+        hSlider.onValueChanged.RemoveAllListeners();
     }
 }
