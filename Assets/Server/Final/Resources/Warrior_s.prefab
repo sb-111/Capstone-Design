@@ -4298,15 +4298,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicStats:
-    hp: 1000
-    maxhp: 1000
-    def: 10
-    atk: 30
+    hp: 1500
+    maxhp: 1500
+    def: 100
+    atk: 50
     dex: 30
     intell: 30
     luk: 0
   moveStats:
     stamina: 100
+    maxStamina: 100
     speed: 5
   combatStats:
     constant_def: 100

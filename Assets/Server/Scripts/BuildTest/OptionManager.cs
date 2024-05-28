@@ -6,11 +6,15 @@ using TMPro;
 
 public class OptionManager : MonoBehaviour
 {
+
     [SerializeField] private Toggle fullTog;
     [SerializeField] private TextMeshProUGUI ScreenText;
     [SerializeField] private Slider vSlider;
     [SerializeField] private Slider hSlider;
     [SerializeField] private Player player;
+    [SerializeField]
+    private GameObject option;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class OptionManager : MonoBehaviour
             fullTog.isOn = true;
         else
             fullTog.isOn = false;
+        ScreenText.text = "1920X1080";
     }
     void Awake()
     {
@@ -51,18 +56,33 @@ public class OptionManager : MonoBehaviour
         Screen.fullScreen = !Screen.fullScreen;
        
     }
+
     public void OnVSlide(float value)
     {
-        Debug.Log($"½½¶óÀÌµå°ª:{value}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½Ìµå°ª:{value}");
         player.SetVSensivity(value);
     }
     private void OnHSlide(float value)
     {
         player.SetHSensivity(value);
     }
+    public void optionClose()
+    {
+        option.SetActive(false);
+
+    }
     // Update is called once per frame
     void Update()
     {
-        ScreenText.text = "1920X1080";
+      
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (option.activeSelf)
+            {
+        Application.Quit();
+            }
+            else
+                option.SetActive(true);
+        }
     }
 }

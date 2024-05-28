@@ -31,7 +31,8 @@ public class Player : MonoBehaviourPun
     public bool isDefense;                                  //방어 중인가?
     [HideInInspector]
     public bool isCC = false;                               //CC 상태인가?
-
+    bool hpRecover;
+    int hpItem = 3;
 
     //공격
     bool left_attack;                       //좌클릭 공격
@@ -84,6 +85,7 @@ public class Player : MonoBehaviourPun
         growthSystem = GetComponent<GrowthSystem>();
         characterController = GetComponent<CharacterController>();
         characterSound = GetComponent<CharacterSound>();
+
     }
     void Start()
     {
@@ -147,6 +149,12 @@ public class Player : MonoBehaviourPun
         dUp = Input.GetKeyUp(KeyCode.E);
         //kDown = Input.GetKeyDown(KeyCode.K);
         downParryingSkill = Input.GetKeyDown(KeyCode.Q);
+        hpRecover = Input.GetKeyDown(KeyCode.Alpha2);
+        if (hpRecover && hpItem>0)
+        {
+            state.HpUp();
+            hpItem--;
+        }
     }
 
     void Move()

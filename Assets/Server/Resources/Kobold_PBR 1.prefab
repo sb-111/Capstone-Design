@@ -178,14 +178,14 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 12.8
-  fieldOfView: 160
+  sightRange: 24
+  fieldOfView: 220
   attackRange: 3.5
   basicCoolTime: 3
-  maxHP: 100
-  currentHP: 100
-  attackPower: 5
-  def: 10
+  maxHP: 400
+  currentHP: 400
+  attackPower: 10
+  def: 30
   constant_def: 100
   speed: 10
   skin_30p: {fileID: 9028436527930971942}
@@ -1834,7 +1834,7 @@ GameObject:
   - component: {fileID: 7856124874434359516}
   - component: {fileID: 3726392168284082467}
   - component: {fileID: 6196599374688499711}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -3498,7 +3498,7 @@ GameObject:
   - component: {fileID: 66027249073407043}
   - component: {fileID: 7380670918086256964}
   - component: {fileID: 2320468005899803458}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}

@@ -26,7 +26,7 @@ public class GrowthSystem : MonoBehaviour
         dexLevel = 1;
         intLevel = 1;
 
-        soulCount = 500;
+        soulCount = 0;
 
         soulPerLevel = new Dictionary<int, int>()
         {
