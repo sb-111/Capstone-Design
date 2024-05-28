@@ -47,8 +47,10 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("닿음"+other.tag);
         if (other.tag == "Player")
         {
+            
             GameObject player = other.gameObject;
             CombatStatusManager combatStatus = player.GetComponent<CombatStatusManager>();
             if (!hitEnemies.Contains(player)) // 이미 공격한 적이 아니라면

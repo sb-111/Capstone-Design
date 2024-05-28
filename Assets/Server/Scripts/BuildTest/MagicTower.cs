@@ -33,7 +33,7 @@ public class MagicTower : MonoBehaviourPun
                 {
 
 
-                    lastMonsterPosition = collider.transform.position + new Vector3(0, 2, 0);
+                    lastMonsterPosition = collider.transform.position + new Vector3(0, 1, 0);
                     transform.LookAt(lastMonsterPosition);
                     hasMonsterPosition = true;
                     StartCooldown(); //ÄðÅ¸ÀÓ

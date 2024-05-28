@@ -9,17 +9,19 @@ public class FullTest : MonoBehaviour
     bool isGame = true;
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
 
         Screen.SetResolution(1920, 1080, true);
+        Screen.fullScreen = true;
         StartCoroutine("Defense");
+        Cursor.lockState = CursorLockMode.Locked;
     }
     IEnumerator Defense()
     {
         while (true)
         {
             Debug.Log(phase + "코루틴" + isGame);
-            if (phase == 2)
+            if (phase ==3)
             {
                 Debug.Log(phase + "끝");
                 yield break;
@@ -52,6 +54,10 @@ public class FullTest : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Debug.Log("안 눌림");
+        }
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            Screen.fullScreen = !Screen.fullScreen;
         }
 
     }

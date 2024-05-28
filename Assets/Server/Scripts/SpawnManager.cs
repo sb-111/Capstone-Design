@@ -50,11 +50,13 @@ public class SpawnManager : MonoBehaviour
     }
     public void TimerSpawn()
     {
-        timer2= PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
+        if (PhotonNetwork.IsMasterClient)
+            timer2 = PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
 
     }
     public void PortalSpawnerSpawn() {
-        PhotonNetwork.InstantiateRoomObject(portalSpawner.name, portalSpawnPoint.transform.position, portalSpawnPoint.transform.rotation, 0);
+        if (PhotonNetwork.IsMasterClient)
+            PhotonNetwork.InstantiateRoomObject(portalSpawner.name, portalSpawnPoint.transform.position, portalSpawnPoint.transform.rotation, 0);
     }
     void Start()
     {
@@ -85,7 +87,8 @@ public class SpawnManager : MonoBehaviour
     }
     public void portalSpawn()
     {
-        PhotonNetwork.InstantiateRoomObject(portal.name, portalSpawnPoint.transform.position, portalSpawnPoint.transform.rotation, 0);
+        if (PhotonNetwork.IsMasterClient)
+            PhotonNetwork.InstantiateRoomObject(portal.name, portalSpawnPoint.transform.position, portalSpawnPoint.transform.rotation, 0);
     }
    
 

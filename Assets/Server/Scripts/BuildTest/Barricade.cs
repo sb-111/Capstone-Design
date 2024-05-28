@@ -21,11 +21,11 @@ public class Barricade : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.LogWarning("面倒");
-        if (other.tag == "Melee")
+        
+        if (other.tag == "Melee"||other.tag=="EnemyWeapon")
         {
             currentHP -= 10;
-            Debug.LogWarning("公扁面倒");
+          //  Debug.LogWarning("公扁面倒");
 
         }
 

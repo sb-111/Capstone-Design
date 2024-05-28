@@ -156,7 +156,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         PV.RPC("GameOver", RpcTarget.All,gameMode);
         Debug.Log("승패 확인" + PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "챙겼나" + PV.Owner.NickName);
     }
-
+    public bool IsMaster()
+    {
+     
+        if (photonView.IsMine)
+             return true;
+        else
+            return false;
+    }
     void Update()
     {
 
