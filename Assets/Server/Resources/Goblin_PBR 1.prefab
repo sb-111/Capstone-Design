@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 1768305813728114480}
   - component: {fileID: 957078879148809430}
   - component: {fileID: 4591198596462750269}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WeaponPoint
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
@@ -1241,7 +1241,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9061333697444278787}
@@ -1345,14 +1345,14 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  sightRange: 12.8
-  fieldOfView: 160
+  sightRange: 24
+  fieldOfView: 200
   attackRange: 3.3
   basicCoolTime: 3
-  maxHP: 100
-  currentHP: 100
-  attackPower: 5
-  def: 10
+  maxHP: 300
+  currentHP: 300
+  attackPower: 7
+  def: 25
   constant_def: 100
   speed: 10
   skin_30p: {fileID: 4834615913766697710}

@@ -232,8 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f1d25968e1842419ca8bffdd30f5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 10
-  cooldown: 2
+  detectionRadius: 20
+  cooldown: 1
   bullet: {fileID: 1758863767508122, guid: f4b0dbcff41dcdc44bd068c52adfd73b, type: 3}
 --- !u!1 &6107286060173570562
 GameObject:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
-  m_UseLocal: 1
+  m_UseLocal: 0
 --- !u!1 &8640727785913758173
 GameObject:
   m_ObjectHideFlags: 0
