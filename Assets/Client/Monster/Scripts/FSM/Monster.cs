@@ -96,13 +96,14 @@ public class Monster : MonoBehaviour
     void Update()
     {
         //디펜스 모드 수정
-       
-        if (GameManager.Instance.mode==1&&!isDefense)
+        if (GameManager.Instance != null)
         {
-            isDefense = true;
-            SetState(new DefenseState(this));
+            if (GameManager.Instance.mode == 1 && !isDefense)
+            {
+                isDefense = true;
+                SetState(new DefenseState(this));
+            }
         }
-
         if (isDefense)
         {
             switch (_fsm.CurrentState) // fsm의 현재상태 프로퍼티 접근

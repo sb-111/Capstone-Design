@@ -23,6 +23,7 @@ public class PortalManager : MonoBehaviourPun
     int mode = 0;
     int phase = 1;
     int monnum = 0;
+    public float portalTime = 225f;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +41,35 @@ public class PortalManager : MonoBehaviourPun
         isGame = true;
         phase = 0;
         StartCoroutine("Defense");
-     
+        StartCoroutine("GrowOverTime");
+    }
+    IEnumerator GrowOverTime()
+    {
+        float progressTime = 0f;
+        mot.transform.localScale = new Vector3(1, 1, 1);
+        mot.gameObject.SetActive(true);
+        while (progressTime < portalTime)
+        {
+
+            progressTime += Time.deltaTime;
+
+        
+            float progress = Mathf.Clamp01(progressTime / portalTime);
+
+           
+            mot.transform.localScale = Vector3.Lerp(new Vector3(0,0,0), new Vector3(1,1,1), progress);
+
+            yield return null;
+        }
+    
+        mot.transform.localScale = new Vector3(1, 1, 1);
     }
     IEnumerator Defense()
     {
         while (true)
         {
             Debug.Log(phase + "코루틴");
-            if (phase == 2)
+            if (phase == 3)
             {
                 GameFinish();
                 yield break;
@@ -79,53 +101,7 @@ public class PortalManager : MonoBehaviourPun
         }
     }
 
-    void monSpawn()
-    {
-        Debug.Log("1라");
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            enemies[i].gameObject.SetActive(true);
-           // enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(fmax, ftime);
-        }
-        phase = 1;
-        isGame = true;
-        Invoke("Wait", waittime);
-        SpawnManager.Instance.TimerDestroy();
-        GameManager.Instance.setTime = waittime;
-        SpawnManager.Instance.TimerSpawn();
-    }
-    void monSpawn2()
-    {
-        monDelete();
-        Debug.Log("2라");
-        mot.gameObject.SetActive(true);
-        fportal.gameObject.SetActive(true);
-        for (int i = 0; i<enemies.Length; i++)
-        {
-          
 
-            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(smax, stime);
-        }
-        phase = 2;
-        isGame = true;
-        Invoke("Wait", waittime);
-        SpawnManager.Instance.TimerDestroy();
-        GameManager.Instance.setTime = waittime;
-        SpawnManager.Instance.TimerSpawn();
-    }
-    void monSpawn3()
-    {
-        monDelete();
-        sportal.gameObject.SetActive(true);
-        Debug.Log("3라");
-        for (int i = 0; i < enemies.Length; i++)
-        {
-
-            enemies[i].GetComponent<MonsterEndSpawn>().GetStarted(tmax, ttime);
-        }
-        phase = 3;
-        isGame = true;
-    }
     void monDelete()
     {
         GameObject[] mons = GameObject.FindGameObjectsWithTag("MonsterEnemy");
@@ -193,8 +169,8 @@ public class PortalManager : MonoBehaviourPun
 
     void OnTriggerEnter(Collider coll)
     {
-        Debug.Log("충돌");
-        if (coll.tag == "Melee")
+        Debug.Log("충돌"+coll.tag);
+        if (coll.tag == "Melee"||coll.tag == "EnemyWeapon")
         {
             currentHP -= 10;
             Debug.LogWarning("무기충돌");

@@ -19,7 +19,7 @@ public class FullTest : MonoBehaviour
         while (true)
         {
             Debug.Log(phase + "코루틴" + isGame);
-            if (phase == 2)
+            if (phase ==3)
             {
                 Debug.Log(phase + "끝");
                 yield break;
