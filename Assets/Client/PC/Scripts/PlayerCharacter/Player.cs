@@ -69,6 +69,8 @@ public class Player : MonoBehaviourPun
     [SerializeField] private float capsuleHeight = 1.7f;
     [SerializeField] private float capsuleRadius = 0.32f;
 
+    private bool canReceiveInput = true; // 스탯창 활성화 시 인풋 막는 용도
+    public bool CanReceiveInput { set { canReceiveInput = value; } }
     public float VRotation { get; private set; } // 수직 회전 값
 
     // Start is called before the first frame update
@@ -96,6 +98,7 @@ public class Player : MonoBehaviourPun
             return;
         }
         if (state.basicStats.hp <= 0) { Death(); }
+        if (!canReceiveInput) return;
         GetInput();
         MouseRotate();
         Move();

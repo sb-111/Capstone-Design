@@ -9,7 +9,7 @@ public class UIHP : MonoBehaviour
     [SerializeField] private Image hpBar;
     [SerializeField] private Image staminaBar;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         status.OnHPBarChanged += UpdateHp;
     }

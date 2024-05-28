@@ -7,10 +7,14 @@ using TMPro;
 public class UISoul : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI soulText;
+    private void Awake()
+    {
+        GrowthSystem.OnSoulChanged += UpdateUI; // 이벤트 구독
+        
+    }
     void Start()
     {
         //soulText.text = "500";
-        GrowthSystem.OnSoulChanged += UpdateUI; // 이벤트 구독
     }
     /// <summary>
     /// 소울의 양 Update
