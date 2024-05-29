@@ -11,11 +11,13 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private PlayerStatus playerStatus; // 이벤트 발행자
 
     [SerializeField] private GameObject statBar;
+    [SerializeField] private GameObject optionBar;
     [SerializeField] private Button hpEnhanceButton;
     [SerializeField] private Button atkEnhanceButton;
     [SerializeField] private Button defEnhanceButton;
     [SerializeField] private Button dexEnhanceButton;
     [SerializeField] private Button intEnhanceButton;
+    [SerializeField] private Button exitButton;
 
     [SerializeField] private TextMeshProUGUI hpText;
     [SerializeField] private TextMeshProUGUI atkText;
@@ -31,6 +33,7 @@ public class UIStatus : MonoBehaviour
         defEnhanceButton.onClick.RemoveAllListeners();
         dexEnhanceButton.onClick.RemoveAllListeners();
         intEnhanceButton.onClick.RemoveAllListeners();
+        exitButton.onClick.RemoveAllListeners();
 
         // 인스턴스 ID 출력
         Debug.Log("UIStatus에서 참조한 growthSystem ID: " + growthSystem.GetInstanceID());
@@ -41,6 +44,7 @@ public class UIStatus : MonoBehaviour
         defEnhanceButton.onClick.AddListener(growthSystem.OnPressEnhanceDefenseBtn);
         dexEnhanceButton.onClick.AddListener(growthSystem.OnPressEnhanceDexBtn);
         intEnhanceButton.onClick.AddListener(growthSystem.OnPressEnhanceIntBtn);
+        exitButton.onClick.AddListener(OnPressExitBtn);
 
         // 이벤트 등록(스탯)
         playerStatus.OnMaxHPStatChanged += UpdateMaxHP;
@@ -56,7 +60,7 @@ public class UIStatus : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && !optionBar.activeSelf)
         {
             statBar.SetActive(!statBar.activeSelf);
             player.CanReceiveInput = !statBar.activeSelf;
@@ -70,6 +74,7 @@ public class UIStatus : MonoBehaviour
         defEnhanceButton.onClick.RemoveAllListeners();
         dexEnhanceButton.onClick.RemoveAllListeners();
         intEnhanceButton.onClick.RemoveAllListeners();
+        exitButton.onClick.RemoveAllListeners();
 
         // 이벤트 해제
         playerStatus.OnMaxHPStatChanged -= UpdateMaxHP;
@@ -103,6 +108,11 @@ public class UIStatus : MonoBehaviour
     public void UpdateSoul(string count)
     {
         soulText.text = count;
+    }
+    private void OnPressExitBtn()
+    {
+        statBar.SetActive(false);
+        player.CanReceiveInput = true;
     }
     
 }

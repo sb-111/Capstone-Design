@@ -71,6 +71,7 @@ public class Player : MonoBehaviourPun
     [SerializeField] private float capsuleHeight = 1.7f;
     [SerializeField] private float capsuleRadius = 0.32f;
 
+
     private bool canReceiveInput = true; // 스탯창 활성화 시 인풋 막는 용도
     public bool CanReceiveInput { set { canReceiveInput = value; } }
     public float VRotation { get; private set; } // 수직 회전 값
@@ -136,6 +137,7 @@ public class Player : MonoBehaviourPun
     {
         mouseValueX = Input.GetAxis("Mouse X");                             // 마우스 수평 회전 값
         mouseValueY = Input.GetAxis("Mouse Y");                             // 마우스 수직 회전 값
+
 
         if (isCC) { return; }                                               // !! CC기 걸리면 다른 인풋 무시 !!
         hAxis = Input.GetAxisRaw("Horizontal");                             // x축 이동(-1/1)
