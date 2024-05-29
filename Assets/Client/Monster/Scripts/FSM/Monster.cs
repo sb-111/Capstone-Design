@@ -371,8 +371,8 @@ public class Monster : MonoBehaviour
 
         if (IsDie() && !isDead) // Die()의 중복 호출 방지
         {
+            isDead = true; // 최종 버전: 위아래 순서 변경  
             Die();
-            isDead = true;  
         }
 
         //if (hpPercentage <= 0.7 && hpPercentage > 0.3)
@@ -412,6 +412,14 @@ public class Monster : MonoBehaviour
     private void Die()
     {
         Debug.Log("Die() 호출");
+
+        // 콜라이더 비활성화 : 소울 생성 전에 비활성화 되어야 소울이 안전하게 바닥에 소환됨
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        foreach (Collider collider in colliders)
+        {
+            collider.enabled = false;
+        }
+
         float height = 2.0f;
         Vector3 dropVec = new Vector3(transform.position.x, transform.position.y + height, transform.position.z);
        

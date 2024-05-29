@@ -10,10 +10,13 @@ public class Soul : MonoBehaviour
     [SerializeField]private float distance = 0.5f;
     [SerializeField]private float frequency = 5.0f;
     private float originY;
+    [SerializeField] private AudioClip audioClip; // 소울 사운드
     // Start is called before the first frame update
     void Start()
     {
-        originY = transform.position.y;      
+        //originY = transform.position.y;      
+        originY = GetGroundYPosition(transform.position);
+        transform.position = new Vector3(transform.position.x, originY, transform.position.z);
     }
 
     // Update is called once per frame
@@ -21,6 +24,7 @@ public class Soul : MonoBehaviour
     {
         float y = distance * Mathf.Sin(2 * Mathf.PI * frequency * Time.time) ;
         transform.position = new Vector3(transform.position.x, originY + y, transform.position.z);
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -29,6 +33,9 @@ public class Soul : MonoBehaviour
             GrowthSystem growthSystem = other.gameObject.GetComponent<GrowthSystem>();
             int soulAmount = GetSoulAmount(monsterType); // 몬스터 타입에따른 소울 개수 반환
             growthSystem.GetSoul(soulAmount); // 플레이어 획득 처리
+
+            PlaySound();
+
             Destroy(gameObject);
         }
     }
@@ -67,5 +74,34 @@ public class Soul : MonoBehaviour
     public void SetMonsterType(Monster.MonsterType monsterType)
     {
         this.monsterType = monsterType;
+    }
+
+    private float GetGroundYPosition(Vector3 position)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            Debug.Log("들오나");
+            return position.y;
+        }
+    }
+    private void PlaySound()
+    {
+        // 임시 오브젝트 
+        GameObject tempObj = new GameObject("tempAudio");
+        tempObj.transform.position = transform.position;
+
+        // 임시 오브젝트에 AudioSource 추가
+        AudioSource audioSource = tempObj.AddComponent<AudioSource>();
+        audioSource.clip = audioClip;
+        audioSource.Play();
+
+        // 임시 오브젝트 파괴 예약
+        Destroy(tempObj, audioSource.clip.length);
+
     }
 }
