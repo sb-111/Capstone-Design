@@ -226,8 +226,6 @@ GameObject:
   - component: {fileID: 4041084245887873902}
   - component: {fileID: -2858630862793166123}
   - component: {fileID: 7414647282283632429}
-  - component: {fileID: 7314258543768396994}
-  - component: {fileID: 37952040268950999}
   m_Layer: 0
   m_Name: Terrain 2 1
   m_TagString: Untagged
@@ -336,7 +334,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 7414647282283632429}
-  - {fileID: 7314258543768396994}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -356,46 +353,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
---- !u!114 &7314258543768396994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6308557177421887996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &37952040268950999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6308557177421887996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 7414647282283632429}
-  - {fileID: 7314258543768396994}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1001 &20552255568360134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7564,6 +7521,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3861788745601561672}
+    - targetCorrespondingSourceObject: {fileID: 516168718587668166, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 807716531311744599}
   m_SourcePrefab: {fileID: 100100000, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}
 --- !u!1 &2167962139292652414 stripped
 GameObject:
@@ -7653,6 +7613,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 3, z: 3}
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!114 &807716531311744599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273315696040840988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &8051260462064063910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 892306575797419132, guid: ab1ff9d9fd78cbd439f4aa6f36cb662d, type: 3}

@@ -164,7 +164,7 @@ public class PortalManager : MonoBehaviourPun
 
     void OnDestroy()
     {
-        SpawnManager.Instance.PortalSpawnerSpawn();
+        //SpawnManager.Instance.PortalSpawnerSpawn();
     }
 
 
@@ -194,11 +194,10 @@ public class PortalManager : MonoBehaviourPun
     private void Break()
     {
         // ÆÄ±«
-        GameManager.Instance.GameFinish();
-        PhotonView PV = this.GetComponent<PhotonView>();
-        if (PV.IsMine)
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
+        monDelete();
+        GameManager.Instance.Defencefail();
+     
+        PhotonNetwork.Destroy(this.gameObject);
+
     }
 }

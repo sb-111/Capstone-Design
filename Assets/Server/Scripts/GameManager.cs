@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] public int setDefenceTime = 40;
     public int mode = 0; //0 : 파밍 1: 디펜스 
     public bool isPlaying = false;
+    public GameObject spawner;
     void Awake()
     {
         if (instance == null)
@@ -68,6 +69,28 @@ public class GameManager : MonoBehaviourPunCallbacks
             spawn();
 
         }
+    }
+
+
+    public void SpawnerOn()
+    {
+        PV.RPC("RPCSpawnerOn", RpcTarget.All);
+    }
+  
+    public void SpawnerOff()
+    {
+        PV.RPC("RPCSpawnerOff", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPCSpawnerOn()
+    {
+        spawner.gameObject.SetActive(true);
+    }
+    [PunRPC]
+    public void RPCSpawnerOff()
+    {
+        spawner.gameObject.SetActive(false);
     }
     public CameraShake SetEffect()
     {
@@ -186,6 +209,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         }
     }
+    public void Defencefail()
+    {
+        
+        PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "Winner", "none" } });
+       // SpawnManager.Instance.PortalSpawnerSpawn();
+        mode = 0;
+        SpawnerOn();
+
+    }
 
     [PunRPC]
     public void GameOver(int mode)
@@ -198,13 +230,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         gameOver.enabled = true;
         gameOver.text = "종료";
         string a = PhotonNetwork.CurrentRoom.CustomProperties["Winner"].ToString();
-        string b = PV.Owner.NickName;
+        string b = PhotonNetwork.NickName;
         if (a==b)
         {
-            if (PV.IsMine)
             gameOver.text = "WIN";
-            else
-                gameOver.text = "LOSE";
+         
         }
         else
         {

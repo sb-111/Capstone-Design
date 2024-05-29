@@ -9,7 +9,7 @@ public class CreatePortal : MonoBehaviourPun
     public Vector3 raisePosition = new Vector3(0, 0, 0); 
     public float speed = 5f;
     public GameObject portal;
-        public GameObject spawner;
+     
     public GameObject bomb;
     bool isRaising = false;
     private Collider[] allColliders;
@@ -73,8 +73,8 @@ public class CreatePortal : MonoBehaviourPun
 
                 PhotonNetwork.Destroy(mon);
             }
-            if (spawner != null)
-                PhotonNetwork.Destroy(spawner);
+        
+             GameManager.Instance.SpawnerOff();
             //PhotonView collPhotonView = coll.GetComponent<PhotonView>();
             PhotonView collPhotonView = coll.GetComponentInParent<PhotonView>();
 
