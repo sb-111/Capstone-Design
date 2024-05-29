@@ -52,6 +52,8 @@ MonoBehaviour:
   - RPCDamage
   - StartDefence
   - Raising
+  - RPCSpawnerOff
+  - RPCSpawnerOn
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
