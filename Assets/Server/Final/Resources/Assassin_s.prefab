@@ -2808,7 +2808,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.84, y: 0.09, z: 0.22}
+  m_Size: {x: 0.84, y: 0.21, z: 0.22}
   m_Center: {x: 0.03, y: -0.03, z: 0}
 --- !u!114 &5227440482653728389
 MonoBehaviour:
@@ -2832,7 +2832,7 @@ MonoBehaviour:
   attackController: {fileID: 0}
   effectPrefab: {fileID: 463714468668174405, guid: f3f87720b2b703346bea9be0856dedb4, type: 3}
   shieldEffectPrefab: {fileID: 0}
-  strongEffectPrefab: {fileID: 8332568290553208141, guid: c34207dd2f444794a83c703ca44191bd, type: 3}
+  strongEffectPrefab: {fileID: 8332568290553208141, guid: 5ca26b97292b7fd49ae1800713512191, type: 3}
   hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
   hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 3063449787771888853}
@@ -2989,7 +2989,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.84, y: 0.09, z: 0.22}
+  m_Size: {x: 0.84, y: 0.21, z: 0.22}
   m_Center: {x: -0.01, y: -0.02, z: -0.05}
 --- !u!114 &4470691182120802115
 MonoBehaviour:
@@ -3013,7 +3013,7 @@ MonoBehaviour:
   attackController: {fileID: 0}
   effectPrefab: {fileID: 463714468668174405, guid: f3f87720b2b703346bea9be0856dedb4, type: 3}
   shieldEffectPrefab: {fileID: 0}
-  strongEffectPrefab: {fileID: 8332568290553208141, guid: c34207dd2f444794a83c703ca44191bd, type: 3}
+  strongEffectPrefab: {fileID: 8332568290553208141, guid: 5ca26b97292b7fd49ae1800713512191, type: 3}
   hitEffectPrefab: {fileID: 5009213277804850731, guid: 6ec8daba0739378458c4ac81b416ad4f, type: 3}
   hitEffectPrefab2: {fileID: 6823302871133167919, guid: da31b1ca63778514c90da8e5a4417929, type: 3}
   HandEffect: {fileID: 7219026424388027498}

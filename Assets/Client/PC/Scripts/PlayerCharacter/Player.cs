@@ -273,7 +273,7 @@ public class Player : MonoBehaviourPun
         if (!rDown && state.moveStats.stamina < 100)
         {
             //state.moveStats.stamina += staminaDecreasePerSec-2 * Time.deltaTime;
-            state.IncreaseStamina(staminaDecreasePerSec - 2 * Time.deltaTime);
+            state.IncreaseStamina((staminaDecreasePerSec - 2) * Time.deltaTime);
         }
     }
 
