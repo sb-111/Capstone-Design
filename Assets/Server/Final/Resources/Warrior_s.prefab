@@ -4298,10 +4298,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicStats:
-    hp: 1500
-    maxhp: 1500
+    hp: 2000
+    maxhp: 2000
     def: 100
-    atk: 50
+    atk: 60
     dex: 30
     intell: 30
     luk: 0
@@ -5110,8 +5110,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0.2, y: 0.15, z: 1.09}
-  m_Center: {x: 0.1, y: 0, z: 0.69}
+  m_Size: {x: 0.51, y: 0.54, z: 1.6}
+  m_Center: {x: 0.1, y: 0, z: 0.57}
 --- !u!114 &4167793804165821047
 MonoBehaviour:
   m_ObjectHideFlags: 0
