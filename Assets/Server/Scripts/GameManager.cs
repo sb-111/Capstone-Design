@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int mode = 0; //0 : 파밍 1: 디펜스 
     public bool isPlaying = false;
     public GameObject spawner;
+    GameObject portalspawner;
     void Awake()
     {
         if (instance == null)
@@ -120,7 +121,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void GameStart()
     {
         SpawnManager.Instance.TimerSpawn();
-        //SpawnManager.Instance.PortalSpawnerSpawn();
+        portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
         PV.RPC("StartSetting", RpcTarget.All);
     }
     public void PlayerReset()
@@ -211,11 +212,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void Defencefail()
     {
-        
+        PhotonNetwork.Destroy(portalspawner); portalspawner = null;
         PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "Winner", "none" } });
-       // SpawnManager.Instance.PortalSpawnerSpawn();
+        portalspawner =SpawnManager.Instance.PortalSpawnerSpawn();
         mode = 0;
         SpawnerOn();
+        setTime = setTime / 2;
+        SpawnManager.Instance.TimerSpawn();
 
     }
 

@@ -57,7 +57,7 @@ public class Countdown : MonoBehaviour
         ResetTimer(setPortalTime);
         portalSpawned = true;
        
-        SpawnManager.Instance.portalSpawn();
+      //  SpawnManager.Instance.portalSpawn();
         mode = 2;
         Debug.Log("포탈 시작");
     }
@@ -99,15 +99,9 @@ public class Countdown : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
             Debug.Log("타이머 종료");
-        if (mode == 2) {
+        if (GameManager.Instance.mode == 0) {
             GameManager.Instance.GameFinish();
-            Debug.Log("종료 확인");
         
-        }
-        else
-        {
-            StartPortal();
-            Debug.Log("종료 확인");
         }
 
         yield break;

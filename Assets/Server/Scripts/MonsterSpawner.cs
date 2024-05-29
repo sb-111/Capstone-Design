@@ -19,7 +19,10 @@ public class MonsterSpawner : MonoBehaviour
     int mode = 0;
     MonsterCounter monsterCounter;
     // Start is called before the first frame update
+    void Enable()
+    {
 
+    }
     void Start()
     {
         mon = SpawnManager.Instance.getMonster(monType);

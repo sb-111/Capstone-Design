@@ -194,6 +194,7 @@ public class PortalManager : MonoBehaviourPun
     private void Break()
     {
         // ÆÄ±«
+        SpawnManager.Instance.TimerDestroy();
         monDelete();
         GameManager.Instance.Defencefail();
      
