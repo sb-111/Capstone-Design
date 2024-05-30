@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 7405799805150711511}
   m_Layer: 0
   m_Name: PortalSet
-  m_TagString: PortalSpawner
+  m_TagString: PortalSet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

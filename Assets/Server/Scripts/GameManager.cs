@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool isPlaying = false;
     public GameObject spawner;
     GameObject portalspawner;
-    GameObject portalspawner2;
     int num = 0;
     void Awake()
     {
@@ -149,7 +148,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (PV.IsMine&&PhotonNetwork.IsMasterClient&&num==0)
         {
             SpawnManager.Instance.TimerSpawn();
-            portalspawner2 = SpawnManager.Instance.PortalSpawnerSpawn();
+            portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
         }
         PV.RPC("StartSetting", RpcTarget.All);
         num++;
@@ -251,7 +250,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPCDEF()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("PortalSpawner");
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("PortalSet");
         if (objs!= null)
         {
             foreach (GameObject obj in objs)
