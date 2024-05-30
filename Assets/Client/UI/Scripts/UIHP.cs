@@ -18,6 +18,7 @@ public class UIHP : MonoBehaviourPun
         if (!GetComponent<PhotonView>().IsMine)
         {
             Destroy(gameObject);
+            return;
         }
 
         status.OnHPBarChanged += UpdateHp;
@@ -39,8 +40,19 @@ public class UIHP : MonoBehaviourPun
     }
     private void OnDestroy()
     {
-        status.OnHPBarChanged -= UpdateHp; 
-        status.OnStaminaBarChanged -= UpdateStamina;
-        player.OnPotionChanged -= UpdatePotionCount;
+        //status.OnHPBarChanged -= UpdateHp; 
+        //status.OnStaminaBarChanged -= UpdateStamina;
+        //player.OnPotionChanged -= UpdatePotionCount;
+
+        if (status != null)
+        {
+            status.OnHPBarChanged -= UpdateHp;
+            status.OnStaminaBarChanged -= UpdateStamina;
+        }
+
+        if (player != null)
+        {
+            player.OnPotionChanged -= UpdatePotionCount;
+        }
     }
 }

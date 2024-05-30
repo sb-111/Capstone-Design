@@ -114,7 +114,11 @@ public class PlayerStatus : MonoBehaviour
     public void DecreaseHP(int damage)
     {
         basicStats.hp -= damage;
-        OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
+        if(OnHPBarChanged != null)
+        {
+            OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
+
+        }
     }
     public void DecreaseStamina(float amount)
     {
