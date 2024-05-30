@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPCDEF()
     {
-
+        SpawnManager.Instance.TimerDestroy();
         overPanel.SetActive(true);
         GameObject[] objs = GameObject.FindGameObjectsWithTag("PortalSet");
         if (objs!= null)
