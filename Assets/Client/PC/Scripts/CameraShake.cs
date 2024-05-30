@@ -17,6 +17,7 @@ public class CameraShake : MonoBehaviour
 
     bool isZoom;
     bool isShake;
+    private int defence=0;
     public void SetPlayer(GameObject clone)
     {
         
@@ -36,7 +37,11 @@ public class CameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (GameManager.Instance.mode == 1&& defence ==0)
+        {
+            Shaking(4f, 5f);
+            defence = 1;
+        }
     }
     public void Shaking(float shakeTime = 0.1f, float amount = 5.0f)
     {

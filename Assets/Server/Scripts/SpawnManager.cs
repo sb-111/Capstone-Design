@@ -52,7 +52,6 @@ public class SpawnManager : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
             timer2 = PhotonNetwork.InstantiateRoomObject(timer.name, transform.position, transform.rotation, 0);
-
     }
     public GameObject PortalSpawnerSpawn() {
         GameObject portalSpawn =null;
