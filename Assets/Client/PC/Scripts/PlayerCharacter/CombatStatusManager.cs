@@ -64,6 +64,12 @@ public class CombatStatusManager : MonoBehaviourPun
 
     public void HitResponse(float cctime=1.0f)       //강공격에 의한 피격 반응 애니메이션 출력(cc기 시간)
     {
+        if (player.isJump) return;
+        if (player.isDefense)
+        {
+            anim.SetTrigger("getDefenseHit");
+            return;
+        }
         anim.SetTrigger("getHit");
         player.isCC = true;
         Invoke("HitResponseEnd", cctime);
