@@ -16,9 +16,12 @@ public class Timer : MonoBehaviourPun
     private int timerStop = 0;
     void OnEnable()
     {
+        if (!PhotonNetwork.IsMasterClient)
+            return;
         setTimer();
         setTime = GameManager.Instance.setTime;
         StartTimer(setTime);
+        Debug.Log("타이머 생성"+ PhotonNetwork.IsMasterClient);
     }
 
     // Start is called before the first frame update
