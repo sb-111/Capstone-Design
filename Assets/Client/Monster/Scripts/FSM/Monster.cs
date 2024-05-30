@@ -391,15 +391,15 @@ public class Monster : MonoBehaviour
             Die();
         }
 
-        //if (hpPercentage <= 0.7 && hpPercentage > 0.3)
-        //{
-        //    skin_70p.SetActive(true);
-        //}
-        //if (hpPercentage <= 0.3)
-        //{
-        //    skin_70p.SetActive(false);
-        //    skin_30p.SetActive(true); 
-        //}
+        if (hpPercentage <= 0.7 && hpPercentage > 0.3)
+        {
+            skin_70p.SetActive(true);
+        }
+        if (hpPercentage <= 0.3)
+        {
+            skin_70p.SetActive(false);
+            skin_30p.SetActive(true);
+        }
 
     }
 
