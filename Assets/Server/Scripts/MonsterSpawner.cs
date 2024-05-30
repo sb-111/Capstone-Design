@@ -64,7 +64,7 @@ public class MonsterSpawner : MonoBehaviour
     {
         Debug.Log("포톤 네트워크 확인 " + PhotonNetwork.IsMasterClient);
         Debug.Log("포톤 네트워크 확인 " + GameManager.Instance.IsMaster());
-        monster = PhotonNetwork.Instantiate(mon.name, transform.position, transform.rotation, 0);
+        monster = PhotonNetwork.InstantiateRoomObject(mon.name, transform.position, transform.rotation, 0);
         mode = 1;
     }
     void Update()
