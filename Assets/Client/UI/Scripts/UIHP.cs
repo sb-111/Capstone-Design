@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UIHP : MonoBehaviour
 {
     [SerializeField] private PlayerStatus status;
     [SerializeField] private Image hpBar;
     [SerializeField] private Image staminaBar;
+    [SerializeField] private TextMeshProUGUI potionText;
+    private Player player;
     // Start is called before the first frame update
     private void Awake()
     {
+        player = GetComponentInParent<Player>();
+
         status.OnHPBarChanged += UpdateHp;
         status.OnStaminaBarChanged += UpdateStamina;
+        player.OnPotionChanged += UpdatePotionCount;
     }
 
     public void UpdateHp(int currentHP, int maxHP)
@@ -23,9 +28,14 @@ public class UIHP : MonoBehaviour
     {
         staminaBar.fillAmount = (float)currentStamina / maxStamina;
     }
+    public void UpdatePotionCount(int count)
+    {
+        potionText.text = count.ToString();
+    }
     private void OnDestroy()
     {
         status.OnHPBarChanged -= UpdateHp; 
         status.OnStaminaBarChanged -= UpdateStamina;
+        player.OnPotionChanged -= UpdatePotionCount;
     }
 }

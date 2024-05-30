@@ -76,6 +76,9 @@ public class Player : MonoBehaviourPun
     public bool CanReceiveInput { set { canReceiveInput = value; } }
     public float VRotation { get; private set; } // 수직 회전 값
 
+    public delegate void ItemChangedHandler(int count);
+    public event ItemChangedHandler OnPotionChanged;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -91,6 +94,7 @@ public class Player : MonoBehaviourPun
     void Start()
     {
         speed = state.moveStats.speed;
+        OnPotionChanged(hpItem); // 포션 개수 UI
     }
 
     // Update is called once per frame
@@ -156,6 +160,8 @@ public class Player : MonoBehaviourPun
         {
             state.HpUp();
             hpItem--;
+            OnPotionChanged(hpItem); // 포션 개수 UI
+
         }
     }
 
