@@ -302,7 +302,6 @@ public class Player : MonoBehaviourPun
 
         if(dUp&&isDefense) {                                             //디펜스 끝날 때
             isDefense = false;
-            state.basicStats.def -= 100;
             anim.SetBool("Defense", false);
             attack_controller.weapon_right.ShieldEffectOut();
             state.DefDown();
