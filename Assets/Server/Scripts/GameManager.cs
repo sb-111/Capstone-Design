@@ -251,7 +251,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void RPCDEF()
     {
         SpawnManager.Instance.TimerDestroy();
+        PhotonNetwork.Destroy(playerObj);
         overPanel.SetActive(true);
+
         GameObject[] objs = GameObject.FindGameObjectsWithTag("PortalSet");
         if (objs!= null)
         {
