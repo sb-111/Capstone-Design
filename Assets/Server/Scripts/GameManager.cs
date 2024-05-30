@@ -139,8 +139,11 @@ public class GameManager : MonoBehaviourPunCallbacks
   
     public void GameStart()
     {
-        SpawnManager.Instance.TimerSpawn();
-        portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
+        if (PV.IsMine)
+        {
+            SpawnManager.Instance.TimerSpawn();
+            portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
+        }
         PV.RPC("StartSetting", RpcTarget.All);
     }
     public void PlayerReset()
@@ -161,7 +164,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void PlayerDead()
     {
         overPanel.SetActive(true);
-     
+        Destroy(portalspawner);
         //gameOver.enabled = true;
 
         //gameOver.text = "YOU DIED";

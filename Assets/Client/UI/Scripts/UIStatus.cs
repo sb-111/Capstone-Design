@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Photon.Pun;
 
-public class UIStatus : MonoBehaviour
+public class UIStatus : MonoBehaviourPun
 {
     private Player player;
     [SerializeField] private GrowthSystem growthSystem; 
@@ -27,6 +28,9 @@ public class UIStatus : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soulText;
     private void Awake()
     {
+     
+        if (!GetComponent<PhotonView>().IsMine)
+            Destroy(gameObject);
         // 버튼의 모든 리스너 삭제
         hpEnhanceButton.onClick.RemoveAllListeners();
         atkEnhanceButton.onClick.RemoveAllListeners();
