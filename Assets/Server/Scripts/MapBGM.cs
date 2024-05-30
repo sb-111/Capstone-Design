@@ -7,7 +7,7 @@ public class MapBGM : MonoBehaviour
     // Start is called before the first frame update
     public AudioClip mainClip; // Lobbyscene과 Mainmenuscene에서 재생할 클립
     public AudioClip defenceClip; // Mainscene에서 재생할 클립
-
+    bool isChange=false;
     private AudioSource audioSource;
     void Start()
     {
@@ -19,10 +19,34 @@ public class MapBGM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.mode == 1&& audioSource.clip != defenceClip)
+        if (GameManager.Instance.mode == 1&& !isChange)
         {
-            audioSource.clip = defenceClip;
-            audioSource.Play();
+            StartCoroutine("MusicChange");
+            isChange = true;
         }
     }
+    IEnumerator MusicChange()
+    {
+        float progressTime = 0f;
+   
+        while (progressTime <= 3f)
+        {
+            progressTime += Time.deltaTime;
+            audioSource.volume = (float)(1.0 -progressTime / 3f);
+            yield return null;
+        }
+        progressTime = 0f;
+        audioSource.clip = defenceClip;
+        audioSource.Play();
+        while (progressTime <= 0.5f)
+        {
+            progressTime += Time.deltaTime;
+            audioSource.volume = (float)(progressTime / 3f);
+            yield return null;
+        }
+        
+        yield break;
+   
+    }
+
 }
