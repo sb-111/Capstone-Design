@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UIElements;
+using static PlayerStatus;
 
 public class Player : MonoBehaviourPun
 {
@@ -292,16 +293,19 @@ public class Player : MonoBehaviourPun
         {
             isDefense = true;
             isDefenseCool = true;
-
+            
             anim.SetBool("Defense", true);
             anim.SetTrigger("doDefense");
             attack_controller.weapon_right.ShieldEffectInstance();
+            state.DefUp();
         }
 
         if(dUp&&isDefense) {                                             //디펜스 끝날 때
             isDefense = false;
+            state.basicStats.def -= 100;
             anim.SetBool("Defense", false);
             attack_controller.weapon_right.ShieldEffectOut();
+            state.DefDown();
             Invoke("isDefensCoolDown", 30.0f);
         }
     }
