@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool isPlaying = false;
     public GameObject spawner;
     GameObject portalspawner;
+    int num = 0;
     void Awake()
     {
         if (instance == null)
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
 
             spawn();
-
+            num++;
         }
         GameStart();
     }
@@ -139,7 +140,7 @@ public class GameManager : MonoBehaviourPunCallbacks
   
     public void GameStart()
     {
-        if (PV.IsMine)
+        if (PV.IsMine&&IsMaster())
         {
             SpawnManager.Instance.TimerSpawn();
             portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint.transform.position, Quaternion.identity);
+        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint[num].transform.position, Quaternion.identity);
         playerObj.name = "player: "+PV.Owner.NickName;
 
         if (cameraObj != null)
