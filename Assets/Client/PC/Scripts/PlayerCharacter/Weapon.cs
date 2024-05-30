@@ -141,9 +141,10 @@ public class Weapon : MonoBehaviourPun
         if (!isShield)
         {
             Quaternion reverseRoation = Quaternion.Euler(0, 1, 0);
-            nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,-1.0f),transform.rotation* reverseRoation);
+            nEffectPrefab = Instantiate(shieldEffectPrefab, transform.position + new Vector3(0.0f,0.0f,0.0f),transform.rotation* reverseRoation);
             PrefabCreator info = nEffectPrefab.AddComponent<PrefabCreator>();//프리팹 생성되면 생성한 오브젝트(플레이어 캐릭터)의 transform 받아옴
             info.creatorParentTransform = player.transform;                  //쉴드 플레이어 기준으로 회전
+            info.weapon = this;
             isShield = true;
         }           
     }
