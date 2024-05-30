@@ -249,6 +249,7 @@ public class Player : MonoBehaviourPun
         {
             isJump = true;
             anim.SetTrigger("doJump");
+            state.DecreaseStamina(5);
             characterSound.PlayCharacterSound("Roll");
             Invoke("JumpOut", 1.0f);
         }
