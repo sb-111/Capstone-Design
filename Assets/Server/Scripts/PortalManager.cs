@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 public class PortalManager : MonoBehaviourPun
 {
     [SerializeField] int currentHP = 100;
+    [SerializeField] private Slider hpBar;
     [SerializeField] GameObject[] enemies;
     [SerializeField] int[] max;
     [SerializeField] int[] time;
@@ -24,10 +26,11 @@ public class PortalManager : MonoBehaviourPun
     int phase = 1;
     int monnum = 0;
     public float portalTime = 225f;
+    private PhotonView PV;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PV = GetComponent<PhotonView>();
     }
     public bool getDefense()
     {
@@ -43,6 +46,7 @@ public class PortalManager : MonoBehaviourPun
         if (GameManager.Instance.IsMaster())
             StartCoroutine("Defense");
         StartCoroutine("GrowOverTime");
+        SetHealth(currentHP);
     }
     IEnumerator GrowOverTime()
     {
@@ -127,6 +131,11 @@ public class PortalManager : MonoBehaviourPun
             }
         return monnum;
     }
+    private void SetHealth(int x)
+    {
+        hpBar.maxValue = x;
+        hpBar.value = x;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -173,11 +182,17 @@ public class PortalManager : MonoBehaviourPun
         Debug.Log("面倒"+coll.tag);
         if (coll.tag == "Melee"||coll.tag == "EnemyWeapon")
         {
-            currentHP -= 10;
-            Debug.LogWarning("公扁面倒");
-
+            PV.RPC("TakeDamage", RpcTarget.All);
         }
     }
+    [PunRPC]
+    public void TakeDamage()
+    {
+        currentHP -= 10;
+        Debug.LogWarning("公扁面倒");
+        hpBar.value = currentHP;
+    }
+
     private bool IsBreak()
     {
         return currentHP <= 0;

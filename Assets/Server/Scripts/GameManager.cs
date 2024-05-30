@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviourPunCallbacks
   
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         // gameOver.enabled = false;
         PV = GetComponent<PhotonView>();
         overPanel.SetActive(false);
@@ -70,8 +71,24 @@ public class GameManager : MonoBehaviourPunCallbacks
             spawn();
 
         }
+        GameStart();
+    }
+    public void TeleportPlayer(Transform receiver, GameObject player) 
+    {
+
+       PV.RPC("TeleportPlayer", RpcTarget.All, receiver.position, player);
     }
 
+    [PunRPC]
+    public void RPCTeleportPlayer(Vector3 receiver, GameObject player)
+    {
+        Debug.Log("포탈 테스트 들어가지나3" + PV.IsMine + player);
+        if ( player != null)
+        {
+            Debug.Log("포탈 테스트 들어가지나2" + player.transform.position + receiver);
+            player.transform.position = receiver;
+        }
+    }
 
     public void SpawnerOn()
     {
@@ -196,9 +213,14 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             PlayerReset();
         }
-
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Debug.Log("눌림");
+        }
         else if (mode == 1)
             return;
+        /*
         else if (Input.GetKeyDown(KeyCode.O))
         {
             if (!isPlaying)
@@ -209,6 +231,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
 
         }
+        */
     }
     public void Defencefail()
     {

@@ -80,6 +80,7 @@ public class OptionManager : MonoBehaviour
         {
             optionBar.SetActive(!optionBar.activeSelf);
             player.CanReceiveInput = !optionBar.activeSelf;
+
         }
         //if (Input.GetKeyDown(KeyCode.Escape))
         //{

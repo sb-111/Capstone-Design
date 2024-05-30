@@ -7,30 +7,61 @@ public class TerrainPortal : MonoBehaviour
     public Transform receiver;
 
     private bool playerIsOverlapping = false;
-    private Transform overlappingPlayer = null; 
+    private Transform overlappingPlayer = null;
+    private GameObject player;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" && other.gameObject.GetComponent<PhotonView>().IsMine)
+        if (other.tag == "Player")
         {
             playerIsOverlapping = true;
             overlappingPlayer = other.transform;
+            GameObject obj = other.gameObject;
+            if (obj.transform.parent != null)
+                player = obj.transform.parent.gameObject;
+            else player = obj;
+            Debug.Log("포탈 테스트");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" && other.gameObject.GetComponent<PhotonView>().IsMine)
+       
+        if (other.tag == "Player")
         {
             playerIsOverlapping = false;
             overlappingPlayer = null;
+            player = null;
         }
     }
+
+
 
     void Update()
     {
         if (playerIsOverlapping && overlappingPlayer != null)
         {
+            Vector3 portalToPlayer = overlappingPlayer.position - transform.position;
+            float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
+
+            Debug.Log("포탈 테스트" + dotProduct);
+            if (dotProduct <= 0f)
+            {
+                StartCoroutine(DisableColliderTemporarily(receiver.GetComponent<Collider>(), 3f));
+                float time = 0f;
+                while (time < 0.5f)
+                {
+                    time += Time.deltaTime;
+                    //player.transform.position = receiver.position;
+                    GameManager.Instance.TeleportPlayer(receiver, player);
+                    // photonVIew.RPC("TeleportPlayer", RpcTarget.All, receiver.position);
+                }
+        
+                playerIsOverlapping = false;
+                overlappingPlayer = null;
+                Debug.Log("포탈 테스트 들어가지나" + player.transform.position + receiver.position);
+            }
+            /*
             Vector3 portalToPlayer = overlappingPlayer.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 
@@ -52,9 +83,11 @@ public class TerrainPortal : MonoBehaviour
 
                 StartCoroutine(DisableColliderTemporarily(receiver.GetComponent<Collider>(), 3f));
             }
+            */
         }
     }
-
+    
+    
     private IEnumerator DisableColliderTemporarily(Collider collider, float delay)
     {
         collider.enabled = false; 
