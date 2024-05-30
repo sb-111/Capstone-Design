@@ -22,7 +22,8 @@ public class DeadState : MonoBehaviour, IMonsterState
     {
        if(monster.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
        {
-            PhotonNetwork.Destroy(monster.gameObject);
+            //PhotonNetwork.Destroy(monster.gameObject);
+            GameManager.Instance.ObjDelete(monster.gameObject);
             monster.enabled = false; 
        }
     }

@@ -136,7 +136,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "Winner", winnerPlayerID } });
         Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["Winner"] + "승패 확인" + winnerPlayerID + "챙겼나" + PV.Owner.NickName);
     }
-  
+ 
+    public void ObjDelete(GameObject obj)
+    {
+        PhotonNetwork.Destroy(obj.gameObject);
+    }
+
     public void GameStart()
     {
         Debug.Log(PV.IsMine  +"포톤 테스트"+PhotonNetwork.IsMasterClient);
