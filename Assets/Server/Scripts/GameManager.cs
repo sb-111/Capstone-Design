@@ -140,7 +140,8 @@ public class GameManager : MonoBehaviourPunCallbacks
   
     public void GameStart()
     {
-        if (PV.IsMine&&IsMaster())
+        Debug.Log(PV.IsMine + IsMasterClient()+"포톤 테스트");
+        if (PV.IsMine&&IsMasterClient)
         {
             SpawnManager.Instance.TimerSpawn();
             portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
@@ -173,7 +174,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoints[num].transform.position, Quaternion.identity);
+        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoints[PhotonNetwork.LocalPlayer.ActorNumber%2].transform.position, Quaternion.identity);
         playerObj.name = "player: "+PV.Owner.NickName;
 
         if (cameraObj != null)
