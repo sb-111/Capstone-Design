@@ -31,8 +31,9 @@ public class MagicBullet : MonoBehaviour
             GameObject enemy = other.transform.root.gameObject;
             Monster enemyDamage = enemy.GetComponent<Monster>();
             enemyDamage.TakeDamage(300);
-           
-         
+            GameManager.Instance.ObjDelete(gameObject);
+
+
 
         }
        
