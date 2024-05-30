@@ -57,6 +57,8 @@ RPG, 고난이도 전투, 전략 시뮬레이션을 결합한 게임을 제안�
 
 ## 게임 트레일러 영상
 [![썸네일 이미지](https://img.youtube.com/vi/IHzPKSxICCo/0.jpg)](https://www.youtube.com/embed/IHzPKSxICCo)
+## 게임 기능 소개 영상
+[![썸네일 이미지](https://img.youtube.com/vi/XV0ZB3LQa24/0.jpg)](https://www.youtube.com/embed/XV0ZB3LQa24)
 
 ## 팀원 소개
 - **허승빈**: 몬스터 AI, 스탯 UI, 플레이어 성장시스템 구축
