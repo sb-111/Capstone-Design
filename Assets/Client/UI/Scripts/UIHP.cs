@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class UIHP : MonoBehaviour
+using Photon.Pun;
+public class UIHP : MonoBehaviourPun
 {
     [SerializeField] private PlayerStatus status;
     [SerializeField] private Image hpBar;
@@ -14,6 +15,10 @@ public class UIHP : MonoBehaviour
     private void Awake()
     {
         player = GetComponentInParent<Player>();
+        if (!GetComponent<PhotonView>().IsMine)
+        {
+            Destroy(gameObject);
+        }
 
         status.OnHPBarChanged += UpdateHp;
         status.OnStaminaBarChanged += UpdateStamina;
