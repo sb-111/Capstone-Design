@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Soul : MonoBehaviour
+using Photon.Pun;
+public class Soul : MonoBehaviourPun
 {
     private Monster.MonsterType monsterType;
 
@@ -36,7 +36,7 @@ public class Soul : MonoBehaviour
 
             PlaySound();
 
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
     /// <summary>
@@ -85,7 +85,6 @@ public class Soul : MonoBehaviour
         }
         else
         {
-            Debug.Log("µé¿À³ª");
             return position.y;
         }
     }
