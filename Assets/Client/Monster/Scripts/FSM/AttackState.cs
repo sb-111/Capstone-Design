@@ -16,8 +16,6 @@ public class AttackState : IMonsterState
         monster.transform.LookAt(monster.TargetPlayer);
         monster.Anim.SetTrigger("doAttack");
         monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
-        monster.MSound.PlaySound(0);
-        //monster.Anim.SetInteger("randomValue", 2);
     }
 
     public void ExitState()
@@ -40,7 +38,6 @@ public class AttackState : IMonsterState
             monster.Anim.SetTrigger("doAttack");
             monster.Anim.SetInteger("randomValue", Random.Range(0, 3));
             currentTime = 0f;
-            monster.MSound.PlaySound(0);
             //monster.Anim.SetInteger("randomValue", 0);
             //monster.Anim.SetInteger("randomValue", 2);
         }

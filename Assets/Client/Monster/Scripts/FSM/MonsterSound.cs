@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,14 @@ public class MonsterSound : MonoBehaviour
     public void PlaySound(int index)
     {
         audioSource.PlayOneShot(audioClips[index]);
+    }
+    public AudioClip GetClip(int index)
+    {
+        if (index >= 0 && index < audioClips.Length)
+        {
+            return audioClips[index];
+        }
+        return null;
     }
     
 }
