@@ -38,7 +38,7 @@ public class MonsterEndSpawn : MonoBehaviourPun
            // Instantiate(mon, transform.position + new Vector3(2, 0, 4), transform.rotation);
             PhotonNetwork.InstantiateRoomObject(mon.name, transform.position+new Vector3(4,0,0), transform.rotation);
             PhotonNetwork.InstantiateRoomObject(boss.name, transform.position + new Vector3(0, 0, 6), transform.rotation);
-            PhotonNetwork.InstantiateRoomObject(mon.name, transform.position + new Vector3(-4, 0, 0), transform.rotation);
+            //PhotonNetwork.InstantiateRoomObject(mon.name, transform.position + new Vector3(-4, 0, 0), transform.rotation);
             //Instantiate(mon, transform.position + new Vector3(-2, 0, -4), transform.rotation);
             num++;
             yield return new WaitForSeconds(time);

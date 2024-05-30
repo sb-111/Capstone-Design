@@ -247,9 +247,17 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         */
     }
+    [PunRPC]
+    public void RPCDEF()
+    {
+        PhotonNetwork.Destroy(portalspawner);
+    }
+
     public void Defencefail()
     {
-        PhotonNetwork.Destroy(portalspawner); portalspawner = null;
+        PV.RPC("RPCDEF", RpcTarget.All);
+        //PhotonNetwork.Destroy(portalspawner);
+        portalspawner = null;
         PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() { { "Winner", "none" } });
         portalspawner =SpawnManager.Instance.PortalSpawnerSpawn();
         mode = 0;
