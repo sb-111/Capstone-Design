@@ -134,4 +134,17 @@ public class PlayerStatus : MonoBehaviour
         if (basicStats.hp >= basicStats.maxhp) basicStats.hp = basicStats.maxhp;
         OnHPBarChanged(basicStats.hp, basicStats.maxhp); // 체력바 UI 업데이트 이벤트 발생
     }
+
+    public void DefUp()
+    {
+        basicStats.def += 1000;
+        OnDefStatChanged(basicStats.def.ToString());
+    }
+
+    public void DefDown()
+    {
+        basicStats.def -= 1000;
+        OnDefStatChanged(basicStats.def.ToString());
+    }
+
 }
