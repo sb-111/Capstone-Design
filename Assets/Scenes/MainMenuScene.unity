@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 7046302586129250419, guid: 83902a0da4ab2f948b56da905cf633b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 82415a4a104b17449ad8642fda9fe876, type: 3}
+      objectReference: {fileID: 21300000, guid: 2f9ba1f91929bda4d9df9cf76c39f5b4, type: 3}
     - target: {fileID: 7046302586157700332, guid: 83902a0da4ab2f948b56da905cf633b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -754,7 +754,7 @@ PrefabInstance:
     - target: {fileID: 7046302587862133003, guid: 83902a0da4ab2f948b56da905cf633b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 82415a4a104b17449ad8642fda9fe876, type: 3}
+      objectReference: {fileID: 21300000, guid: 5b806a8525fbd5c48b9644a4f095bb2f, type: 3}
     - target: {fileID: 7046302588041655908, guid: 83902a0da4ab2f948b56da905cf633b1, type: 3}
       propertyPath: m_text
       value: Assassin
