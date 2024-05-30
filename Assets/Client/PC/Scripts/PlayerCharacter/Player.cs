@@ -156,7 +156,7 @@ public class Player : MonoBehaviourPun
         dUp = Input.GetKeyUp(KeyCode.E);
         //kDown = Input.GetKeyDown(KeyCode.K);
         downParryingSkill = Input.GetKeyDown(KeyCode.Q);
-        hpRecover = Input.GetKeyDown(KeyCode.Alpha2);
+        hpRecover = Input.GetKeyDown(KeyCode.Alpha4);
         if (hpRecover && hpItem>0)
         {
             state.HpUp();
