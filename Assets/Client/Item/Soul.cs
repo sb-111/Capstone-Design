@@ -35,8 +35,8 @@ public class Soul : MonoBehaviourPun
             growthSystem.GetSoul(soulAmount); // ÇÃ·¹ÀÌ¾î È¹µæ Ã³¸®
 
             PlaySound();
-            GameManager.Instance.ObjDelete(gameObject);
-            //PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
+            //PhotonNetwork.
         }
     }
     /// <summary>
