@@ -27,14 +27,14 @@ public class PortalManager : MonoBehaviourPun
     int monnum = 0;
     public float portalTime = 225f;
     private PhotonView PV;
-    public AudioClip[] phaseBGMs; 
-    private AudioClip nowBGM;
-    private AudioSource audioSource;
+   // public AudioClip[] phaseBGMs; 
+    //private AudioClip nowBGM;
+   // private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
     public bool getDefense()
     {
@@ -85,11 +85,7 @@ public class PortalManager : MonoBehaviourPun
             }
             else if (!isGame)
             {
-                if (phase != 2)
-                {
-                    audioSource.clip = phaseBGMs[phase];
-                    audioSource.Play();
-                }
+               
                 Debug.Log(phase + "¶ó");
                 SpawnManager.Instance.TimerDestroy();
                 GameManager.Instance.setTime = gameTime;
