@@ -101,7 +101,8 @@ public class Monster : MonoBehaviour
             if (GameManager.Instance.mode == 1 && !isDefense)
             {
                 isDefense = true;
-                SetState(new DefenseState(this));
+                //SetState(new DefenseState(this));
+                SetState(_fsm.DefenseState);
             }
         }
         if (isDefense)
@@ -113,11 +114,13 @@ public class Monster : MonoBehaviour
                     {
                         if (CheckAttackRange()) // 사정거리 안
                         {
-                            SetState(new AttackState(this));
+                            //SetState(new AttackState(this));
+                            SetState(_fsm.AttackState);
                         }
                         else // 사정거리 밖
                         {
-                            SetState(new ChaseState(this));
+                            //SetState(new ChaseState(this));
+                            SetState(_fsm.ChaseState);
                         }
                     }
        
@@ -129,13 +132,16 @@ public class Monster : MonoBehaviour
                     {
                         if (CheckAttackRange()) // 사정거리 안
                         {
-                            SetState(new AttackState(this));
+                            //SetState(new AttackState(this));
+                            SetState(_fsm.AttackState);
                         }
                     }
                   
                     else // 시야 범위 밖
                     {
-                        SetState(new DefenseState(this));
+                        //SetState(new DefenseState(this));
+                        SetState(_fsm.DefenseState);
+
                     }
                     //IsMoving();
                     break;
@@ -147,13 +153,15 @@ public class Monster : MonoBehaviour
                         if (!CheckAttackRange()) // 공격 범위 밖
                         {
                             Debug.Log("디펜스 모드 체크 어텍" + CheckAttackRange());
-                            SetState(new ChaseState(this));
+                            //SetState(new ChaseState(this));
+                            SetState(_fsm.ChaseState);
                         }
                     }
                     
                     else // 시야 범위 밖
                     {
-                        SetState(new DefenseState(this));
+                        //SetState(new DefenseState(this));
+                        SetState(_fsm.DefenseState);
                     }
                     break;
 
@@ -164,7 +172,8 @@ public class Monster : MonoBehaviour
                     }
                     else // Hit -> Chase
                     {
-                        SetState(new ChaseState(this));
+                        //SetState(new ChaseState(this));
+                        SetState(_fsm.ChaseState);
                         // Chase ->
                         // 시야밖: Idle
                         // 시야 범위 내 사정거리 밖: Chase
@@ -185,11 +194,13 @@ public class Monster : MonoBehaviour
                 {
                     if (CheckAttackRange()) // 사정거리 안
                     {
-                        SetState(new AttackState(this));
+                            //SetState(new AttackState(this));
+                            SetState(_fsm.AttackState);
                     }
                     else // 사정거리 밖
                     {
-                        SetState(new ChaseState(this));
+                            //SetState(new ChaseState(this));
+                            SetState(_fsm.ChaseState);
                     }
                 }
                 //IsMoving();
@@ -200,12 +211,14 @@ public class Monster : MonoBehaviour
                 {
                     if (CheckAttackRange()) // 사정거리 안
                     {
-                        SetState(new AttackState(this));
+                            //SetState(new AttackState(this));
+                            SetState(_fsm.AttackState);
                     }
                 }
                 else // 시야 범위 밖
                 {
-                    SetState(new IdleState(this));
+                        //SetState(new IdleState(this));
+                        SetState(_fsm.IdleState);
                 }
                 //IsMoving();
                 break;
@@ -215,12 +228,14 @@ public class Monster : MonoBehaviour
                 {
                     if (!CheckAttackRange()) // 공격 범위 밖
                     {
-                        SetState(new ChaseState(this));
+                            //SetState(new ChaseState(this));
+                            SetState(_fsm.ChaseState);
                     }
                 }
                 else // 시야 범위 밖
                 {
-                    SetState(new IdleState(this));
+                        //SetState(new IdleState(this));
+                        SetState(_fsm.IdleState);
                 }
                 break;
 
@@ -231,7 +246,8 @@ public class Monster : MonoBehaviour
                 }
                 else // Hit -> Chase
                 {
-                    SetState(new ChaseState(this));
+                    //SetState(new ChaseState(this));
+                    SetState(_fsm.ChaseState);
                     // Chase ->
                     // 시야밖: Idle
                     // 시야 범위 내 사정거리 밖: Chase
@@ -426,7 +442,8 @@ public class Monster : MonoBehaviour
         GameObject droppedSoul =  Instantiate(soul, dropVec, Quaternion.identity); // 소울 Instantiate
         Soul cshSoul = droppedSoul.GetComponent<Soul>(); // 해당 소울의 스크립트 가져오기
         cshSoul.SetMonsterType(_monsterType); // 몬스터 타입 전달
-        SetState(new DeadState(this));
+        //SetState(new DeadState(this));
+        SetState(_fsm.DeadState);
     }
 
     /// <summary>
@@ -444,7 +461,8 @@ public class Monster : MonoBehaviour
             Debug.Log($"힛리스폰즈: {TargetPlayer.name}");
             
         }
-        SetState(new HitState(this));
+        //SetState(new HitState(this));
+        SetState(_fsm.HitState);
     }
 
     // 기즈모
