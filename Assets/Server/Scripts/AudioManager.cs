@@ -47,8 +47,7 @@ public class AudioManager : MonoBehaviour
                 }
                 break;
             case "MainScene":
-                audioSource.clip = mainSceneClip;
-                audioSource.Play();
+                Destroy(gameObject);
                 break;
         }
     }
