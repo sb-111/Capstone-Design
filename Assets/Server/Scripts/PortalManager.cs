@@ -211,6 +211,7 @@ public class PortalManager : MonoBehaviourPun
         }
     }
 
+ 
     private void Break()
     {
         // ÆÄ±«
@@ -218,7 +219,7 @@ public class PortalManager : MonoBehaviourPun
         monDelete();
         GameManager.Instance.Defencefail();
      
-        PhotonNetwork.Destroy(this.gameObject);
+        //PhotonNetwork.Destroy(this.gameObject);
 
     }
 }
