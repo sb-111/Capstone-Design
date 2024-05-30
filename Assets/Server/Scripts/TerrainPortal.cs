@@ -9,11 +9,13 @@ public class TerrainPortal : MonoBehaviour
     private bool playerIsOverlapping = false;
     private Transform overlappingPlayer = null;
     private GameObject player;
+    private Player players;
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            players = other.gameObject.GetComponent<Player>();
             playerIsOverlapping = true;
             overlappingPlayer = other.transform;
             GameObject obj = other.gameObject;
@@ -32,6 +34,7 @@ public class TerrainPortal : MonoBehaviour
             playerIsOverlapping = false;
             overlappingPlayer = null;
             player = null;
+            players = null;
         }
     }
 

@@ -7548,6 +7548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 1000
+  hpBar: {fileID: 0}
   enemies:
   - {fileID: 0}
   - {fileID: 0}

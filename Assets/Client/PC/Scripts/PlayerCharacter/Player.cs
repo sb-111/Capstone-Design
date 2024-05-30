@@ -431,7 +431,10 @@ public class Player : MonoBehaviourPun
     {
         hSensivity = value;
     }
+    public void Teleport()
+    {
 
+    }
     ///// <summary>
     ///// 스탯창 UI 설정
     ///// </summary>

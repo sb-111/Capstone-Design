@@ -2533,7 +2533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1361758626847328717, guid: d9b8a16939f60cf41856fdfbd73535c2, type: 3}
       propertyPath: max.Array.data[0]
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1361758626847328717, guid: d9b8a16939f60cf41856fdfbd73535c2, type: 3}
       propertyPath: max.Array.data[1]
@@ -2549,7 +2549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1361758626847328717, guid: d9b8a16939f60cf41856fdfbd73535c2, type: 3}
       propertyPath: time.Array.data[0]
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1361758626847328717, guid: d9b8a16939f60cf41856fdfbd73535c2, type: 3}
       propertyPath: time.Array.data[1]

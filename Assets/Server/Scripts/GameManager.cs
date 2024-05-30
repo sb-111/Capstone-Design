@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject[] playerSpawnPoints;
     [SerializeField]
     private float respawnTime = 10f;
+ 
     public bool isGameover = false;
     private PhotonView PV;
     public bool portalOwner = false;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private GameObject mapObj;
     public TextMeshProUGUI gameOver;
     public GameObject overPanel;
+    public GameObject winPanel;
     GameObject playerObj;
     private int gameMode=06895;
     [Header("게임 설정")]
@@ -55,9 +57,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         // gameOver.enabled = false;
         PV = GetComponent<PhotonView>();
         overPanel.SetActive(false);
+        winPanel.SetActive(false);
         playerPrefab = CharacterSelect.character;
         cameraObj = GameObject.Find("TPS Camera");
-
+       
         //playerSpawnPoint = playerSpawnPoints[(PhotonNetwork.LocalPlayer.ActorNumber - 1) % 3];
         playerSpawnPoint = playerSpawnPoints[0];
         mapObj = GameObject.Find("CanvasMiniMap");
@@ -75,8 +78,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     public void TeleportPlayer(Transform receiver, GameObject player) 
     {
-
-       PV.RPC("TeleportPlayer", RpcTarget.All, receiver.position, player);
+        PV.RPC("TeleportPlayer", RpcTarget.All, receiver.position, player);
     }
 
     [PunRPC]
@@ -159,9 +161,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void PlayerDead()
     {
         overPanel.SetActive(true);
-        gameOver.enabled = true;
-        gameOver.text = "YOU DIED";
-        Invoke("spawn", respawnTime);
+     
+        //gameOver.enabled = true;
+
+        //gameOver.text = "YOU DIED";
+        //Invoke("spawn", respawnTime);
     }
     void spawn()
     {
@@ -259,12 +263,13 @@ public class GameManager : MonoBehaviourPunCallbacks
         string b = PhotonNetwork.NickName;
         if (a==b)
         {
-            gameOver.text = "WIN";
-         
+          
+            winPanel.SetActive(true);
+
         }
         else
         {
-            gameOver.text = "LOSE";
+            overPanel.SetActive(true);
         }
     }
     [PunRPC]
