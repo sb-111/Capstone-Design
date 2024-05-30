@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         portalspawner =SpawnManager.Instance.PortalSpawnerSpawn();
         mode = 0;
         SpawnerOn();
-        setTime = setTime / 2;
+        setTime = setTime / 10;
         SpawnManager.Instance.TimerSpawn();
 
     }
