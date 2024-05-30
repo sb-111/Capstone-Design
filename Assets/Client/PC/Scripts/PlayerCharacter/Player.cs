@@ -252,7 +252,7 @@ public class Player : MonoBehaviourPun
     void Jump()                                                                         //현재 구르기로 사용중
     {
         jumpVec = moveVec;
-        if (jDown && !isJump && !isAttack)
+        if (jDown && !isJump && !isAttack&&state.moveStats.stamina>5)
         {
             isJump = true;
             anim.SetTrigger("doJump");
