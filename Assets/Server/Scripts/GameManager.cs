@@ -140,8 +140,8 @@ public class GameManager : MonoBehaviourPunCallbacks
   
     public void GameStart()
     {
-        Debug.Log(PV.IsMine + IsMasterClient()+"포톤 테스트");
-        if (PV.IsMine&&IsMasterClient)
+        Debug.Log(PV.IsMine  +"포톤 테스트"+PhotonNetwork.IsMasterClient);
+        if (PV.IsMine&&PhotonNetwork.IsMasterClient)
         {
             SpawnManager.Instance.TimerSpawn();
             portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
