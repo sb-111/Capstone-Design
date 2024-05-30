@@ -58,7 +58,7 @@ public class Timer : MonoBehaviourPun
         }
         if (GameManager.Instance.mode == 0)
         {
-            //GameManager.Instance.DefenceStart();
+            GameManager.Instance.GameFinish();
             StopTimer();
         }
         else {

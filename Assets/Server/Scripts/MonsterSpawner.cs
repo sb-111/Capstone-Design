@@ -17,10 +17,13 @@ public class MonsterSpawner : MonoBehaviour
     private int monNum;
     int flow=0;
     int mode = 0;
+    
     MonsterCounter monsterCounter;
     // Start is called before the first frame update
-    void Enable()
-    {
+    void OnEnable()
+    {     
+        if (PhotonNetwork.IsMasterClient&&flow==1)
+            Spawn();
 
     }
     void Start()
@@ -33,6 +36,7 @@ public class MonsterSpawner : MonoBehaviour
             Spawn();
         // StartCoroutine("SpawnMon");
         Debug.Log(mon+"몬스터");
+        flow = 1;
     }
     IEnumerator SpawnMon()
     {
