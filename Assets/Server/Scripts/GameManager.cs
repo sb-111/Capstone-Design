@@ -256,7 +256,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             foreach (GameObject obj in objs)
             {
-                Destroy(obj);
+                if(obj != null)
+                    Destroy(obj);
             }
         }
     }
@@ -270,7 +271,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         portalspawner =SpawnManager.Instance.PortalSpawnerSpawn();
         mode = 0;
         SpawnerOn();
-        setTime = 180;
+        setTime = 45;
         SpawnManager.Instance.TimerSpawn();
 
     }
