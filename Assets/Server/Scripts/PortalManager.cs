@@ -118,7 +118,7 @@ public class PortalManager : MonoBehaviourPun
         foreach (GameObject mon in mons)
         {
             if(mon!=null||mon.GetComponent<PhotonView>()!=null)
-                 PhotonNetwork.Destroy(mon);
+                GameManager.Instance.ObjDelete(mon);
         }
     }
     void GameFinish()
