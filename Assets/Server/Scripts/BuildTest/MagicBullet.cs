@@ -27,6 +27,7 @@ public class MagicBullet : MonoBehaviour
     {
         if (other.tag == "MonsterEnemy")
         {
+            GetComponent<AudioSource>().Play();
             GameObject enemy = other.transform.root.gameObject;
             Monster enemyDamage = enemy.GetComponent<Monster>();
             enemyDamage.TakeDamage(300);
