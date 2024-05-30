@@ -64,7 +64,7 @@
 
  
 ## 라이센스
-에셋 스토어상 유료 에셋 패키지들이 있어 clone후 사용이 불가합니다. .gitignore을 참고해주세요
+에셋 스토어상 유료 에셋 패키지들이 있어 clone후 사용이 불가합니다. [.gitignore](https://github.com/sb-111/Capstone-Design/blob/main/.gitignore) 을 참고해주세요
 
 
 
