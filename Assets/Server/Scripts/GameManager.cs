@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
 
             spawn();
-            num++;
         }
         GameStart();
     }

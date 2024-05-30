@@ -16,18 +16,25 @@ public class Timer : MonoBehaviourPun
     private int timerStop = 0;
     void OnEnable()
     {
-        PV = GetComponent<PhotonView>();
-        countdownText = GameObject.Find("Countdown").GetComponent<Text>();
+        setTimer();
         setTime = GameManager.Instance.setTime;
-        int initialMinutes = Mathf.FloorToInt(setTime / 60); // 시작할 때의 분
-        int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // 시작할 때의 초
-        countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // 시작할 때의 시간을 텍스트로 설정
         StartTimer(setTime);
     }
 
     // Start is called before the first frame update
     void Start()
     {
+
+        
+    }
+    void setTimer()
+    {
+        PV = GetComponent<PhotonView>();
+        countdownText = GameObject.Find("Countdown").GetComponent<Text>();
+        
+        int initialMinutes = Mathf.FloorToInt(setTime / 60); // 시작할 때의 분
+        int initialSeconds = Mathf.FloorToInt(setTime - initialMinutes * 60); // 시작할 때의 초
+        countdownText.text = string.Format("{0:00}:{1:00}", initialMinutes, initialSeconds); // 시작할 때의 시간을 텍스트로 설정
         
     }
 
@@ -71,8 +78,9 @@ public class Timer : MonoBehaviourPun
     [PunRPC]
     private void ShowTimer(int setTime)
     {
- 
-        Debug.Log("timertest RPC");
+
+        if (PV == null || countdownText == null)
+            setTimer();
         int minutes = Mathf.FloorToInt(setTime / 60);
         int seconds = Mathf.FloorToInt(setTime - minutes * 60);
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
