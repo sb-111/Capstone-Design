@@ -141,12 +141,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void GameStart()
     {
         Debug.Log(PV.IsMine  +"포톤 테스트"+PhotonNetwork.IsMasterClient);
-        if (PV.IsMine&&PhotonNetwork.IsMasterClient)
+        if (PV.IsMine&&PhotonNetwork.IsMasterClient&&num==0)
         {
             SpawnManager.Instance.TimerSpawn();
             portalspawner = SpawnManager.Instance.PortalSpawnerSpawn();
         }
         PV.RPC("StartSetting", RpcTarget.All);
+        num++;
     }
     public void PlayerReset()
     {
