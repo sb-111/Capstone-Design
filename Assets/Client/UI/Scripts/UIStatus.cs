@@ -30,7 +30,24 @@ public class UIStatus : MonoBehaviourPun
     {
      
         if (!GetComponent<PhotonView>().IsMine)
+        {
+            hpEnhanceButton.onClick.RemoveAllListeners();
+            atkEnhanceButton.onClick.RemoveAllListeners();
+            defEnhanceButton.onClick.RemoveAllListeners();
+            dexEnhanceButton.onClick.RemoveAllListeners();
+            intEnhanceButton.onClick.RemoveAllListeners();
+            exitButton.onClick.RemoveAllListeners();
+
+            // 이벤트 해제
+            playerStatus.OnMaxHPStatChanged -= UpdateMaxHP;
+            playerStatus.OnAtkStatChanged -= UpdateAttack;
+            playerStatus.OnDefStatChanged -= UpdateDefense;
+            playerStatus.OnDexStatChanged -= UpdateDex;
+            playerStatus.OnIntStatChanged -= UpdateInt;
+
+            GrowthSystem.OnSoulChanged -= UpdateSoul;
             Destroy(gameObject);
+        }
         // 버튼의 모든 리스너 삭제
         hpEnhanceButton.onClick.RemoveAllListeners();
         atkEnhanceButton.onClick.RemoveAllListeners();
