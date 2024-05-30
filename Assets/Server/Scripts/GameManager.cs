@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
     void spawn()
     {
-        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoint[num].transform.position, Quaternion.identity);
+        playerObj = PhotonNetwork.Instantiate(this.playerPrefab.name, playerSpawnPoints[num].transform.position, Quaternion.identity);
         playerObj.name = "player: "+PV.Owner.NickName;
 
         if (cameraObj != null)
