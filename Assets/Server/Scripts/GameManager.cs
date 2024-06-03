@@ -232,6 +232,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             Cursor.lockState = CursorLockMode.None;
             Debug.Log("눌림");
         }
+        else if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("안 눌림");
+        }
         else if (mode == 1)
             return;
         /*

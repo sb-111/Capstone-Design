@@ -117,8 +117,9 @@ public class PortalManager : MonoBehaviourPun
         GameObject[] mons = GameObject.FindGameObjectsWithTag("MonsterEnemy");
         foreach (GameObject mon in mons)
         {
-            if(mon!=null||mon.GetComponent<PhotonView>()!=null)
-                GameManager.Instance.ObjDelete(mon);
+            //if(mon!=null||mon.GetComponent<PhotonView>()!=null)
+                PhotonNetwork.Destroy(mon);
+                    //GameManager.Instance.ObjDelete(mon);
         }
     }
     void GameFinish()
